@@ -8,5 +8,7 @@ namespace SmartPlugins
 {
     public class Class1
     {
+
+
     }
 }
