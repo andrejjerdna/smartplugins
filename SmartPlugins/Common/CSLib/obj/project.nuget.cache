@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0n52vDfupuZOyxWB4FYUJ/kIaud2EBj9Npb4qXtgzFS0ZlHvffWhPfz6kcmJZ+fc07yXMBIXm3suVjMAaGozkA==",
+  "success": true,
+  "projectFilePath": "G:\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\33pro\\.nuget\\packages\\teklaopenapi\\2020.0.3\\teklaopenapi.2020.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

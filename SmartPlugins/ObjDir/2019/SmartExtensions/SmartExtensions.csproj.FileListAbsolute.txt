@@ -1,0 +1,9 @@
+G:\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\SmartExtensions.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\SmartExtensions.pdb
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csprojAssemblyReference.cache
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CoreCompileInputs.cache
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.dll
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.pdb
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CopyComplete

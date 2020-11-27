@@ -1,0 +1,15 @@
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartObjects\SmartObjects.csprojAssemblyReference.cache
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartObjects\SmartObjects.csproj.CoreCompileInputs.cache
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartObjects.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartObjects.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\CSLib.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartExtensions.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartGeometry.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartTeklaModel.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\CSLib.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartExtensions.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartGeometry.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartObjects\bin\Debug\SmartTeklaModel.pdb
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartObjects\SmartObjects.csproj.CopyComplete
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartObjects\SmartObjects.dll
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartObjects\SmartObjects.pdb

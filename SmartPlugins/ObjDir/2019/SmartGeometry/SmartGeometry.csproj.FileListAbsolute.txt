@@ -1,0 +1,11 @@
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.csprojAssemblyReference.cache
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.csproj.CoreCompileInputs.cache
+G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartGeometry.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartGeometry.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\CSLib.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartExtensions.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\CSLib.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartExtensions.pdb
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.csproj.CopyComplete
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.dll
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.pdb
