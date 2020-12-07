@@ -88,6 +88,7 @@
     <Compile Include="ModelMethods\ContourPlateEdge.cs" />
     <Compile Include="Other\GeneralMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WpfPlugins\PluginViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ObjectsPropertyes\" />
