@@ -17,9 +17,37 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSLib", "Common\CSLib\CSLib
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{E1121AEF-0D43-4733-B875-3AFFFE895004}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPluginTemplate", "Plugins\WpfPluginTemplate\WpfPluginTemplate.csproj", "{6E80E672-D9A9-4EFF-9B1C-3B87BB6636DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcreteFoundationPlugin", "Plugins\WpfPluginTemplate\ConcreteFoundationPlugin.csproj", "{6E80E672-D9A9-4EFF-9B1C-3B87BB6636DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frames", "Frames\Frames.csproj", "{869E7F86-9FF3-4FA0-AB1F-3A51713B6987}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Macroses", "Macroses", "{37634717-BDEB-440F-8B56-8D7AD9E5BA19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModelMacroses", "ModelMacroses", "{A26429A5-5833-427B-B76B-F078DBA2F7E5}"
+	ProjectSection(SolutionItems) = preProject
+		Macroses\ModelMacroses\DrawObjectCoordinateSystem.cs = Macroses\ModelMacroses\DrawObjectCoordinateSystem.cs
+		Macroses\ModelMacroses\FitByFace.cs = Macroses\ModelMacroses\FitByFace.cs
+		Macroses\ModelMacroses\MainPartByWeight.cs = Macroses\ModelMacroses\MainPartByWeight.cs
+		Macroses\ModelMacroses\RebarSequenceNumbering.cs = Macroses\ModelMacroses\RebarSequenceNumbering.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DrawingMacroses", "DrawingMacroses", "{5B0EBBD6-CB52-4B99-9878-A7870CDC94CB}"
+	ProjectSection(SolutionItems) = preProject
+		Macroses\DrawingMacroses\DeleteUserDimensions.cs = Macroses\DrawingMacroses\DeleteUserDimensions.cs
+		Macroses\DrawingMacroses\DimensionsAdditionalRebarGroup.cs = Macroses\DrawingMacroses\DimensionsAdditionalRebarGroup.cs
+		Macroses\DrawingMacroses\InvisibleAxis.cs = Macroses\DrawingMacroses\InvisibleAxis.cs
+		Macroses\DrawingMacroses\ReopenDrawing.cs = Macroses\DrawingMacroses\ReopenDrawing.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloneGrids", "CloneGrids", "{27EF8A80-AD82-4A02-89F0-E793857AA3F0}"
+	ProjectSection(SolutionItems) = preProject
+		Macroses\DrawingMacroses\CloneGrids\CloneGrids.cs = Macroses\DrawingMacroses\CloneGrids\CloneGrids.cs
+		Macroses\DrawingMacroses\CloneGrids\CloneGridsForm.cs = Macroses\DrawingMacroses\CloneGrids\CloneGridsForm.cs
+		Macroses\DrawingMacroses\CloneGrids\CloneGridsForm.Designer.cs = Macroses\DrawingMacroses\CloneGrids\CloneGridsForm.Designer.cs
+		Macroses\DrawingMacroses\CloneGrids\CloneGridsForm.resx = Macroses\DrawingMacroses\CloneGrids\CloneGridsForm.resx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartWPFElements", "Common\SmartWPFElements\SmartWPFElements.csproj", "{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +83,10 @@ Global
 		{869E7F86-9FF3-4FA0-AB1F-3A51713B6987}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869E7F86-9FF3-4FA0-AB1F-3A51713B6987}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{869E7F86-9FF3-4FA0-AB1F-3A51713B6987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +99,10 @@ Global
 		{20763809-3274-445D-A847-73B3D84576AD} = {9CF14D09-6F9C-4DAC-A3CA-186A86AD2920}
 		{6E80E672-D9A9-4EFF-9B1C-3B87BB6636DA} = {E1121AEF-0D43-4733-B875-3AFFFE895004}
 		{869E7F86-9FF3-4FA0-AB1F-3A51713B6987} = {E1121AEF-0D43-4733-B875-3AFFFE895004}
+		{A26429A5-5833-427B-B76B-F078DBA2F7E5} = {37634717-BDEB-440F-8B56-8D7AD9E5BA19}
+		{5B0EBBD6-CB52-4B99-9878-A7870CDC94CB} = {37634717-BDEB-440F-8B56-8D7AD9E5BA19}
+		{27EF8A80-AD82-4A02-89F0-E793857AA3F0} = {5B0EBBD6-CB52-4B99-9878-A7870CDC94CB}
+		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971} = {9CF14D09-6F9C-4DAC-A3CA-186A86AD2920}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {222F9562-8D52-49E0-B40F-C0AFE623D6C2}

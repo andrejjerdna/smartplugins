@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{869E7F86-9FF3-4FA0-AB1F-3A51713B6987}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Frames</RootNamespace>
+    <AssemblyName>Frames</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FramesPlugins.cs" />
+    <Compile Include="FramesPluginsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FramesPluginsForm.Designer.cs">
+      <DependentUpon>FramesPluginsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\CSLib\CSLib.csproj">
+      <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
+      <Name>CSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\SmartExtensions\SmartExtensions.csproj">
+      <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
+      <Name>SmartExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\SmartGeometry\SmartGeometry.csproj">
+      <Project>{7f08e701-0d4f-4a7d-835c-7adb9b7a4b09}</Project>
+      <Name>SmartGeometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\SmartObjects\SmartObjects.csproj">
+      <Project>{443b0ad0-2ad8-4e1c-8d1e-b11b6613e498}</Project>
+      <Name>SmartObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\SmartTeklaModel\SmartTeklaModel.csproj">
+      <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
+      <Name>SmartTeklaModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ControlzEx">
+      <Version>4.4.0</Version>
+    </PackageReference>
+    <PackageReference Include="Costura.Fody">
+      <Version>4.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="TeklaOpenAPI">
+      <Version>2020.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FramesPluginsForm.resx">
+      <DependentUpon>FramesPluginsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug (
+xcopy $(TargetDir)$(TargetName).dll "C:\ProgramData\Trimble\Tekla Structures\2020.0\Environments\common\extensions\SmartPlugins\" /R /Y)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

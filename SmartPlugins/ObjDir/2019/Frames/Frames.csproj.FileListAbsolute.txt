@@ -1,0 +1,7 @@
+G:\SmartPlugins\SmartPlugins\Frames\bin\Debug\Frames.dll
+G:\SmartPlugins\SmartPlugins\Frames\bin\Debug\Frames.pdb
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\Frames\Frames.csprojAssemblyReference.cache
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\Frames\Frames.csproj.CoreCompileInputs.cache
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\Frames\Frames.csproj.Fody.CopyLocal.cache
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\Frames\Frames.dll
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\Frames\Frames.pdb

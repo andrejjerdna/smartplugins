@@ -2,10 +2,13 @@ G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.csproj.
 G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.csprojAssemblyReference.cache
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartTeklaModel.dll
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartTeklaModel.pdb
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.dll
+G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.pdb
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\CSLib.dll
+G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.dll
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartExtensions.dll
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\CSLib.pdb
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartExtensions.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.xml
 G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.csproj.CopyComplete
-G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.dll
-G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.pdb

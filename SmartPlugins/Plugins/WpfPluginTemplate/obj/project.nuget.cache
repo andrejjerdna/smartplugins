@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "HPKTD1nP2ntRnoAThQF7anl20jMzBvYGNUSrtAe8c506tmBP9m19Z/pGUzYsYqEMrsNAE78dvgfAY6XvB5zRig==",
+  "success": true,
+  "projectFilePath": "G:\\SmartPlugins\\SmartPlugins\\Plugins\\WpfPluginTemplate\\ConcreteFoundationPlugin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\33pro\\.nuget\\packages\\ilmerge\\3.0.41\\ilmerge.3.0.41.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\materialicons\\1.0.3\\materialicons.1.0.3.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\msbuild.ilmerge.task\\1.1.3\\msbuild.ilmerge.task.1.1.3.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\teklafusion\\3.5.250\\teklafusion.3.5.250.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\teklaopenapi\\2020.0.3\\teklaopenapi.2020.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

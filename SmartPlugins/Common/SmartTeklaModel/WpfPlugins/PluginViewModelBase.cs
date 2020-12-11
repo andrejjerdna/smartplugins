@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartObjects
+namespace SmartTeklaModel.WpfPlugins
 {
-    public class Class1
+    class PluginViewModelBase
     {
     }
 }
