@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETFramework,Version=v4.8": {
+      "TeklaFusion/3.5.250": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Fusion.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Fusion.dll": {}
+        }
+      },
       "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
@@ -32,6 +41,15 @@
       }
     },
     ".NETFramework,Version=v4.8/win": {
+      "TeklaFusion/3.5.250": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Fusion.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Fusion.dll": {}
+        }
+      },
       "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
@@ -62,6 +80,15 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x64": {
+      "TeklaFusion/3.5.250": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Fusion.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Fusion.dll": {}
+        }
+      },
       "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
@@ -92,6 +119,15 @@
       }
     },
     ".NETFramework,Version=v4.8/win-x86": {
+      "TeklaFusion/3.5.250": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Fusion.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Fusion.dll": {}
+        }
+      },
       "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
@@ -123,6 +159,19 @@
     }
   },
   "libraries": {
+    "TeklaFusion/3.5.250": {
+      "sha512": "MNToXgha3esTQAQYasVLph1xcxi6ZCPDbEky8WFvoeDh0ADnTJL2J7LUPRgFCiKteQcWd0qGPb8mJQqdl8mstg==",
+      "type": "package",
+      "path": "teklafusion/3.5.250",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net451/Fusion.dll",
+        "lib/net451/Fusion.xml",
+        "teklafusion.3.5.250.nupkg.sha512",
+        "teklafusion.nuspec"
+      ]
+    },
     "TeklaOpenAPI/2020.0.3": {
       "sha512": "/bCyOSYemOvqswu48r7QsYScDNb4KDJ1t+t4pymnDxIM/Fi5jfs5jR14l+M7JBv7JV4Q+0X7EeUTHBCtVUSHDg==",
       "type": "package",
@@ -159,32 +208,31 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
+      "TeklaFusion >= 3.5.250",
       "TeklaOpenAPI >= 2020.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\33pro\\.nuget\\packages\\": {}
+    "C:\\Users\\stepa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+      "projectUniqueName": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
       "projectName": "CSLib",
-      "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
-      "packagesPath": "C:\\Users\\33pro\\.nuget\\packages\\",
-      "outputPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\obj\\",
+      "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+      "packagesPath": "C:\\Users\\stepa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\33pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+        "C:\\Users\\stepa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net48"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -197,6 +245,10 @@
     "frameworks": {
       "net48": {
         "dependencies": {
+          "TeklaFusion": {
+            "target": "Package",
+            "version": "[3.5.250, )"
+          },
           "TeklaOpenAPI": {
             "target": "Package",
             "version": "[2020.0.3, )"

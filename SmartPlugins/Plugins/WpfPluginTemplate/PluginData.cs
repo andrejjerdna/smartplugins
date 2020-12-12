@@ -11,5 +11,7 @@ namespace ConcreteFoundationPlugin
     public class PluginData : PluginDataBase
     {
         [StructuresField(nameof(Delta))] public double Delta;
+
+
     }
 }
