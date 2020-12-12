@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SmartPlugins",
+    "\\SmartPlugins\\ObjDir"
   ],
   "PreviewInSolutionExplorer": false
 }
