@@ -1,0 +1,9 @@
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\bin\Debug\TestForm.exe.config
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\bin\Debug\TestForm.exe
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\bin\Debug\TestForm.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\obj\Debug\TestForm.csprojAssemblyReference.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\obj\Debug\TestForm.Properties.Resources.resources
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\obj\Debug\TestForm.csproj.GenerateResource.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\obj\Debug\TestForm.csproj.CoreCompileInputs.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\obj\Debug\TestForm.exe
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\TestForm\obj\Debug\TestForm.pdb
