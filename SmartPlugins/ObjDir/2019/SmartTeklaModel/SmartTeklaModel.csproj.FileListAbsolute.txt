@@ -12,3 +12,17 @@ G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartExtensions.pd
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.xml
 G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.csproj.CopyComplete
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartTeklaModel.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartTeklaModel.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\CSLib.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartExtensions.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\CSLib.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\SmartExtensions.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.csprojAssemblyReference.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.csproj.CoreCompileInputs.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.csproj.CopyComplete
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartTeklaModel\SmartTeklaModel.pdb

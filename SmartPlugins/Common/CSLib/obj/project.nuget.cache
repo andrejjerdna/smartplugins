@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0n52vDfupuZOyxWB4FYUJ/kIaud2EBj9Npb4qXtgzFS0ZlHvffWhPfz6kcmJZ+fc07yXMBIXm3suVjMAaGozkA==",
+  "dgSpecHash": "0PjXqqyk6/V2tJlip64wAB/JFWJRbN5iCIFlLTv4EiKJe7z9MX6hUs6WwXauNNwPyU3pROwRrW2jNV2KWWPeKw==",
   "success": true,
-  "projectFilePath": "G:\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+  "projectFilePath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\33pro\\.nuget\\packages\\teklaopenapi\\2020.0.3\\teklaopenapi.2020.0.3.nupkg.sha512"
+    "C:\\Users\\stepa\\.nuget\\packages\\teklaopenapi\\2020.0.3\\teklaopenapi.2020.0.3.nupkg.sha512"
   ],
   "logs": []
 }

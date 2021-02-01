@@ -49,6 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloneGrids", "CloneGrids", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartWPFElements", "Common\SmartWPFElements\SmartWPFElements.csproj", "{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "TestForm\TestForm.csproj", "{D3AB53EA-7416-4472-8D73-48F2573D927F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3AB53EA-7416-4472-8D73-48F2573D927F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3AB53EA-7416-4472-8D73-48F2573D927F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3AB53EA-7416-4472-8D73-48F2573D927F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3AB53EA-7416-4472-8D73-48F2573D927F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{5B0EBBD6-CB52-4B99-9878-A7870CDC94CB} = {37634717-BDEB-440F-8B56-8D7AD9E5BA19}
 		{27EF8A80-AD82-4A02-89F0-E793857AA3F0} = {5B0EBBD6-CB52-4B99-9878-A7870CDC94CB}
 		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971} = {9CF14D09-6F9C-4DAC-A3CA-186A86AD2920}
+		{D3AB53EA-7416-4472-8D73-48F2573D927F} = {9CF14D09-6F9C-4DAC-A3CA-186A86AD2920}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {222F9562-8D52-49E0-B40F-C0AFE623D6C2}

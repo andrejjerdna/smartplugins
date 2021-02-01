@@ -699,51 +699,49 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\33pro\\.nuget\\packages\\": {}
+    "C:\\Users\\stepa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\SmartPlugins\\SmartPlugins\\Plugins\\WpfPluginTemplate\\ConcreteFoundationPlugin.csproj",
+      "projectUniqueName": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Plugins\\WpfPluginTemplate\\ConcreteFoundationPlugin.csproj",
       "projectName": "ConcreteFoundationPlugin",
-      "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Plugins\\WpfPluginTemplate\\ConcreteFoundationPlugin.csproj",
-      "packagesPath": "C:\\Users\\33pro\\.nuget\\packages\\",
-      "outputPath": "G:\\SmartPlugins\\SmartPlugins\\Plugins\\WpfPluginTemplate\\obj\\",
+      "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Plugins\\WpfPluginTemplate\\ConcreteFoundationPlugin.csproj",
+      "packagesPath": "C:\\Users\\stepa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Plugins\\WpfPluginTemplate\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\33pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+        "C:\\Users\\stepa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net48"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net48": {
           "projectReferences": {
-            "G:\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
-              "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj"
+            "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
+              "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj"
             },
-            "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj": {
-              "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj"
+            "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj": {
+              "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj"
             },
-            "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj": {
-              "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj"
+            "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj": {
+              "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj"
             },
-            "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj": {
-              "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj"
+            "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj": {
+              "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj"
             },
-            "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj": {
-              "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj"
+            "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj": {
+              "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj"
             },
-            "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj": {
-              "projectPath": "G:\\SmartPlugins\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj"
+            "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj": {
+              "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj"
             }
           }
         }

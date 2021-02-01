@@ -12,3 +12,17 @@ G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartExtensions.pdb
 G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 G:\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\Microsoft.Xaml.Behaviors.xml
 G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.csproj.CopyComplete
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartGeometry.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartGeometry.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\CSLib.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartExtensions.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\CSLib.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\SmartExtensions.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartGeometry\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.csprojAssemblyReference.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.csproj.CoreCompileInputs.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.csproj.CopyComplete
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartGeometry\SmartGeometry.pdb

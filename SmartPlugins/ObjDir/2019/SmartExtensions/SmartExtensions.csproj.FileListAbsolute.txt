@@ -10,3 +10,15 @@ G:\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.pdb
 G:\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 G:\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.xml
 G:\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CopyComplete
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\SmartExtensions.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\SmartExtensions.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csprojAssemblyReference.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CoreCompileInputs.cache
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CopyComplete
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.dll
+C:\Users\stepa\Source\Repos\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.pdb
