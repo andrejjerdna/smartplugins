@@ -21,7 +21,7 @@ namespace TestForm
         private void button1_Click(object sender, EventArgs e)
         {
             var test = new SmartGetUserInfo("");
-            var t = test.HddSerialNumber;
+            var t = test.GetMACAddress();
         }
     }
 }

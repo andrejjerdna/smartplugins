@@ -103,7 +103,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SteelParts\Frame_type1.cs" />
     <Compile Include="UserInfo\SmartGetUserInfo.cs" />
-    <Compile Include="UserInfo\SmartUserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
