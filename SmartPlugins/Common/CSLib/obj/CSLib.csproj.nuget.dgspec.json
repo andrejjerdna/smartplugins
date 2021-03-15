@@ -1,21 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {}
+    "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
+    "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+        "projectUniqueName": "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
         "projectName": "CSLib",
-        "projectPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
-        "packagesPath": "C:\\Users\\stepa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stepa\\Source\\Repos\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\obj\\",
+        "projectPath": "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+        "packagesPath": "C:\\Users\\33pro\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\stepa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\33pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +40,7 @@
             },
             "TeklaOpenAPI": {
               "target": "Package",
-              "version": "[2020.0.3, )"
+              "version": "[2019.0.45003, )"
             }
           }
         }
