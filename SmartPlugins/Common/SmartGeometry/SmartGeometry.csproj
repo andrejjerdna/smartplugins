@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="IntersectWithSolid.cs" />
     <Compile Include="ModelObjectGeometry.cs" />
+    <Compile Include="PointsGeometry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TEP Version="1.0">
+	
+	<Product Id="sp_DimensionsForReinforcement" UpgradeCode="F7760CDF-7704-4132-AD51-35AD7BB7BB0F" Version="0.12" Language="1033"
+		Name="SmartPlugins" Manufacturer="SmartPlugins.pro"  Description= "Plugins from SmartPlugins.pro"
+		IconPath="%TEPDEFINITIONFILEFOLDER%\Icon.png">
+		<TeklaVersions>
+			<MinTeklaVersion Name="2018.0"/>
+			<MaxTeklaVersion Name="2099.1"/>
+		</TeklaVersions>
+	</Product>
+	 
+	<SourcePathVariables>
+		<SourcePathVariable Id="TepOutputFolder" Value="%TEPDEFINITIONFILEFOLDER%\output" Comment="This provides the location where the package builder is to save the package."/>
+		<SourcePathVariable Id="BinariesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\binaries"/>
+		<SourcePathVariable Id="StandardFileFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\standard file"/>
+		<SourcePathVariable Id="MessagesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\messages"/>
+		<SourcePathVariable Id="BitmapsFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\bitmaps"/>
+    </SourcePathVariables>
+
+	<TargetPathVariables>
+		<PathVariable Id="ModelPluginsDirectory" Value="%ENVDIR%\extensions\plugins\tekla\model\"/>
+		<PathVariable Id="ModelApplicationsDirectory" Value="%ENVDIR%\extensions\applications\tekla\model\"/>
+		<PathVariable Id="ExtensionsDir" Value="%commonEnvFolder%\extensions\"/>
+		<PathVariable Id="BinariesTargetDirectory" Value="%ExtensionsDir%\MainpartGLPlugins\"/>
+		<PathVariable Id="BitmapsDirectory" Value="%ENVDIR%\..\bitmaps\"/>
+		<PathVariable Id="AttributeFileDirectory" Value="%commonEnvFolder%\system\"/>
+		<PathVariable Id="CommonMacroDirectoryModel" Value="%commonEnvFolder%\macros\modeling\"/>
+		<PathVariable Id="CommonMacroDirectoryDrawings" Value="%commonEnvFolder%\macros\drawings\"/>
+		<PathVariable Id="CommonMacroDirectoryCommon" Value="%commonEnvFolder%\macros\"/>
+	</TargetPathVariables>
+
+	<Component Id="TheExtensionComponent" Guid="9BDE8A2F-0A88-4A77-959F-BEF020188943">
+		<File Id="sp_DimensionsForReinforcement" Source="%BinariesFolder%\sp_DimensionsForReinforcement.dll" Target="%BinariesTargetDirectory%"/>
+		<File Id="et_element_sp_DimensionsForReinforcement" Source="%BitmapsFolder%\et_element_sp_DimensionsForReinforcement.bmp" Target="%BitmapsDirectory%"/>
+	</Component>
+
+	<Feature Id="TheExtensionFeature" Title="ExtensionFeature">
+		<ComponentRef ReferenceId="TheExtensionComponent" />
+	</Feature>
+
+ </TEP>

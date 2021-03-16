@@ -27,7 +27,6 @@ C:\Work\SmartPlugins\SmartPlugins\Common\SmartWPFElements\bin\Debug\Microsoft.Xa
 C:\Work\SmartPlugins\SmartPlugins\Common\SmartWPFElements\bin\Debug\Fusion.xml
 C:\Work\SmartPlugins\SmartPlugins\Common\SmartWPFElements\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Work\SmartPlugins\SmartPlugins\Common\SmartWPFElements\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\SmartWPFElements.csprojAssemblyReference.cache
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\ConcreteDetailsWindow.g.cs
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\UserControl1.g.cs
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\GeneratedInternalTypeHelper.g.cs
