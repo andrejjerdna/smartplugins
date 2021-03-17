@@ -1,4 +1,6 @@
-﻿using SmartTeklaModel.Drawings;
+﻿using SmartTeklaModel;
+using SmartTeklaModel.Drawings;
+using SmartTeklaModel.Files;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,10 +36,12 @@ namespace sp_DimensionsForReinforcement
         [StructuresDialog(nameof(LineType), typeof(String))]
         public String LineType { get; set; }
 
+        [StructuresDialog(nameof(DimensionType), typeof(String))]
+        public String DimensionType { get; set; }
+
         public IEnumerable<string> DrawinColors { get => Colors.GetListColors().Select(c => c.ToString()); }
         public IEnumerable<string> LineTypes { get => Lines.GetListLineTypes().Select(c => c.ToString()); }
-
-
+        public IEnumerable<string> DimensionsTypes { get => GetDimensionsTypes(); }
 
         protected void OnPropertyChanged(string property)
         {
@@ -46,6 +50,12 @@ namespace sp_DimensionsForReinforcement
             {
                 handler(this, new PropertyChangedEventArgs(property));
             }
+        }
+
+        private IEnumerable<string> GetDimensionsTypes()
+        {
+            var teklaModel = new TeklaModel();
+            return GetAttributesFiles.NamesFilesOnTypes(teklaModel.attributes, new List<string>() { ".dim" });
         }
     }
 }

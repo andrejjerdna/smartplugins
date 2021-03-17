@@ -29,6 +29,7 @@ namespace sp_DimensionsForReinforcement
 
         [StructuresField(nameof(LineColor))] public string LineColor;
         [StructuresField(nameof(LineType))] public string LineType;
+        [StructuresField(nameof(DimensionType))] public string DimensionType;
     }
 
     [Plugin("sp_DimensionsForReinforcement")]
@@ -54,6 +55,7 @@ namespace sp_DimensionsForReinforcement
         public double L4 { get; set; }
         public string LineColor { get; set; }
         public string LineType { get; set; }
+        public string DimensionType { get; set; }
 
         public DimensionsForReinforcement(DimensionsForReinforcementData data)
         {
@@ -127,7 +129,8 @@ namespace sp_DimensionsForReinforcement
             L4 = _data.L4; if (IsDefaultValue(L4)) { L4 = 0.0; }
 
             LineColor = _data.LineColor; if (IsDefaultValue(LineColor)) { LineColor = "Black"; }
-            LineType = _data.LineType; if (IsDefaultValue(LineType)) { LineType = "SolidLine"; }
+            LineType = _data.LineType; if (IsDefaultValue(LineType)) { LineType = "SlashedLine"; }
+            DimensionType = _data.DimensionType; if (IsDefaultValue(DimensionType)) { DimensionType = "standard"; }
         }
 
         private Tuple<t3d.Point, t3d.Point> GetGetRebarGeometries(RebarGroup rebarGroup)
@@ -202,10 +205,20 @@ namespace sp_DimensionsForReinforcement
                             if (l1 < l2)
                             {
                                 pointsX = new Tuple<t3d.Point, t3d.Point>(pointX1, new t3d.Point(gridLine.StartLabel.GridPoint.X, pointX1.Y, pointX1.Z));
+
+                                if(l1 < L1)
+                                {
+                                    pointsX = new Tuple<t3d.Point, t3d.Point>(pointX2, new t3d.Point(gridLine.StartLabel.GridPoint.X, pointX1.Y, pointX1.Z));
+                                }
                             }
                             else
                             {
                                 pointsX = new Tuple<t3d.Point, t3d.Point>(pointX2, new t3d.Point(gridLine.StartLabel.GridPoint.X, pointX2.Y, pointX2.Z));
+
+                                if (l2 < L1)
+                                {
+                                    pointsX = new Tuple<t3d.Point, t3d.Point>(pointX1, new t3d.Point(gridLine.StartLabel.GridPoint.X, pointX2.Y, pointX2.Z));
+                                }
                             }
 
                             tempLenghtX = Math.Min(l1, l2);
@@ -222,10 +235,20 @@ namespace sp_DimensionsForReinforcement
                             if (l1 < l2)
                             {
                                 pointsY = new Tuple<t3d.Point, t3d.Point>(pointY1, new t3d.Point(pointY1.X, gridLine.StartLabel.GridPoint.Y, pointY1.Z));
+
+                                if (l1 < L2)
+                                {
+                                    pointsY = new Tuple<t3d.Point, t3d.Point>(pointY2, new t3d.Point(pointY1.X, gridLine.StartLabel.GridPoint.Y, pointY1.Z));
+                                }
                             }
                             else
                             {
-                                pointsY = new Tuple<t3d.Point, t3d.Point>(pointY2, new t3d.Point(pointY1.X, gridLine.StartLabel.GridPoint.Y, pointY2.Z));
+                                pointsY = new Tuple<t3d.Point, t3d.Point>(pointY2, new t3d.Point(pointY2.X, gridLine.StartLabel.GridPoint.Y, pointY2.Z));
+
+                                if (l2 < L2)
+                                {
+                                    pointsY = new Tuple<t3d.Point, t3d.Point>(pointY1, new t3d.Point(pointY2.X, gridLine.StartLabel.GridPoint.Y, pointY2.Z));
+                                }
                             }
 
                             tempLenghtY = Math.Min(l1, l2);
@@ -234,19 +257,19 @@ namespace sp_DimensionsForReinforcement
                 }
             }
 
-            var dimension1 = new StraightDimension(_viewBase, pointsX.Item1, pointsX.Item2, new t3d.Vector(0, 1, 0), L3 * _view.Attributes.Scale);
-            dimension1.Insert();
+            var dimensionsAttrbutes = new StraightDimensionSet.StraightDimensionSetAttributes(DimensionType);
 
-            var dimension2 = new StraightDimension(_viewBase, pointsY.Item1, pointsY.Item2, new t3d.Vector(1, 0, 0), L4 * _view.Attributes.Scale);
-            dimension2.Insert();
-
-            dimension1.Attributes.LoadAttributes("777");
-            dimension2.Attributes.LoadAttributes("777");
-            dimension1.Modify();
-
-            var d = _view.GetDrawing();
-            d.Modify();
-            d.CommitChanges();
+            if (pointsX.Item1 != null && pointsX.Item2 != null)
+            {
+                var dimension1 = new StraightDimension(_viewBase, pointsX.Item1, pointsX.Item2, new t3d.Vector(0, 1, 0), L4 * _view.Attributes.Scale, dimensionsAttrbutes);
+                dimension1.Insert();
+            }
+            if (pointsY.Item1 != null && pointsY.Item2 != null)
+            {
+                var dimension2 = new StraightDimension(_viewBase, pointsY.Item1, pointsY.Item2, new t3d.Vector(1, 0, 0), L3 * _view.Attributes.Scale, dimensionsAttrbutes);
+                dimension2.Insert();
+            }
+          
         }
     }
 }

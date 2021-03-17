@@ -15,7 +15,12 @@ namespace SmartTeklaModel.Drawings
             {
                 LineTypes.DashDot,
                 LineTypes.DashDoubleDot,
-                LineTypes.SolidLine
+                LineTypes.SolidLine,
+                LineTypes.DashedLine,
+                LineTypes.DottedLine,
+                LineTypes.SlashDash,
+                LineTypes.SlashedLine,
+                LineTypes.UndefinedLine,
             };
 
             return result;

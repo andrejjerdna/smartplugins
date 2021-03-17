@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TEP Version="1.0">
 	
-	<Product Id="sp_DimensionsForReinforcement" UpgradeCode="F7760CDF-7704-4132-AD51-35AD7BB7BB0F" Version="0.12" Language="1033"
+	<Product Id="sp_DimensionsForReinforcement" UpgradeCode="F7760CDF-7704-4132-AD51-35AD7BB7BB0F" Version="0.14" Language="1033"
 		Name="SmartPlugins" Manufacturer="SmartPlugins.pro"  Description= "Plugins from SmartPlugins.pro"
 		IconPath="%TEPDEFINITIONFILEFOLDER%\Icon.png">
 		<TeklaVersions>
@@ -22,7 +22,7 @@
 		<PathVariable Id="ModelPluginsDirectory" Value="%ENVDIR%\extensions\plugins\tekla\model\"/>
 		<PathVariable Id="ModelApplicationsDirectory" Value="%ENVDIR%\extensions\applications\tekla\model\"/>
 		<PathVariable Id="ExtensionsDir" Value="%commonEnvFolder%\extensions\"/>
-		<PathVariable Id="BinariesTargetDirectory" Value="%ExtensionsDir%\MainpartGLPlugins\"/>
+		<PathVariable Id="BinariesTargetDirectory" Value="%ExtensionsDir%\SmartPlugins\"/>
 		<PathVariable Id="BitmapsDirectory" Value="%ENVDIR%\..\bitmaps\"/>
 		<PathVariable Id="AttributeFileDirectory" Value="%commonEnvFolder%\system\"/>
 		<PathVariable Id="CommonMacroDirectoryModel" Value="%commonEnvFolder%\macros\modeling\"/>

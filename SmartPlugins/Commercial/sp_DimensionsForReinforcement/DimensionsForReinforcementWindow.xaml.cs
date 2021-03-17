@@ -26,6 +26,10 @@ namespace sp_DimensionsForReinforcement
         {
             _dataModel = DataModel;
             InitializeComponent();
+
+            LineColor.Text = _dataModel.LineColor.Value;
+            LineType.Text = _dataModel.LineType.Value;
+            DimensionType.Text = _dataModel.DimensionType.Value;
         }
 
         private void WPFOkApplyModifyGetOnOffCancel_OkClicked(object sender, EventArgs e)
