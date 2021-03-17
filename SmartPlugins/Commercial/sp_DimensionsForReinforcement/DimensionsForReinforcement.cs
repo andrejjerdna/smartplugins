@@ -16,16 +16,19 @@ using static Tekla.Structures.Drawing.Line;
 using Tekla.Structures.Geometry3d;
 using Line = Tekla.Structures.Drawing.Line;
 using SmartGeometry;
+using SmartTeklaModel.Drawings;
 
 namespace sp_DimensionsForReinforcement
 {
     public class DimensionsForReinforcementData
     {
-        [StructuresField(nameof(L1))]
-        public double L1;
+        [StructuresField(nameof(L1))] public double L1;
+        [StructuresField(nameof(L2))] public double L2;
+        [StructuresField(nameof(L3))] public double L3;
+        [StructuresField(nameof(L4))] public double L4;
 
-        [StructuresField(nameof(L2))]
-        public double L2;
+        [StructuresField(nameof(LineColor))] public string LineColor;
+        [StructuresField(nameof(LineType))] public string LineType;
     }
 
     [Plugin("sp_DimensionsForReinforcement")]
@@ -37,12 +40,20 @@ namespace sp_DimensionsForReinforcement
         private tsm.Model _model;
         DrawingHandler _drawingHandler;
 
-        private ViewBase _view;
+        private ViewBase _viewBase;
+        private View _view;
 
         private t3d.Point _p1;
         private t3d.Point _p2;
         private t3d.Point _p3;
         private t3d.Point _p4;
+
+        public double L1 { get; set; }
+        public double L2 { get; set; }
+        public double L3 { get; set; }
+        public double L4 { get; set; }
+        public string LineColor { get; set; }
+        public string LineType { get; set; }
 
         public DimensionsForReinforcement(DimensionsForReinforcementData data)
         {
@@ -75,10 +86,17 @@ namespace sp_DimensionsForReinforcement
             if (inputs.Count == 0)
                 return false;
 
-            _view = InputDefinitionFactory.GetView(inputs[0]);
+            GetValuesFromDialog();
+
+            _viewBase = InputDefinitionFactory.GetView(inputs[0]);
             var drawingObject = (ReinforcementGroup)InputDefinitionFactory.GetDrawingObject(inputs[0]);
 
-            if (drawingObject == null || _view == null)
+            if (drawingObject == null || _viewBase == null)
+                return false;
+
+            _view = _viewBase as View;
+
+            if (_view == null)
                 return false;
 
             var rebarGroup = _model.SelectModelObject(drawingObject.ModelIdentifier) as RebarGroup;
@@ -95,9 +113,21 @@ namespace sp_DimensionsForReinforcement
 
             InsertLines(points.Item1, points.Item2);
 
-            InsertDimensions(_view.GetAllObjects());
+            InsertDimensions(_viewBase.GetAllObjects());
 
             return true;
+        }
+
+        private void GetValuesFromDialog()
+        {
+            L1 = _data.L1; if (IsDefaultValue(L1)) { L1 = 100.0; }
+            L2 = _data.L2; if (IsDefaultValue(L2)) { L2 = 100.0; }
+
+            L3 = _data.L3; if (IsDefaultValue(L3)) { L3 = 0.0; }
+            L4 = _data.L4; if (IsDefaultValue(L4)) { L4 = 0.0; }
+
+            LineColor = _data.LineColor; if (IsDefaultValue(LineColor)) { LineColor = "Black"; }
+            LineType = _data.LineType; if (IsDefaultValue(LineType)) { LineType = "SolidLine"; }
         }
 
         private Tuple<t3d.Point, t3d.Point> GetGetRebarGeometries(RebarGroup rebarGroup)
@@ -117,8 +147,8 @@ namespace sp_DimensionsForReinforcement
         {
             var baseLine = new LineTypeAttributes
             {
-                Color = DrawingColors.Black,
-                Type = LineTypes.DottedLine
+                Color = Colors.GetColor(LineColor),
+                Type = Lines.GetLineTypes(LineType)
             };
 
             var lineTypeAttributes = new Line.LineAttributes
@@ -131,13 +161,13 @@ namespace sp_DimensionsForReinforcement
                 Line = baseLine,
             };
 
-            var diagonal1 = new Line(_view, _p1, _p2, lineTypeAttributes);
+            var diagonal1 = new Line(_viewBase, _p1, _p2, lineTypeAttributes);
             diagonal1.Insert();
 
-            var diagonal2 = new Line(_view, _p3, _p4, lineTypeAttributes);
+            var diagonal2 = new Line(_viewBase, _p3, _p4, lineTypeAttributes);
             diagonal2.Insert();
 
-            var rectangle = new Rectangle(_view, _p1, _p2, rectangleTypeAttributes);
+            var rectangle = new Rectangle(_viewBase, _p1, _p2, rectangleTypeAttributes);
             rectangle.Insert();
         }
 
@@ -151,9 +181,6 @@ namespace sp_DimensionsForReinforcement
 
             var tempLenghtX = double.MaxValue;
             var tempLenghtY = double.MaxValue;
-
-            var minY = double.MaxValue;
-            var maxY = double.MaxValue;
 
             var pointsX = new Tuple<t3d.Point, t3d.Point>(null, null);
             var pointsY = new Tuple<t3d.Point, t3d.Point>(null, null);
@@ -207,11 +234,19 @@ namespace sp_DimensionsForReinforcement
                 }
             }
 
-            var dimension1 = new StraightDimension(_view, pointsX.Item1, pointsX.Item2, new t3d.Vector(0, 1, 0), 0.0);
+            var dimension1 = new StraightDimension(_viewBase, pointsX.Item1, pointsX.Item2, new t3d.Vector(0, 1, 0), L3 * _view.Attributes.Scale);
             dimension1.Insert();
 
-            var dimension2 = new StraightDimension(_view, pointsY.Item1, pointsY.Item2, new t3d.Vector(1, 0, 0), 0.0);
+            var dimension2 = new StraightDimension(_viewBase, pointsY.Item1, pointsY.Item2, new t3d.Vector(1, 0, 0), L4 * _view.Attributes.Scale);
             dimension2.Insert();
+
+            dimension1.Attributes.LoadAttributes("777");
+            dimension2.Attributes.LoadAttributes("777");
+            dimension1.Modify();
+
+            var d = _view.GetDrawing();
+            d.Modify();
+            d.CommitChanges();
         }
     }
 }

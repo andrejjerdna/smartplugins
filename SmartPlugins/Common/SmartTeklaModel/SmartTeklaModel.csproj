@@ -93,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Catalogs\Catalogs.cs" />
+    <Compile Include="Drawings\Colors.cs" />
+    <Compile Include="Drawings\Lines.cs" />
     <Compile Include="GlobalParameters.cs" />
     <Compile Include="ModelMethods\AssemblyMethods.cs" />
     <Compile Include="ModelMethods\BoltsMethods.cs" />

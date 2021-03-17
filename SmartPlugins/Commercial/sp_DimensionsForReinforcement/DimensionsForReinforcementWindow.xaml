@@ -26,5 +26,32 @@
                                                    OkClicked="WPFOkApplyModifyGetOnOffCancel_OkClicked" 
                                                    OnOffClicked="WPFOkApplyModifyGetOnOffCancel_OnOffClicked" 
                                                    ModifyClicked="WPFOkApplyModifyGetOnOffCancel_ModifyClicked" Grid.ColumnSpan="2"/>
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <DockPanel>
+                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L1" Content="Минимальная длина размера по X: "/>
+                <TextBox Text="{Binding L1, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="100" />
+            </DockPanel>
+            <DockPanel>
+                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L2" Content="Минимальная длина размера по Y: "/>
+                <TextBox Text="{Binding L2, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="100" />
+            </DockPanel>
+            <DockPanel>
+                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L3" Content="Отступ размера по X: "/>
+                <TextBox Text="{Binding L3, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="100" />
+            </DockPanel>
+            <DockPanel>
+                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L4" Content="Отступ размера по Y: "/>
+                <TextBox Text="{Binding L4, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="100" />
+            </DockPanel>
+            <DockPanel>
+                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineColor" Content="Цвет линий: "/>
+                <ComboBox ItemsSource="{Binding DrawinColors, Mode=OneWay}" SelectedValue="{Binding LineColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="100" />
+            </DockPanel>
+            <DockPanel>
+                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineType" Content="Тип линий: "/>
+                <ComboBox ItemsSource="{Binding LineTypes, Mode=OneWay}" SelectedValue="{Binding LineType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="100" />
+            </DockPanel>
+        </StackPanel>
+
     </Grid>
 </tsd:PluginWindowBase>
