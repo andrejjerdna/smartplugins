@@ -10,7 +10,7 @@ namespace SmartTeklaModel.Files
     public static class GetAttributesFiles
     {
         /// <summary>
-        /// Сохраняем введенные данные в файл.
+        /// Получение списка файлов по списку типов и пути папки.
         /// </summary>
         /// <param name="save"></param>
         /// <param name="path"></param>
@@ -37,6 +37,16 @@ namespace SmartTeklaModel.Files
             {
                 return result;
             }
+        }
+
+       /* public static IEnumerable<string> Gegeg()
+        {
+            return Tekla.Structures.Dialog.UIControls.EnvironmentFiles.GetStandardPropertyFileDirectories();
+        }*/
+
+        public static IEnumerable<string> Gegeg()
+        {
+            return Tekla.Structures.Dialog.UIControls.EnvironmentFiles.GetMultiDirectoryFileList("dim");
         }
     }
 }

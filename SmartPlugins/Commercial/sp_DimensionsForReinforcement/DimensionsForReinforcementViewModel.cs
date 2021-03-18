@@ -41,7 +41,7 @@ namespace sp_DimensionsForReinforcement
 
         public IEnumerable<string> DrawinColors { get => Colors.GetListColors().Select(c => c.ToString()); }
         public IEnumerable<string> LineTypes { get => Lines.GetListLineTypes().Select(c => c.ToString()); }
-        public IEnumerable<string> DimensionsTypes { get => GetDimensionsTypes(); }
+        public IEnumerable<string> DimensionsTypes { get => GetAttributesFiles.Gegeg(); }
 
         protected void OnPropertyChanged(string property)
         {
@@ -51,6 +51,7 @@ namespace sp_DimensionsForReinforcement
                 handler(this, new PropertyChangedEventArgs(property));
             }
         }
+
 
         private IEnumerable<string> GetDimensionsTypes()
         {

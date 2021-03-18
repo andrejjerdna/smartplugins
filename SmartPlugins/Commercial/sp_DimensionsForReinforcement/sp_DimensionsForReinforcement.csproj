@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -51,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DimensionsForReinforcement.cs" />
+    <Compile Include="DimensionsForReinforcementForView.cs" />
     <Compile Include="DimensionsForReinforcementViewModel.cs" />
     <Compile Include="DimensionsForReinforcementWindow.xaml.cs">
       <DependentUpon>DimensionsForReinforcementWindow.xaml</DependentUpon>
@@ -69,7 +71,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -123,11 +125,14 @@
       <Version>2019.0.45003</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sp_DimensionsForReinforcement.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Debug (
 xcopy $(TargetDir)$(TargetName).dll "C:\ProgramData\Trimble\Tekla Structures\2020.0\Environments\common\extensions\SmartPlugins\" /R /Y)
 if $(ConfigurationName) == Debug (
-xcopy $(TargetDir)$(TargetName).dll "C:\Work\SmartPlugins\SmartPlugins\Commercial\sp_DimensionsForReinforcement\TSEP\binaries" /R /Y)</PostBuildEvent>
+xcopy $(TargetDir)$(TargetName).dll "C:\Work\SmartPlugins\SmartPlugins\Commercial\sp_DimensionsForReinforcement\TSEP\binaries\" /R /Y)</PostBuildEvent>
   </PropertyGroup>
 </Project>

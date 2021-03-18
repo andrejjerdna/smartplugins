@@ -21,22 +21,10 @@ using SmartObjects.Drawings;
 
 namespace sp_DimensionsForReinforcement
 {
-    public class DimensionsForReinforcementData
-    {
-        [StructuresField(nameof(L1))] public double L1;
-        [StructuresField(nameof(L2))] public double L2;
-        [StructuresField(nameof(L3))] public double L3;
-        [StructuresField(nameof(L4))] public double L4;
-
-        [StructuresField(nameof(LineColor))] public string LineColor;
-        [StructuresField(nameof(LineType))] public string LineType;
-        [StructuresField(nameof(DimensionType))] public string DimensionType;
-    }
-
-    [Plugin("sp_DimensionsForReinforcement")]
+    [Plugin("sp_DimensionsForReinforcementForView")]
     [PluginUserInterface("sp_DimensionsForReinforcement.DimensionsForReinforcementWindow")]
 
-    public class DimensionsForReinforcement : DrawingPluginBase
+    public class DimensionsForReinforcementForView : DrawingPluginBase
     {
         private DimensionsForReinforcementData _data;
         private Model _model;
@@ -52,7 +40,7 @@ namespace sp_DimensionsForReinforcement
         public string LineType { get; set; }
         public string DimensionType { get; set; }
 
-        public DimensionsForReinforcement(DimensionsForReinforcementData data)
+        public DimensionsForReinforcementForView(DimensionsForReinforcementData data)
         {
             _data = data;
             _model = new Model();
@@ -70,7 +58,7 @@ namespace sp_DimensionsForReinforcement
                 ViewBase view = null;
                 DrawingObject pickedPart = null;
 
-                picker.PickObject("Pick rebarGroup", out pickedPart, out view);
+                picker.PickObject("Pick view", out pickedPart, out view);
 
                 inputs.Add(InputDefinitionFactory.CreateInputDefinition(view, pickedPart));
             }
@@ -86,28 +74,35 @@ namespace sp_DimensionsForReinforcement
             GetValuesFromDialog();
 
             _viewBase = InputDefinitionFactory.GetView(inputs[0]);
-            var drawingObject = (ReinforcementGroup)InputDefinitionFactory.GetDrawingObject(inputs[0]);
 
-            if (drawingObject == null || _viewBase == null)
+            if (_viewBase == null)
                 return false;
 
-            var rebarGroup = _model.SelectModelObject(drawingObject.ModelIdentifier) as RebarGroup;
+            var objects = _viewBase.GetAllObjects();
 
-            if (rebarGroup == null)
-                return false;
-
-            var dimension = new DimensionsForRebarGroup(_model, _viewBase, rebarGroup)
+            foreach (var obj in objects)
             {
-                L1 = L1,
-                L2 = L2,
-                L3 = L3,
-                L4 = L4,
-                LineColor = LineColor,
-                DimensionType = DimensionType,
-                LineType = LineType
-            };
+                if (obj is ReinforcementGroup drawingObject)
+                {
+                    var rebarGroup = _model.SelectModelObject(drawingObject.ModelIdentifier) as RebarGroup;
 
-            dimension.Insert();
+                    if (rebarGroup == null)
+                        return false;
+
+                    var dimension = new DimensionsForRebarGroup(_model, _viewBase, rebarGroup)
+                    {
+                        L1 = L1,
+                        L2 = L2,
+                        L3 = L3,
+                        L4 = L4,
+                        LineColor = LineColor,
+                        DimensionType = DimensionType,
+                        LineType = LineType
+                    };
+
+                    dimension.Insert();
+                }
+            }
 
             return true;
         }
