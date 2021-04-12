@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\$tf",
-    "\\SmartPlugins",
-    "\\SmartPlugins\\Application",
-    "\\SmartPlugins\\Application\\PipeRack"
+    "\\SmartPlugins"
   ],
-  "SelectedNode": "\\azure-pipelines.yml",
+  "SelectedNode": "\\SmartPlugins\\Commercial",
   "PreviewInSolutionExplorer": false
 }

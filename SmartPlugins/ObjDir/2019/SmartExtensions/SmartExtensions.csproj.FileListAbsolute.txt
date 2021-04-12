@@ -24,3 +24,17 @@ C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.cs
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CopyComplete
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.dll
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.pdb
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\SmartExtensions.dll
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\SmartExtensions.pdb
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.dll
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\Fusion.dll
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.pdb
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\Fusion.xml
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csprojAssemblyReference.cache
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CoreCompileInputs.cache
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CopyComplete
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.dll
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.pdb

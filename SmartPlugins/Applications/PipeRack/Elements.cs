@@ -46,7 +46,7 @@ namespace PipeRack
             newBeam.Insert();
             // newBeam9.StartPointOffset.Dx = +100;
             // newBeam9.EndPointOffset.Dx = -100;
-            newBeam.Modify();
+            //newBeam.Modify();
             return newBeam;
         }
 
@@ -67,5 +67,7 @@ namespace PipeRack
 
             return Profile_column;
         }
+
+
     }
 }

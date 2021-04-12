@@ -11,6 +11,7 @@ using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 using T3D = Tekla.Structures.Geometry3d;
 
+
 namespace PipeRack
 {
     public partial class Form1 : Form
@@ -40,12 +41,32 @@ namespace PipeRack
             double y_start = double.Parse(Y_start.Text);
             double z_start = double.Parse(Z_start.Text);
             double yarus_count = double.Parse(Yarus_count.Text);
-            double h = double.Parse(H.Text);
             double count_column = double.Parse(Count_column.Text);
             double razdv_1_2 = double.Parse(Razdv_1_2.Text);
-            double razdv_2_3 = double.Parse(Razdv_2_3.Text);
+            double razdv_2_3 = double.Parse(Razdv_2_3.Text); 
             string napr = Napr.Text;
+            double b_H1 = double.Parse(B_H1.Text);
+            double b_H2 = double.Parse(B_H2.Text);
+            double b_H3 = double.Parse(B_H3.Text);
+            string b_1_prof = B_1_prof.Text;
+            string b_2_prof = B_2_prof.Text;
+            string b_3_prof = B_3_prof.Text;
 
+            var b_H22 = b_H2 + b_H1;
+            var b_H33 = b_H2 + b_H3+ b_H1;
+
+            List <double> Traversy = new List<double>();
+
+            Traversy.Add(b_H1);
+            Traversy.Add(b_H22);
+            Traversy.Add(b_H33);
+
+            List<string> Traversy_prof = new List<string>();
+
+
+            Traversy_prof.Add(b_1_prof);
+            Traversy_prof.Add(b_2_prof);
+            Traversy_prof.Add(b_3_prof);
 
             T3D.Vector vector_X = new T3D.Vector(0 + 100, 0, 0), vector_XX;
             T3D.Vector vector_Y = new T3D.Vector(0, 0 + 100, 0), vector_YY;
@@ -99,7 +120,7 @@ namespace PipeRack
             
 
             Program program = new Program();
-            program.Create_rama(yarus_count, h, count_column, razdv_1_2, razdv_2_3);
+            program.Create_rama(yarus_count, count_column, razdv_1_2, razdv_2_3, Traversy, Traversy_prof);
 
             M.CommitChanges();
 
@@ -115,6 +136,9 @@ namespace PipeRack
             Z_start.Text = pickedPoint.Z.ToString();
         }
 
+        private void TabPage2_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
