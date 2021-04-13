@@ -48,7 +48,6 @@ C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartWPFElements\bin\Debug\
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartWPFElements\bin\Debug\Fusion.xml
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartWPFElements\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Common\SmartWPFElements\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartWPFElements\SmartWPFElements.csprojAssemblyReference.cache
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartWPFElements\ConcreteDetailsWindow.g.cs
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartWPFElements\UserControl1.g.cs
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\SmartWPFElements\GeneratedInternalTypeHelper.g.cs

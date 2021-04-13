@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Napr = new System.Windows.Forms.ComboBox();
-            this.Vector = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.Z_start = new System.Windows.Forms.TextBox();
             this.Y_start = new System.Windows.Forms.TextBox();
@@ -42,6 +40,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.textBox38 = new System.Windows.Forms.TextBox();
+            this.textBox39 = new System.Windows.Forms.TextBox();
+            this.textBox40 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.B_3_prof = new System.Windows.Forms.TextBox();
+            this.B_2_prof = new System.Windows.Forms.TextBox();
+            this.B_1_prof = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox26 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -96,22 +110,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.B_3_prof = new System.Windows.Forms.TextBox();
-            this.B_2_prof = new System.Windows.Forms.TextBox();
-            this.B_1_prof = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
-            this.textBox40 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.Z_start2 = new System.Windows.Forms.TextBox();
+            this.Y_start2 = new System.Windows.Forms.TextBox();
+            this.X_start2 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -132,8 +134,10 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.Napr);
-            this.tabPage1.Controls.Add(this.Vector);
+            this.tabPage1.Controls.Add(this.Z_start2);
+            this.tabPage1.Controls.Add(this.Y_start2);
+            this.tabPage1.Controls.Add(this.X_start2);
+            this.tabPage1.Controls.Add(this.label27);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.Z_start);
             this.tabPage1.Controls.Add(this.Y_start);
@@ -150,29 +154,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Геометрия";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // Napr
-            // 
-            this.Napr.Items.AddRange(new object[] {
-            "+X",
-            "-X",
-            "+Y",
-            "-Y"});
-            this.Napr.Location = new System.Drawing.Point(360, 22);
-            this.Napr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Napr.Name = "Napr";
-            this.Napr.Size = new System.Drawing.Size(121, 24);
-            this.Napr.TabIndex = 27;
-            this.Napr.Text = "+X";
-            // 
-            // Vector
-            // 
-            this.Vector.AutoSize = true;
-            this.Vector.Location = new System.Drawing.Point(171, 22);
-            this.Vector.Name = "Vector";
-            this.Vector.Size = new System.Drawing.Size(183, 17);
-            this.Vector.TabIndex = 26;
-            this.Vector.Text = "Направление построения:";
             // 
             // button2
             // 
@@ -244,11 +225,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 22);
+            this.label1.Location = new System.Drawing.Point(51, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Точка вставки:";
+            this.label1.Text = "Точка 1";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // tabPage2
             // 
@@ -329,6 +311,150 @@
             this.tabPage2.Text = "Поперечник";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.TabPage2_Click);
+            // 
+            // textBox34
+            // 
+            this.textBox34.Location = new System.Drawing.Point(790, 556);
+            this.textBox34.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox34.Name = "textBox34";
+            this.textBox34.Size = new System.Drawing.Size(93, 22);
+            this.textBox34.TabIndex = 113;
+            this.textBox34.Text = "0";
+            // 
+            // textBox35
+            // 
+            this.textBox35.Location = new System.Drawing.Point(790, 526);
+            this.textBox35.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox35.Name = "textBox35";
+            this.textBox35.Size = new System.Drawing.Size(93, 22);
+            this.textBox35.TabIndex = 112;
+            this.textBox35.Text = "0";
+            // 
+            // textBox36
+            // 
+            this.textBox36.Location = new System.Drawing.Point(790, 494);
+            this.textBox36.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox36.Name = "textBox36";
+            this.textBox36.Size = new System.Drawing.Size(93, 22);
+            this.textBox36.TabIndex = 111;
+            this.textBox36.Text = "0";
+            // 
+            // textBox37
+            // 
+            this.textBox37.Location = new System.Drawing.Point(790, 459);
+            this.textBox37.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox37.Name = "textBox37";
+            this.textBox37.Size = new System.Drawing.Size(93, 22);
+            this.textBox37.TabIndex = 110;
+            this.textBox37.Text = "0";
+            // 
+            // textBox38
+            // 
+            this.textBox38.Location = new System.Drawing.Point(790, 427);
+            this.textBox38.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox38.Name = "textBox38";
+            this.textBox38.Size = new System.Drawing.Size(93, 22);
+            this.textBox38.TabIndex = 109;
+            this.textBox38.Text = "0";
+            // 
+            // textBox39
+            // 
+            this.textBox39.Location = new System.Drawing.Point(790, 393);
+            this.textBox39.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox39.Name = "textBox39";
+            this.textBox39.Size = new System.Drawing.Size(93, 22);
+            this.textBox39.TabIndex = 108;
+            this.textBox39.Text = "0";
+            // 
+            // textBox40
+            // 
+            this.textBox40.Location = new System.Drawing.Point(790, 361);
+            this.textBox40.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox40.Name = "textBox40";
+            this.textBox40.Size = new System.Drawing.Size(93, 22);
+            this.textBox40.TabIndex = 107;
+            this.textBox40.Text = "0";
+            // 
+            // label26
+            // 
+            this.label26.Location = new System.Drawing.Point(772, 336);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(150, 21);
+            this.label26.TabIndex = 106;
+            this.label26.Text = "Префикс сборки";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(689, 556);
+            this.textBox27.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(93, 22);
+            this.textBox27.TabIndex = 105;
+            this.textBox27.Text = "I30K1_20_93";
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(689, 526);
+            this.textBox28.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(93, 22);
+            this.textBox28.TabIndex = 104;
+            this.textBox28.Text = "I30K1_20_93";
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(689, 494);
+            this.textBox29.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(93, 22);
+            this.textBox29.TabIndex = 103;
+            this.textBox29.Text = "I30K1_20_93";
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(689, 459);
+            this.textBox30.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(93, 22);
+            this.textBox30.TabIndex = 102;
+            this.textBox30.Text = "I30K1_20_93";
+            // 
+            // B_3_prof
+            // 
+            this.B_3_prof.Location = new System.Drawing.Point(689, 427);
+            this.B_3_prof.Margin = new System.Windows.Forms.Padding(4);
+            this.B_3_prof.Name = "B_3_prof";
+            this.B_3_prof.Size = new System.Drawing.Size(93, 22);
+            this.B_3_prof.TabIndex = 101;
+            this.B_3_prof.Text = "I30K1_20_93";
+            // 
+            // B_2_prof
+            // 
+            this.B_2_prof.Location = new System.Drawing.Point(689, 393);
+            this.B_2_prof.Margin = new System.Windows.Forms.Padding(4);
+            this.B_2_prof.Name = "B_2_prof";
+            this.B_2_prof.Size = new System.Drawing.Size(93, 22);
+            this.B_2_prof.TabIndex = 100;
+            this.B_2_prof.Text = "I30K1_20_93";
+            // 
+            // B_1_prof
+            // 
+            this.B_1_prof.Location = new System.Drawing.Point(689, 361);
+            this.B_1_prof.Margin = new System.Windows.Forms.Padding(4);
+            this.B_1_prof.Name = "B_1_prof";
+            this.B_1_prof.Size = new System.Drawing.Size(93, 22);
+            this.B_1_prof.TabIndex = 99;
+            this.B_1_prof.Text = "I30K1_20_93";
+            // 
+            // label25
+            // 
+            this.label25.Location = new System.Drawing.Point(685, 336);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(100, 21);
+            this.label25.TabIndex = 98;
+            this.label25.Text = "Профиль";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
             // 
@@ -842,149 +968,43 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // textBox27
+            // Z_start2
             // 
-            this.textBox27.Location = new System.Drawing.Point(689, 556);
-            this.textBox27.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(93, 22);
-            this.textBox27.TabIndex = 105;
-            this.textBox27.Text = "I30K1_20_93";
+            this.Z_start2.Location = new System.Drawing.Point(142, 110);
+            this.Z_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.Z_start2.Name = "Z_start2";
+            this.Z_start2.Size = new System.Drawing.Size(85, 22);
+            this.Z_start2.TabIndex = 31;
+            this.Z_start2.Text = "0";
             // 
-            // textBox28
+            // Y_start2
             // 
-            this.textBox28.Location = new System.Drawing.Point(689, 526);
-            this.textBox28.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(93, 22);
-            this.textBox28.TabIndex = 104;
-            this.textBox28.Text = "I30K1_20_93";
+            this.Y_start2.Location = new System.Drawing.Point(142, 84);
+            this.Y_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.Y_start2.Name = "Y_start2";
+            this.Y_start2.Size = new System.Drawing.Size(85, 22);
+            this.Y_start2.TabIndex = 30;
+            this.Y_start2.Text = "0";
             // 
-            // textBox29
+            // X_start2
             // 
-            this.textBox29.Location = new System.Drawing.Point(689, 494);
-            this.textBox29.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(93, 22);
-            this.textBox29.TabIndex = 103;
-            this.textBox29.Text = "I30K1_20_93";
+            this.X_start2.AutoCompleteCustomSource.AddRange(new string[] {
+            "0"});
+            this.X_start2.Location = new System.Drawing.Point(142, 58);
+            this.X_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.X_start2.Name = "X_start2";
+            this.X_start2.Size = new System.Drawing.Size(85, 22);
+            this.X_start2.TabIndex = 29;
+            this.X_start2.Text = "0";
             // 
-            // textBox30
+            // label27
             // 
-            this.textBox30.Location = new System.Drawing.Point(689, 459);
-            this.textBox30.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(93, 22);
-            this.textBox30.TabIndex = 102;
-            this.textBox30.Text = "I30K1_20_93";
-            // 
-            // B_3_prof
-            // 
-            this.B_3_prof.Location = new System.Drawing.Point(689, 427);
-            this.B_3_prof.Margin = new System.Windows.Forms.Padding(4);
-            this.B_3_prof.Name = "B_3_prof";
-            this.B_3_prof.Size = new System.Drawing.Size(93, 22);
-            this.B_3_prof.TabIndex = 101;
-            this.B_3_prof.Text = "I30K1_20_93";
-            // 
-            // B_2_prof
-            // 
-            this.B_2_prof.Location = new System.Drawing.Point(689, 393);
-            this.B_2_prof.Margin = new System.Windows.Forms.Padding(4);
-            this.B_2_prof.Name = "B_2_prof";
-            this.B_2_prof.Size = new System.Drawing.Size(93, 22);
-            this.B_2_prof.TabIndex = 100;
-            this.B_2_prof.Text = "I30K1_20_93";
-            // 
-            // B_1_prof
-            // 
-            this.B_1_prof.Location = new System.Drawing.Point(689, 361);
-            this.B_1_prof.Margin = new System.Windows.Forms.Padding(4);
-            this.B_1_prof.Name = "B_1_prof";
-            this.B_1_prof.Size = new System.Drawing.Size(93, 22);
-            this.B_1_prof.TabIndex = 99;
-            this.B_1_prof.Text = "I30K1_20_93";
-            // 
-            // label25
-            // 
-            this.label25.Location = new System.Drawing.Point(685, 336);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(100, 21);
-            this.label25.TabIndex = 98;
-            this.label25.Text = "Профиль";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox34
-            // 
-            this.textBox34.Location = new System.Drawing.Point(790, 556);
-            this.textBox34.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(93, 22);
-            this.textBox34.TabIndex = 113;
-            this.textBox34.Text = "0";
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(790, 526);
-            this.textBox35.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(93, 22);
-            this.textBox35.TabIndex = 112;
-            this.textBox35.Text = "0";
-            // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(790, 494);
-            this.textBox36.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(93, 22);
-            this.textBox36.TabIndex = 111;
-            this.textBox36.Text = "0";
-            // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(790, 459);
-            this.textBox37.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(93, 22);
-            this.textBox37.TabIndex = 110;
-            this.textBox37.Text = "0";
-            // 
-            // textBox38
-            // 
-            this.textBox38.Location = new System.Drawing.Point(790, 427);
-            this.textBox38.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(93, 22);
-            this.textBox38.TabIndex = 109;
-            this.textBox38.Text = "0";
-            // 
-            // textBox39
-            // 
-            this.textBox39.Location = new System.Drawing.Point(790, 393);
-            this.textBox39.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(93, 22);
-            this.textBox39.TabIndex = 108;
-            this.textBox39.Text = "0";
-            // 
-            // textBox40
-            // 
-            this.textBox40.Location = new System.Drawing.Point(790, 361);
-            this.textBox40.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(93, 22);
-            this.textBox40.TabIndex = 107;
-            this.textBox40.Text = "0";
-            // 
-            // label26
-            // 
-            this.label26.Location = new System.Drawing.Point(772, 336);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(150, 21);
-            this.label26.TabIndex = 106;
-            this.label26.Text = "Префикс сборки";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(143, 22);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(60, 17);
+            this.label27.TabIndex = 28;
+            this.label27.Text = "Точка 2";
             // 
             // Form1
             // 
@@ -1024,8 +1044,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label Vector;
-        private System.Windows.Forms.ComboBox Napr;
         private System.Windows.Forms.ComboBox Count_column;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -1091,6 +1109,10 @@
         private System.Windows.Forms.TextBox B_2_prof;
         private System.Windows.Forms.TextBox B_1_prof;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox Z_start2;
+        private System.Windows.Forms.TextBox Y_start2;
+        private System.Windows.Forms.TextBox X_start2;
+        private System.Windows.Forms.Label label27;
     }
 }
 

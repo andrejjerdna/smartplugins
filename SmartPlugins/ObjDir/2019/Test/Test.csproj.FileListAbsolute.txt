@@ -44,7 +44,6 @@ C:\Users\Arti\source\repos\Tekla\SmartPlugins\Test\bin\Debug\Tekla.Technology.Ms
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Test\bin\Debug\Tekla.Technology.Serialization.dll
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Test\bin\Debug\Tekla.Technology.Scripting.dll
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Test\bin\Debug\Tekla.Technology.Scripting.Plugins.dll
-C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\Test\Test.csprojAssemblyReference.cache
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\Test\Test.Form1.resources
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\Test\Test.Properties.Resources.resources
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\ObjDir\2019\Test\Test.csproj.GenerateResource.cache
