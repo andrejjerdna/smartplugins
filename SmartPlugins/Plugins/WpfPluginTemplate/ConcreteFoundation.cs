@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Tekla.Structures;
-using Tekla.Structures.Datatype;
-using Tekla.Structures.Dialog;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
@@ -18,6 +16,7 @@ using Point = Tekla.Structures.Geometry3d.Point;
 using Vector = Tekla.Structures.Geometry3d.Vector;
 using tdt = Tekla.Structures.Datatype;
 using SmartTeklaModel;
+using Tekla.Structures.Datatype;
 
 namespace ConcreteFoundationPlugin
 {
@@ -35,7 +34,6 @@ namespace ConcreteFoundationPlugin
         {
             _model = new Model();
             _data = data;
-
         }
 
         public override List<InputDefinition> DefineInput()

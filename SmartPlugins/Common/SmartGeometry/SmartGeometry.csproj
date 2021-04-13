@@ -96,6 +96,7 @@
     <Compile Include="ModelObjectGeometry.cs" />
     <Compile Include="PointsGeometry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmartTransfomationPlane.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

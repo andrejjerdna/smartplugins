@@ -12,6 +12,7 @@ using SmartTeklaModel;
 using CSLib;
 using System.Linq;
 using SmartObjects.SteelParts;
+using Tekla.Structures.Datatype;
 
 namespace Frames
 {
