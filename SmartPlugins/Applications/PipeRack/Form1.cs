@@ -14,10 +14,8 @@ using T3D = Tekla.Structures.Geometry3d;
 
 namespace PipeRack
 {
-    public partial class Form1 : Form, ITraversa
+    public partial class Form1 : Form
     {
-        public int YarusCount { get; set; }
-
         Model M = new Model();
 
         public Form1()
@@ -42,22 +40,23 @@ namespace PipeRack
             double x_start = double.Parse(X_start.Text);
             double y_start = double.Parse(Y_start.Text);
             double z_start = double.Parse(Z_start.Text);
-            YarusCount = int.Parse(Yarus_count.Text);
+            int yarus_count = int.Parse(Yarus_count.Text);
             double count_column = double.Parse(Count_column.Text);
             double razdv_1_2 = double.Parse(Razdv_1_2.Text);
-            double razdv_2_3 = double.Parse(Razdv_2_3.Text); 
+            double razdv_2_3 = double.Parse(Razdv_2_3.Text);
             string napr = Napr.Text;
             double b_H1 = double.Parse(B_H1.Text);
             double b_H2 = double.Parse(B_H2.Text);
             double b_H3 = double.Parse(B_H3.Text);
             string b_1_prof = B_1_prof.Text;
             string b_2_prof = B_2_prof.Text;
-            string b_3_prof = B_3_prof.Text;
+            string b_3_prof = B_3_prof.Text; ;
 
             var b_H22 = b_H2 + b_H1;
             var b_H33 = b_H2 + b_H3+ b_H1;
 
-            List <double> Traversy = new List<double>();
+
+            List<double> Traversy = new List<double>();
 
             Traversy.Add(b_H1);
             Traversy.Add(b_H22);
@@ -119,10 +118,20 @@ namespace PipeRack
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(localPlane);  //вид по выбранному направлению исходя из условия
 
-            
 
-            Program program = new Program();
-            program.Create_rama(this, count_column, razdv_1_2, razdv_2_3, Traversy, Traversy_prof);
+            var frame = new Frame(yarus_count, count_column)
+            {
+                Razdv_1_2 = razdv_1_2,
+                Razdv_2_3 = razdv_2_3,
+
+                Traversy = Traversy,
+                Profiles = Traversy_prof
+            };
+
+            frame.Create_rama();
+
+            //Program program = new Program();
+            //program.Create_rama(yarus_count, count_column, razdv_1_2, razdv_2_3, Traversy, Traversy_prof);
 
             M.CommitChanges();
 

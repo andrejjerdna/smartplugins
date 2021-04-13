@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8qTi/ogrqR172yedN5ci28mU7ryeEbcbnp3h3sY/0EMzjvzIWu1RX1LMs8Jm7LDPQFaqZQ2jBHUistbwbXQFBQ==",
+  "dgSpecHash": "nX/e3xC7fSJ3Y4NLjnrj9c7BlgyBVp/VvhWjkTZDlH8JTvTuso5PXv0ffOiaqy6Xguk/i/3y53n2IlOTYiQm9Q==",
   "success": true,
   "projectFilePath": "C:\\Work\\SmartPlugins\\SmartPlugins\\Frames\\Frames.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,7 @@
     "C:\\Users\\33pro\\.nuget\\packages\\fody\\6.0.0\\fody.6.0.0.nupkg.sha512",
     "C:\\Users\\33pro\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
     "C:\\Users\\33pro\\.nuget\\packages\\teklafusion\\3.5.250\\teklafusion.3.5.250.nupkg.sha512",
-    "C:\\Users\\33pro\\.nuget\\packages\\teklaopenapi\\2019.0.45003\\teklaopenapi.2019.0.45003.nupkg.sha512"
+    "C:\\Users\\33pro\\.nuget\\packages\\teklaopenapi\\2020.0.3\\teklaopenapi.2020.0.3.nupkg.sha512"
   ],
   "logs": []
 }
