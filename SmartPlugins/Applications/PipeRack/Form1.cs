@@ -14,8 +14,10 @@ using T3D = Tekla.Structures.Geometry3d;
 
 namespace PipeRack
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, ITraversa
     {
+        public int YarusCount { get; set; }
+
         Model M = new Model();
 
         public Form1()
@@ -40,7 +42,7 @@ namespace PipeRack
             double x_start = double.Parse(X_start.Text);
             double y_start = double.Parse(Y_start.Text);
             double z_start = double.Parse(Z_start.Text);
-            double yarus_count = double.Parse(Yarus_count.Text);
+            YarusCount = int.Parse(Yarus_count.Text);
             double count_column = double.Parse(Count_column.Text);
             double razdv_1_2 = double.Parse(Razdv_1_2.Text);
             double razdv_2_3 = double.Parse(Razdv_2_3.Text); 
@@ -120,7 +122,7 @@ namespace PipeRack
             
 
             Program program = new Program();
-            program.Create_rama(yarus_count, count_column, razdv_1_2, razdv_2_3, Traversy, Traversy_prof);
+            program.Create_rama(this, count_column, razdv_1_2, razdv_2_3, Traversy, Traversy_prof);
 
             M.CommitChanges();
 

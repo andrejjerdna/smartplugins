@@ -28,7 +28,7 @@ namespace PipeRack
             Application.Run(new Form1());
         }
 
-        public void Create_rama(double yarus_count, 
+        public void Create_rama(ITraversa traversa, 
                                 double count_column, 
                                 double razdv_1_2, 
                                 double razdv_2_3,
@@ -41,7 +41,7 @@ namespace PipeRack
 
 
             //------------------ тут будут колонны
-            int H = (int)yarus_count;
+            int H = traversa.YarusCount;
 
 
             T3D.Point C_Start_point1 = new T3D.Point(0, 0 + razdv_1_2, 0);                           //точка низа 1 колонны
