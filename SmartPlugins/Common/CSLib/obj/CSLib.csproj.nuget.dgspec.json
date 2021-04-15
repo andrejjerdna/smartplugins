@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {}
+    "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
+    "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+        "projectUniqueName": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
         "projectName": "CSLib",
-        "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+        "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
         "packagesPath": "C:\\Users\\Arti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\obj\\",
+        "outputPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\CSLib\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [

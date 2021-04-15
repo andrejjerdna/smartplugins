@@ -798,11 +798,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Commercial\\sp_DimensionsForReinforcement\\sp_DimensionsForReinforcement.csproj",
+      "projectUniqueName": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Commercial\\sp_DimensionsForReinforcement\\sp_DimensionsForReinforcement.csproj",
       "projectName": "sp_DimensionsForReinforcement",
-      "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Commercial\\sp_DimensionsForReinforcement\\sp_DimensionsForReinforcement.csproj",
+      "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Commercial\\sp_DimensionsForReinforcement\\sp_DimensionsForReinforcement.csproj",
       "packagesPath": "C:\\Users\\Arti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Commercial\\sp_DimensionsForReinforcement\\obj\\",
+      "outputPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Commercial\\sp_DimensionsForReinforcement\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -819,23 +819,23 @@
       "frameworks": {
         "net48": {
           "projectReferences": {
-            "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
-              "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj"
+            "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj": {
+              "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj"
             },
-            "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj": {
-              "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj"
+            "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj": {
+              "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartExtensions\\SmartExtensions.csproj"
             },
-            "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj": {
-              "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj"
+            "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj": {
+              "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartGeometry\\SmartGeometry.csproj"
             },
-            "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj": {
-              "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj"
+            "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj": {
+              "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartObjects\\SmartObjects.csproj"
             },
-            "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj": {
-              "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj"
+            "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj": {
+              "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartTeklaModel\\SmartTeklaModel.csproj"
             },
-            "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj": {
-              "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj"
+            "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj": {
+              "projectPath": "C:\\Users\\Arti\\source\\repos\\Tekla\\SmartPlugins\\Common\\SmartWPFElements\\SmartWPFElements.csproj"
             }
           }
         }

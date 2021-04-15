@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
+using SmartGeometry;
 
 namespace PipeRack
 {
@@ -28,7 +29,8 @@ namespace PipeRack
         public void Create_rama()
         {
             Elements elements = new Elements();
-
+            //список колон
+            //список балок
             int H = _yarusCount;
 
             Point C_Start_point1 = new Point(0, 0 + Razdv_1_2, 0);                           //точка низа 1 колонны

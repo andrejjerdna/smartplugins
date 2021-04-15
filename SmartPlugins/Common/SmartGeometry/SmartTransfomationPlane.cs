@@ -34,7 +34,7 @@ namespace SmartGeometry
             {
                 Origin = point1,
                 AxisX = vectorX,
-                AxisY = vectorX.Cross(new Vector(0, 0, 1))
+                AxisY = vectorX.Cross(new Vector(0, 0, -1))
             };
 
             var workPlane = new TransformationPlane(workCS);
