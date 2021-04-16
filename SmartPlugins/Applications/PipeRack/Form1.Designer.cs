@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label41 = new System.Windows.Forms.Label();
             this.Prodovnie7 = new System.Windows.Forms.Button();
             this.Prodovnie6 = new System.Windows.Forms.Button();
             this.Prodovnie5 = new System.Windows.Forms.Button();
@@ -132,7 +133,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.label41 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -259,7 +259,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Геометрия";
             this.tabPage1.UseVisualStyleBackColor = true;
-
+            // 
+            // label41
+            // 
+            this.label41.Location = new System.Drawing.Point(413, 235);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(91, 21);
+            this.label41.TabIndex = 279;
+            this.label41.Text = "По оси";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Prodovnie7
             // 
@@ -370,6 +378,7 @@
             this.AttYarus7.TabIndex = 268;
             this.AttYarus7.Text = "Атрибуты";
             this.AttYarus7.UseVisualStyleBackColor = true;
+            this.AttYarus7.Click += new System.EventHandler(this.AttYarus7_Click);
             // 
             // AttYarus6
             // 
@@ -380,6 +389,7 @@
             this.AttYarus6.TabIndex = 267;
             this.AttYarus6.Text = "Атрибуты";
             this.AttYarus6.UseVisualStyleBackColor = true;
+            this.AttYarus6.Click += new System.EventHandler(this.AttYarus6_Click);
             // 
             // AttYarus5
             // 
@@ -390,6 +400,7 @@
             this.AttYarus5.TabIndex = 266;
             this.AttYarus5.Text = "Атрибуты";
             this.AttYarus5.UseVisualStyleBackColor = true;
+            this.AttYarus5.Click += new System.EventHandler(this.AttYarus5_Click);
             // 
             // AttYarus4
             // 
@@ -400,6 +411,7 @@
             this.AttYarus4.TabIndex = 265;
             this.AttYarus4.Text = "Атрибуты";
             this.AttYarus4.UseVisualStyleBackColor = true;
+            this.AttYarus4.Click += new System.EventHandler(this.AttYarus4_Click);
             // 
             // AttYarus3
             // 
@@ -410,6 +422,7 @@
             this.AttYarus3.TabIndex = 264;
             this.AttYarus3.Text = "Атрибуты";
             this.AttYarus3.UseVisualStyleBackColor = true;
+            this.AttYarus3.Click += new System.EventHandler(this.AttYarus3_Click);
             // 
             // label40
             // 
@@ -584,6 +597,7 @@
             this.AttColumn3.TabIndex = 245;
             this.AttColumn3.Text = "Атрибуты";
             this.AttColumn3.UseVisualStyleBackColor = true;
+            this.AttColumn3.Click += new System.EventHandler(this.AttColumn3_Click);
             // 
             // label20
             // 
@@ -917,6 +931,7 @@
             this.AttColumn2.TabIndex = 208;
             this.AttColumn2.Text = "Атрибуты";
             this.AttColumn2.UseVisualStyleBackColor = true;
+            this.AttColumn2.Click += new System.EventHandler(this.AttColumn2_Click);
             // 
             // AttColumn1
             // 
@@ -927,6 +942,7 @@
             this.AttColumn1.TabIndex = 207;
             this.AttColumn1.Text = "Атрибуты";
             this.AttColumn1.UseVisualStyleBackColor = true;
+            this.AttColumn1.Click += new System.EventHandler(this.AttColumn1_Click);
             // 
             // label32
             // 
@@ -1192,7 +1208,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Поперечник";
             this.tabPage2.UseVisualStyleBackColor = true;
-
             // 
             // pictureBox1
             // 
@@ -1227,15 +1242,6 @@
             this.button1.Text = "Волшебство";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // label41
-            // 
-            this.label41.Location = new System.Drawing.Point(413, 235);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(91, 21);
-            this.label41.TabIndex = 279;
-            this.label41.Text = "По оси";
-            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

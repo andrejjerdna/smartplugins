@@ -18,8 +18,7 @@ namespace PipeRack
     {
         Model M = new Model();
 
-
-        public Attributes _attributeYarus1;
+        private Attributes _attributeYarus1;
         private Attributes _attributeYarus2;
         private Attributes _attributeYarus3;
         private Attributes _attributeYarus4;
@@ -27,10 +26,9 @@ namespace PipeRack
         private Attributes _attributeYarus6;
         private Attributes _attributeYarus7;
 
-
-    private Attributes _attributeColumn1;
-    private Attributes _attributeColumn2;
-    private Attributes _attributeColumn3;
+        private Attributes _attributeColumn1;
+        private Attributes _attributeColumn2;
+        private Attributes _attributeColumn3;
 
     public Form1()
         {
@@ -41,6 +39,7 @@ namespace PipeRack
                 InitializeComponent();
             }
         }
+
         public List<double> Regen(List<double> Travs, int yarus_count)
         {
             List<double> Trav = Travs;
@@ -63,10 +62,13 @@ namespace PipeRack
                 _attributeYarus5,
                 _attributeYarus6,
                 _attributeYarus7,
+                _attributeColumn1,
+                _attributeColumn2,
+                _attributeColumn3
              };
 
             int yarus_count = int.Parse(Yarus_count.Text);
-            double count_column = double.Parse(Count_column.Text);
+            int count_column = int.Parse(Count_column.Text);
 
             double shagRam = double.Parse(ShagRam.Text);
             double razdv_1_2 = double.Parse(Razdv_1_2.Text);
@@ -83,9 +85,8 @@ namespace PipeRack
                 double.Parse(B_H7.Text)
             };
 
-            Regen(Traversy, yarus_count);
+            Regen(Traversy, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
  
-            // определение направления
             double x_start = double.Parse(X_start.Text);
             double y_start = double.Parse(Y_start.Text);
             double z_start = double.Parse(Z_start.Text);
@@ -94,26 +95,19 @@ namespace PipeRack
             double y_start2 = double.Parse(Y_start2.Text);
             double z_start2 = double.Parse(Z_start2.Text);
 
-            //-------------------------
 
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
-
             TransformationPlane zero_plane = new TransformationPlane();
-
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane);
-
             T3D.Point CS_point = new T3D.Point(x_start, y_start, z_start);
             T3D.Point CS_point_end = new T3D.Point(x_start2, y_start2, z_start2);
             var TP = SmartTransfomationPlane.GetTransformationPlaneTwoPoints(M, CS_point, CS_point_end);
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
 
-
-            if (count_column == 2)
-            {
-
+ 
                for (int _count = 0; _count < shagRam; _count++)
                {
-                    var frame = new Frame(yarus_count)
+                    var frame = new Frame(yarus_count, count_column)
                     {
                         Razdv_1_2 = razdv_1_2,
                         Razdv_2_3 = razdv_2_3,
@@ -122,26 +116,30 @@ namespace PipeRack
                         Attributes = _attributes,
                     };
                     var G = shagRam * 100 * _count;
-                    frame.CreateRamaDveKolony(G);
+                        if (count_column == 2)
+                    {
+                        frame.CreateRamaDveKolony(G);
+                        frame.SetAtt(frame._Columns[0], _attributeColumn1);
+                        frame.SetAtt(frame._Columns[1], _attributeColumn2);
+                    }
 
-                    
-                    
+                    else
+                {
+                        frame.CreateRamaDveKolony(G);
+                        frame.SetAtt(frame._Columns[0], _attributeColumn1);
+                        frame.SetAtt(frame._Columns[1], _attributeColumn2);
+                        frame.SetAtt(frame._Columns[2], _attributeColumn2);
                 }
-            }
-            //else
-            // frame.CreateRamaTriKolony();
-            //   SetAtt(frame._Columns[0], _attributeYarus1);
+ 
 
+            }
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
         }
 
-
-
         private void Button2_Click(object sender, EventArgs e)
         {
-
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             TransformationPlane zero_plane = new TransformationPlane();
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane); //оси модели переставили по началу координад
@@ -160,8 +158,6 @@ namespace PipeRack
             Y_start2.Text = pickedPoint2.Y.ToString();
             Z_start2.Text = pickedPoint2.Z.ToString();
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
-
-
         }
 
         private void AttYarus1_Click(object sender, EventArgs e)
@@ -179,6 +175,60 @@ namespace PipeRack
             _attributeYarus2 = AttYorus2.GetAttributes();
         }
 
+        private void AttYarus3_Click(object sender, EventArgs e)
+        {
+            var AttYorus3 = new Form_att(_attributeYarus3);
+            AttYorus3.ShowDialog();
+            _attributeYarus3 = AttYorus3.GetAttributes();
+        }
 
+        private void AttYarus4_Click(object sender, EventArgs e)
+        {
+            var AttYorus4 = new Form_att(_attributeYarus4);
+            AttYorus4.ShowDialog();
+            _attributeYarus4 = AttYorus4.GetAttributes();
+        }
+
+        private void AttYarus5_Click(object sender, EventArgs e)
+        {
+            var AttYorus5 = new Form_att(_attributeYarus5);
+            AttYorus5.ShowDialog();
+            _attributeYarus5 = AttYorus5.GetAttributes();
+        }
+
+        private void AttYarus6_Click(object sender, EventArgs e)
+        {
+            var AttYorus6 = new Form_att(_attributeYarus6);
+            AttYorus6.ShowDialog();
+            _attributeYarus6 = AttYorus6.GetAttributes();
+        }
+
+        private void AttYarus7_Click(object sender, EventArgs e)
+        {
+            var AttYorus7 = new Form_att(_attributeYarus7);
+            AttYorus7.ShowDialog();
+            _attributeYarus7 = AttYorus7.GetAttributes();
+        }
+
+        private void AttColumn1_Click(object sender, EventArgs e)
+        {
+            var AttCol1 = new Form_att(_attributeColumn1);
+            AttCol1.ShowDialog();
+            _attributeColumn1 = AttCol1.GetAttributes();
+        }
+
+        private void AttColumn2_Click(object sender, EventArgs e)
+        {
+            var AttCol2 = new Form_att(_attributeColumn2);
+            AttCol2.ShowDialog();
+            _attributeColumn2 = AttCol2.GetAttributes();
+        }
+
+        private void AttColumn3_Click(object sender, EventArgs e)
+        {
+            var AttCol3 = new Form_att(_attributeColumn3);
+            AttCol3.ShowDialog();
+            _attributeColumn3 = AttCol3.GetAttributes();
+        }
     }
 }

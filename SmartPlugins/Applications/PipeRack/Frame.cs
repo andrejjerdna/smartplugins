@@ -19,13 +19,15 @@ namespace PipeRack
         public List<Attributes> Attributes { get; set; }
 
         private int _yarusCount;
+        private int _count_column;
 
         public List<Beam> _Columns = new List<Beam>();
         public List<Beam> _Travers = new List<Beam>();
 
-        public Frame(int yarusCount)
+        public Frame(int yarusCount, int count_column)
         {
             _yarusCount = yarusCount;
+            _count_column = count_column;
         }
 
         private Beam Beam_main(Point startPoint, Point endPoint)
@@ -40,17 +42,18 @@ namespace PipeRack
         {
             int H = _yarusCount;
 
-            Point C_Start_point1 = new Point(G, 0 + Razdv_1_2, 0);                           //точка низа 1 колонны
-            Point C_End_point1 = new Point(G, 0 + Razdv_1_2, Traversy[H - 1] + 100);     //точка верха  1 колонны 
+            Point C_Start_point1 = new Point(G, 0 - Razdv_1_2, 0);                           //точка низа 1 колонны
+            Point C_End_point1 = new Point(G, 0 - Razdv_1_2, Traversy[H - 1] + 100);     //точка верха  1 колонны 
 
-            Point C_Start_point2 = new Point(G, 0 - Razdv_2_3, 0);                           //точка низа 2 колонны
-            Point C_End_point2 = new Point(G, 0 - Razdv_2_3, Traversy[H - 1] + 100);     //точка верха  2 колонны 
-
+            Point C_Start_point2 = new Point(G, 0 + Razdv_2_3, 0);                           //точка низа 2 колонны
+            Point C_End_point2 = new Point(G, 0 + Razdv_2_3, Traversy[H - 1] + 100);     //точка верха  2 колонны 
+ 
             _Columns.Add(Beam_main(C_Start_point1, C_End_point1));
             _Columns.Add(Beam_main(C_Start_point2, C_End_point2));
-            
-            
 
+          //  if (Attributes[7] != null) SetAtt(_Columns[0], Attributes[7]);
+          //  if (Attributes[8] != null) SetAtt(_Columns[0], Attributes[8]);
+            
 
             for (int _count = 0; _count < _yarusCount; _count++)
             {
@@ -62,29 +65,24 @@ namespace PipeRack
             }
         }
 
-        /*   public void CreateRamaTriKolony()
+           public void CreateRamaTriKolony()
            {
                int H = _yarusCount;
 
-               Point C_Start_point1 = new Point(0, 0 + Razdv_1_2, 0);                           //точка низа 1 колонны
-               Point C_End_point1 = new Point(0, 0 + Razdv_1_2, Traversy[H - 1] + 100);     //точка верха  1 колонны 
+               Point C_Start_point1 = new Point(0, 0 - Razdv_1_2, 0);                           //точка низа 1 колонны
+               Point C_End_point1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100);     //точка верха  1 колонны 
 
-               Point C_Start_point2 = new Point(0, 0 - Razdv_2_3, 0);                           //точка низа 2 колонны
-               Point C_End_point2 = new Point(0, 0 - Razdv_2_3, Traversy[H - 1] + 100);     //точка верха  2 колонны 
+               Point C_Start_point2 = new Point(0, 0 , 0);                           //точка низа 2 колонны
+               Point C_End_point2 = new Point(0, 0 , Traversy[H - 1] + 100);     //точка верха  2 колонны 
 
-               Point C_Start_point3 = new Point(0, 0, 0);                                       //точка низа 3 колонны
-               Point C_End_point3 = new Point(0, 0, Traversy[H - 1] + 100);                                   //точка верха  3 колонны 
+               Point C_Start_point3 = new Point(0, 0 + Razdv_2_3, 0);                                       //точка низа 3 колонны
+               Point C_End_point3 = new Point(0, 0 + Razdv_2_3, Traversy[H - 1] + 100);                                   //точка верха  3 колонны 
 
-               Beam Column1 = new Beam(C_Start_point1, C_End_point1);
-               _Columns.Add(Column1);
+            _Columns.Add(Beam_main(C_Start_point1, C_End_point1));
+            _Columns.Add(Beam_main(C_Start_point2, C_End_point2));
+            _Columns.Add(Beam_main(C_Start_point3, C_End_point3));
 
-               Beam Column2 = new Beam(C_Start_point2, C_End_point2);
-               _Columns.Add(Column2);
-
-               Beam Column3 = new Beam(C_Start_point3, C_End_point3);
-               _Columns.Add(Column2);
-
-               for (int _count = 0; _count < _yarusCount; _count++)
+            for (int _count = 0; _count < _yarusCount; _count++)
                {
                    Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count]);
                    Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count]);
@@ -92,7 +90,7 @@ namespace PipeRack
                    _Travers.Add(B_1);
 
                }
-           }*/
+           }
         public void SetAtt(Beam beam, Attributes _attributes)
         {
             beam.Name = _attributes.Name;
