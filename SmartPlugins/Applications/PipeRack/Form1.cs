@@ -18,7 +18,21 @@ namespace PipeRack
     {
         Model M = new Model();
 
-        public Form1()
+
+        public Attributes _attributeYarus1;
+        private Attributes _attributeYarus2;
+        private Attributes _attributeYarus3;
+        private Attributes _attributeYarus4;
+        private Attributes _attributeYarus5;
+        private Attributes _attributeYarus6;
+        private Attributes _attributeYarus7;
+
+
+    private Attributes _attributeColumn1;
+    private Attributes _attributeColumn2;
+    private Attributes _attributeColumn3;
+
+    public Form1()
         {
             if (!M.GetConnectionStatus())
                 MessageBox.Show("Не подключено к моделе");
@@ -27,42 +41,50 @@ namespace PipeRack
                 InitializeComponent();
             }
         }
-        
-        public void Button1_Click(object sender, EventArgs e)
+        public List<double> Regen(List<double> Travs, int yarus_count)
         {
+            List<double> Trav = Travs;
+            for (int _count = 1; _count< yarus_count; _count++)
+            {
+                Trav[0]= Trav[0];
+                Trav[_count] = Trav[_count-1] + Trav[_count];
+            }
+            return Trav;
+        }
+
+    public void Button1_Click(object sender, EventArgs e)
+        {
+            List<Attributes> _attributes = new List<Attributes>()
+            {
+               _attributeYarus1,
+                _attributeYarus2,
+                _attributeYarus3,
+                _attributeYarus4,
+                _attributeYarus5,
+                _attributeYarus6,
+                _attributeYarus7,
+             };
+
             int yarus_count = int.Parse(Yarus_count.Text);
             double count_column = double.Parse(Count_column.Text);
 
-
+            double shagRam = double.Parse(ShagRam.Text);
             double razdv_1_2 = double.Parse(Razdv_1_2.Text);
             double razdv_2_3 = double.Parse(Razdv_2_3.Text);
-            double b_H1 = double.Parse(B_H1.Text);
-            double b_H2 = double.Parse(B_H2.Text);
-            double b_H3 = double.Parse(B_H3.Text);
-            string b_1_prof = "I30K1_20_93";
-            string b_2_prof = "I30K1_20_93";
-            string b_3_prof = "I30K1_20_93"; 
 
-            var b_H22 = b_H2 + b_H1;
-            var b_H33 = b_H2 + b_H3+ b_H1;
-
-
-
-           List<double> Traversy = new List<double>
+            List<double> Traversy = new List<double>
             {
-                b_H1,
-                b_H22,
-                b_H33
-            };
-         
-            List<string> Traversy_prof = new List<string>
-            {
-                b_1_prof,
-                b_2_prof,
-                b_3_prof
+                double.Parse(B_H1.Text),
+                double.Parse(B_H2.Text),
+                double.Parse(B_H3.Text),
+                double.Parse(B_H4.Text),
+                double.Parse(B_H5.Text),
+                double.Parse(B_H6.Text),
+                double.Parse(B_H7.Text)
             };
 
-
+            Regen(Traversy, yarus_count);
+ 
             // определение направления
             double x_start = double.Parse(X_start.Text);
             double y_start = double.Parse(Y_start.Text);
@@ -77,6 +99,7 @@ namespace PipeRack
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
 
             TransformationPlane zero_plane = new TransformationPlane();
+
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane);
 
             T3D.Point CS_point = new T3D.Point(x_start, y_start, z_start);
@@ -85,23 +108,36 @@ namespace PipeRack
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
 
 
-            var frame = new Frame(yarus_count, count_column)
+            if (count_column == 2)
             {
-                Razdv_1_2 = razdv_1_2,
-                Razdv_2_3 = razdv_2_3,
 
-                Traversy = Traversy,
-                Profiles = Traversy_prof
-            };
+               for (int _count = 0; _count < shagRam; _count++)
+               {
+                    var frame = new Frame(yarus_count)
+                    {
+                        Razdv_1_2 = razdv_1_2,
+                        Razdv_2_3 = razdv_2_3,
 
+                        Traversy = Traversy,
+                        Attributes = _attributes,
+                    };
+                    var G = shagRam * 100 * _count;
+                    frame.CreateRamaDveKolony(G);
 
-            frame.Create_rama();
-
+                    
+                    
+                }
+            }
+            //else
+            // frame.CreateRamaTriKolony();
+            //   SetAtt(frame._Columns[0], _attributeYarus1);
 
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
         }
+
+
 
         private void Button2_Click(object sender, EventArgs e)
         {
@@ -128,102 +164,19 @@ namespace PipeRack
 
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void AttYarus1_Click(object sender, EventArgs e)
         {
-            new Form_att().ShowDialog();
+            var AttYorus1 = new Form_att(_attributeYarus1);
+            AttYorus1.ShowDialog();
+            _attributeYarus1 = AttYorus1.GetAttributes();
 
         }
 
-
-
-        private void TabPage2_Click(object sender, EventArgs e)
+        private void AttYarus2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label31_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label26_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label28_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label29_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label30_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox15_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox10_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox11_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox14_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TabPage1_Click(object sender, EventArgs e)
-        {
-
+            var AttYorus2 = new Form_att(_attributeYarus2);
+            AttYorus2.ShowDialog();
+            _attributeYarus2 = AttYorus2.GetAttributes();
         }
 
 

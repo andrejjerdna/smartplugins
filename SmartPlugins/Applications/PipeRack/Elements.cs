@@ -15,16 +15,16 @@ namespace PipeRack
 {
     public class Elements
     {
-        public Beam Beam_main(T3D.Point startPoint, T3D.Point endPoint, string Profile)  //горизонтальный одинарный уголок
+        public Beam Beam_main(T3D.Point startPoint, T3D.Point endPoint)  //горизонтальный одинарный уголок
         {
             Beam newBeam = new Beam(startPoint, endPoint);
-            newBeam.Profile.ProfileString = Profile;
+            newBeam.Profile.ProfileString = "HEA300";
             newBeam.Material.MaterialString = "C345";
             newBeam.Position.Plane = Position.PlaneEnum.MIDDLE;
-          ///  newBeam.Position.PlaneOffset = 4;
             newBeam.Position.Depth = Position.DepthEnum.MIDDLE;
-          //  newBeam.Position.Rotation = Position.RotationEnum.BACK;
-             newBeam.Class = "2";
+            ///  newBeam.Position.PlaneOffset = 4;
+            //  newBeam.Position.Rotation = Position.RotationEnum.BACK;
+            newBeam.Class = "2";
           //  newBeam.AssemblyNumber.Prefix = "СВ";
             newBeam.Insert();
            // newBeam9.StartPointOffset.Dx = +100;

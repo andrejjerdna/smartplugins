@@ -19,10 +19,10 @@ C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\bin\Debug\Sm
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.csprojAssemblyReference.cache
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.exe.config
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.Form1.resources
+C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.Form_att.resources
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.Properties.Resources.resources
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.csproj.GenerateResource.cache
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.csproj.CoreCompileInputs.cache
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.csproj.CopyComplete
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.exe
 C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.pdb
-C:\Users\Arti\source\repos\Tekla\SmartPlugins\Applications\PipeRack\ObjDir\2019\PipeRack\PipeRack.Form_att.resources
