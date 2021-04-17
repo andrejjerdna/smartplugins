@@ -41,6 +41,15 @@ namespace SmartObjects.Drawings
         public string LineType { get; set; }
         public string DimensionType { get; set; }
 
+        public string HatchColor { get; set; }
+        public string HatchName { get; set; }
+        public double ScaleX { get; set; }
+        public double ScaleY { get; set; }
+        public double AngleHatch { get; set; }
+        public int DimensionInsert { get; set; }
+        public int DiagonalInsert { get; set; }
+        public int HatchInsert { get; set; }
+
         public DimensionsForRebarGroup(Model model, ViewBase viewBase, RebarGroup rebarGroup)
         {
             _model = model;
@@ -59,6 +68,7 @@ namespace SmartObjects.Drawings
 
             InsertLines();
 
+            if(DimensionInsert == 1)
             InsertDimensions(_viewBase.GetAllObjects());
 
             return true;
@@ -111,23 +121,32 @@ namespace SmartObjects.Drawings
                 Line = baseLine,
             };
 
-            var diagonal1 = new Line(_viewBase, localP1, localP4, lineTypeAttributes);
-            diagonal1.Insert();
+            if (DiagonalInsert == 1)
+            {
+                var diagonal1 = new Line(_viewBase, localP1, localP4, lineTypeAttributes);
+                diagonal1.Insert();
 
-            var diagonal2 = new Line(_viewBase, localP2, localP3, lineTypeAttributes);
-            diagonal2.Insert();
+                var diagonal2 = new Line(_viewBase, localP2, localP3, lineTypeAttributes);
+                diagonal2.Insert();
+            }
 
-            var side1 = new Line(_viewBase, localP1, localP2, lineTypeAttributes);
-            side1.Insert();
+            var rectangle1 = new Rectangle(_viewBase, localP1, localP4);
+            rectangle1.Attributes.Line.Color = Colors.GetColor(LineColor);
+            rectangle1.Attributes.Line.Type = Lines.GetLineTypes(LineType);
 
-            var side2 = new Line(_viewBase, localP2, localP4, lineTypeAttributes);
-            side2.Insert();
+            if (HatchInsert == 1)
+            {
+                rectangle1.Attributes.Hatch.Name = HatchName;
+                rectangle1.Attributes.Hatch.ScaleX = ScaleX;
+                rectangle1.Attributes.Hatch.ScaleY = ScaleY;
+                rectangle1.Attributes.Hatch.Angle = AngleHatch;
+                rectangle1.Attributes.Hatch.Color = Colors.GetColor(LineColor)
+            else
+            {
+                rectangle1.Attributes.Hatch.Name = "None";
+            }
 
-            var side3 = new Line(_viewBase, localP3, localP4, lineTypeAttributes);
-            side3.Insert();
-
-            var side4 = new Line(_viewBase, localP3, localP1, lineTypeAttributes);
-            side4.Insert();
+            rectangle1.Insert();
         }
 
         /// <summary>

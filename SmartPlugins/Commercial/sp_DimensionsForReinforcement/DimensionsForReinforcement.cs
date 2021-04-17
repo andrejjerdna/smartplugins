@@ -31,6 +31,15 @@ namespace sp_DimensionsForReinforcement
         [StructuresField(nameof(LineColor))] public string LineColor;
         [StructuresField(nameof(LineType))] public string LineType;
         [StructuresField(nameof(DimensionType))] public string DimensionType;
+
+        [StructuresField(nameof(HatchColor))] public string HatchColor;
+        [StructuresField(nameof(HatchName))] public string HatchName;
+        [StructuresField(nameof(ScaleX))] public double ScaleX;
+        [StructuresField(nameof(ScaleY))] public double ScaleY;
+        [StructuresField(nameof(AngleHatch))] public double AngleHatch;
+        [StructuresField(nameof(DimensionInsert))] public int DimensionInsert;
+        [StructuresField(nameof(DiagonalInsert))] public int DiagonalInsert;
+        [StructuresField(nameof(HatchInsert))] public int HatchInsert;
     }
 
     [Plugin("sp_DimensionsForReinforcement")]
@@ -51,6 +60,15 @@ namespace sp_DimensionsForReinforcement
         public string LineColor { get; set; }
         public string LineType { get; set; }
         public string DimensionType { get; set; }
+
+        public string HatchColor { get; set; }
+        public string HatchName { get; set; }
+        public double ScaleX { get; set; }
+        public double ScaleY { get; set; }
+        public double AngleHatch { get; set; }
+        public int DimensionInsert { get; set; }
+        public int DiagonalInsert { get; set; }
+        public int HatchInsert { get; set; }
 
         public DimensionsForReinforcement(DimensionsForReinforcementData data)
         {
@@ -104,7 +122,16 @@ namespace sp_DimensionsForReinforcement
                 L4 = L4,
                 LineColor = LineColor,
                 DimensionType = DimensionType,
-                LineType = LineType
+                LineType = LineType,
+
+                HatchColor = HatchColor,
+                HatchName = HatchName,
+                ScaleX = ScaleX,
+                ScaleY = ScaleY,
+                AngleHatch = AngleHatch,
+                DimensionInsert = DimensionInsert,
+                DiagonalInsert = DiagonalInsert,
+                HatchInsert = HatchInsert
             };
 
             dimension.Insert();
@@ -123,6 +150,15 @@ namespace sp_DimensionsForReinforcement
             LineColor = _data.LineColor; if (IsDefaultValue(LineColor)) { LineColor = "Black"; }
             LineType = _data.LineType; if (IsDefaultValue(LineType)) { LineType = "SlashedLine"; }
             DimensionType = _data.DimensionType; if (IsDefaultValue(DimensionType)) { DimensionType = "standard"; }
+
+            HatchColor = _data.HatchColor; if (IsDefaultValue(HatchColor)) { HatchColor = "Black"; }
+            HatchName = _data.HatchName; if (IsDefaultValue(HatchName)) { HatchName = "ANSI31"; }
+            ScaleX = _data.ScaleX; if (IsDefaultValue(ScaleX)) { ScaleX = 1.0; }
+            ScaleY = _data.ScaleY; if (IsDefaultValue(ScaleY)) { ScaleY = 1.0; }
+            AngleHatch = _data.AngleHatch; if (IsDefaultValue(AngleHatch)) { AngleHatch = 0.0; }
+            DimensionInsert = _data.DimensionInsert; if (IsDefaultValue(DimensionInsert)) { DimensionInsert = 1; }
+            DiagonalInsert = _data.DiagonalInsert; if (IsDefaultValue(DiagonalInsert)) { DiagonalInsert = 1; }
+            HatchInsert = _data.HatchInsert; if (IsDefaultValue(HatchInsert)) { HatchInsert = 0; }
         }
     }
 }

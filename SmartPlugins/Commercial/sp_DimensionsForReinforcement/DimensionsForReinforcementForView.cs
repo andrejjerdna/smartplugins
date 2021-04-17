@@ -29,7 +29,6 @@ namespace sp_DimensionsForReinforcement
         private DimensionsForReinforcementData _data;
         private Model _model;
         private DrawingHandler _drawingHandler;
-
         private ViewBase _viewBase;
 
         public double L1 { get; set; }

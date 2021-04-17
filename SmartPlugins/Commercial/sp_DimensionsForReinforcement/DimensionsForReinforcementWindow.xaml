@@ -7,7 +7,14 @@
         xmlns:local="clr-namespace:sp_DimensionsForReinforcement" 
                        xmlns:UIControls="clr-namespace:Tekla.Structures.Dialog.UIControls;assembly=Tekla.Structures.Dialog"
                        mc:Ignorable="d"
-        Title="DimensionsForReinforcementWindow" Height="450" Width="800">
+        Title="DimensionsForReinforcementWindow" Height="700" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Fusion;component/Themes/Generic.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="209*"/>
@@ -26,38 +33,86 @@
                                                    OkClicked="WPFOkApplyModifyGetOnOffCancel_OkClicked" 
                                                    OnOffClicked="WPFOkApplyModifyGetOnOffCancel_OnOffClicked" 
                                                    ModifyClicked="WPFOkApplyModifyGetOnOffCancel_ModifyClicked" Grid.ColumnSpan="2"/>
-        <StackPanel Orientation="Vertical" Grid.Row="1">
-            <DockPanel RenderTransformOrigin="1.109,9.913">
-                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L1" Content="Минимальная длина размера по X: "/>
-                <TextBox Text="{Binding L1, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
-            </DockPanel>
-            <DockPanel>
-                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L2" Content="Минимальная длина размера по Y: "/>
-                <TextBox Text="{Binding L2, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
-            </DockPanel>
-            <DockPanel>
-                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L3" Content="Отступ размера по X: "/>
-                <TextBox Text="{Binding L3, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
-            </DockPanel>
-            <DockPanel>
-                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L4" Content="Отступ размера по Y: "/>
-                <TextBox Text="{Binding L4, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
-            </DockPanel>
-            <DockPanel>
-                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineColor" Content="Цвет линий: "/>
-                <ComboBox x:Name="LineColor" ItemsSource="{Binding DrawinColors, Mode=OneWay}" SelectedValue="{Binding LineColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
-            </DockPanel>
-            <DockPanel>
-                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineType" Content="Тип линий: "/>
-                <ComboBox x:Name="LineType"  ItemsSource="{Binding LineTypes, Mode=OneWay}" SelectedValue="{Binding LineType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
-            </DockPanel>
-            <DockPanel>
-                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DimensionType" Content="Настройки размеров из модели: "/>
-                <ComboBox x:Name="DimensionType"  ItemsSource="{Binding DimensionsTypes, Mode=OneWay}" SelectedValue="{Binding DimensionType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
-            </DockPanel>
-        </StackPanel>
+        <TabControl Margin="5" Grid.Column="0" Grid.Row="1">
+            <TabItem Header="Параметры">
+                <StackPanel Orientation="Vertical" Grid.Row="1">
+                    <GroupBox Header="Размеры и их привязка">
+                        <StackPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DimensionInsert" Content="Создавать размеры: "/>
+                                <ComboBox ItemsSource="{Binding DimensionsInserts, Mode=OneWay}" SelectedIndex="{Binding DimensionInsert, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L1" Content="Минимальная длина размера по X: "/>
+                                <TextBox Text="{Binding L1, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L2" Content="Минимальная длина размера по Y: "/>
+                                <TextBox Text="{Binding L2, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L3" Content="Отступ размера по X: "/>
+                                <TextBox Text="{Binding L3, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L4" Content="Отступ размера по Y: "/>
+                                <TextBox Text="{Binding L4, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" />
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DimensionType" Content="Настройки размеров из модели: "/>
+                                <ComboBox x:Name="DimensionType"  ItemsSource="{Binding DimensionsTypes, Mode=OneWay}" SelectedValue="{Binding DimensionType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Контур">
+                        <StackPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DiagonalInsert" Content="Создание диагоналей: "/>
+                                <ComboBox x:Name="DiagonalInsert" ItemsSource="{Binding DiagonalInserts, Mode=OneWay}" SelectedIndex="{Binding DiagonalInsert, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineColor" Content="Цвет линий: "/>
+                                <ComboBox x:Name="LineColor" ItemsSource="{Binding DrawinColors, Mode=OneWay}" SelectedValue="{Binding LineColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineType" Content="Тип линий: "/>
+                                <ComboBox x:Name="LineType"  ItemsSource="{Binding LineTypes, Mode=OneWay}" SelectedValue="{Binding LineType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Заливка">
+                        <StackPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="HatchInsert" Content="Создание заливки: "/>
+                                <ComboBox x:Name="HatchlInsert" ItemsSource="{Binding HatchInserts, Mode=OneWay}" SelectedIndex="{Binding HatchInsert, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="HatchColor" Content="Цвет заливки: "/>
+                                <ComboBox x:Name="HatchColor" ItemsSource="{Binding DrawinHatchColors, Mode=OneWay}" SelectedValue="{Binding HatchColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="HatchName" Content="Имя заливки: "/>
+                                <ComboBox x:Name="HatchName"  ItemsSource="{Binding HatchNames, Mode=OneWay}" SelectedValue="{Binding HatchName, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="ScaleX" Content="Масштаб по X: "/>
+                                <TextBox x:Name="ScaleX" Text="{Binding ScaleX, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="ScaleY" Content="Масштаб по Y: "/>
+                                <TextBox x:Name="ScaleY" Text="{Binding ScaleY, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="AngleHatch" Content="Угол штриховки: "/>
+                                <TextBox x:Name="AngleHatch" Text="{Binding AngleHatch, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
         <Image Source="Resources/sp_DimensionsForReinforcement.png" Height="300" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="16,5,0,0" Grid.Row="1" Grid.Column="1"/>
-        <TextBlock Text="Отступ размера по X" Grid.Column="1" Margin="154,239,-276,30" Grid.Row="1"/>
-        <TextBlock Text="Отступ размера по Y" Grid.Column="1" Margin="73,93,-195,176" Grid.Row="1"/>
+        <TextBlock Text="Отступ размера по X" Grid.Column="1" Margin="154,229,-276,40" Grid.Row="1"/>
+        <TextBlock Text="Отступ размера по Y" Grid.Column="1" Margin="68,113,-190,156" Grid.Row="1"/>
     </Grid>
 </tsd:PluginWindowBase>

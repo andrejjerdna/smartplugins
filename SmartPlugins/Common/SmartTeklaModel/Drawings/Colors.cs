@@ -20,9 +20,33 @@ namespace SmartTeklaModel.Drawings
             return result;
         }
 
+        public static IEnumerable<DrawingHatchColors> GetListHatchColors()
+        {
+            var result = new List<DrawingHatchColors>();
+            foreach (var item in Enum.GetValues(typeof(DrawingColors)))
+            {
+                if (item is DrawingHatchColors color)
+                    result.Add(color);
+            }
+            return result;
+        }
+
+
         public static DrawingColors GetColor(string colorName)
         {
             var colors = GetListColors();
+
+            var index = colors.Where(c => c.ToString() == colorName);
+
+            if (index.Count() > 0)
+                return index.First();
+            else
+                return colors.First();
+        }
+
+        public static DrawingHatchColors GetHatchColor(string colorName)
+        {
+            var colors = GetListHatchColors();
 
             var index = colors.Where(c => c.ToString() == colorName);
 

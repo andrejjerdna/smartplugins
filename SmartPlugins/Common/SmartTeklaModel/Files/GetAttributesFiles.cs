@@ -44,7 +44,7 @@ namespace SmartTeklaModel.Files
             return Tekla.Structures.Dialog.UIControls.EnvironmentFiles.GetStandardPropertyFileDirectories();
         }*/
 
-        public static IEnumerable<string> Gegeg()
+        public static IEnumerable<string> GetDimensionsTypes()
         {
             return Tekla.Structures.Dialog.UIControls.EnvironmentFiles.GetMultiDirectoryFileList("dim");
         }
