@@ -23,7 +23,7 @@ namespace SmartTeklaModel.Drawings
         public static IEnumerable<DrawingHatchColors> GetListHatchColors()
         {
             var result = new List<DrawingHatchColors>();
-            foreach (var item in Enum.GetValues(typeof(DrawingColors)))
+            foreach (var item in Enum.GetValues(typeof(DrawingHatchColors)))
             {
                 if (item is DrawingHatchColors color)
                     result.Add(color);

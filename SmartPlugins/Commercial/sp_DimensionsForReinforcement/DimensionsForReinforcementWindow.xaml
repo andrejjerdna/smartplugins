@@ -1,17 +1,17 @@
 ﻿<tsd:PluginWindowBase  xmlns:tsd="clr-namespace:Tekla.Structures.Dialog;assembly=Tekla.Structures.Dialog" 
                        x:Class="sp_DimensionsForReinforcement.DimensionsForReinforcementWindow"
                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:sp_DimensionsForReinforcement" 
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:local="clr-namespace:sp_DimensionsForReinforcement" 
                        xmlns:UIControls="clr-namespace:Tekla.Structures.Dialog.UIControls;assembly=Tekla.Structures.Dialog"
                        mc:Ignorable="d"
-        Title="DimensionsForReinforcementWindow" Height="700" Width="800" ResizeMode="NoResize">
+                       Title="DimensionsForReinforcementWindow" Height="700" Width="800" ResizeMode="NoResize">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Fusion;component/Themes/Generic.xaml"/>
+                <!--<ResourceDictionary Source="/Fusion;component/Themes/Generic.xaml"/> -->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -72,11 +72,11 @@
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineColor" Content="Цвет линий: "/>
-                                <ComboBox x:Name="LineColor" ItemsSource="{Binding DrawinColors, Mode=OneWay}" SelectedValue="{Binding LineColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                                <ComboBox x:Name="LineColor" ItemsSource="{Binding DrawinColors, Mode=OneWay}" SelectedItem="{Binding LineColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineType" Content="Тип линий: "/>
-                                <ComboBox x:Name="LineType"  ItemsSource="{Binding LineTypes, Mode=OneWay}" SelectedValue="{Binding LineType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                                <ComboBox x:Name="LineType"  ItemsSource="{Binding LineTypes, Mode=OneWay}" SelectedItem="{Binding LineType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                         </StackPanel>
                     </GroupBox>
@@ -88,11 +88,11 @@
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="HatchColor" Content="Цвет заливки: "/>
-                                <ComboBox x:Name="HatchColor" ItemsSource="{Binding DrawinHatchColors, Mode=OneWay}" SelectedValue="{Binding HatchColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                                <ComboBox x:Name="HatchColor" ItemsSource="{Binding DrawinHatchColors, Mode=OneWay}" SelectedItem="{Binding HatchColor, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="HatchName" Content="Имя заливки: "/>
-                                <ComboBox x:Name="HatchName"  ItemsSource="{Binding HatchNames, Mode=OneWay}" SelectedValue="{Binding HatchName, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                                <ComboBox x:Name="HatchName"  ItemsSource="{Binding HatchNames, Mode=OneWay}" SelectedItem="{Binding HatchName, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="ScaleX" Content="Масштаб по X: "/>

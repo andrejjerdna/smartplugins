@@ -140,14 +140,16 @@ namespace SmartObjects.Drawings
                 rectangle1.Attributes.Hatch.ScaleX = ScaleX;
                 rectangle1.Attributes.Hatch.ScaleY = ScaleY;
                 rectangle1.Attributes.Hatch.Angle = AngleHatch;
-                rectangle1.Attributes.Hatch.Color = Colors.GetColor(LineColor)
+                rectangle1.Attributes.Hatch.Color = Colors.GetHatchColor(HatchColor);
+            }            
             else
             {
                 rectangle1.Attributes.Hatch.Name = "None";
             }
 
-            rectangle1.Insert();
-        }
+                rectangle1.Insert();
+            }
+
 
         /// <summary>
         /// Простановка размеров до ближайших осей.
