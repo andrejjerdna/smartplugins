@@ -145,7 +145,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(3, 2);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(949, 619);
@@ -252,9 +252,9 @@
             this.tabPage1.Controls.Add(this.Yarus_count);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Size = new System.Drawing.Size(941, 590);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Геометрия";
@@ -262,7 +262,7 @@
             // 
             // label41
             // 
-            this.label41.Location = new System.Drawing.Point(413, 235);
+            this.label41.Location = new System.Drawing.Point(616, 201);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(91, 21);
             this.label41.TabIndex = 279;
@@ -535,7 +535,7 @@
             // L_H7
             // 
             this.L_H7.Location = new System.Drawing.Point(413, 546);
-            this.L_H7.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.L_H7.Name = "L_H7";
             this.L_H7.Size = new System.Drawing.Size(93, 22);
             this.L_H7.TabIndex = 252;
@@ -544,7 +544,7 @@
             // L_H6
             // 
             this.L_H6.Location = new System.Drawing.Point(413, 517);
-            this.L_H6.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.L_H6.Name = "L_H6";
             this.L_H6.Size = new System.Drawing.Size(93, 22);
             this.L_H6.TabIndex = 251;
@@ -553,7 +553,7 @@
             // L_H5
             // 
             this.L_H5.Location = new System.Drawing.Point(413, 485);
-            this.L_H5.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.L_H5.Name = "L_H5";
             this.L_H5.Size = new System.Drawing.Size(93, 22);
             this.L_H5.TabIndex = 250;
@@ -562,7 +562,7 @@
             // L_H4
             // 
             this.L_H4.Location = new System.Drawing.Point(413, 450);
-            this.L_H4.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.L_H4.Name = "L_H4";
             this.L_H4.Size = new System.Drawing.Size(93, 22);
             this.L_H4.TabIndex = 249;
@@ -571,7 +571,7 @@
             // L_H3
             // 
             this.L_H3.Location = new System.Drawing.Point(413, 418);
-            this.L_H3.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.L_H3.Name = "L_H3";
             this.L_H3.Size = new System.Drawing.Size(93, 22);
             this.L_H3.TabIndex = 248;
@@ -580,7 +580,7 @@
             // L_H2
             // 
             this.L_H2.Location = new System.Drawing.Point(413, 384);
-            this.L_H2.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.L_H2.Name = "L_H2";
             this.L_H2.Size = new System.Drawing.Size(93, 22);
             this.L_H2.TabIndex = 247;
@@ -589,7 +589,7 @@
             // L_H1
             // 
             this.L_H1.Location = new System.Drawing.Point(413, 352);
-            this.L_H1.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.L_H1.Name = "L_H1";
             this.L_H1.Size = new System.Drawing.Size(93, 22);
             this.L_H1.TabIndex = 246;
@@ -618,7 +618,7 @@
             // Z_start2
             // 
             this.Z_start2.Location = new System.Drawing.Point(157, 140);
-            this.Z_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.Z_start2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Z_start2.Name = "Z_start2";
             this.Z_start2.Size = new System.Drawing.Size(85, 22);
             this.Z_start2.TabIndex = 242;
@@ -627,7 +627,7 @@
             // Y_start2
             // 
             this.Y_start2.Location = new System.Drawing.Point(157, 114);
-            this.Y_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.Y_start2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Y_start2.Name = "Y_start2";
             this.Y_start2.Size = new System.Drawing.Size(85, 22);
             this.Y_start2.TabIndex = 241;
@@ -638,7 +638,7 @@
             this.X_start2.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
             this.X_start2.Location = new System.Drawing.Point(157, 89);
-            this.X_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.X_start2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.X_start2.Name = "X_start2";
             this.X_start2.Size = new System.Drawing.Size(85, 22);
             this.X_start2.TabIndex = 240;
@@ -656,7 +656,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(96, 201);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 46);
             this.button2.TabIndex = 238;
@@ -667,7 +667,7 @@
             // Z_start
             // 
             this.Z_start.Location = new System.Drawing.Point(61, 140);
-            this.Z_start.Margin = new System.Windows.Forms.Padding(4);
+            this.Z_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Z_start.Name = "Z_start";
             this.Z_start.Size = new System.Drawing.Size(85, 22);
             this.Z_start.TabIndex = 237;
@@ -676,7 +676,7 @@
             // Y_start
             // 
             this.Y_start.Location = new System.Drawing.Point(61, 114);
-            this.Y_start.Margin = new System.Windows.Forms.Padding(4);
+            this.Y_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Y_start.Name = "Y_start";
             this.Y_start.Size = new System.Drawing.Size(85, 22);
             this.Y_start.TabIndex = 236;
@@ -687,7 +687,7 @@
             this.X_start.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
             this.X_start.Location = new System.Drawing.Point(61, 89);
-            this.X_start.Margin = new System.Windows.Forms.Padding(4);
+            this.X_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.X_start.Name = "X_start";
             this.X_start.Size = new System.Drawing.Size(85, 22);
             this.X_start.TabIndex = 235;
@@ -741,7 +741,7 @@
             // ShagRam
             // 
             this.ShagRam.Location = new System.Drawing.Point(657, 32);
-            this.ShagRam.Margin = new System.Windows.Forms.Padding(4);
+            this.ShagRam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ShagRam.Name = "ShagRam";
             this.ShagRam.Size = new System.Drawing.Size(249, 22);
             this.ShagRam.TabIndex = 229;
@@ -860,7 +860,7 @@
             // YklonYarys1
             // 
             this.YklonYarys1.Location = new System.Drawing.Point(717, 353);
-            this.YklonYarys1.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.YklonYarys1.Name = "YklonYarys1";
             this.YklonYarys1.Size = new System.Drawing.Size(93, 22);
             this.YklonYarys1.TabIndex = 216;
@@ -878,7 +878,7 @@
             // YklonYarys7
             // 
             this.YklonYarys7.Location = new System.Drawing.Point(717, 546);
-            this.YklonYarys7.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.YklonYarys7.Name = "YklonYarys7";
             this.YklonYarys7.Size = new System.Drawing.Size(93, 22);
             this.YklonYarys7.TabIndex = 214;
@@ -887,7 +887,7 @@
             // YklonYarys6
             // 
             this.YklonYarys6.Location = new System.Drawing.Point(717, 518);
-            this.YklonYarys6.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.YklonYarys6.Name = "YklonYarys6";
             this.YklonYarys6.Size = new System.Drawing.Size(93, 22);
             this.YklonYarys6.TabIndex = 213;
@@ -896,7 +896,7 @@
             // YklonYarys5
             // 
             this.YklonYarys5.Location = new System.Drawing.Point(717, 486);
-            this.YklonYarys5.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.YklonYarys5.Name = "YklonYarys5";
             this.YklonYarys5.Size = new System.Drawing.Size(93, 22);
             this.YklonYarys5.TabIndex = 212;
@@ -905,7 +905,7 @@
             // YklonYarys4
             // 
             this.YklonYarys4.Location = new System.Drawing.Point(717, 450);
-            this.YklonYarys4.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.YklonYarys4.Name = "YklonYarys4";
             this.YklonYarys4.Size = new System.Drawing.Size(93, 22);
             this.YklonYarys4.TabIndex = 211;
@@ -914,7 +914,7 @@
             // YklonYarys3
             // 
             this.YklonYarys3.Location = new System.Drawing.Point(717, 418);
-            this.YklonYarys3.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.YklonYarys3.Name = "YklonYarys3";
             this.YklonYarys3.Size = new System.Drawing.Size(93, 22);
             this.YklonYarys3.TabIndex = 210;
@@ -923,7 +923,7 @@
             // YklonYarys2
             // 
             this.YklonYarys2.Location = new System.Drawing.Point(717, 384);
-            this.YklonYarys2.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.YklonYarys2.Name = "YklonYarys2";
             this.YklonYarys2.Size = new System.Drawing.Size(93, 22);
             this.YklonYarys2.TabIndex = 209;
@@ -1066,7 +1066,7 @@
             // B_H7
             // 
             this.B_H7.Location = new System.Drawing.Point(107, 546);
-            this.B_H7.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_H7.Name = "B_H7";
             this.B_H7.Size = new System.Drawing.Size(93, 22);
             this.B_H7.TabIndex = 194;
@@ -1075,7 +1075,7 @@
             // B_H6
             // 
             this.B_H6.Location = new System.Drawing.Point(107, 517);
-            this.B_H6.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_H6.Name = "B_H6";
             this.B_H6.Size = new System.Drawing.Size(93, 22);
             this.B_H6.TabIndex = 193;
@@ -1084,7 +1084,7 @@
             // B_H5
             // 
             this.B_H5.Location = new System.Drawing.Point(107, 485);
-            this.B_H5.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_H5.Name = "B_H5";
             this.B_H5.Size = new System.Drawing.Size(93, 22);
             this.B_H5.TabIndex = 192;
@@ -1093,7 +1093,7 @@
             // B_H4
             // 
             this.B_H4.Location = new System.Drawing.Point(107, 450);
-            this.B_H4.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_H4.Name = "B_H4";
             this.B_H4.Size = new System.Drawing.Size(93, 22);
             this.B_H4.TabIndex = 191;
@@ -1102,7 +1102,7 @@
             // B_H3
             // 
             this.B_H3.Location = new System.Drawing.Point(107, 418);
-            this.B_H3.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_H3.Name = "B_H3";
             this.B_H3.Size = new System.Drawing.Size(93, 22);
             this.B_H3.TabIndex = 190;
@@ -1111,7 +1111,7 @@
             // B_H2
             // 
             this.B_H2.Location = new System.Drawing.Point(107, 384);
-            this.B_H2.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_H2.Name = "B_H2";
             this.B_H2.Size = new System.Drawing.Size(93, 22);
             this.B_H2.TabIndex = 189;
@@ -1120,7 +1120,7 @@
             // B_H1
             // 
             this.B_H1.Location = new System.Drawing.Point(107, 352);
-            this.B_H1.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.B_H1.Name = "B_H1";
             this.B_H1.Size = new System.Drawing.Size(93, 22);
             this.B_H1.TabIndex = 188;
@@ -1129,7 +1129,7 @@
             // Razdv_2_3
             // 
             this.Razdv_2_3.Location = new System.Drawing.Point(413, 201);
-            this.Razdv_2_3.Margin = new System.Windows.Forms.Padding(4);
+            this.Razdv_2_3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Razdv_2_3.Name = "Razdv_2_3";
             this.Razdv_2_3.Size = new System.Drawing.Size(93, 22);
             this.Razdv_2_3.TabIndex = 187;
@@ -1138,7 +1138,7 @@
             // Razdv_1_2
             // 
             this.Razdv_1_2.Location = new System.Drawing.Point(413, 167);
-            this.Razdv_1_2.Margin = new System.Windows.Forms.Padding(4);
+            this.Razdv_1_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Razdv_1_2.Name = "Razdv_1_2";
             this.Razdv_1_2.Size = new System.Drawing.Size(93, 22);
             this.Razdv_1_2.TabIndex = 186;
@@ -1161,7 +1161,7 @@
             "2",
             "3"});
             this.Count_column.Location = new System.Drawing.Point(475, 32);
-            this.Count_column.Margin = new System.Windows.Forms.Padding(4);
+            this.Count_column.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Count_column.Name = "Count_column";
             this.Count_column.Size = new System.Drawing.Size(63, 24);
             this.Count_column.TabIndex = 184;
@@ -1189,7 +1189,7 @@
             "6",
             "7"});
             this.Yarus_count.Location = new System.Drawing.Point(475, 66);
-            this.Yarus_count.Margin = new System.Windows.Forms.Padding(4);
+            this.Yarus_count.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Yarus_count.Name = "Yarus_count";
             this.Yarus_count.Size = new System.Drawing.Size(63, 24);
             this.Yarus_count.TabIndex = 182;
@@ -1208,9 +1208,9 @@
             // 
             this.tabPage2.Controls.Add(this.pictureBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Size = new System.Drawing.Size(941, 590);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Поперечник";
@@ -1231,9 +1231,9 @@
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage3.Size = new System.Drawing.Size(941, 590);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Продольник";
@@ -1259,7 +1259,7 @@
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = "Эстакада 0.0.1";
+            this.Text = "Эстакада 0.0.4";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

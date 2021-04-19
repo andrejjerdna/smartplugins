@@ -27,7 +27,7 @@ namespace PipeRack
         private int _yarusCount;
         private int _count_column;
 
-        Point _basePoint;
+        public Point _basePoint;
 
         public List<Beam> _Columns = new List<Beam>();
         public List<Beam> _Travers = new List<Beam>();
@@ -40,7 +40,10 @@ namespace PipeRack
             _count_column = count_column;
             _M = M;
         }
+        public Frame()
+        {
 
+        }
 
         public void Insert()
         {
@@ -80,14 +83,22 @@ namespace PipeRack
            {
                int H = _yarusCount;
 
+            
+
                Point C_Start_point1 = new Point(0, 0 - Razdv_1_2, 0);                           //точка низа 1 колонны
                Point C_End_point1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100);     //точка верха  1 колонны 
 
                Point C_Start_point2 = new Point(0, 0 , 0);                           //точка низа 2 колонны
-               Point C_End_point2 = new Point(0, 0 , Traversy[H - 1] + 100);     //точка верха  2 колонны 
+               Point C_End_point2 = new Point(0, 0, Traversy[H - 1] + 100);//точка верха  2 колонны 
+
+                if (Traversy2[H-1] > Traversy[H-1])
+                {
+                   C_End_point2 = new Point(0, 0, Traversy2[H - 1] + 100);
+                }
+
 
                Point C_Start_point3 = new Point(0, 0 + Razdv_2_3, 0);                                       //точка низа 3 колонны
-               Point C_End_point3 = new Point(0, 0 + Razdv_2_3, Traversy[H - 1] + 100);                                   //точка верха  3 колонны 
+               Point C_End_point3 = new Point(0, 0 + Razdv_2_3, Traversy2[H - 1] + 100);                                   //точка верха  3 колонны 
 
             _Columns.Add(Beam_main(AttributeColumn[0], C_Start_point1, C_End_point1));
             _Columns.Add(Beam_main(AttributeColumn[1], C_Start_point2, C_End_point2));
@@ -108,7 +119,9 @@ namespace PipeRack
             }
         }
 
-        private Beam Beam_main(Attributes attributes, Point startPoint, Point endPoint)
+ 
+
+        public Beam Beam_main(Attributes attributes, Point startPoint, Point endPoint)
         {
             Beam newBeam = new Beam(startPoint, endPoint);
             newBeam.Profile.ProfileString = "I30K1_20_93";
@@ -117,10 +130,10 @@ namespace PipeRack
             {
                 SetAtt(newBeam, attributes);
             }
-
             return newBeam;
         }
-        public void SetAtt(Beam beam, Attributes _attributes)
+
+        private void SetAtt(Beam beam, Attributes _attributes)
         {
             if (_attributes != null)
             {
@@ -158,5 +171,7 @@ namespace PipeRack
 
             beam.Modify(); 
         }
+
+
     }
 }

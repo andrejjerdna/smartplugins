@@ -76,7 +76,6 @@ namespace PipeRack
                     MessageBox.Show("Введите атрибуты для " + Mesaga.ToString() +" "+ (_count).ToString());
                     return false;
                 }
-
             }
             return true;
         }
@@ -208,12 +207,19 @@ namespace PipeRack
                 };
                 frame.Insert();
                 FraMES.Add(frame);
+
+                var balkiYarusa = new BalkiYarysa(FraMES)
+                {
+                   AttributesProdolnie = _attributesProdolnie,
+                };
+                balkiYarusa.Insert();
+
             }
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
         }
-
+               
 
 
 

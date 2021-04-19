@@ -85,5 +85,9 @@ namespace PipeRack
             Material.Text = materialCatalog1.SelectedMaterial;
         }
 
+        private void ProfileCatalog1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

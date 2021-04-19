@@ -56,10 +56,9 @@
             this.structuresExtender.SetAttributeName(this.label24, null);
             this.structuresExtender.SetAttributeTypeName(this.label24, null);
             this.structuresExtender.SetBindPropertyName(this.label24, null);
-            this.label24.Location = new System.Drawing.Point(1, 117);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Location = new System.Drawing.Point(1, 144);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(105, 16);
+            this.label24.Size = new System.Drawing.Size(140, 20);
             this.label24.TabIndex = 127;
             this.label24.Text = "Нумерация сборок";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -69,9 +68,10 @@
             this.structuresExtender.SetAttributeName(this.PrefixSborki, null);
             this.structuresExtender.SetAttributeTypeName(this.PrefixSborki, null);
             this.structuresExtender.SetBindPropertyName(this.PrefixSborki, null);
-            this.PrefixSborki.Location = new System.Drawing.Point(111, 116);
+            this.PrefixSborki.Location = new System.Drawing.Point(148, 143);
+            this.PrefixSborki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PrefixSborki.Name = "PrefixSborki";
-            this.PrefixSborki.Size = new System.Drawing.Size(71, 20);
+            this.PrefixSborki.Size = new System.Drawing.Size(93, 22);
             this.PrefixSborki.TabIndex = 126;
             this.PrefixSborki.Text = "K";
             // 
@@ -80,9 +80,10 @@
             this.structuresExtender.SetAttributeName(this.Namen, null);
             this.structuresExtender.SetAttributeTypeName(this.Namen, null);
             this.structuresExtender.SetBindPropertyName(this.Namen, null);
-            this.Namen.Location = new System.Drawing.Point(111, 6);
+            this.Namen.Location = new System.Drawing.Point(148, 7);
+            this.Namen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Namen.Name = "Namen";
-            this.Namen.Size = new System.Drawing.Size(148, 20);
+            this.Namen.Size = new System.Drawing.Size(196, 22);
             this.Namen.TabIndex = 123;
             this.Namen.Text = "Колонна";
             // 
@@ -91,10 +92,9 @@
             this.structuresExtender.SetAttributeName(this.label18, null);
             this.structuresExtender.SetAttributeTypeName(this.label18, null);
             this.structuresExtender.SetBindPropertyName(this.label18, null);
-            this.label18.Location = new System.Drawing.Point(11, 9);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Location = new System.Drawing.Point(15, 11);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 17);
+            this.label18.Size = new System.Drawing.Size(80, 21);
             this.label18.TabIndex = 122;
             this.label18.Text = "Имя";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -104,10 +104,9 @@
             this.structuresExtender.SetAttributeName(this.label20, null);
             this.structuresExtender.SetAttributeTypeName(this.label20, null);
             this.structuresExtender.SetBindPropertyName(this.label20, null);
-            this.label20.Location = new System.Drawing.Point(11, 61);
-            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Location = new System.Drawing.Point(15, 75);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(60, 17);
+            this.label20.Size = new System.Drawing.Size(80, 21);
             this.label20.TabIndex = 121;
             this.label20.Text = "Материал";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -117,9 +116,10 @@
             this.structuresExtender.SetAttributeName(this.Material, null);
             this.structuresExtender.SetAttributeTypeName(this.Material, null);
             this.structuresExtender.SetBindPropertyName(this.Material, null);
-            this.Material.Location = new System.Drawing.Point(111, 58);
+            this.Material.Location = new System.Drawing.Point(148, 71);
+            this.Material.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Material.Name = "Material";
-            this.Material.Size = new System.Drawing.Size(148, 20);
+            this.Material.Size = new System.Drawing.Size(196, 22);
             this.Material.TabIndex = 120;
             this.Material.Text = "C345";
             // 
@@ -128,9 +128,10 @@
             this.structuresExtender.SetAttributeName(this.Profile, null);
             this.structuresExtender.SetAttributeTypeName(this.Profile, null);
             this.structuresExtender.SetBindPropertyName(this.Profile, null);
-            this.Profile.Location = new System.Drawing.Point(111, 32);
+            this.Profile.Location = new System.Drawing.Point(148, 39);
+            this.Profile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Profile.Name = "Profile";
-            this.Profile.Size = new System.Drawing.Size(148, 20);
+            this.Profile.Size = new System.Drawing.Size(196, 22);
             this.Profile.TabIndex = 119;
             this.Profile.Text = "I30K1_20_93";
             // 
@@ -139,10 +140,9 @@
             this.structuresExtender.SetAttributeName(this.label21, null);
             this.structuresExtender.SetAttributeTypeName(this.label21, null);
             this.structuresExtender.SetBindPropertyName(this.label21, null);
-            this.label21.Location = new System.Drawing.Point(11, 35);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label21.Location = new System.Drawing.Point(15, 43);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(60, 17);
+            this.label21.Size = new System.Drawing.Size(80, 21);
             this.label21.TabIndex = 118;
             this.label21.Text = "Профиль";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,10 +152,9 @@
             this.structuresExtender.SetAttributeName(this.label2, null);
             this.structuresExtender.SetAttributeTypeName(this.label2, null);
             this.structuresExtender.SetBindPropertyName(this.label2, null);
-            this.label2.Location = new System.Drawing.Point(11, 198);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(15, 244);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.Size = new System.Drawing.Size(111, 25);
             this.label2.TabIndex = 130;
             this.label2.Text = "Поворот";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -165,10 +164,9 @@
             this.structuresExtender.SetAttributeName(this.label17, null);
             this.structuresExtender.SetAttributeTypeName(this.label17, null);
             this.structuresExtender.SetBindPropertyName(this.label17, null);
-            this.label17.Location = new System.Drawing.Point(11, 91);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Location = new System.Drawing.Point(15, 112);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 17);
+            this.label17.Size = new System.Drawing.Size(80, 21);
             this.label17.TabIndex = 125;
             this.label17.Text = "Класс";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,9 +176,10 @@
             this.structuresExtender.SetAttributeName(this.Class, null);
             this.structuresExtender.SetAttributeTypeName(this.Class, null);
             this.structuresExtender.SetBindPropertyName(this.Class, null);
-            this.Class.Location = new System.Drawing.Point(111, 87);
+            this.Class.Location = new System.Drawing.Point(148, 107);
+            this.Class.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Class.Name = "Class";
-            this.Class.Size = new System.Drawing.Size(148, 20);
+            this.Class.Size = new System.Drawing.Size(196, 22);
             this.Class.TabIndex = 124;
             this.Class.Text = "2";
             // 
@@ -189,9 +188,10 @@
             this.structuresExtender.SetAttributeName(this.NomerSborki, null);
             this.structuresExtender.SetAttributeTypeName(this.NomerSborki, null);
             this.structuresExtender.SetBindPropertyName(this.NomerSborki, null);
-            this.NomerSborki.Location = new System.Drawing.Point(188, 116);
+            this.NomerSborki.Location = new System.Drawing.Point(251, 143);
+            this.NomerSborki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NomerSborki.Name = "NomerSborki";
-            this.NomerSborki.Size = new System.Drawing.Size(71, 20);
+            this.NomerSborki.Size = new System.Drawing.Size(93, 22);
             this.NomerSborki.TabIndex = 132;
             this.NomerSborki.Text = "2";
             // 
@@ -200,10 +200,9 @@
             this.structuresExtender.SetAttributeName(this.label26, null);
             this.structuresExtender.SetAttributeTypeName(this.label26, null);
             this.structuresExtender.SetBindPropertyName(this.label26, null);
-            this.label26.Location = new System.Drawing.Point(1, 174);
-            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Location = new System.Drawing.Point(1, 214);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(98, 17);
+            this.label26.Size = new System.Drawing.Size(131, 21);
             this.label26.TabIndex = 114;
             this.label26.Text = "Вертикально";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -213,10 +212,9 @@
             this.structuresExtender.SetAttributeName(this.label3, null);
             this.structuresExtender.SetAttributeTypeName(this.label3, null);
             this.structuresExtender.SetBindPropertyName(this.label3, null);
-            this.label3.Location = new System.Drawing.Point(22, 146);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(29, 180);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 18);
+            this.label3.Size = new System.Drawing.Size(93, 22);
             this.label3.TabIndex = 133;
             this.label3.Text = "Положение";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,10 +224,9 @@
             this.structuresExtender.SetAttributeName(this.label4, null);
             this.structuresExtender.SetAttributeTypeName(this.label4, null);
             this.structuresExtender.SetBindPropertyName(this.label4, null);
-            this.label4.Location = new System.Drawing.Point(1, 226);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(1, 278);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 17);
+            this.label4.Size = new System.Drawing.Size(131, 21);
             this.label4.TabIndex = 134;
             this.label4.Text = "Горизонтально";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,10 +236,10 @@
             this.structuresExtender.SetAttributeName(this.button1, null);
             this.structuresExtender.SetAttributeTypeName(this.button1, null);
             this.structuresExtender.SetBindPropertyName(this.button1, null);
-            this.button1.Location = new System.Drawing.Point(111, 252);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(148, 310);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 25);
+            this.button1.Size = new System.Drawing.Size(91, 31);
             this.button1.TabIndex = 136;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
@@ -258,10 +255,10 @@
             "Центр",
             "Слева",
             "Справа"});
-            this.PolojenieGorizontalno.Location = new System.Drawing.Point(111, 225);
-            this.PolojenieGorizontalno.Margin = new System.Windows.Forms.Padding(2);
+            this.PolojenieGorizontalno.Location = new System.Drawing.Point(148, 277);
+            this.PolojenieGorizontalno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PolojenieGorizontalno.Name = "PolojenieGorizontalno";
-            this.PolojenieGorizontalno.Size = new System.Drawing.Size(148, 21);
+            this.PolojenieGorizontalno.Size = new System.Drawing.Size(196, 24);
             this.PolojenieGorizontalno.TabIndex = 137;
             this.PolojenieGorizontalno.Text = "Центр";
             // 
@@ -276,10 +273,10 @@
             "Сверху",
             "Сзади",
             "Снизу"});
-            this.PolojeniePovorot.Location = new System.Drawing.Point(111, 199);
-            this.PolojeniePovorot.Margin = new System.Windows.Forms.Padding(2);
+            this.PolojeniePovorot.Location = new System.Drawing.Point(148, 245);
+            this.PolojeniePovorot.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PolojeniePovorot.Name = "PolojeniePovorot";
-            this.PolojeniePovorot.Size = new System.Drawing.Size(148, 21);
+            this.PolojeniePovorot.Size = new System.Drawing.Size(196, 24);
             this.PolojeniePovorot.TabIndex = 138;
             this.PolojeniePovorot.Text = "Спереди";
             // 
@@ -293,10 +290,10 @@
             "Середина",
             "Вверх",
             "Вниз"});
-            this.PolojenieVertikalno.Location = new System.Drawing.Point(111, 173);
-            this.PolojenieVertikalno.Margin = new System.Windows.Forms.Padding(2);
+            this.PolojenieVertikalno.Location = new System.Drawing.Point(148, 213);
+            this.PolojenieVertikalno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PolojenieVertikalno.Name = "PolojenieVertikalno";
-            this.PolojenieVertikalno.Size = new System.Drawing.Size(148, 21);
+            this.PolojenieVertikalno.Size = new System.Drawing.Size(196, 24);
             this.PolojenieVertikalno.TabIndex = 138;
             this.PolojenieVertikalno.Text = "Середина";
             // 
@@ -307,13 +304,15 @@
             this.profileCatalog1.BackColor = System.Drawing.Color.Transparent;
             this.structuresExtender.SetBindPropertyName(this.profileCatalog1, null);
             this.profileCatalog1.ButtonText = "Select...";
-            this.profileCatalog1.Location = new System.Drawing.Point(265, 25);
+            this.profileCatalog1.Location = new System.Drawing.Point(353, 31);
+            this.profileCatalog1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.profileCatalog1.Name = "profileCatalog1";
             this.profileCatalog1.SelectedProfile = "";
-            this.profileCatalog1.Size = new System.Drawing.Size(88, 27);
+            this.profileCatalog1.Size = new System.Drawing.Size(117, 33);
             this.profileCatalog1.TabIndex = 139;
             this.profileCatalog1.SelectClicked += new System.EventHandler(this.profileCatalog1_SelectClicked);
             this.profileCatalog1.SelectionDone += new System.EventHandler(this.profileCatalog1_SelectionDone);
+            this.profileCatalog1.Load += new System.EventHandler(this.ProfileCatalog1_Load);
             // 
             // materialCatalog1
             // 
@@ -322,10 +321,11 @@
             this.materialCatalog1.BackColor = System.Drawing.Color.Transparent;
             this.structuresExtender.SetBindPropertyName(this.materialCatalog1, null);
             this.materialCatalog1.ButtonText = "albl_Select__";
-            this.materialCatalog1.Location = new System.Drawing.Point(266, 61);
+            this.materialCatalog1.Location = new System.Drawing.Point(355, 75);
+            this.materialCatalog1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.materialCatalog1.Name = "materialCatalog1";
             this.materialCatalog1.SelectedMaterial = "";
-            this.materialCatalog1.Size = new System.Drawing.Size(88, 27);
+            this.materialCatalog1.Size = new System.Drawing.Size(117, 33);
             this.materialCatalog1.TabIndex = 140;
             this.materialCatalog1.SelectClicked += new System.EventHandler(this.materialCatalog1_SelectClicked);
             this.materialCatalog1.SelectionDone += new System.EventHandler(this.materialCatalog1_SelectionDone);
@@ -334,10 +334,10 @@
             // 
             this.structuresExtender.SetAttributeName(this, null);
             this.structuresExtender.SetAttributeTypeName(this, null);
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.structuresExtender.SetBindPropertyName(this, null);
-            this.ClientSize = new System.Drawing.Size(354, 287);
+            this.ClientSize = new System.Drawing.Size(472, 353);
             this.Controls.Add(this.materialCatalog1);
             this.Controls.Add(this.profileCatalog1);
             this.Controls.Add(this.PolojenieVertikalno);
@@ -359,6 +359,7 @@
             this.Controls.Add(this.Profile);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label26);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form_att";
             this.Text = "Form2";
             this.ResumeLayout(false);

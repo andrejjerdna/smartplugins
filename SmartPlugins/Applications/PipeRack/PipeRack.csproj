@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes.cs" />
+    <Compile Include="BalkiYarysa.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
