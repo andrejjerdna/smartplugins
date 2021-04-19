@@ -328,6 +328,7 @@
             this.AttYarus7L.TabIndex = 273;
             this.AttYarus7L.Text = "Атрибуты";
             this.AttYarus7L.UseVisualStyleBackColor = true;
+            this.AttYarus7L.Click += new System.EventHandler(this.AttYarus7L_Click);
             // 
             // AttYarus6L
             // 
@@ -338,6 +339,7 @@
             this.AttYarus6L.TabIndex = 272;
             this.AttYarus6L.Text = "Атрибуты";
             this.AttYarus6L.UseVisualStyleBackColor = true;
+            this.AttYarus6L.Click += new System.EventHandler(this.AttYarus6L_Click);
             // 
             // AttYarus5L
             // 
@@ -348,6 +350,7 @@
             this.AttYarus5L.TabIndex = 271;
             this.AttYarus5L.Text = "Атрибуты";
             this.AttYarus5L.UseVisualStyleBackColor = true;
+            this.AttYarus5L.Click += new System.EventHandler(this.AttYarus5L_Click);
             // 
             // AttYarus4L
             // 
@@ -358,6 +361,7 @@
             this.AttYarus4L.TabIndex = 270;
             this.AttYarus4L.Text = "Атрибуты";
             this.AttYarus4L.UseVisualStyleBackColor = true;
+            this.AttYarus4L.Click += new System.EventHandler(this.AttYarus4L_Click);
             // 
             // AttYarus3L
             // 
@@ -368,6 +372,7 @@
             this.AttYarus3L.TabIndex = 269;
             this.AttYarus3L.Text = "Атрибуты";
             this.AttYarus3L.UseVisualStyleBackColor = true;
+            this.AttYarus3L.Click += new System.EventHandler(this.AttYarus3L_Click);
             // 
             // AttYarus7
             // 
@@ -442,6 +447,7 @@
             this.AttYarus2L.TabIndex = 262;
             this.AttYarus2L.Text = "Атрибуты";
             this.AttYarus2L.UseVisualStyleBackColor = true;
+            this.AttYarus2L.Click += new System.EventHandler(this.AttYarus2L_Click);
             // 
             // label21
             // 
@@ -515,6 +521,7 @@
             this.AttYarus1L.TabIndex = 254;
             this.AttYarus1L.Text = "Атрибуты";
             this.AttYarus1L.UseVisualStyleBackColor = true;
+            this.AttYarus1L.Click += new System.EventHandler(this.AttYarus1L_Click);
             // 
             // label39
             // 

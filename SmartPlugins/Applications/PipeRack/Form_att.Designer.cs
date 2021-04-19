@@ -37,16 +37,16 @@
             this.Profile = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.PolojeniePovorot = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.Class = new System.Windows.Forms.TextBox();
             this.NomerSborki = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.PolojenieVertikalno = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.PolojenieGorizontalno = new System.Windows.Forms.ComboBox();
+            this.PolojeniePovorot = new System.Windows.Forms.ComboBox();
+            this.PolojenieVertikalno = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label24
@@ -61,7 +61,7 @@
             // PrefixSborki
             // 
             this.PrefixSborki.Location = new System.Drawing.Point(148, 143);
-            this.PrefixSborki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PrefixSborki.Margin = new System.Windows.Forms.Padding(4);
             this.PrefixSborki.Name = "PrefixSborki";
             this.PrefixSborki.Size = new System.Drawing.Size(93, 22);
             this.PrefixSborki.TabIndex = 126;
@@ -70,7 +70,7 @@
             // Namen
             // 
             this.Namen.Location = new System.Drawing.Point(148, 7);
-            this.Namen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Namen.Margin = new System.Windows.Forms.Padding(4);
             this.Namen.Name = "Namen";
             this.Namen.Size = new System.Drawing.Size(196, 22);
             this.Namen.TabIndex = 123;
@@ -97,7 +97,7 @@
             // Material
             // 
             this.Material.Location = new System.Drawing.Point(148, 71);
-            this.Material.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Material.Margin = new System.Windows.Forms.Padding(4);
             this.Material.Name = "Material";
             this.Material.Size = new System.Drawing.Size(196, 22);
             this.Material.TabIndex = 120;
@@ -106,7 +106,7 @@
             // Profile
             // 
             this.Profile.Location = new System.Drawing.Point(148, 39);
-            this.Profile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Profile.Margin = new System.Windows.Forms.Padding(4);
             this.Profile.Name = "Profile";
             this.Profile.Size = new System.Drawing.Size(196, 22);
             this.Profile.TabIndex = 119;
@@ -130,15 +130,6 @@
             this.label2.Text = "Поворот";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // PolojeniePovorot
-            // 
-            this.PolojeniePovorot.Location = new System.Drawing.Point(148, 245);
-            this.PolojeniePovorot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.PolojeniePovorot.Name = "PolojeniePovorot";
-            this.PolojeniePovorot.Size = new System.Drawing.Size(196, 22);
-            this.PolojeniePovorot.TabIndex = 131;
-            this.PolojeniePovorot.Text = "0";
-            // 
             // label17
             // 
             this.label17.Location = new System.Drawing.Point(15, 112);
@@ -151,7 +142,7 @@
             // Class
             // 
             this.Class.Location = new System.Drawing.Point(148, 107);
-            this.Class.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Class.Margin = new System.Windows.Forms.Padding(4);
             this.Class.Name = "Class";
             this.Class.Size = new System.Drawing.Size(196, 22);
             this.Class.TabIndex = 124;
@@ -160,7 +151,7 @@
             // NomerSborki
             // 
             this.NomerSborki.Location = new System.Drawing.Point(251, 143);
-            this.NomerSborki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NomerSborki.Margin = new System.Windows.Forms.Padding(4);
             this.NomerSborki.Name = "NomerSborki";
             this.NomerSborki.Size = new System.Drawing.Size(93, 22);
             this.NomerSborki.TabIndex = 132;
@@ -174,15 +165,6 @@
             this.label26.TabIndex = 114;
             this.label26.Text = "Вертикально";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PolojenieVertikalno
-            // 
-            this.PolojenieVertikalno.Location = new System.Drawing.Point(148, 213);
-            this.PolojenieVertikalno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.PolojenieVertikalno.Name = "PolojenieVertikalno";
-            this.PolojenieVertikalno.Size = new System.Drawing.Size(196, 22);
-            this.PolojenieVertikalno.TabIndex = 115;
-            this.PolojenieVertikalno.Text = "0";
             // 
             // label3
             // 
@@ -224,18 +206,47 @@
             this.PolojenieGorizontalno.Name = "PolojenieGorizontalno";
             this.PolojenieGorizontalno.Size = new System.Drawing.Size(196, 24);
             this.PolojenieGorizontalno.TabIndex = 137;
+            this.PolojenieGorizontalno.Text = "Центр";
+            // 
+            // PolojeniePovorot
+            // 
+            this.PolojeniePovorot.FormattingEnabled = true;
+            this.PolojeniePovorot.Items.AddRange(new object[] {
+            "Спереди",
+            "Сверху",
+            "Сзади",
+            "Снизу"});
+            this.PolojeniePovorot.Location = new System.Drawing.Point(148, 245);
+            this.PolojeniePovorot.Name = "PolojeniePovorot";
+            this.PolojeniePovorot.Size = new System.Drawing.Size(196, 24);
+            this.PolojeniePovorot.TabIndex = 138;
+            this.PolojeniePovorot.Text = "Спереди";
+            // 
+            // PolojenieVertikalno
+            // 
+            this.PolojenieVertikalno.FormattingEnabled = true;
+            this.PolojenieVertikalno.Items.AddRange(new object[] {
+            "Середина",
+            "Вверх",
+            "Вниз"});
+            this.PolojenieVertikalno.Location = new System.Drawing.Point(148, 213);
+            this.PolojenieVertikalno.Name = "PolojenieVertikalno";
+            this.PolojenieVertikalno.Size = new System.Drawing.Size(196, 24);
+            this.PolojenieVertikalno.TabIndex = 138;
+            this.PolojenieVertikalno.Text = "Середина";
             // 
             // Form_att
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 353);
+            this.Controls.Add(this.PolojenieVertikalno);
+            this.Controls.Add(this.PolojeniePovorot);
             this.Controls.Add(this.PolojenieGorizontalno);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.NomerSborki);
-            this.Controls.Add(this.PolojeniePovorot);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.PrefixSborki);
@@ -247,9 +258,8 @@
             this.Controls.Add(this.Material);
             this.Controls.Add(this.Profile);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.PolojenieVertikalno);
             this.Controls.Add(this.label26);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_att";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -267,15 +277,15 @@
         private System.Windows.Forms.TextBox Profile;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox PolojeniePovorot;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox Class;
         private System.Windows.Forms.TextBox NomerSborki;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox PolojenieVertikalno;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox PolojenieGorizontalno;
+        private System.Windows.Forms.ComboBox PolojeniePovorot;
+        private System.Windows.Forms.ComboBox PolojenieVertikalno;
     }
 }

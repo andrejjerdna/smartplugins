@@ -11,6 +11,7 @@ using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 using T3D = Tekla.Structures.Geometry3d;
 using SmartGeometry;
+using SmartTeklaModel;
 
 namespace PipeRack
 {
@@ -30,7 +31,23 @@ namespace PipeRack
         private Attributes _attributeColumn2;
         private Attributes _attributeColumn3;
 
-    public Form1()
+        private Attributes _AttYarus1L;
+        private Attributes _AttYarus2L;
+        private Attributes _AttYarus3L;
+        private Attributes _AttYarus4L;
+        private Attributes _AttYarus5L;
+        private Attributes _AttYarus6L;
+        private Attributes _AttYarus7L;
+
+        private Attributes _Prodovnie1;
+        private Attributes _Prodovnie2;
+        private Attributes _Prodovnie3;
+        private Attributes _Prodovnie4;
+        private Attributes _Prodovnie5;
+        private Attributes _Prodovnie6;
+        private Attributes _Prodovnie7;
+
+        public Form1()
         {
             if (!M.GetConnectionStatus())
                 MessageBox.Show("Не подключено к моделе");
@@ -50,31 +67,90 @@ namespace PipeRack
             }
             return Trav;
         }
-
-    public void Button1_Click(object sender, EventArgs e)
+        public bool Nali4ieAtt(List<Attributes> Att, int yarus_count, string Mesaga)
         {
-            List<Attributes> _attributes = new List<Attributes>()
+            for (int _count = 1; _count <= yarus_count; _count++)
             {
-               _attributeYarus1,
+                if (Att[_count - 1] == null)
+                {
+                    MessageBox.Show("Введите атрибуты для " + Mesaga.ToString() +" "+ (_count).ToString());
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
+        public void Button1_Click(object sender, EventArgs e)
+        {
+            T3D.Point CS_point = new T3D.Point(double.Parse(X_start.Text), double.Parse(Y_start.Text), double.Parse(Z_start.Text));
+            T3D.Point CS_point_end = new T3D.Point(double.Parse(X_start2.Text), double.Parse(Y_start2.Text), double.Parse(Z_start2.Text));
+
+            if (CS_point == CS_point_end)
+            {
+                MessageBox.Show("Невозможно определить направление построения - координаты одинаковые");
+                return;
+            }
+
+            int yarus_count = int.Parse(Yarus_count.Text);
+            int count_column = int.Parse(Count_column.Text);
+
+            List<Attributes> _attributesColumn = new List<Attributes>() // правые балки при трёх колоннах или балки при бвух колоннах
+            {
+                _attributeColumn1,
+                _attributeColumn2,
+                _attributeColumn3,
+             };
+
+            List<Attributes> _attributes = new List<Attributes>() // правые балки при трёх колоннах или балки при бвух колоннах
+            {
+                _attributeYarus1,
                 _attributeYarus2,
                 _attributeYarus3,
                 _attributeYarus4,
                 _attributeYarus5,
                 _attributeYarus6,
                 _attributeYarus7,
-                _attributeColumn1,
-                _attributeColumn2,
-                _attributeColumn3
              };
 
-            int yarus_count = int.Parse(Yarus_count.Text);
-            int count_column = int.Parse(Count_column.Text);
+            List<Attributes> _attributes2 = new List<Attributes>() // левые балки при трех колоннах
+            {
+                _AttYarus1L,
+                _AttYarus2L,
+                _AttYarus3L,
+                _AttYarus4L,
+                _AttYarus5L,
+                _AttYarus6L,
+                _AttYarus7L,
+             };
 
-            double shagRam = double.Parse(ShagRam.Text);
+            List<Attributes> _attributesProdolnie = new List<Attributes>() // левые балки при трех колоннах
+            {
+                _Prodovnie1,
+                _Prodovnie2,
+                _Prodovnie3,
+                _Prodovnie4,
+                _Prodovnie5,
+                _Prodovnie6,
+                _Prodovnie7,
+             };
+
+            if (!Nali4ieAtt(_attributesColumn, count_column, "колонны")) return;
+            if (!Nali4ieAtt(_attributes, yarus_count, "яруса")) return;  // проверка наличия атрибутов
+
+
+            if (count_column == 3)
+            {
+                if (!Nali4ieAtt(_attributes2, yarus_count, "яруса")) return;
+            }
+
+            string shagRam = ShagRam.Text;
+            var DistanceList = BoltsMethods.GetDistanceList(shagRam);  // получили список шагов
+
             double razdv_1_2 = double.Parse(Razdv_1_2.Text);
             double razdv_2_3 = double.Parse(Razdv_2_3.Text);
 
-            List<double> Traversy = new List<double>
+            List<double> Traversy = new List<double>  // шаги траверс по Z
             {
                 double.Parse(B_H1.Text),
                 double.Parse(B_H2.Text),
@@ -85,150 +161,68 @@ namespace PipeRack
                 double.Parse(B_H7.Text)
             };
 
+            List<double> Traversy2 = new List<double>  // шаги траверс по Z
+            {
+                double.Parse(L_H1.Text),
+                double.Parse(L_H2.Text),
+                double.Parse(L_H3.Text),
+                double.Parse(L_H4.Text),
+                double.Parse(L_H5.Text),
+                double.Parse(L_H6.Text),
+                double.Parse(L_H7.Text)
+            };
             Regen(Traversy, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
- 
-            double x_start = double.Parse(X_start.Text);
-            double y_start = double.Parse(Y_start.Text);
-            double z_start = double.Parse(Z_start.Text);
+            Regen(Traversy2, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
 
-            double x_start2 = double.Parse(X_start2.Text);
-            double y_start2 = double.Parse(Y_start2.Text);
-            double z_start2 = double.Parse(Z_start2.Text);
 
 
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             TransformationPlane zero_plane = new TransformationPlane();
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane);
-            T3D.Point CS_point = new T3D.Point(x_start, y_start, z_start);
-            T3D.Point CS_point_end = new T3D.Point(x_start2, y_start2, z_start2);
             var TP = SmartTransfomationPlane.GetTransformationPlaneTwoPoints(M, CS_point, CS_point_end);
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
 
- 
-               for (int _count = 0; _count < shagRam; _count++)
-               {
-                    var frame = new Frame(yarus_count, count_column)
-                    {
-                        Razdv_1_2 = razdv_1_2,
-                        Razdv_2_3 = razdv_2_3,
+            List<Frame> FraMES = new List<Frame>(); // список построенных рам
 
-                        Traversy = Traversy,
-                        Attributes = _attributes,
-                    };
-                    var G = shagRam * 100 * _count;
-                        if (count_column == 2)
-                    {
-                        frame.CreateRamaDveKolony(G);
-                        frame.SetAtt(frame._Columns[0], _attributeColumn1);
-                        frame.SetAtt(frame._Columns[1], _attributeColumn2);
-                    }
+            var tempX = 0.0;
 
-                    else
+            foreach (var x in DistanceList)
+            {
+                tempX += x;
+                var point = new T3D.Point(tempX, 0, 0);
+
+                var frame = new Frame(M, point, yarus_count, count_column)
                 {
-                        frame.CreateRamaDveKolony(G);
-                        frame.SetAtt(frame._Columns[0], _attributeColumn1);
-                        frame.SetAtt(frame._Columns[1], _attributeColumn2);
-                        frame.SetAtt(frame._Columns[2], _attributeColumn2);
-                }
- 
+                    Razdv_1_2 = razdv_1_2,
+                    Razdv_2_3 = razdv_2_3,
 
+                    Traversy = Traversy,
+                    Attributes = _attributes,
+                    Attributes2 = _attributes2,
+                    AttributeColumn = _attributesColumn,
+                    Traversy2 = Traversy2,
+
+                    _M = M,
+
+                   // Traversy = GetZ(tempX),
+                };
+                frame.Insert();
+                FraMES.Add(frame);
             }
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
-            TransformationPlane zero_plane = new TransformationPlane();
-            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane); //оси модели переставили по началу координад
 
-            var picker = new Picker();  
-            T3D.Point pickedPoint = picker.PickPoint("Первая точка в глобальных координатах");
-            
-            X_start.Text = pickedPoint.X.ToString();
-            Y_start.Text = pickedPoint.Y.ToString();
-            Z_start.Text = pickedPoint.Z.ToString();
 
-            var picker2 = new Picker();
-            T3D.Point pickedPoint2 = picker2.PickPoint("Вторая точка точка в глобальных координатах");
 
-            X_start2.Text = pickedPoint2.X.ToString();
-            Y_start2.Text = pickedPoint2.Y.ToString();
-            Z_start2.Text = pickedPoint2.Z.ToString();
-            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
-        }
+        //   private List<double> GetZ(double x)
+        //  {
+        //      ///gjkexftim cgbcjr Z
+        //      return ;
+        //  }
 
-        private void AttYarus1_Click(object sender, EventArgs e)
-        {
-            var AttYorus1 = new Form_att(_attributeYarus1);
-            AttYorus1.ShowDialog();
-            _attributeYarus1 = AttYorus1.GetAttributes();
 
-        }
-
-        private void AttYarus2_Click(object sender, EventArgs e)
-        {
-            var AttYorus2 = new Form_att(_attributeYarus2);
-            AttYorus2.ShowDialog();
-            _attributeYarus2 = AttYorus2.GetAttributes();
-        }
-
-        private void AttYarus3_Click(object sender, EventArgs e)
-        {
-            var AttYorus3 = new Form_att(_attributeYarus3);
-            AttYorus3.ShowDialog();
-            _attributeYarus3 = AttYorus3.GetAttributes();
-        }
-
-        private void AttYarus4_Click(object sender, EventArgs e)
-        {
-            var AttYorus4 = new Form_att(_attributeYarus4);
-            AttYorus4.ShowDialog();
-            _attributeYarus4 = AttYorus4.GetAttributes();
-        }
-
-        private void AttYarus5_Click(object sender, EventArgs e)
-        {
-            var AttYorus5 = new Form_att(_attributeYarus5);
-            AttYorus5.ShowDialog();
-            _attributeYarus5 = AttYorus5.GetAttributes();
-        }
-
-        private void AttYarus6_Click(object sender, EventArgs e)
-        {
-            var AttYorus6 = new Form_att(_attributeYarus6);
-            AttYorus6.ShowDialog();
-            _attributeYarus6 = AttYorus6.GetAttributes();
-        }
-
-        private void AttYarus7_Click(object sender, EventArgs e)
-        {
-            var AttYorus7 = new Form_att(_attributeYarus7);
-            AttYorus7.ShowDialog();
-            _attributeYarus7 = AttYorus7.GetAttributes();
-        }
-
-        private void AttColumn1_Click(object sender, EventArgs e)
-        {
-            var AttCol1 = new Form_att(_attributeColumn1);
-            AttCol1.ShowDialog();
-            _attributeColumn1 = AttCol1.GetAttributes();
-        }
-
-        private void AttColumn2_Click(object sender, EventArgs e)
-        {
-            var AttCol2 = new Form_att(_attributeColumn2);
-            AttCol2.ShowDialog();
-            _attributeColumn2 = AttCol2.GetAttributes();
-        }
-
-        private void AttColumn3_Click(object sender, EventArgs e)
-        {
-            var AttCol3 = new Form_att(_attributeColumn3);
-            AttCol3.ShowDialog();
-            _attributeColumn3 = AttCol3.GetAttributes();
-        }
     }
 }

@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tekla.Structures.Model;
-using Tekla.Structures.Model.UI;
-using T3D = Tekla.Structures.Geometry3d;
+
 
 namespace PipeRack
 {
@@ -37,7 +28,7 @@ namespace PipeRack
             NomerSborki.Text = _attributes.NomerSborki.ToString();
             PolojenieVertikalno.Text = _attributes.PolojenieVertikalno;
             PolojeniePovorot.Text = _attributes.PolojeniePovorot;
-            PolojenieGorizontalno.Text = _attributes.PolojenieGorizontalno.ToString();
+            PolojenieGorizontalno.Text = _attributes.PolojenieGorizontalno;
         }
 
         private void Button1_Click(object sender, EventArgs e)
