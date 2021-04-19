@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using Tekla.Structures.Dialog;
 
 namespace PipeRack
 {
-    public partial class Form_att : Form
+    public partial class Form_att : ApplicationFormBase
     {
         Attributes _attributes { get; set; }
 
@@ -65,8 +65,25 @@ namespace PipeRack
             return _attributes;
         }
 
+        private void profileCatalog1_SelectClicked(object sender, EventArgs e)
+        {
+            profileCatalog1.SelectedProfile = Profile.Text;
+        }
 
+        private void profileCatalog1_SelectionDone(object sender, EventArgs e)
+        {
+            Profile.Text = profileCatalog1.SelectedProfile;
+        }
 
+        private void materialCatalog1_SelectClicked(object sender, EventArgs e)
+        {
+            materialCatalog1.SelectedMaterial = Material.Text;
+        }
+
+        private void materialCatalog1_SelectionDone(object sender, EventArgs e)
+        {
+            Material.Text = materialCatalog1.SelectedMaterial;
+        }
 
     }
 }
