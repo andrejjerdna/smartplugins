@@ -19,33 +19,6 @@ namespace PipeRack
     {
         Model M = new Model();
 
-        private Attributes _attributeYarus1;
-        private Attributes _attributeYarus2;
-        private Attributes _attributeYarus3;
-        private Attributes _attributeYarus4;
-        private Attributes _attributeYarus5;
-        private Attributes _attributeYarus6;
-        private Attributes _attributeYarus7;
-
-        private Attributes _attributeColumn1;
-        private Attributes _attributeColumn2;
-        private Attributes _attributeColumn3;
-
-        private Attributes _AttYarus1L;
-        private Attributes _AttYarus2L;
-        private Attributes _AttYarus3L;
-        private Attributes _AttYarus4L;
-        private Attributes _AttYarus5L;
-        private Attributes _AttYarus6L;
-        private Attributes _AttYarus7L;
-
-        private Attributes _Prodovnie1;
-        private Attributes _Prodovnie2;
-        private Attributes _Prodovnie3;
-        private Attributes _Prodovnie4;
-        private Attributes _Prodovnie5;
-        private Attributes _Prodovnie6;
-        private Attributes _Prodovnie7;
 
         public Form1()
         {
@@ -67,6 +40,7 @@ namespace PipeRack
             }
             return Trav;
         }
+
         public bool Nali4ieAtt(List<Attributes> Att, int yarus_count, string Mesaga)
         {
             for (int _count = 1; _count <= yarus_count; _count++)
@@ -170,6 +144,18 @@ namespace PipeRack
                 double.Parse(L_H6.Text),
                 double.Parse(L_H7.Text)
             };
+
+            List<double> UklonbI = new List<double>
+            {
+                double.Parse(YklonYarys1.Text),
+                double.Parse(YklonYarys2.Text),
+                double.Parse(YklonYarys3.Text),
+                double.Parse(YklonYarys4.Text),
+                double.Parse(YklonYarys5.Text),
+                double.Parse(YklonYarys6.Text),
+                double.Parse(YklonYarys7.Text)
+            };
+
             Regen(Traversy, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
             Regen(Traversy2, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
 
@@ -200,6 +186,7 @@ namespace PipeRack
                     Attributes2 = _attributes2,
                     AttributeColumn = _attributesColumn,
                     Traversy2 = Traversy2,
+                    UklonbI = UklonbI,
 
                     _M = M,
 
@@ -219,16 +206,6 @@ namespace PipeRack
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
         }
-               
-
-
-
-        //   private List<double> GetZ(double x)
-        //  {
-        //      ///gjkexftim cgbcjr Z
-        //      return ;
-        //  }
-
 
     }
 }

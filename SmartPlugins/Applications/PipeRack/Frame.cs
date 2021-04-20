@@ -19,6 +19,7 @@ namespace PipeRack
         public List<double> Traversy { get; set; }
         public List<double> Traversy2 { get; set; }
         public List<string> Profiles { get; set; }
+        public List<double> UklonbI { get; set; }
 
         public double Razdv_1_2 { get; set; }
         public double Razdv_2_3 { get; set; }
@@ -26,6 +27,7 @@ namespace PipeRack
         public Model _M;
         private int _yarusCount;
         private int _count_column;
+
 
         public Point _basePoint;
 
@@ -39,6 +41,7 @@ namespace PipeRack
             _yarusCount = yarusCount;
             _count_column = count_column;
             _M = M;
+
         }
         public Frame()
         {
@@ -62,19 +65,19 @@ namespace PipeRack
         {
             int H = _yarusCount;
 
-            Point C_Start_point1 = new Point(0, 0 - Razdv_1_2, 0);                           //точка низа 1 колонны
-            Point C_End_point1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100);     //точка верха  1 колонны 
+            Point C_Start_point1 = new Point(0 , 0 - Razdv_1_2, 0 + _basePoint.X * UklonbI[0]);                           //точка низа 1 колонны
+            Point C_End_point1 = new Point(0 , 0 - Razdv_1_2, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1]);     //точка верха  1 колонны 
 
-            Point C_Start_point2 = new Point(0, 0 + Razdv_2_3, 0);                           //точка низа 2 колонны
-            Point C_End_point2 = new Point(0, 0 + Razdv_2_3, Traversy[H - 1] + 100);     //точка верха  2 колонны 
+            Point C_Start_point2 = new Point(0 , 0 + Razdv_2_3, 0 + _basePoint.X * UklonbI[0]);                           //точка низа 2 колонны
+            Point C_End_point2 = new Point(0 , 0 + Razdv_2_3, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1]);     //точка верха  2 колонны 
  
             _Columns.Add(Beam_main(AttributeColumn[0], C_Start_point1, C_End_point1));
             _Columns.Add(Beam_main(AttributeColumn[1], C_Start_point2, C_End_point2));
 
             for (int _count = 0; _count < _yarusCount; _count++)
             {
-                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count]);
-                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count]);
+                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count]+ _basePoint.X * UklonbI[_count]);
+                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count]+ _basePoint.X * UklonbI[_count]);
                 _Travers.Add(Beam_main(Attributes[_count], B_1_start, B_1_end));
             }
         }
@@ -106,8 +109,8 @@ namespace PipeRack
 
             for (int _count = 0; _count < _yarusCount; _count++)
             {
-                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count]);
-                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count]);
+                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count] + _basePoint.X * UklonbI[_count]);
+                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count] + _basePoint.X * UklonbI[_count]);
                 _Travers.Add(Beam_main(Attributes[_count], B_1_start, B_1_end));
             }
 

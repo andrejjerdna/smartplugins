@@ -10,8 +10,36 @@ using T3D = Tekla.Structures.Geometry3d;
 
 namespace PipeRack
 {
-    public partial class Form1 : Form //я тут 
+    public partial class Form1 : Form
     {
+        private Attributes _attributeYarus1;
+        private Attributes _attributeYarus2;
+        private Attributes _attributeYarus3;
+        private Attributes _attributeYarus4;
+        private Attributes _attributeYarus5;
+        private Attributes _attributeYarus6;
+        private Attributes _attributeYarus7;
+
+        private Attributes _attributeColumn1;
+        private Attributes _attributeColumn2;
+        private Attributes _attributeColumn3;
+
+        private Attributes _AttYarus1L;
+        private Attributes _AttYarus2L;
+        private Attributes _AttYarus3L;
+        private Attributes _AttYarus4L;
+        private Attributes _AttYarus5L;
+        private Attributes _AttYarus6L;
+        private Attributes _AttYarus7L;
+
+        private Attributes _Prodovnie1;
+        private Attributes _Prodovnie2;
+        private Attributes _Prodovnie3;
+        private Attributes _Prodovnie4;
+        private Attributes _Prodovnie5;
+        private Attributes _Prodovnie6;
+        private Attributes _Prodovnie7;
+
         private void Button2_Click(object sender, EventArgs e)
         {
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();

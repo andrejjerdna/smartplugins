@@ -24,17 +24,18 @@ namespace PipeRack
             {
                 for (int i = 0; i < _FraMES[0]._Travers.Count(); i++)
                 { 
-                    var Att = _FraMES[_count].Attributes[_count];
-                var startPoint = new Point(_FraMES[_count]._basePoint.X, _FraMES[_count]._Travers[i].StartPoint.Y, _FraMES[_count]._Travers[i].StartPoint.Z);
-                var endPoint = new Point(_FraMES[_count]._basePoint.X, _FraMES[_count]._Travers[i].EndPoint.Y, _FraMES[_count]._Travers[i].EndPoint.Z);
+                    var Att = _FraMES[_count]._Travers[i];
+                    var startPoint = new Point(_FraMES[_count]._basePoint.X, Att.StartPoint.Y, Att.StartPoint.Z);
+                    var endPoint = new Point(_FraMES[_count]._basePoint.X, Att.EndPoint.Y, Att.EndPoint.Z);
 
-                var startPoint2 = new Point(_FraMES[_count + 1]._basePoint.X, _FraMES[_count + 1]._Travers[i].StartPoint.Y, _FraMES[_count + 1]._Travers[i].StartPoint.Z);
-                var endPoint2 = new Point(_FraMES[_count + 1]._basePoint.X, _FraMES[_count + 1]._Travers[i].EndPoint.Y, _FraMES[_count + 1]._Travers[i].EndPoint.Z);
+                    var Att2 = _FraMES[_count+1]._Travers[i];
+                    var startPoint2 = new Point(_FraMES[_count + 1]._basePoint.X, Att2.StartPoint.Y, Att2.StartPoint.Z);
+                    var endPoint2 = new Point(_FraMES[_count + 1]._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
 
-                Frame frame = new Frame();
-                //  frame.Beam_main(Att, startPoint, endPoint);
-                frame.Beam_main(AttributesProdolnie[_count], startPoint, startPoint2);
-                frame.Beam_main(AttributesProdolnie[_count], endPoint, endPoint2);
+                    Frame frame = new Frame();
+                    //  frame.Beam_main(Att, startPoint, endPoint);
+                    frame.Beam_main(AttributesProdolnie[_count], startPoint, startPoint2);
+                    frame.Beam_main(AttributesProdolnie[_count], endPoint, endPoint2);
                 }
             }
 
