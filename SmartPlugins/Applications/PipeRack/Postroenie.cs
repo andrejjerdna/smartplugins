@@ -40,6 +40,14 @@ namespace PipeRack
         private Attributes _Prodovnie6;
         private Attributes _Prodovnie7;
 
+        private Attributes _travvprolete1;
+        private Attributes _travvprolete2;
+        private Attributes _travvprolete3;
+        private Attributes _travvprolete4;
+        private Attributes _travvprolete5;
+        private Attributes _travvprolete6;
+        private Attributes _travvprolete7;
+
         private void Button2_Click(object sender, EventArgs e)
         {
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();

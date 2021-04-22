@@ -108,6 +108,18 @@ namespace PipeRack
                 _Prodovnie7,
              };
 
+            List<Attributes> _attributesTraversyvprovete = new List<Attributes>()
+            {
+                _travvprolete1,
+                _travvprolete2,
+                _travvprolete3,
+                _travvprolete4,
+                _travvprolete5,
+                _travvprolete6,
+                _travvprolete7,
+            };
+
+
             if (!Nali4ieAtt(_attributesColumn, count_column, "колонны")) return;
             if (!Nali4ieAtt(_attributes, yarus_count, "яруса")) return;  // проверка наличия атрибутов
 
@@ -194,14 +206,26 @@ namespace PipeRack
                 };
                 frame.Insert();
                 FraMES.Add(frame);
-
-                var balkiYarusa = new BalkiYarysa(FraMES)
+ }
+            for (int count = 0; count < FraMES.Count() - 1; count++)
+            {
+                var FF = FraMES.Skip(count);
+                List<Frame> FRAMESS = new List<Frame>();
+                foreach (Frame F in FF)
                 {
-                   AttributesProdolnie = _attributesProdolnie,
+                    FRAMESS.Add(F);
+                }
+
+
+                var balkiYarusa = new BalkiYarysa(FRAMESS)
+                {
+                    AttributesProdolnie = _attributesProdolnie,
+                    AttributesTraversyvprovete = _attributesTraversyvprovete,
                 };
                 balkiYarusa.Insert();
-
+                
             }
+           
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
