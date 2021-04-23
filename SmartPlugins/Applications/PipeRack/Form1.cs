@@ -122,11 +122,12 @@ namespace PipeRack
 
             if (!Nali4ieAtt(_attributesColumn, count_column, "колонны")) return;
             if (!Nali4ieAtt(_attributes, yarus_count, "яруса")) return;  // проверка наличия атрибутов
-
+            if (!Nali4ieAtt(_attributesProdolnie, yarus_count, "продольных балок яруса")) return;
+            if (!Nali4ieAtt(_attributesTraversyvprovete, yarus_count, "траверс в пролете яруса")) return;
 
             if (count_column == 3)
             {
-                if (!Nali4ieAtt(_attributes2, yarus_count, "яруса")) return;
+                if (!Nali4ieAtt(_attributes2, yarus_count, "левого ряда яруса")) return;
             }
 
             string shagRam = ShagRam.Text;
@@ -206,7 +207,8 @@ namespace PipeRack
                 };
                 frame.Insert();
                 FraMES.Add(frame);
- }
+            }
+
             for (int count = 0; count < FraMES.Count() - 1; count++)
             {
                 var FF = FraMES.Skip(count);
@@ -216,7 +218,6 @@ namespace PipeRack
                     FRAMESS.Add(F);
                 }
 
-
                 var balkiYarusa = new BalkiYarysa(FRAMESS)
                 {
                     AttributesProdolnie = _attributesProdolnie,
@@ -225,11 +226,43 @@ namespace PipeRack
                 balkiYarusa.Insert();
                 
             }
-           
+            string Y = null;
+            if (count_column == 2)
+            {
+                Y = (-1 * razdv_1_2).ToString() + " " + (razdv_1_2 + razdv_2_3).ToString();
+            }
+            else
+            {
+                Y = (-1 * razdv_1_2).ToString() + " " +razdv_1_2.ToString() +" "+ (razdv_2_3).ToString();
+            }
+            string FFF = null;
+            for (int _count1 = 0; _count1 < yarus_count; _count1++)  FFF = FFF + " "+ Traversy[_count1].ToString() ;
+
+            Grid Grid = new Grid()
+            {
+                CoordinateX = shagRam,
+                CoordinateY = Y,
+                CoordinateZ = "0 " + FFF,
+                LabelX = LabelX.Text,
+                LabelY = LabelY.Text,
+                LabelZ = "0 " + FFF,
+                ExtensionLeftX = 2000.0,
+                ExtensionLeftY = 2000.0,
+                ExtensionLeftZ = 2000.0,
+                ExtensionRightX = 2000.0,
+                ExtensionRightY = 2000.0,
+                ExtensionRightZ = 2000.0,
+                IsMagnetic = false,
+            };
+
+            Grid.Insert();
+            Grid.Origin.Z = CS_point.Z;
+            Grid.Modify();
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
         }
+
 
     }
 }

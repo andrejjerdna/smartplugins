@@ -187,5 +187,103 @@ namespace PipeRack
             AttYorus7l.ShowDialog();
             _AttYarus7L = AttYorus7l.GetAttributes();
         }
+
+        private void Prodovnie1_Click(object sender, EventArgs e)
+        {
+            var Prodovnie1 = new Form_att(_Prodovnie1);
+            Prodovnie1.ShowDialog();
+            _Prodovnie1 = Prodovnie1.GetAttributes();
+        }
+
+        private void Prodovnie2_Click(object sender, EventArgs e)
+        {
+            var Prodovnie2 = new Form_att(_Prodovnie2);
+            Prodovnie2.ShowDialog();
+            _Prodovnie2 = Prodovnie2.GetAttributes();
+        }
+
+        private void Prodovnie3_Click(object sender, EventArgs e)
+        {
+            var Prodovnie3 = new Form_att(_Prodovnie3);
+            Prodovnie3.ShowDialog();
+            _Prodovnie3 = Prodovnie3.GetAttributes();
+        }
+
+        private void Prodovnie4_Click(object sender, EventArgs e)
+        {
+            var Prodovnie4 = new Form_att(_Prodovnie4);
+            Prodovnie4.ShowDialog();
+            _Prodovnie4 = Prodovnie4.GetAttributes();
+        }
+
+        private void Prodovnie5_Click(object sender, EventArgs e)
+        {
+            var Prodovnie5 = new Form_att(_Prodovnie5);
+            Prodovnie5.ShowDialog();
+            _Prodovnie5 = Prodovnie5.GetAttributes();
+        }
+
+        private void Prodovnie6_Click(object sender, EventArgs e)
+        {
+            var Prodovnie6 = new Form_att(_Prodovnie6);
+            Prodovnie6.ShowDialog();
+            _Prodovnie6 = Prodovnie6.GetAttributes();
+        }
+
+        private void Prodovnie7_Click(object sender, EventArgs e)
+        {
+            var Prodovnie7 = new Form_att(_Prodovnie7);
+            Prodovnie7.ShowDialog();
+            _Prodovnie7 = Prodovnie7.GetAttributes();
+        }
+        private void Travvprolete1_Click(object sender, EventArgs e)
+        {
+            var Travvprolete1 = new Form_att(_travvprolete1);
+            Travvprolete1.ShowDialog();
+            _travvprolete1 = Travvprolete1.GetAttributes();
+        }
+
+        private void Travvprolete2_Click(object sender, EventArgs e)
+        {
+            var Travvprolete2 = new Form_att(_travvprolete2);
+            Travvprolete2.ShowDialog();
+            _travvprolete2 = Travvprolete2.GetAttributes();
+        }
+
+        private void Travvprolete3_Click(object sender, EventArgs e)
+        {
+            var Travvprolete3 = new Form_att(_travvprolete3);
+            Travvprolete3.ShowDialog();
+            _travvprolete3 = Travvprolete3.GetAttributes();
+        }
+
+        private void Travvprolete4_Click(object sender, EventArgs e)
+        {
+            var Travvprolete4 = new Form_att(_travvprolete4);
+            Travvprolete4.ShowDialog();
+            _travvprolete4 = Travvprolete4.GetAttributes();
+        }
+
+        private void Travvprolete5_Click(object sender, EventArgs e)
+        {
+            var Travvprolete5 = new Form_att(_travvprolete5);
+            Travvprolete5.ShowDialog();
+            _travvprolete5 = Travvprolete5.GetAttributes();
+        }
+
+        private void Travvprolete6_Click(object sender, EventArgs e)
+        {
+            var Travvprolete6 = new Form_att(_travvprolete6);
+            Travvprolete6.ShowDialog();
+            _travvprolete6 = Travvprolete6.GetAttributes();
+        }
+        private void Travvprolete7_Click(object sender, EventArgs e)
+        {
+            var Travvprolete7 = new Form_att(_travvprolete7);
+            Travvprolete7.ShowDialog();
+            _travvprolete7 = Travvprolete7.GetAttributes();
+        }
+
+
     }
 }

@@ -32,9 +32,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.LabelY = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LabelX = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Z_start2 = new System.Windows.Forms.TextBox();
             this.Y_start2 = new System.Windows.Forms.TextBox();
@@ -90,6 +90,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Travvprolete7 = new System.Windows.Forms.Button();
+            this.Travvprolete6 = new System.Windows.Forms.Button();
+            this.Travvprolete5 = new System.Windows.Forms.Button();
+            this.Travvprolete4 = new System.Windows.Forms.Button();
+            this.Travvprolete3 = new System.Windows.Forms.Button();
+            this.Travvprolete2 = new System.Windows.Forms.Button();
+            this.Travvprolete1 = new System.Windows.Forms.Button();
             this.Prodovnie7 = new System.Windows.Forms.Button();
             this.Prodovnie6 = new System.Windows.Forms.Button();
             this.Prodovnie5 = new System.Windows.Forms.Button();
@@ -137,9 +145,9 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.LabelY);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.LabelX);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.Z_start2);
             this.tabPage1.Controls.Add(this.Y_start2);
@@ -173,41 +181,42 @@
             this.label8.Text = "Значения сетки осей поперек";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // LabelY
             // 
-            this.textBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            this.LabelY.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.textBox2.Location = new System.Drawing.Point(543, 75);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 22);
-            this.textBox2.TabIndex = 246;
-            this.textBox2.Text = "0";
+            this.LabelY.Location = new System.Drawing.Point(543, 75);
+            this.LabelY.Margin = new System.Windows.Forms.Padding(4);
+            this.LabelY.Name = "LabelY";
+            this.LabelY.Size = new System.Drawing.Size(120, 22);
+            this.LabelY.TabIndex = 246;
+            this.LabelY.Text = "0";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(316, 115);
+            this.label6.Location = new System.Drawing.Point(316, 114);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 21);
             this.label6.TabIndex = 245;
             this.label6.Text = "Значения сетки осей вдоль";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // LabelX
             // 
-            this.textBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            this.LabelX.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.textBox1.Location = new System.Drawing.Point(543, 114);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 22);
-            this.textBox1.TabIndex = 244;
-            this.textBox1.Text = "0";
+            this.LabelX.Location = new System.Drawing.Point(543, 114);
+            this.LabelX.Margin = new System.Windows.Forms.Padding(4);
+            this.LabelX.Name = "LabelX";
+            this.LabelX.Size = new System.Drawing.Size(120, 22);
+            this.LabelX.TabIndex = 244;
+            this.LabelX.Text = "0";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(17, 217);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(724, 358);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -254,10 +263,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(31, 168);
+            this.button2.Location = new System.Drawing.Point(31, 167);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 26);
+            this.button2.Size = new System.Drawing.Size(211, 26);
             this.button2.TabIndex = 238;
             this.button2.Text = "Координаты из модели";
             this.button2.UseVisualStyleBackColor = true;
@@ -322,7 +331,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 39);
+            this.label1.Location = new System.Drawing.Point(75, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 231;
@@ -330,7 +339,7 @@
             // 
             // ShagRam
             // 
-            this.ShagRam.Location = new System.Drawing.Point(414, 153);
+            this.ShagRam.Location = new System.Drawing.Point(413, 153);
             this.ShagRam.Margin = new System.Windows.Forms.Padding(4);
             this.ShagRam.Name = "ShagRam";
             this.ShagRam.Size = new System.Drawing.Size(249, 22);
@@ -518,7 +527,7 @@
             // 
             // AttYarus1L
             // 
-            this.AttYarus1L.Location = new System.Drawing.Point(237, 371);
+            this.AttYarus1L.Location = new System.Drawing.Point(237, 370);
             this.AttYarus1L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AttYarus1L.Name = "AttYarus1L";
             this.AttYarus1L.Size = new System.Drawing.Size(80, 26);
@@ -565,7 +574,7 @@
             // 
             // L_H3
             // 
-            this.L_H3.Location = new System.Drawing.Point(95, 323);
+            this.L_H3.Location = new System.Drawing.Point(95, 322);
             this.L_H3.Margin = new System.Windows.Forms.Padding(4);
             this.L_H3.Name = "L_H3";
             this.L_H3.Size = new System.Drawing.Size(80, 22);
@@ -595,7 +604,7 @@
             this.AttColumn3.Location = new System.Drawing.Point(95, 473);
             this.AttColumn3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AttColumn3.Name = "AttColumn3";
-            this.AttColumn3.Size = new System.Drawing.Size(90, 26);
+            this.AttColumn3.Size = new System.Drawing.Size(91, 26);
             this.AttColumn3.TabIndex = 311;
             this.AttColumn3.Text = "Колонна 3";
             this.AttColumn3.UseVisualStyleBackColor = true;
@@ -606,7 +615,7 @@
             this.AttColumn2.Location = new System.Drawing.Point(325, 471);
             this.AttColumn2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AttColumn2.Name = "AttColumn2";
-            this.AttColumn2.Size = new System.Drawing.Size(90, 26);
+            this.AttColumn2.Size = new System.Drawing.Size(91, 26);
             this.AttColumn2.TabIndex = 307;
             this.AttColumn2.Text = "Колонна 2";
             this.AttColumn2.UseVisualStyleBackColor = true;
@@ -617,7 +626,7 @@
             this.AttColumn1.Location = new System.Drawing.Point(547, 473);
             this.AttColumn1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AttColumn1.Name = "AttColumn1";
-            this.AttColumn1.Size = new System.Drawing.Size(90, 26);
+            this.AttColumn1.Size = new System.Drawing.Size(91, 26);
             this.AttColumn1.TabIndex = 306;
             this.AttColumn1.Text = "Колонна 1";
             this.AttColumn1.UseVisualStyleBackColor = true;
@@ -636,7 +645,7 @@
             // 
             // AttYarus1
             // 
-            this.AttYarus1.Location = new System.Drawing.Point(407, 371);
+            this.AttYarus1.Location = new System.Drawing.Point(407, 370);
             this.AttYarus1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AttYarus1.Name = "AttYarus1";
             this.AttYarus1.Size = new System.Drawing.Size(80, 26);
@@ -683,7 +692,7 @@
             // 
             // B_H3
             // 
-            this.B_H3.Location = new System.Drawing.Point(552, 323);
+            this.B_H3.Location = new System.Drawing.Point(552, 322);
             this.B_H3.Margin = new System.Windows.Forms.Padding(4);
             this.B_H3.Name = "B_H3";
             this.B_H3.Size = new System.Drawing.Size(80, 22);
@@ -761,7 +770,7 @@
             "5",
             "6",
             "7"});
-            this.Yarus_count.Location = new System.Drawing.Point(506, 21);
+            this.Yarus_count.Location = new System.Drawing.Point(507, 21);
             this.Yarus_count.Margin = new System.Windows.Forms.Padding(4);
             this.Yarus_count.Name = "Yarus_count";
             this.Yarus_count.Size = new System.Drawing.Size(63, 24);
@@ -780,7 +789,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(7, 61);
+            this.pictureBox2.Location = new System.Drawing.Point(7, 62);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(739, 523);
@@ -790,6 +799,14 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.Travvprolete7);
+            this.tabPage3.Controls.Add(this.Travvprolete6);
+            this.tabPage3.Controls.Add(this.Travvprolete5);
+            this.tabPage3.Controls.Add(this.Travvprolete4);
+            this.tabPage3.Controls.Add(this.Travvprolete3);
+            this.tabPage3.Controls.Add(this.Travvprolete2);
+            this.tabPage3.Controls.Add(this.Travvprolete1);
             this.tabPage3.Controls.Add(this.Prodovnie7);
             this.tabPage3.Controls.Add(this.Prodovnie6);
             this.tabPage3.Controls.Add(this.Prodovnie5);
@@ -822,6 +839,92 @@
             this.tabPage3.Text = "Продольный вид";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(411, 310);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(189, 21);
+            this.label9.TabIndex = 309;
+            this.label9.Text = "ТРАВЕРСЫ В ПРОЛЕТЕ";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Travvprolete7
+            // 
+            this.Travvprolete7.Location = new System.Drawing.Point(462, 538);
+            this.Travvprolete7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Travvprolete7.Name = "Travvprolete7";
+            this.Travvprolete7.Size = new System.Drawing.Size(95, 26);
+            this.Travvprolete7.TabIndex = 308;
+            this.Travvprolete7.Text = "Атрибуты";
+            this.Travvprolete7.UseVisualStyleBackColor = true;
+            this.Travvprolete7.Click += new System.EventHandler(this.Travvprolete7_Click);
+            // 
+            // Travvprolete6
+            // 
+            this.Travvprolete6.Location = new System.Drawing.Point(462, 506);
+            this.Travvprolete6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Travvprolete6.Name = "Travvprolete6";
+            this.Travvprolete6.Size = new System.Drawing.Size(95, 26);
+            this.Travvprolete6.TabIndex = 307;
+            this.Travvprolete6.Text = "Атрибуты";
+            this.Travvprolete6.UseVisualStyleBackColor = true;
+            this.Travvprolete6.Click += new System.EventHandler(this.Travvprolete6_Click);
+            // 
+            // Travvprolete5
+            // 
+            this.Travvprolete5.Location = new System.Drawing.Point(462, 477);
+            this.Travvprolete5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Travvprolete5.Name = "Travvprolete5";
+            this.Travvprolete5.Size = new System.Drawing.Size(95, 26);
+            this.Travvprolete5.TabIndex = 306;
+            this.Travvprolete5.Text = "Атрибуты";
+            this.Travvprolete5.UseVisualStyleBackColor = true;
+            this.Travvprolete5.Click += new System.EventHandler(this.Travvprolete5_Click);
+            // 
+            // Travvprolete4
+            // 
+            this.Travvprolete4.Location = new System.Drawing.Point(462, 441);
+            this.Travvprolete4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Travvprolete4.Name = "Travvprolete4";
+            this.Travvprolete4.Size = new System.Drawing.Size(95, 26);
+            this.Travvprolete4.TabIndex = 305;
+            this.Travvprolete4.Text = "Атрибуты";
+            this.Travvprolete4.UseVisualStyleBackColor = true;
+            this.Travvprolete4.Click += new System.EventHandler(this.Travvprolete4_Click);
+            // 
+            // Travvprolete3
+            // 
+            this.Travvprolete3.Location = new System.Drawing.Point(462, 410);
+            this.Travvprolete3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Travvprolete3.Name = "Travvprolete3";
+            this.Travvprolete3.Size = new System.Drawing.Size(95, 26);
+            this.Travvprolete3.TabIndex = 304;
+            this.Travvprolete3.Text = "Атрибуты";
+            this.Travvprolete3.UseVisualStyleBackColor = true;
+            this.Travvprolete3.Click += new System.EventHandler(this.Travvprolete3_Click);
+            // 
+            // Travvprolete2
+            // 
+            this.Travvprolete2.Location = new System.Drawing.Point(462, 374);
+            this.Travvprolete2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Travvprolete2.Name = "Travvprolete2";
+            this.Travvprolete2.Size = new System.Drawing.Size(95, 26);
+            this.Travvprolete2.TabIndex = 303;
+            this.Travvprolete2.Text = "Атрибуты";
+            this.Travvprolete2.UseVisualStyleBackColor = true;
+            this.Travvprolete2.Click += new System.EventHandler(this.Travvprolete2_Click);
+            // 
+            // Travvprolete1
+            // 
+            this.Travvprolete1.Location = new System.Drawing.Point(462, 342);
+            this.Travvprolete1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Travvprolete1.Name = "Travvprolete1";
+            this.Travvprolete1.Size = new System.Drawing.Size(95, 26);
+            this.Travvprolete1.TabIndex = 302;
+            this.Travvprolete1.Text = "Атрибуты";
+            this.Travvprolete1.UseVisualStyleBackColor = true;
+            this.Travvprolete1.Click += new System.EventHandler(this.Travvprolete1_Click);
+            // 
             // Prodovnie7
             // 
             this.Prodovnie7.Location = new System.Drawing.Point(277, 538);
@@ -831,6 +934,7 @@
             this.Prodovnie7.TabIndex = 301;
             this.Prodovnie7.Text = "Атрибуты";
             this.Prodovnie7.UseVisualStyleBackColor = true;
+            this.Prodovnie7.Click += new System.EventHandler(this.Prodovnie7_Click);
             // 
             // Prodovnie6
             // 
@@ -841,6 +945,7 @@
             this.Prodovnie6.TabIndex = 300;
             this.Prodovnie6.Text = "Атрибуты";
             this.Prodovnie6.UseVisualStyleBackColor = true;
+            this.Prodovnie6.Click += new System.EventHandler(this.Prodovnie6_Click);
             // 
             // Prodovnie5
             // 
@@ -851,16 +956,18 @@
             this.Prodovnie5.TabIndex = 299;
             this.Prodovnie5.Text = "Атрибуты";
             this.Prodovnie5.UseVisualStyleBackColor = true;
+            this.Prodovnie5.Click += new System.EventHandler(this.Prodovnie5_Click);
             // 
             // Prodovnie4
             // 
-            this.Prodovnie4.Location = new System.Drawing.Point(277, 440);
+            this.Prodovnie4.Location = new System.Drawing.Point(277, 441);
             this.Prodovnie4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Prodovnie4.Name = "Prodovnie4";
             this.Prodovnie4.Size = new System.Drawing.Size(95, 26);
             this.Prodovnie4.TabIndex = 298;
             this.Prodovnie4.Text = "Атрибуты";
             this.Prodovnie4.UseVisualStyleBackColor = true;
+            this.Prodovnie4.Click += new System.EventHandler(this.Prodovnie4_Click);
             // 
             // Prodovnie3
             // 
@@ -871,10 +978,11 @@
             this.Prodovnie3.TabIndex = 297;
             this.Prodovnie3.Text = "Атрибуты";
             this.Prodovnie3.UseVisualStyleBackColor = true;
+            this.Prodovnie3.Click += new System.EventHandler(this.Prodovnie3_Click);
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(85, 285);
+            this.label17.Location = new System.Drawing.Point(141, 300);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(189, 21);
             this.label17.TabIndex = 296;
@@ -890,6 +998,7 @@
             this.Prodovnie2.TabIndex = 295;
             this.Prodovnie2.Text = "Атрибуты";
             this.Prodovnie2.UseVisualStyleBackColor = true;
+            this.Prodovnie2.Click += new System.EventHandler(this.Prodovnie2_Click);
             // 
             // Prodovnie1
             // 
@@ -900,6 +1009,7 @@
             this.Prodovnie1.TabIndex = 294;
             this.Prodovnie1.Text = "Атрибуты";
             this.Prodovnie1.UseVisualStyleBackColor = true;
+            this.Prodovnie1.Click += new System.EventHandler(this.Prodovnie1_Click);
             // 
             // label22
             // 
@@ -1029,7 +1139,7 @@
             // 
             // YklonYarys2
             // 
-            this.YklonYarys2.Location = new System.Drawing.Point(175, 376);
+            this.YklonYarys2.Location = new System.Drawing.Point(175, 377);
             this.YklonYarys2.Margin = new System.Windows.Forms.Padding(4);
             this.YklonYarys2.Name = "YklonYarys2";
             this.YklonYarys2.Size = new System.Drawing.Size(93, 22);
@@ -1153,9 +1263,17 @@
         private System.Windows.Forms.TextBox YklonYarys3;
         private System.Windows.Forms.TextBox YklonYarys2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox LabelY;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LabelX;
+        private System.Windows.Forms.Button Travvprolete7;
+        private System.Windows.Forms.Button Travvprolete6;
+        private System.Windows.Forms.Button Travvprolete5;
+        private System.Windows.Forms.Button Travvprolete4;
+        private System.Windows.Forms.Button Travvprolete3;
+        private System.Windows.Forms.Button Travvprolete2;
+        private System.Windows.Forms.Button Travvprolete1;
+        private System.Windows.Forms.Label label9;
     }
 }
 

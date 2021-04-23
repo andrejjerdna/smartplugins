@@ -21,7 +21,6 @@ namespace PipeRack
         public BalkiYarysa(List<Frame> FraMES)
         {
             _FraMES = FraMES;
-
         }
 
         public void Insert()
@@ -47,10 +46,8 @@ namespace PipeRack
 
                 for (int _i = 0; _i < _shagi.Count(); _i++)
                 {
-
                     var startPoint3 = new Point(startPoint.X + _shagi[_i],   startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                     var endPoint3 = new Point(  endPoint.X + _shagi[_i],    endPoint.Y,     endPoint.Z + _shagi[_i] * uklon);
-                    
                     _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3));
                 }
  }
