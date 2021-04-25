@@ -7,11 +7,11 @@
                        xmlns:local="clr-namespace:sp_DimensionsForReinforcement" 
                        xmlns:UIControls="clr-namespace:Tekla.Structures.Dialog.UIControls;assembly=Tekla.Structures.Dialog"
                        mc:Ignorable="d"
-                       Title="DimensionsForReinforcementWindow" Height="700" Width="800" ResizeMode="NoResize">
+                       Title="DimensionsForReinforcementWindow" Height="750" Width="800" ResizeMode="NoResize">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="/Fusion;component/Themes/Generic.xaml"/> -->
+                <ResourceDictionary Source="/Fusion;component/Themes/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -39,8 +39,8 @@
                     <GroupBox Header="Размеры и их привязка">
                         <StackPanel>
                             <DockPanel>
-                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DimensionInsert" Content="Создавать размеры: "/>
-                                <ComboBox ItemsSource="{Binding DimensionsInserts, Mode=OneWay}" SelectedIndex="{Binding DimensionInsert, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DimInsert" Content="Создавать размеры: "/>
+                                <ComboBox ItemsSource="{Binding DimensionsInserts, Mode=OneWay}" SelectedIndex="{Binding DimInsert, Mode=TwoWay}"  VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="L1" Content="Минимальная длина размера по X: "/>
@@ -60,15 +60,15 @@
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DimensionType" Content="Настройки размеров из модели: "/>
-                                <ComboBox x:Name="DimensionType"  ItemsSource="{Binding DimensionsTypes, Mode=OneWay}" SelectedValue="{Binding DimensionType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
+                                <ComboBox x:Name="DimensionType"  ItemsSource="{Binding DimensionsTypes, Mode=OneWay}" SelectedItem="{Binding DimensionType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"  IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="Контур">
                         <StackPanel>
                             <DockPanel>
-                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DiagonalInsert" Content="Создание диагоналей: "/>
-                                <ComboBox x:Name="DiagonalInsert" ItemsSource="{Binding DiagonalInserts, Mode=OneWay}" SelectedIndex="{Binding DiagonalInsert, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="DiagInsert" Content="Создание диагоналей: "/>
+                                <ComboBox x:Name="DiagonalInsert" ItemsSource="{Binding DiagonalInserts, Mode=OneWay}" SelectedIndex="{Binding DiagInsert, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="LineColor" Content="Цвет линий: "/>
@@ -105,6 +105,18 @@
                             <DockPanel>
                                 <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="AngleHatch" Content="Угол штриховки: "/>
                                 <TextBox x:Name="AngleHatch" Text="{Binding AngleHatch, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Метка">
+                        <StackPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="MarkInsert" Content="Создание метки: "/>
+                                <ComboBox x:Name="MarkInsert" ItemsSource="{Binding MarkInserts, Mode=OneWay}" SelectedIndex="{Binding MarkInsert, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <UIControls:WpfFilterCheckBox HorizontalAlignment="Left" VerticalAlignment="Center" AttributeName="MarkType" Content="Тип метки: "/>
+                                <ComboBox x:Name="MarkType" ItemsSource="{Binding MarksTypes, Mode=OneWay}" SelectedItem="{Binding MarkType, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Height="23" Width="150" IsEditable="True" IsReadOnly="True"/>
                             </DockPanel>
                         </StackPanel>
                     </GroupBox>

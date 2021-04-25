@@ -39,6 +39,19 @@ namespace sp_DimensionsForReinforcement
         public string LineType { get; set; }
         public string DimensionType { get; set; }
 
+
+        public string HatchColor { get; set; }
+        public string HatchName { get; set; }
+        public double ScaleX { get; set; }
+        public double ScaleY { get; set; }
+        public double AngleHatch { get; set; }
+        public int DimensionInsert { get; set; }
+        public int DiagonalInsert { get; set; }
+        public int HatchInsert { get; set; }
+
+        public int MarkInsert { get; set; }
+        public string MarkType { get; set; }
+
         public DimensionsForReinforcementForView(DimensionsForReinforcementData data)
         {
             _data = data;
@@ -96,7 +109,19 @@ namespace sp_DimensionsForReinforcement
                         L4 = L4,
                         LineColor = LineColor,
                         DimensionType = DimensionType,
-                        LineType = LineType
+                        LineType = LineType,
+
+                        HatchColor = HatchColor,
+                        HatchName = HatchName,
+                        ScaleX = ScaleX,
+                        ScaleY = ScaleY,
+                        AngleHatch = AngleHatch,
+                        DimensionInsert = DimensionInsert,
+                        DiagonalInsert = DiagonalInsert,
+                        HatchInsert = HatchInsert,
+
+                        MarkInsert = MarkInsert,
+                        MarkType = MarkType,
                     };
 
                     dimension.Insert();
@@ -117,6 +142,17 @@ namespace sp_DimensionsForReinforcement
             LineColor = _data.LineColor; if (IsDefaultValue(LineColor)) { LineColor = "Black"; }
             LineType = _data.LineType; if (IsDefaultValue(LineType)) { LineType = "SlashedLine"; }
             DimensionType = _data.DimensionType; if (IsDefaultValue(DimensionType)) { DimensionType = "standard"; }
+            MarkType = _data.MarkType; if (IsDefaultValue(MarkType)) { MarkType = "standard"; }
+
+            HatchColor = _data.HatchColor; if (IsDefaultValue(HatchColor)) { HatchColor = "Black"; }
+            HatchName = _data.HatchName; if (IsDefaultValue(HatchName)) { HatchName = "ANSI31"; }
+            ScaleX = _data.ScaleX; if (IsDefaultValue(ScaleX)) { ScaleX = 1.0; }
+            ScaleY = _data.ScaleY; if (IsDefaultValue(ScaleY)) { ScaleY = 1.0; }
+            AngleHatch = _data.AngleHatch; if (IsDefaultValue(AngleHatch)) { AngleHatch = 0.0; }
+            DimensionInsert = _data.DimInsert; if (IsDefaultValue(DimensionInsert)) { DimensionInsert = 0; }
+            DiagonalInsert = _data.DiagInsert; if (IsDefaultValue(DiagonalInsert)) { DiagonalInsert = 0; }
+            HatchInsert = _data.HatchInsert; if (IsDefaultValue(HatchInsert)) { HatchInsert = 0; }
+            MarkInsert = _data.MarkInsert; if (IsDefaultValue(MarkInsert)) { MarkInsert = 0; }
         }
     }
 }

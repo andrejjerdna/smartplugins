@@ -39,6 +39,9 @@ namespace sp_DimensionsForReinforcement
         [StructuresDialog(nameof(LineType), typeof(String))]
         public String LineType { get; set; }
 
+        [StructuresDialog(nameof(MarkType), typeof(String))]
+        public String MarkType { get; set; }
+
         [StructuresDialog(nameof(HatchName), typeof(String))]
         public String HatchName { get; set; }
 
@@ -54,20 +57,24 @@ namespace sp_DimensionsForReinforcement
         [StructuresDialog(nameof(AngleHatch), typeof(Distance))]
         public Distance AngleHatch { get; set; }
 
-        [StructuresDialog(nameof(DimensionInsert), typeof(Integer))]
-        public Integer DimensionInsert { get; set; }
+        [StructuresDialog(nameof(DimInsert), typeof(Integer))]
+        public Integer DimInsert { get; set; }
 
-        [StructuresDialog(nameof(DiagonalInsert), typeof(Integer))]
-        public Integer DiagonalInsert { get; set; }
+        [StructuresDialog(nameof(DiagInsert), typeof(Integer))]
+        public Integer DiagInsert { get; set; }
 
         [StructuresDialog(nameof(HatchInsert), typeof(Integer))]
         public Integer HatchInsert { get; set; }
+
+        [StructuresDialog(nameof(MarkInsert), typeof(Integer))]
+        public Integer MarkInsert { get; set; }
 
         public IEnumerable<string> DrawinColors { get => Colors.GetListColors().Select(c => c.ToString()); }
         public IEnumerable<string> DrawinHatchColors { get => Colors.GetListHatchColors().Select(c => c.ToString()); }
         
         public IEnumerable<string> LineTypes { get => Lines.GetListLineTypes().Select(c => c.ToString()); }
         public IEnumerable<string> DimensionsTypes { get => GetAttributesFiles.GetDimensionsTypes(); }
+        public IEnumerable<string> MarksTypes { get => GetAttributesFiles.GetMarksTypes(); }
 
         public IEnumerable<string> HatchNames => new List<string>()
         {
@@ -89,6 +96,12 @@ namespace sp_DimensionsForReinforcement
         };
 
         public IEnumerable<string> HatchInserts => new List<string>()
+        {
+            "Нет",
+            "Да"
+        };
+
+        public IEnumerable<string> MarkInserts => new List<string>()
         {
             "Нет",
             "Да"

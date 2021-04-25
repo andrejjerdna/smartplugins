@@ -48,5 +48,10 @@ namespace SmartTeklaModel.Files
         {
             return Tekla.Structures.Dialog.UIControls.EnvironmentFiles.GetMultiDirectoryFileList("dim");
         }
+
+        public static IEnumerable<string> GetMarksTypes()
+        {
+            return Tekla.Structures.Dialog.UIControls.EnvironmentFiles.GetMultiDirectoryFileList("rm");
+        }
     }
 }

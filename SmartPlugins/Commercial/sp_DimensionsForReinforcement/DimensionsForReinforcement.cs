@@ -18,6 +18,9 @@ using Line = Tekla.Structures.Drawing.Line;
 using SmartGeometry;
 using SmartTeklaModel.Drawings;
 using SmartObjects.Drawings;
+using Tekla.Structures;
+using System.Collections;
+using ModelObjectSelector = Tekla.Structures.Model.UI.ModelObjectSelector;
 
 namespace sp_DimensionsForReinforcement
 {
@@ -37,9 +40,12 @@ namespace sp_DimensionsForReinforcement
         [StructuresField(nameof(ScaleX))] public double ScaleX;
         [StructuresField(nameof(ScaleY))] public double ScaleY;
         [StructuresField(nameof(AngleHatch))] public double AngleHatch;
-        [StructuresField(nameof(DimensionInsert))] public int DimensionInsert;
-        [StructuresField(nameof(DiagonalInsert))] public int DiagonalInsert;
+        [StructuresField(nameof(DimInsert))] public int DimInsert;
+        [StructuresField(nameof(DiagInsert))] public int DiagInsert;
         [StructuresField(nameof(HatchInsert))] public int HatchInsert;
+
+        [StructuresField(nameof(MarkInsert))] public int MarkInsert;
+        [StructuresField(nameof(MarkType))] public string MarkType;
     }
 
     [Plugin("sp_DimensionsForReinforcement")]
@@ -61,6 +67,7 @@ namespace sp_DimensionsForReinforcement
         public string LineType { get; set; }
         public string DimensionType { get; set; }
 
+
         public string HatchColor { get; set; }
         public string HatchName { get; set; }
         public double ScaleX { get; set; }
@@ -69,6 +76,9 @@ namespace sp_DimensionsForReinforcement
         public int DimensionInsert { get; set; }
         public int DiagonalInsert { get; set; }
         public int HatchInsert { get; set; }
+
+        public int MarkInsert { get; set; }
+        public string MarkType { get; set; }
 
         public DimensionsForReinforcement(DimensionsForReinforcementData data)
         {
@@ -131,7 +141,10 @@ namespace sp_DimensionsForReinforcement
                 AngleHatch = AngleHatch,
                 DimensionInsert = DimensionInsert,
                 DiagonalInsert = DiagonalInsert,
-                HatchInsert = HatchInsert
+                HatchInsert = HatchInsert,
+
+                MarkInsert = MarkInsert,
+                MarkType = MarkType,
             };
 
             dimension.Insert();
@@ -150,15 +163,17 @@ namespace sp_DimensionsForReinforcement
             LineColor = _data.LineColor; if (IsDefaultValue(LineColor)) { LineColor = "Black"; }
             LineType = _data.LineType; if (IsDefaultValue(LineType)) { LineType = "SlashedLine"; }
             DimensionType = _data.DimensionType; if (IsDefaultValue(DimensionType)) { DimensionType = "standard"; }
+            MarkType = _data.MarkType; if (IsDefaultValue(MarkType)) { MarkType = "standard"; }
 
             HatchColor = _data.HatchColor; if (IsDefaultValue(HatchColor)) { HatchColor = "Black"; }
             HatchName = _data.HatchName; if (IsDefaultValue(HatchName)) { HatchName = "ANSI31"; }
             ScaleX = _data.ScaleX; if (IsDefaultValue(ScaleX)) { ScaleX = 1.0; }
             ScaleY = _data.ScaleY; if (IsDefaultValue(ScaleY)) { ScaleY = 1.0; }
             AngleHatch = _data.AngleHatch; if (IsDefaultValue(AngleHatch)) { AngleHatch = 0.0; }
-            DimensionInsert = _data.DimensionInsert; if (IsDefaultValue(DimensionInsert)) { DimensionInsert = 1; }
-            DiagonalInsert = _data.DiagonalInsert; if (IsDefaultValue(DiagonalInsert)) { DiagonalInsert = 1; }
+            DimensionInsert = _data.DimInsert; if (IsDefaultValue(DimensionInsert)) { DimensionInsert = 0; }
+            DiagonalInsert = _data.DiagInsert; if (IsDefaultValue(DiagonalInsert)) { DiagonalInsert = 0; }
             HatchInsert = _data.HatchInsert; if (IsDefaultValue(HatchInsert)) { HatchInsert = 0; }
+            MarkInsert = _data.MarkInsert; if (IsDefaultValue(MarkInsert)) { MarkInsert = 0; }
         }
     }
 }

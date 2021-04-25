@@ -110,6 +110,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\CSLib\CSLib.csproj">
+      <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
+      <Name>CSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\SmartExtensions\SmartExtensions.csproj">
+      <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
+      <Name>SmartExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
