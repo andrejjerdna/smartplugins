@@ -16,7 +16,6 @@ using static Tekla.Structures.Drawing.Line;
 using Tekla.Structures.Geometry3d;
 using Line = Tekla.Structures.Drawing.Line;
 using SmartGeometry;
-using SmartTeklaModel.Drawings;
 using SmartObjects.Drawings;
 using Tekla.Structures;
 using System.Collections;
