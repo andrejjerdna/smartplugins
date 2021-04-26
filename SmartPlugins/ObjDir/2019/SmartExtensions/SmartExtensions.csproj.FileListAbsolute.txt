@@ -19,7 +19,6 @@ C:\Work\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\CSLib.pdb
 C:\Work\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Fusion.xml
 C:\Work\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Work\SmartPlugins\SmartPlugins\Common\SmartExtensions\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csprojAssemblyReference.cache
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CoreCompileInputs.cache
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.csproj.CopyComplete
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartExtensions\SmartExtensions.dll

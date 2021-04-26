@@ -15,7 +15,6 @@ using Tekla.Structures.Solid;
 using TSD = Tekla.Structures.Drawing;
 using t3d = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Geometry3d;
-using CSLib;
 
 namespace Test
 {

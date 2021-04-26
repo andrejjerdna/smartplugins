@@ -122,7 +122,7 @@
       <Version>3.3.3</Version>
     </PackageReference>
     <PackageReference Include="TeklaOpenAPI">
-      <Version>2019.0.45003</Version>
+      <Version>2020.0.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
