@@ -111,6 +111,7 @@ namespace Frames
 
 
         private void GetLocalValuesFromDialog()
+
         {
             L1 = _data.L1; if (IsDefaultValue(L1)) L1 = 6000.0;
 

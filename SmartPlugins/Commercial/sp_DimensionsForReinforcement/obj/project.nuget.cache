@@ -1,15 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "d54sG9PW7sFho72ZGuIR/c2jr+RtdOsgniBj/argGlJ+68w2NCIPPZshAszzeEl7kUmBbI1S4JnkAFD6+YlmEw==",
+  "dgSpecHash": "SxwWIfuSE+GgjFXmJV9ZYKHjiV1ZJq01B54QPI0FOQSxMjJECYPtfkJLplSlDrjiHnB/Exz61ZJOC4jS4QFhqg==",
   "success": true,
   "projectFilePath": "C:\\Work\\SmartPlugins\\SmartPlugins\\Commercial\\sp_DimensionsForReinforcement\\sp_DimensionsForReinforcement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\33pro\\.nuget\\packages\\fody\\6.4.0\\fody.6.4.0.nupkg.sha512",
     "C:\\Users\\33pro\\.nuget\\packages\\ilmerge\\3.0.41\\ilmerge.3.0.41.nupkg.sha512",
+    "C:\\Users\\33pro\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.19\\microsoft.xaml.behaviors.wpf.1.1.19.nupkg.sha512",
     "C:\\Users\\33pro\\.nuget\\packages\\msbuild.ilmerge.task\\1.1.3\\msbuild.ilmerge.task.1.1.3.nupkg.sha512",
     "C:\\Users\\33pro\\.nuget\\packages\\propertychanged.fody\\3.3.3\\propertychanged.fody.3.3.3.nupkg.sha512",
     "C:\\Users\\33pro\\.nuget\\packages\\teklafusion\\3.5.250\\teklafusion.3.5.250.nupkg.sha512",
-    "C:\\Users\\33pro\\.nuget\\packages\\teklaopenapi\\2019.0.45003\\teklaopenapi.2019.0.45003.nupkg.sha512"
+    "C:\\Users\\33pro\\.nuget\\packages\\teklaopenapi\\2020.0.3\\teklaopenapi.2020.0.3.nupkg.sha512"
   ],
   "logs": []
 }

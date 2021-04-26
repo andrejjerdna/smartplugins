@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TEP Version="1.0">
 	
-	<Product Id="sp_DimensionsForReinforcement" UpgradeCode="F7760CDF-7704-4132-AD51-35AD7BB7BB0F" Version="0.16" Language="1033"
+	<Product Id="sp_DimensionsForReinforcement" UpgradeCode="F7760CDF-7704-4132-AD51-35AD7BB7BB0F" Version="0.17" Language="1033"
 		Name="SmartPlugins" Manufacturer="SmartPlugins.pro"  Description= "Plugins from SmartPlugins.pro"
 		IconPath="%TEPDEFINITIONFILEFOLDER%\Icon.png">
 		<TeklaVersions>
