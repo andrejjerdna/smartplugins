@@ -27,6 +27,7 @@ namespace PipeRack
             else
             {
                 InitializeComponent();
+                TopMost = true;
             }
         }
 
