@@ -41,3 +41,4 @@ C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\SmartWPFElements.
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\SmartWPFElements.csproj.CopyComplete
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\SmartWPFElements.dll
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\SmartWPFElements.pdb
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartWPFElements\SmartWPFElements.csprojAssemblyReference.cache

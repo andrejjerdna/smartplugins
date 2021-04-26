@@ -17,6 +17,10 @@ using Tekla.Structures.Geometry3d;
 using Line = Tekla.Structures.Drawing.Line;
 using SmartGeometry;
 using SmartTeklaModel.Drawings;
+using Point = Tekla.Structures.Geometry3d.Point;
+using Tekla.Structures;
+using ModelObjectSelector = Tekla.Structures.Model.UI.ModelObjectSelector;
+using System.Collections;
 
 namespace SmartObjects.Drawings
 {
@@ -41,6 +45,18 @@ namespace SmartObjects.Drawings
         public string LineType { get; set; }
         public string DimensionType { get; set; }
 
+        public string HatchColor { get; set; }
+        public string HatchName { get; set; }
+        public double ScaleX { get; set; }
+        public double ScaleY { get; set; }
+        public double AngleHatch { get; set; }
+        public int DimensionInsert { get; set; }
+        public int DiagonalInsert { get; set; }
+        public int HatchInsert { get; set; }
+
+        public int MarkInsert { get; set; }
+        public string MarkType { get; set; }
+
         public DimensionsForRebarGroup(Model model, ViewBase viewBase, RebarGroup rebarGroup)
         {
             _model = model;
@@ -59,7 +75,11 @@ namespace SmartObjects.Drawings
 
             InsertLines();
 
-            InsertDimensions(_viewBase.GetAllObjects());
+            if (DimensionInsert == 1)
+                InsertDimensions(_viewBase.GetAllObjects());
+
+            if (MarkInsert == 1)
+                InsertMark();
 
             return true;
         }
@@ -111,23 +131,33 @@ namespace SmartObjects.Drawings
                 Line = baseLine,
             };
 
-            var diagonal1 = new Line(_viewBase, localP1, localP4, lineTypeAttributes);
-            diagonal1.Insert();
+            if (DiagonalInsert == 1)
+            {
+                var diagonal1 = new Line(_viewBase, localP1, localP4, lineTypeAttributes);
+                diagonal1.Insert();
 
-            var diagonal2 = new Line(_viewBase, localP2, localP3, lineTypeAttributes);
-            diagonal2.Insert();
+                var diagonal2 = new Line(_viewBase, localP2, localP3, lineTypeAttributes);
+                diagonal2.Insert();
+            }
 
-            var side1 = new Line(_viewBase, localP1, localP2, lineTypeAttributes);
-            side1.Insert();
+            var rectangle1 = new Rectangle(_viewBase, localP1, localP4);
+            rectangle1.Attributes.Line.Color = Colors.GetColor(LineColor);
+            rectangle1.Attributes.Line.Type = Lines.GetLineTypes(LineType);
 
-            var side2 = new Line(_viewBase, localP2, localP4, lineTypeAttributes);
-            side2.Insert();
+            if (HatchInsert == 1)
+            {
+                rectangle1.Attributes.Hatch.Name = HatchName;
+                rectangle1.Attributes.Hatch.ScaleX = ScaleX;
+                rectangle1.Attributes.Hatch.ScaleY = ScaleY;
+                rectangle1.Attributes.Hatch.Angle = AngleHatch;
+                rectangle1.Attributes.Hatch.Color = Colors.GetHatchColor(HatchColor);
+            }
+            else
+            {
+                rectangle1.Attributes.Hatch.Name = "None";
+            }
 
-            var side3 = new Line(_viewBase, localP3, localP4, lineTypeAttributes);
-            side3.Insert();
-
-            var side4 = new Line(_viewBase, localP3, localP1, lineTypeAttributes);
-            side4.Insert();
+            rectangle1.Insert();
         }
 
         /// <summary>
@@ -149,8 +179,6 @@ namespace SmartObjects.Drawings
 
             _p3 = workTP.TransformationMatrixToLocal.Transform(viewTP.TransformationMatrixToGlobal.Transform(_p3));
             _p4 = workTP.TransformationMatrixToLocal.Transform(viewTP.TransformationMatrixToGlobal.Transform(_p4));
-
-
 
             var pointX1 = new t3d.Point(_p1.X, (_p1.Y + _p2.Y) / 2, _p1.Z);
             var pointX2 = new t3d.Point(_p3.X, (_p1.Y + _p2.Y) / 2, _p1.Z);
@@ -266,6 +294,52 @@ namespace SmartObjects.Drawings
             }
 
         }
-    }
 
+        /// <summary>
+        /// Отрисовка метки армирования.
+        /// </summary>
+        private void InsertMark()
+        {
+            var dh = new DrawingHandler();
+
+            var doo = _viewBase.GetModelObjects(_rebarGroup.Identifier).ToIEnumerable<Tekla.Structures.Drawing.ModelObject>().ToList();
+
+            dh.GetDrawingObjectSelector().SelectObject(doo.First());
+
+            TeklaStructures.Connect();
+
+            new MacroBuilder()
+                .Callback("acmd_create_marks_selected", "", "View_10 window_1")
+                .ValueChange("rebar_mark_dial", "gr_rebar_mark_get_menu", MarkType)
+                .PushButton("gr_rebar_get", "rebar_mark_dial")
+                .PushButton("rebar_mark_modify", "rebar_mark_dial")
+                .Run();
+        }
+
+        /*
+        var dimensionsAttrbutes = new StraightDimensionSet.StraightDimensionSetAttributes(DimensionType);
+
+        var p1 = new Point((_p1.X + _p3.X) / 2, (_p1.Y + _p3.Y) / 2, (_p1.Z + _p3.Z) / 2);
+        var p2 = new Point((_p2.X + _p4.X) / 2, (_p2.Y + _p4.Y) / 2, (_p2.Z + _p4.Z) / 2);
+
+        var vector = new t3d.Vector(p1 - p2);
+
+        var dimension1 = new StraightDimension(_viewBase, p1, p2, vector.Cross(new t3d.Vector(0, 0, 1)), L4 * _view.Attributes.Scale, dimensionsAttrbutes);
+        dimension1.Insert();
+
+        var doo = _viewBase.GetModelObjects(_rebarGroup.Identifier).ToIEnumerable<Tekla.Structures.Drawing.ModelObject>().ToList();
+
+        Mark
+
+        var mark = new Mark(doo.First());
+        mark.Attributes.Content.Clear();
+        mark.Attributes.LoadAttributes(MarkType);
+        mark.Placing = new AlongLinePlacing(new Point(p1.X + 300, p1.Y+150, p1.Z), new Point(p1.X + 600, p1.Y + 150, p1.Z));
+
+        mark.InsertionPoint = p1;
+
+        mark.Insert();
+        */
+    }
+    
 }

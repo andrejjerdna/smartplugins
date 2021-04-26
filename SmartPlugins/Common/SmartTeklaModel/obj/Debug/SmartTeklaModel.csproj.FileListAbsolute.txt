@@ -1,1 +1,0 @@
-G:\SmartPlugins\SmartPlugins\Common\SmartTeklaModel\obj\Debug\SmartTeklaModel.csproj.CoreCompileInputs.cache

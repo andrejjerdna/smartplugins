@@ -11,7 +11,7 @@
           "lib/net451/Fusion.dll": {}
         }
       },
-      "TeklaOpenAPI/2019.0.45003": {
+      "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
           "lib/Tekla.Application.Library.dll": {},
@@ -50,7 +50,7 @@
           "lib/net451/Fusion.dll": {}
         }
       },
-      "TeklaOpenAPI/2019.0.45003": {
+      "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
           "lib/Tekla.Application.Library.dll": {},
@@ -89,7 +89,7 @@
           "lib/net451/Fusion.dll": {}
         }
       },
-      "TeklaOpenAPI/2019.0.45003": {
+      "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
           "lib/Tekla.Application.Library.dll": {},
@@ -128,7 +128,7 @@
           "lib/net451/Fusion.dll": {}
         }
       },
-      "TeklaOpenAPI/2019.0.45003": {
+      "TeklaOpenAPI/2020.0.3": {
         "type": "package",
         "compile": {
           "lib/Tekla.Application.Library.dll": {},
@@ -172,10 +172,10 @@
         "teklafusion.nuspec"
       ]
     },
-    "TeklaOpenAPI/2019.0.45003": {
-      "sha512": "5yb8BGRAKeBF7cYR2HURxmyGV1a3WQNpYiuC71A0CVxK/TACu0tcn9tj3aJCzzLQQT+ARj9CgUbkiy7IPkfh1A==",
+    "TeklaOpenAPI/2020.0.3": {
+      "sha512": "/bCyOSYemOvqswu48r7QsYScDNb4KDJ1t+t4pymnDxIM/Fi5jfs5jR14l+M7JBv7JV4Q+0X7EeUTHBCtVUSHDg==",
       "type": "package",
-      "path": "teklaopenapi/2019.0.45003",
+      "path": "teklaopenapi/2020.0.3",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -200,7 +200,7 @@
         "lib/Tekla.Technology.Scripting.Plugins.dll",
         "lib/Tekla.Technology.Scripting.dll",
         "lib/Tekla.Technology.Serialization.dll",
-        "teklaopenapi.2019.0.45003.nupkg.sha512",
+        "teklaopenapi.2020.0.3.nupkg.sha512",
         "teklaopenapi.nuspec",
         "tools/install.ps1"
       ]
@@ -209,24 +209,29 @@
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.8": [
       "TeklaFusion >= 3.5.250",
-      "TeklaOpenAPI >= 2019.0.45003"
+      "TeklaOpenAPI >= 2020.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Arti\\.nuget\\packages\\": {}
+    "C:\\Users\\33pro\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+      "projectUniqueName": "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
       "projectName": "CSLib",
-      "projectPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
-      "packagesPath": "C:\\Users\\Arti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Arti\\Source\\Repos\\Tekla\\SmartPlugins\\Common\\CSLib\\obj\\",
+      "projectPath": "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\CSLib.csproj",
+      "packagesPath": "C:\\Users\\33pro\\.nuget\\packages\\",
+      "outputPath": "C:\\Work\\SmartPlugins\\SmartPlugins\\Common\\CSLib\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Arti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\33pro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -251,7 +256,7 @@
           },
           "TeklaOpenAPI": {
             "target": "Package",
-            "version": "[2019.0.45003, )"
+            "version": "[2020.0.3, )"
           }
         }
       }
