@@ -1,5 +1,0 @@
-C:\Work\SmartPlugins\SmartPlugins\Test\obj\Debug\Test.csprojAssemblyReference.cache
-C:\Work\SmartPlugins\SmartPlugins\Test\obj\Debug\Test.Form1.resources
-C:\Work\SmartPlugins\SmartPlugins\Test\obj\Debug\Test.Properties.Resources.resources
-C:\Work\SmartPlugins\SmartPlugins\Test\obj\Debug\Test.csproj.GenerateResource.cache
-C:\Work\SmartPlugins\SmartPlugins\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
