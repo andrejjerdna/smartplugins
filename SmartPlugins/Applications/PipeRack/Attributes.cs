@@ -17,8 +17,8 @@ namespace PipeRack
         public string Class { get; set; }
         public string PrefixSborki { get; set; }
         public string NomerSborki { get; set; }
-        public string PolojenieVertikalno { get; set; }
-        public string PolojeniePovorot{ get; set; }
-        public string PolojenieGorizontalno { get; set; }
+        public int PolojenieVertikalno { get; set; }
+        public int PolojeniePovorot { get; set; }
+        public int PolojenieGorizontalno { get; set; }
     }
 }

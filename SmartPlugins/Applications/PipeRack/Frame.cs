@@ -33,6 +33,8 @@ namespace PipeRack
 
         public List<Beam> _Columns = new List<Beam>();
         public List<Beam> _Travers = new List<Beam>();
+        public List<Beam> _TraversRight = new List<Beam>();
+        public List<Beam> _TraversLeft = new List<Beam>();
         public List<double> Z { get; set; }
 
         public Frame(Model M, Point basePoint, int yarusCount, int count_column)
@@ -78,7 +80,8 @@ namespace PipeRack
             {
                 Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count]+ _basePoint.X * UklonbI[_count]* 0.001);
                 Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count]+ _basePoint.X * UklonbI[_count]* 0.001);
-                _Travers.Add(Beam_main(Attributes[_count], B_1_start, B_1_end));
+                _TraversRight.Add(Beam_main(Attributes[_count], B_1_start, B_1_end));
+                _Travers.Add(_TraversRight[_count]);
             }
         }
 
@@ -96,7 +99,7 @@ namespace PipeRack
 
                 if (Traversy2[H-1] > Traversy[H-1])
                 {
-                   C_End_point2 = new Point(0, 0, Traversy2[H - 1] + 100);
+                   C_End_point2 = new Point(0, 0, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);
                 }
 
 
@@ -111,14 +114,16 @@ namespace PipeRack
             {
                 Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count] + _basePoint.X * UklonbI[_count]*0.001);
                 Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count] + _basePoint.X * UklonbI[_count]*0.001);
-                _Travers.Add(Beam_main(Attributes[_count], B_1_start, B_1_end));
+                _TraversRight.Add(Beam_main(Attributes[_count], B_1_start, B_1_end));
+                _Travers.Add(_TraversRight[_count]);
             }
 
             for (int _count = 0; _count < _yarusCount; _count++)
             {
                 Point B_2_start = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy2[_count] + _basePoint.X * UklonbI[_count] * 0.001);
                 Point B_2_end = new Point(C_Start_point3.X, C_Start_point3.Y, Traversy2[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                _Travers.Add(Beam_main(Attributes2[_count], B_2_start, B_2_end));
+                _TraversLeft.Add(Beam_main(Attributes2[_count], B_2_start, B_2_end));
+                _Travers.Add(_TraversRight[_count]);
             }
         }
 
@@ -155,20 +160,20 @@ namespace PipeRack
                 beam.PartNumber.StartNumber = nomerSborki;
 
                 //LEFT MIDDLE RIGHT
-                if (_attributes.PolojenieGorizontalno == "Слева") beam.Position.Plane = Position.PlaneEnum.LEFT;
-                if (_attributes.PolojenieGorizontalno == "Центр") beam.Position.Plane = Position.PlaneEnum.MIDDLE;
-                if (_attributes.PolojenieGorizontalno == "Справа") beam.Position.Plane = Position.PlaneEnum.RIGHT;
+                if (_attributes.PolojenieGorizontalno == 1) beam.Position.Plane = Position.PlaneEnum.LEFT;
+                if (_attributes.PolojenieGorizontalno == 0) beam.Position.Plane = Position.PlaneEnum.MIDDLE;
+                if (_attributes.PolojenieGorizontalno == 2) beam.Position.Plane = Position.PlaneEnum.RIGHT;
 
                 // BACK BELOW FRONT TOP
-                if (_attributes.PolojeniePovorot == "Спереди") beam.Position.Rotation = Position.RotationEnum.FRONT;
-                if (_attributes.PolojeniePovorot == "Сверху") beam.Position.Rotation = Position.RotationEnum.TOP;
-                if (_attributes.PolojeniePovorot == "Сзади") beam.Position.Rotation = Position.RotationEnum.BACK;
-                if (_attributes.PolojeniePovorot == "Снизу") beam.Position.Rotation = Position.RotationEnum.BELOW;
+                if (_attributes.PolojeniePovorot == 1) beam.Position.Rotation = Position.RotationEnum.FRONT;
+                if (_attributes.PolojeniePovorot == 0) beam.Position.Rotation = Position.RotationEnum.TOP;
+               // if (_attributes.PolojeniePovorot == 0) beam.Position.Rotation = Position.RotationEnum.BACK;
+               // if (_attributes.PolojeniePovorot == 1) beam.Position.Rotation = Position.RotationEnum.BELOW;
 
                 // BEHIND  FRONT MIDLE
-                if (_attributes.PolojenieVertikalno == "Середина") beam.Position.Depth = Position.DepthEnum.MIDDLE;
-                if (_attributes.PolojenieVertikalno == "Вниз") beam.Position.Depth = Position.DepthEnum.BEHIND;
-                if (_attributes.PolojenieVertikalno == "Вверх") beam.Position.Depth = Position.DepthEnum.FRONT;
+                if (_attributes.PolojenieVertikalno == 1) beam.Position.Depth = Position.DepthEnum.MIDDLE;
+                if (_attributes.PolojenieVertikalno == 0) beam.Position.Depth = Position.DepthEnum.BEHIND;
+                if (_attributes.PolojenieVertikalno == 2) beam.Position.Depth = Position.DepthEnum.FRONT;
 
             }
 

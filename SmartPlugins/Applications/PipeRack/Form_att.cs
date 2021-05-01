@@ -12,7 +12,9 @@ namespace PipeRack
         {
             _attributes = attributes;
             InitializeComponent();
+
             GetParams();
+
         }
         
         private void GetParams()
@@ -26,9 +28,9 @@ namespace PipeRack
             Class.Text = _attributes.Class;
             PrefixSborki.Text = _attributes.PrefixSborki;
             NomerSborki.Text = _attributes.NomerSborki.ToString();
-            PolojenieVertikalno.Text = _attributes.PolojenieVertikalno;
-            PolojeniePovorot.Text = _attributes.PolojeniePovorot;
-            PolojenieGorizontalno.Text = _attributes.PolojenieGorizontalno;
+            DepthCB.SelectedIndex = _attributes.PolojenieVertikalno;
+            RotationCB.SelectedIndex = _attributes.PolojeniePovorot;
+            PlaneCB.SelectedIndex = _attributes.PolojenieGorizontalno;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -39,9 +41,10 @@ namespace PipeRack
             string class1 = Class.Text;
             string prefixSborki = PrefixSborki.Text;
             string nomerSborki = NomerSborki.Text;
-            string polojenieVertikalno = PolojenieVertikalno.Text;
-            string polojeniePovorot = PolojeniePovorot.Text;
-            string polojenieGorizontalno = PolojenieGorizontalno.Text;
+            int polojenieVertikalno = DepthCB.SelectedIndex;
+            int polojeniePovorot = RotationCB.SelectedIndex;
+            int polojenieGorizontalno = PlaneCB.SelectedIndex;
+            
 
 
             _attributes = new Attributes()
@@ -87,6 +90,17 @@ namespace PipeRack
 
         private void ProfileCatalog1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void ImageComboBox1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ImageListComboBox1_Load(object sender, EventArgs e)
+        {
+
 
         }
     }

@@ -18,7 +18,8 @@ namespace PipeRack
     public partial class Form1 : Form
     {
         Model M = new Model();
-
+        // public List<Frame> FraMESS { get; set; }
+        List<Frame> FraMES = new List<Frame>(); // список построенных рам
 
         public Form1()
         {
@@ -27,7 +28,7 @@ namespace PipeRack
             else
             {
                 InitializeComponent();
-                TopMost = true;
+                
             }
         }
 
@@ -75,7 +76,6 @@ namespace PipeRack
                 _attributeColumn2,
                 _attributeColumn3,
              };
-
             List<Attributes> _attributes = new List<Attributes>() // правые балки при трёх колоннах или балки при бвух колоннах
             {
                 _attributeYarus1,
@@ -86,7 +86,6 @@ namespace PipeRack
                 _attributeYarus6,
                 _attributeYarus7,
              };
-
             List<Attributes> _attributes2 = new List<Attributes>() // левые балки при трех колоннах
             {
                 _AttYarus1L,
@@ -97,7 +96,6 @@ namespace PipeRack
                 _AttYarus6L,
                 _AttYarus7L,
              };
-
             List<Attributes> _attributesProdolnie = new List<Attributes>() // левые балки при трех колоннах
             {
                 _Prodovnie1,
@@ -108,7 +106,6 @@ namespace PipeRack
                 _Prodovnie6,
                 _Prodovnie7,
              };
-
             List<Attributes> _attributesTraversyvprovete = new List<Attributes>()
             {
                 _travvprolete1,
@@ -147,7 +144,7 @@ namespace PipeRack
                 double.Parse(B_H6.Text),
                 double.Parse(B_H7.Text)
             };
-
+            
             List<double> Traversy2 = new List<double>  // шаги траверс по Z
             {
                 double.Parse(L_H1.Text),
@@ -158,7 +155,7 @@ namespace PipeRack
                 double.Parse(L_H6.Text),
                 double.Parse(L_H7.Text)
             };
-
+            
             List<double> UklonbI = new List<double>
             {
                 double.Parse(YklonYarys1.Text),
@@ -173,15 +170,13 @@ namespace PipeRack
             Regen(Traversy, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
             Regen(Traversy2, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
 
-
-
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             TransformationPlane zero_plane = new TransformationPlane();
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane);
             var TP = SmartTransfomationPlane.GetTransformationPlaneTwoPoints(M, CS_point, CS_point_end);
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
 
-            List<Frame> FraMES = new List<Frame>(); // список построенных рам
+            
 
             var tempX = 0.0;
 
@@ -223,6 +218,8 @@ namespace PipeRack
                 {
                     AttributesProdolnie = _attributesProdolnie,
                     AttributesTraversyvprovete = _attributesTraversyvprovete,
+                    Traversy = Traversy,
+                    Traversy2 = Traversy2,
                 };
                 balkiYarusa.Insert();
                 
@@ -265,5 +262,31 @@ namespace PipeRack
         }
 
 
+
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            for (int count = 0; count < FraMES.Count() - 1; count++)
+            {
+                var FF = FraMES.Skip(count);
+                List<Frame> FRAMESS = new List<Frame>();
+                foreach (Frame F in FF)
+                {
+                    FRAMESS.Add(F);
+                }
+
+                var PlatformMaintenance = new PlatformMaintenance(FRAMESS)
+                {
+
+                };
+               // balkiYarusa.Insert();
+
+            }
+        }
     }
 }

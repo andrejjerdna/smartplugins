@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_att));
             this.label24 = new System.Windows.Forms.Label();
             this.PrefixSborki = new System.Windows.Forms.TextBox();
             this.Namen = new System.Windows.Forms.TextBox();
@@ -44,11 +46,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.PolojenieGorizontalno = new System.Windows.Forms.ComboBox();
-            this.PolojeniePovorot = new System.Windows.Forms.ComboBox();
-            this.PolojenieVertikalno = new System.Windows.Forms.ComboBox();
             this.profileCatalog1 = new Tekla.Structures.Dialog.UIControls.ProfileCatalog();
             this.materialCatalog1 = new Tekla.Structures.Dialog.UIControls.MaterialCatalog();
+            this.DepthCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
+            this.Depth = new System.Windows.Forms.ImageList(this.components);
+            this.Rotation = new System.Windows.Forms.ImageList(this.components);
+            this.PlaneCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
+            this.Plane = new System.Windows.Forms.ImageList(this.components);
+            this.RotationCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
             this.SuspendLayout();
             // 
             // label24
@@ -69,7 +74,7 @@
             this.structuresExtender.SetAttributeTypeName(this.PrefixSborki, null);
             this.structuresExtender.SetBindPropertyName(this.PrefixSborki, null);
             this.PrefixSborki.Location = new System.Drawing.Point(148, 143);
-            this.PrefixSborki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PrefixSborki.Margin = new System.Windows.Forms.Padding(4);
             this.PrefixSborki.Name = "PrefixSborki";
             this.PrefixSborki.Size = new System.Drawing.Size(93, 22);
             this.PrefixSborki.TabIndex = 126;
@@ -81,7 +86,7 @@
             this.structuresExtender.SetAttributeTypeName(this.Namen, null);
             this.structuresExtender.SetBindPropertyName(this.Namen, null);
             this.Namen.Location = new System.Drawing.Point(148, 7);
-            this.Namen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Namen.Margin = new System.Windows.Forms.Padding(4);
             this.Namen.Name = "Namen";
             this.Namen.Size = new System.Drawing.Size(196, 22);
             this.Namen.TabIndex = 123;
@@ -117,7 +122,7 @@
             this.structuresExtender.SetAttributeTypeName(this.Material, null);
             this.structuresExtender.SetBindPropertyName(this.Material, null);
             this.Material.Location = new System.Drawing.Point(148, 71);
-            this.Material.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Material.Margin = new System.Windows.Forms.Padding(4);
             this.Material.Name = "Material";
             this.Material.Size = new System.Drawing.Size(196, 22);
             this.Material.TabIndex = 120;
@@ -129,7 +134,7 @@
             this.structuresExtender.SetAttributeTypeName(this.Profile, null);
             this.structuresExtender.SetBindPropertyName(this.Profile, null);
             this.Profile.Location = new System.Drawing.Point(148, 39);
-            this.Profile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Profile.Margin = new System.Windows.Forms.Padding(4);
             this.Profile.Name = "Profile";
             this.Profile.Size = new System.Drawing.Size(196, 22);
             this.Profile.TabIndex = 119;
@@ -152,7 +157,7 @@
             this.structuresExtender.SetAttributeName(this.label2, null);
             this.structuresExtender.SetAttributeTypeName(this.label2, null);
             this.structuresExtender.SetBindPropertyName(this.label2, null);
-            this.label2.Location = new System.Drawing.Point(15, 244);
+            this.label2.Location = new System.Drawing.Point(168, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 25);
             this.label2.TabIndex = 130;
@@ -177,7 +182,7 @@
             this.structuresExtender.SetAttributeTypeName(this.Class, null);
             this.structuresExtender.SetBindPropertyName(this.Class, null);
             this.Class.Location = new System.Drawing.Point(148, 107);
-            this.Class.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Class.Margin = new System.Windows.Forms.Padding(4);
             this.Class.Name = "Class";
             this.Class.Size = new System.Drawing.Size(196, 22);
             this.Class.TabIndex = 124;
@@ -189,7 +194,7 @@
             this.structuresExtender.SetAttributeTypeName(this.NomerSborki, null);
             this.structuresExtender.SetBindPropertyName(this.NomerSborki, null);
             this.NomerSborki.Location = new System.Drawing.Point(251, 143);
-            this.NomerSborki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NomerSborki.Margin = new System.Windows.Forms.Padding(4);
             this.NomerSborki.Name = "NomerSborki";
             this.NomerSborki.Size = new System.Drawing.Size(93, 22);
             this.NomerSborki.TabIndex = 132;
@@ -200,7 +205,7 @@
             this.structuresExtender.SetAttributeName(this.label26, null);
             this.structuresExtender.SetAttributeTypeName(this.label26, null);
             this.structuresExtender.SetBindPropertyName(this.label26, null);
-            this.label26.Location = new System.Drawing.Point(1, 214);
+            this.label26.Location = new System.Drawing.Point(1, 218);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(131, 21);
             this.label26.TabIndex = 114;
@@ -212,7 +217,7 @@
             this.structuresExtender.SetAttributeName(this.label3, null);
             this.structuresExtender.SetAttributeTypeName(this.label3, null);
             this.structuresExtender.SetBindPropertyName(this.label3, null);
-            this.label3.Location = new System.Drawing.Point(29, 180);
+            this.label3.Location = new System.Drawing.Point(91, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 22);
             this.label3.TabIndex = 133;
@@ -224,7 +229,7 @@
             this.structuresExtender.SetAttributeName(this.label4, null);
             this.structuresExtender.SetAttributeTypeName(this.label4, null);
             this.structuresExtender.SetBindPropertyName(this.label4, null);
-            this.label4.Location = new System.Drawing.Point(1, 278);
+            this.label4.Location = new System.Drawing.Point(319, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 21);
             this.label4.TabIndex = 134;
@@ -236,7 +241,7 @@
             this.structuresExtender.SetAttributeName(this.button1, null);
             this.structuresExtender.SetAttributeTypeName(this.button1, null);
             this.structuresExtender.SetBindPropertyName(this.button1, null);
-            this.button1.Location = new System.Drawing.Point(148, 310);
+            this.button1.Location = new System.Drawing.Point(188, 358);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 31);
@@ -244,58 +249,6 @@
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // PolojenieGorizontalno
-            // 
-            this.structuresExtender.SetAttributeName(this.PolojenieGorizontalno, null);
-            this.structuresExtender.SetAttributeTypeName(this.PolojenieGorizontalno, null);
-            this.structuresExtender.SetBindPropertyName(this.PolojenieGorizontalno, null);
-            this.PolojenieGorizontalno.FormattingEnabled = true;
-            this.PolojenieGorizontalno.Items.AddRange(new object[] {
-            "Центр",
-            "Слева",
-            "Справа"});
-            this.PolojenieGorizontalno.Location = new System.Drawing.Point(148, 277);
-            this.PolojenieGorizontalno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PolojenieGorizontalno.Name = "PolojenieGorizontalno";
-            this.PolojenieGorizontalno.Size = new System.Drawing.Size(196, 24);
-            this.PolojenieGorizontalno.TabIndex = 137;
-            this.PolojenieGorizontalno.Text = "Центр";
-            // 
-            // PolojeniePovorot
-            // 
-            this.structuresExtender.SetAttributeName(this.PolojeniePovorot, null);
-            this.structuresExtender.SetAttributeTypeName(this.PolojeniePovorot, null);
-            this.structuresExtender.SetBindPropertyName(this.PolojeniePovorot, null);
-            this.PolojeniePovorot.FormattingEnabled = true;
-            this.PolojeniePovorot.Items.AddRange(new object[] {
-            "Спереди",
-            "Сверху",
-            "Сзади",
-            "Снизу"});
-            this.PolojeniePovorot.Location = new System.Drawing.Point(148, 245);
-            this.PolojeniePovorot.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PolojeniePovorot.Name = "PolojeniePovorot";
-            this.PolojeniePovorot.Size = new System.Drawing.Size(196, 24);
-            this.PolojeniePovorot.TabIndex = 138;
-            this.PolojeniePovorot.Text = "Спереди";
-            // 
-            // PolojenieVertikalno
-            // 
-            this.structuresExtender.SetAttributeName(this.PolojenieVertikalno, null);
-            this.structuresExtender.SetAttributeTypeName(this.PolojenieVertikalno, null);
-            this.structuresExtender.SetBindPropertyName(this.PolojenieVertikalno, null);
-            this.PolojenieVertikalno.FormattingEnabled = true;
-            this.PolojenieVertikalno.Items.AddRange(new object[] {
-            "Середина",
-            "Вверх",
-            "Вниз"});
-            this.PolojenieVertikalno.Location = new System.Drawing.Point(148, 213);
-            this.PolojenieVertikalno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PolojenieVertikalno.Name = "PolojenieVertikalno";
-            this.PolojenieVertikalno.Size = new System.Drawing.Size(196, 24);
-            this.PolojenieVertikalno.TabIndex = 138;
-            this.PolojenieVertikalno.Text = "Середина";
             // 
             // profileCatalog1
             // 
@@ -305,7 +258,7 @@
             this.structuresExtender.SetBindPropertyName(this.profileCatalog1, null);
             this.profileCatalog1.ButtonText = "Select...";
             this.profileCatalog1.Location = new System.Drawing.Point(353, 31);
-            this.profileCatalog1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.profileCatalog1.Margin = new System.Windows.Forms.Padding(5);
             this.profileCatalog1.Name = "profileCatalog1";
             this.profileCatalog1.SelectedProfile = "";
             this.profileCatalog1.Size = new System.Drawing.Size(117, 33);
@@ -320,15 +273,104 @@
             this.structuresExtender.SetAttributeTypeName(this.materialCatalog1, null);
             this.materialCatalog1.BackColor = System.Drawing.Color.Transparent;
             this.structuresExtender.SetBindPropertyName(this.materialCatalog1, null);
-            this.materialCatalog1.ButtonText = "albl_Select__";
+            this.materialCatalog1.ButtonText = "Выбрать...";
             this.materialCatalog1.Location = new System.Drawing.Point(355, 75);
-            this.materialCatalog1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.materialCatalog1.Margin = new System.Windows.Forms.Padding(5);
             this.materialCatalog1.Name = "materialCatalog1";
             this.materialCatalog1.SelectedMaterial = "";
             this.materialCatalog1.Size = new System.Drawing.Size(117, 33);
             this.materialCatalog1.TabIndex = 140;
             this.materialCatalog1.SelectClicked += new System.EventHandler(this.materialCatalog1_SelectClicked);
             this.materialCatalog1.SelectionDone += new System.EventHandler(this.materialCatalog1_SelectionDone);
+            // 
+            // DepthCB
+            // 
+            this.structuresExtender.SetAttributeName(this.DepthCB, null);
+            this.structuresExtender.SetAttributeTypeName(this.DepthCB, null);
+            this.DepthCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DepthCB.BackColor = System.Drawing.Color.Transparent;
+            this.DepthCB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.structuresExtender.SetBindPropertyName(this.DepthCB, null);
+            this.DepthCB.DefaultValue = "";
+            this.DepthCB.HoverColor = System.Drawing.Color.DodgerBlue;
+            this.DepthCB.ImageList = this.Depth;
+            this.DepthCB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DepthCB.Location = new System.Drawing.Point(25, 255);
+            this.DepthCB.MaximumSize = new System.Drawing.Size(5000, 5000);
+            this.DepthCB.MinimumSize = new System.Drawing.Size(70, 56);
+            this.DepthCB.Name = "DepthCB";
+            this.DepthCB.SelectedIndex = 0;
+            this.DepthCB.SelectedItem = ((object)(resources.GetObject("DepthCB.SelectedItem")));
+            this.DepthCB.Size = new System.Drawing.Size(70, 56);
+            this.DepthCB.TabIndex = 142;
+            this.DepthCB.ToolTipText = "";
+            this.DepthCB.Load += new System.EventHandler(this.ImageListComboBox1_Load);
+            // 
+            // Depth
+            // 
+            this.Depth.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Depth.ImageStream")));
+            this.Depth.TransparentColor = System.Drawing.Color.Transparent;
+            this.Depth.Images.SetKeyName(0, "Depth_front.PNG");
+            this.Depth.Images.SetKeyName(1, "Depth_middle.PNG");
+            this.Depth.Images.SetKeyName(2, "Depth_behind.PNG");
+            // 
+            // Rotation
+            // 
+            this.Rotation.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Rotation.ImageStream")));
+            this.Rotation.TransparentColor = System.Drawing.Color.Transparent;
+            this.Rotation.Images.SetKeyName(0, "Rotation_top_below.PNG");
+            this.Rotation.Images.SetKeyName(1, "Rotation_front_back.PNG");
+            // 
+            // PlaneCB
+            // 
+            this.structuresExtender.SetAttributeName(this.PlaneCB, null);
+            this.structuresExtender.SetAttributeTypeName(this.PlaneCB, null);
+            this.PlaneCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PlaneCB.BackColor = System.Drawing.Color.Transparent;
+            this.PlaneCB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.structuresExtender.SetBindPropertyName(this.PlaneCB, null);
+            this.PlaneCB.DefaultValue = "";
+            this.PlaneCB.HoverColor = System.Drawing.Color.DodgerBlue;
+            this.PlaneCB.ImageList = this.Plane;
+            this.PlaneCB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.PlaneCB.Location = new System.Drawing.Point(353, 255);
+            this.PlaneCB.MaximumSize = new System.Drawing.Size(5000, 5000);
+            this.PlaneCB.MinimumSize = new System.Drawing.Size(70, 56);
+            this.PlaneCB.Name = "PlaneCB";
+            this.PlaneCB.SelectedIndex = 0;
+            this.PlaneCB.SelectedItem = ((object)(resources.GetObject("PlaneCB.SelectedItem")));
+            this.PlaneCB.Size = new System.Drawing.Size(70, 56);
+            this.PlaneCB.TabIndex = 144;
+            this.PlaneCB.ToolTipText = "";
+            // 
+            // Plane
+            // 
+            this.Plane.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Plane.ImageStream")));
+            this.Plane.TransparentColor = System.Drawing.Color.Transparent;
+            this.Plane.Images.SetKeyName(0, "Plane_middle.PNG");
+            this.Plane.Images.SetKeyName(1, "Plane_left.PNG");
+            this.Plane.Images.SetKeyName(2, "Plane_right.PNG");
+            // 
+            // RotationCB
+            // 
+            this.structuresExtender.SetAttributeName(this.RotationCB, null);
+            this.structuresExtender.SetAttributeTypeName(this.RotationCB, "String");
+            this.RotationCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.RotationCB.BackColor = System.Drawing.Color.Transparent;
+            this.RotationCB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.structuresExtender.SetBindPropertyName(this.RotationCB, null);
+            this.RotationCB.DefaultValue = "";
+            this.RotationCB.HoverColor = System.Drawing.Color.DodgerBlue;
+            this.RotationCB.ImageList = this.Rotation;
+            this.RotationCB.Location = new System.Drawing.Point(171, 255);
+            this.RotationCB.MaximumSize = new System.Drawing.Size(5000, 5000);
+            this.RotationCB.MinimumSize = new System.Drawing.Size(70, 56);
+            this.RotationCB.Name = "RotationCB";
+            this.RotationCB.SelectedIndex = 0;
+            this.RotationCB.SelectedItem = ((object)(resources.GetObject("RotationCB.SelectedItem")));
+            this.RotationCB.Size = new System.Drawing.Size(70, 56);
+            this.RotationCB.TabIndex = 145;
+            this.RotationCB.ToolTipText = "";
             // 
             // Form_att
             // 
@@ -337,12 +379,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.structuresExtender.SetBindPropertyName(this, null);
-            this.ClientSize = new System.Drawing.Size(472, 353);
+            this.ClientSize = new System.Drawing.Size(493, 431);
+            this.Controls.Add(this.RotationCB);
+            this.Controls.Add(this.PlaneCB);
+            this.Controls.Add(this.DepthCB);
             this.Controls.Add(this.materialCatalog1);
             this.Controls.Add(this.profileCatalog1);
-            this.Controls.Add(this.PolojenieVertikalno);
-            this.Controls.Add(this.PolojeniePovorot);
-            this.Controls.Add(this.PolojenieGorizontalno);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -359,7 +401,7 @@
             this.Controls.Add(this.Profile);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label26);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_att";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -384,10 +426,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox PolojenieGorizontalno;
-        private System.Windows.Forms.ComboBox PolojeniePovorot;
-        private System.Windows.Forms.ComboBox PolojenieVertikalno;
         private Tekla.Structures.Dialog.UIControls.ProfileCatalog profileCatalog1;
         private Tekla.Structures.Dialog.UIControls.MaterialCatalog materialCatalog1;
+        private System.Windows.Forms.ImageList Depth;
+        private Tekla.Structures.Dialog.UIControls.ImageListComboBox DepthCB;
+        private System.Windows.Forms.ImageList Rotation;
+        private Tekla.Structures.Dialog.UIControls.ImageListComboBox PlaneCB;
+        private System.Windows.Forms.ImageList Plane;
+        private Tekla.Structures.Dialog.UIControls.ImageListComboBox RotationCB;
     }
 }
