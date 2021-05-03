@@ -18,46 +18,18 @@ namespace PipeRack
     public partial class Form1 : Form
     {
         Model M = new Model();
-        // public List<Frame> FraMESS { get; set; }
         List<Frame> FraMES = new List<Frame>(); // список построенных рам
-
+        List<Beam> Consoles = new List<Beam>();
         public Form1()
         {
             if (!M.GetConnectionStatus())
                 MessageBox.Show("Не подключено к моделе");
-            else
-            {
-                InitializeComponent();
-                
-            }
-        }
-
-        public List<double> Regen(List<double> Travs, int yarus_count)
-        {
-            List<double> Trav = Travs;
-            for (int _count = 1; _count< yarus_count; _count++)
-            {
-                Trav[0]= Trav[0];
-                Trav[_count] = Trav[_count-1] + Trav[_count];
-            }
-            return Trav;
-        }
-
-        public bool Nali4ieAtt(List<Attributes> Att, int yarus_count, string Mesaga)
-        {
-            for (int _count = 1; _count <= yarus_count; _count++)
-            {
-                if (Att[_count - 1] == null)
-                {
-                    MessageBox.Show("Введите атрибуты для " + Mesaga.ToString() +" "+ (_count).ToString());
-                    return false;
-                }
-            }
-            return true;
+            else InitializeComponent();
         }
 
         public void Button1_Click(object sender, EventArgs e)
         {
+            FraMES.Clear();
             T3D.Point CS_point = new T3D.Point(double.Parse(X_start.Text), double.Parse(Y_start.Text), double.Parse(Z_start.Text));
             T3D.Point CS_point_end = new T3D.Point(double.Parse(X_start2.Text), double.Parse(Y_start2.Text), double.Parse(Z_start2.Text));
 
@@ -117,7 +89,6 @@ namespace PipeRack
                 _travvprolete7,
             };
 
-
             if (!Nali4ieAtt(_attributesColumn, count_column, "колонны")) return;
             if (!Nali4ieAtt(_attributes, yarus_count, "яруса")) return;  // проверка наличия атрибутов
             if (!Nali4ieAtt(_attributesProdolnie, yarus_count, "продольных балок яруса")) return;
@@ -144,7 +115,6 @@ namespace PipeRack
                 double.Parse(B_H6.Text),
                 double.Parse(B_H7.Text)
             };
-            
             List<double> Traversy2 = new List<double>  // шаги траверс по Z
             {
                 double.Parse(L_H1.Text),
@@ -155,7 +125,6 @@ namespace PipeRack
                 double.Parse(L_H6.Text),
                 double.Parse(L_H7.Text)
             };
-            
             List<double> UklonbI = new List<double>
             {
                 double.Parse(YklonYarys1.Text),
@@ -176,8 +145,6 @@ namespace PipeRack
             var TP = SmartTransfomationPlane.GetTransformationPlaneTwoPoints(M, CS_point, CS_point_end);
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
 
-            
-
             var tempX = 0.0;
 
             foreach (var x in DistanceList)
@@ -189,23 +156,19 @@ namespace PipeRack
                 {
                     Razdv_1_2 = razdv_1_2,
                     Razdv_2_3 = razdv_2_3,
-
                     Traversy = Traversy,
                     Attributes = _attributes,
                     Attributes2 = _attributes2,
                     AttributeColumn = _attributesColumn,
                     Traversy2 = Traversy2,
                     UklonbI = UklonbI,
-
                     _M = M,
-
-                   // Traversy = GetZ(tempX),
                 };
-                frame.Insert();
-                FraMES.Add(frame);
+                frame.Insert();             // построились рамы (колонны и траверсы)
+                FraMES.Add(frame); 
             }
 
-            for (int count = 0; count < FraMES.Count() - 1; count++)
+            for (int count = 0; count < FraMES.Count() - 1; count++)  //выбрал пару рам между которыми буду строить продольные балки
             {
                 var FF = FraMES.Skip(count);
                 List<Frame> FRAMESS = new List<Frame>();
@@ -218,23 +181,20 @@ namespace PipeRack
                 {
                     AttributesProdolnie = _attributesProdolnie,
                     AttributesTraversyvprovete = _attributesTraversyvprovete,
-                    Traversy = Traversy,
-                    Traversy2 = Traversy2,
                 };
                 balkiYarusa.Insert();
-                
             }
-            string Y = null;
+
+            string Y, FFF = null;
             if (count_column == 2)
-            {
                 Y = (-1 * razdv_1_2).ToString() + " " + (razdv_1_2 + razdv_2_3).ToString();
-            }
-            else
-            {
+           
+            else 
                 Y = (-1 * razdv_1_2).ToString() + " " +razdv_1_2.ToString() +" "+ (razdv_2_3).ToString();
-            }
-            string FFF = null;
-            for (int _count1 = 0; _count1 < yarus_count; _count1++)  FFF = FFF + " "+ Traversy[_count1].ToString() ;
+            
+
+            for (int _count1 = 0; _count1 < yarus_count; _count1++)
+                FFF = FFF + " "+ Traversy[_count1].ToString() ;
 
             Grid Grid = new Grid()
             {
@@ -271,22 +231,74 @@ namespace PipeRack
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            for (int count = 0; count < FraMES.Count() - 1; count++)
-            {
-                var FF = FraMES.Skip(count);
-                List<Frame> FRAMESS = new List<Frame>();
-                foreach (Frame F in FF)
+            Consoles.Clear();
+            var consoleH = Double.Parse(ConsoleH.Text);
+            var consoleL = Double.Parse(ConsoleL.Text);
+           bool checkRight = cBRight1.Checked;
+
+            for (int count = 0; count < FraMES.Count(); count++)
                 {
-                    FRAMESS.Add(F);
+                    var PlatformMaintenance = new PlatformMaintenance(FraMES[count], M)
+                    {
+                        consoleH = consoleH,
+                        consoleL = consoleL,
+                        checkRight = checkRight,
+                    };
+                    PlatformMaintenance.InsertConsole();
+                Consoles.Add(PlatformMaintenance.Console);
                 }
 
-                var PlatformMaintenance = new PlatformMaintenance(FRAMESS)
+            for (int count = 0; count < FraMES.Count()-1; count++)
                 {
+                    var FF = FraMES.Skip(count);
+                    List<Frame> FraMESS = new List<Frame>();
+                    foreach (Frame F in FF)
+                    {
+                        FraMESS.Add(F);
+                    }
 
-                };
-               // balkiYarusa.Insert();
+                    var FFF = Consoles.Skip(count);
+                    List<Beam> Consoless = new List<Beam>();
+                    foreach (Beam F in FFF)
+                    {
+                        Consoless.Add(F);
+                    }
 
+                    var PlatformMaintenance2 = new PlatformMaintenance(FraMESS, Consoless, M)
+                        {
+                            consoleH = consoleH,
+                            consoleL = consoleL,
+                            checkRight = checkRight,
+                        };
+                        PlatformMaintenance2.InsertBalkiPloshadki();
+                }
+           
+
+
+
+            M.CommitChanges();
+        }
+        private List<double> Regen(List<double> Travs, int yarus_count)
+        {
+            List<double> Trav = Travs;
+            for (int _count = 1; _count < yarus_count; _count++)
+            {
+                Trav[0] = Trav[0];
+                Trav[_count] = Trav[_count - 1] + Trav[_count];
             }
+            return Trav;
+        }
+        public bool Nali4ieAtt(List<Attributes> Att, int yarus_count, string Mesaga)
+        {
+            for (int _count = 1; _count <= yarus_count; _count++)
+            {
+                if (Att[_count - 1] == null)
+                {
+                    MessageBox.Show("Введите атрибуты для " + Mesaga.ToString() + " " + (_count).ToString());
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

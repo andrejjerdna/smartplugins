@@ -12,8 +12,6 @@ namespace PipeRack
     {
         public List<Attributes> AttributesProdolnie { get; set; }
         public List<Attributes> AttributesTraversyvprovete { get; set; }
-        public List<double> Traversy { get; set; }
-        public List<double> Traversy2 { get; set; }
 
         List<Frame> _FraMES;
         private bool checkBeamR = true;
@@ -27,6 +25,10 @@ namespace PipeRack
         public BalkiYarysa(List<Frame> FraMES)
         {
             _FraMES = FraMES;
+        }
+        public BalkiYarysa()
+        {
+            
         }
 
         public void Insert()
@@ -43,7 +45,7 @@ namespace PipeRack
                 var endPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
 
                 var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
-                var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
+                var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X, 3000);
                 Frame frame = new Frame();
 
                 Check(i);
@@ -92,7 +94,7 @@ namespace PipeRack
                 var endPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
 
                 var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
-                var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
+                var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X, 3000);
                 Frame frame = new Frame();
 
                 Check2(i);
@@ -170,17 +172,17 @@ namespace PipeRack
                 }
             }
         }
-        private List<double> Shagtravers(double n)
+        public List<double> Shagtravers(double n, double Shag)
         {
             List<double> shagtravers = new List<double>();
-            double a = Math.Truncate(n / 3000);
-            double b = (n - (a * 3000)) / 2 + 1500;
+            double a = Math.Truncate(n / Shag);
+            double b = (n - (a * Shag)) / 2 + Shag/2;
 
-            if (n > 3000)
+            if (n > Shag)
             {
-                if (Math.IEEERemainder(n, 3000) == 0)
+                if (Math.IEEERemainder(n, Shag) == 0)
                 {
-                    b = 3000;
+                    b = Shag;
                     shagtravers.Add(b);
                 }
                 else
@@ -188,9 +190,9 @@ namespace PipeRack
                     shagtravers.Add(b);
                 }
 
-                while (b < n - 3000)
+                while (b < n - Shag)
                 {
-                    b += 3000;
+                    b += Shag;
                     shagtravers.Add(b);
                 }
             }

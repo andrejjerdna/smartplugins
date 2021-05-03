@@ -27,7 +27,7 @@ namespace PipeRack
         public Model _M;
         private int _yarusCount;
         private int _count_column;
-
+        public TransformationPlane workTP;
 
         public Point _basePoint;
 
@@ -54,7 +54,8 @@ namespace PipeRack
         {
             var currentTP = _M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             var workCS = new CoordinateSystem(_basePoint, new Vector(1, 0, 0), new Vector(0, 1, 0));
-            var workTP = new TransformationPlane(workCS);
+             workTP = new TransformationPlane(workCS);
+            
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(workTP);
 
             if (_count_column == 2)  CreateRamaDveKolony();
@@ -138,6 +139,13 @@ namespace PipeRack
             {
                 SetAtt(newBeam, attributes);
             }
+            return newBeam;
+        }
+        public Beam Beam_main(Point startPoint, Point endPoint)
+        {
+            Beam newBeam = new Beam(startPoint, endPoint);
+            newBeam.Profile.ProfileString = "I30K1_20_93";
+            newBeam.Insert();
             return newBeam;
         }
 
