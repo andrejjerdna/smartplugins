@@ -15,6 +15,7 @@ using Tekla.Structures.Solid;
 using TSD = Tekla.Structures.Drawing;
 using t3d = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Geometry3d;
+using SmartExtensions;
 
 namespace Test
 {
@@ -119,22 +120,31 @@ namespace Test
             }
         }
 
-        //var drawingHandler = new DrawingHandler();
-        //if (!drawingHandler.GetConnectionStatus()) return;
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var drawingHandler = new DrawingHandler();
+            if (!drawingHandler.GetConnectionStatus()) return;
 
-        //var picker = drawingHandler.GetPicker();
+            var picker = drawingHandler.GetPicker();
 
-        //var pick = picker.PickObject("");
+            var pick = picker.PickObject("");
 
-        //var pointlist = pick.Item1;
-        //var viewbase = pick.Item2;
+            var pointlist = pick.Item1;
+            var viewbase = pick.Item2;
 
-        //TSD.View v = viewbase as TSD.View;
+            TSD.View v = viewbase as TSD.View;
 
+            var objs = viewbase.GetAllObjects().ToIEnumerable<Plugin>().ToList();
 
-        ////v.Modify();
-        //// viewbase.Modify();
+            foreach(var pl in objs)
+            {
+                //Tekla.Structures.DrawingInternal.Operation.ex
+            }
 
-        //drawingHandler.GetConnectionStatus();
+                //v.Modify();
+                // viewbase.Modify();
+
+                drawingHandler.GetConnectionStatus();
+        }
     }
 }
