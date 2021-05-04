@@ -98,6 +98,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Profile = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.Travvprolete7 = new System.Windows.Forms.Button();
             this.Travvprolete6 = new System.Windows.Forms.Button();
@@ -130,9 +134,7 @@
             this.YklonYarys3 = new System.Windows.Forms.TextBox();
             this.YklonYarys2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Class = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -859,6 +861,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Controls.Add(this.label9);
@@ -905,7 +908,7 @@
             this.button4.Location = new System.Drawing.Point(3, 161);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(554, 21);
+            this.button4.Size = new System.Drawing.Size(157, 21);
             this.button4.TabIndex = 311;
             this.button4.Text = "ДОБАВИТЬ ЯРУС";
             this.button4.UseVisualStyleBackColor = true;
@@ -916,12 +919,33 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name,
+            this.Profile,
             this.Material,
             this.Class});
             this.dataGridView1.Location = new System.Drawing.Point(3, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(554, 150);
             this.dataGridView1.TabIndex = 310;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Имя";
+            this.Name.Name = "Name";
+            // 
+            // Profile
+            // 
+            this.Profile.HeaderText = "Профиль";
+            this.Profile.Name = "Profile";
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Материал";
+            this.Material.Name = "Material";
+            // 
+            // Class
+            // 
+            this.Class.HeaderText = "Класс";
+            this.Class.Name = "Class";
             // 
             // label9
             // 
@@ -1244,20 +1268,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // Name
+            // button5
             // 
-            this.Name.HeaderText = "Имя";
-            this.Name.Name = "Name";
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Материал";
-            this.Material.Name = "Material";
-            // 
-            // Class
-            // 
-            this.Class.HeaderText = "Класс";
-            this.Class.Name = "Class";
+            this.button5.Location = new System.Drawing.Point(164, 161);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(157, 21);
+            this.button5.TabIndex = 312;
+            this.button5.Text = "ИЗМЕНИТЬ ЯРУС";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -1388,8 +1408,10 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Profile;
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridViewTextBoxColumn Class;
+        private System.Windows.Forms.Button button5;
     }
 }
 

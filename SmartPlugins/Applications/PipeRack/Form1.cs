@@ -327,10 +327,27 @@ namespace PipeRack
 
             foreach (var at in _attributes)
             {
-                dataGridView1.Rows.Add(at.Name, at.Material, at.Class);
+                dataGridView1.Rows.Add(at.Name, at.Profile, at.Material, at.Class);
             }
 
             dataGridView1.Update();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var index = dataGridView1.CurrentCell.RowIndex;
+
+            var attr = new Form_att(_attributeYarus1);
+            attr.ShowDialog();
+
+            _attributes[index] = attr.GetAttributes();
+
+            dataGridView1.Rows.Clear();
+
+            foreach (var at in _attributes)
+            {
+                dataGridView1.Rows.Add(at.Name, at.Profile, at.Material, at.Class);
+            }
         }
     }
 }
