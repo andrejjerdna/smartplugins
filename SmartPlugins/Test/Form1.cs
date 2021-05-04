@@ -16,6 +16,8 @@ using TSD = Tekla.Structures.Drawing;
 using t3d = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Geometry3d;
 using SmartExtensions;
+using Tekla.Structures.ModelInternal;
+using Tekla.Structures.Internal;
 
 namespace Test
 {
