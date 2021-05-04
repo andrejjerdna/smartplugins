@@ -20,11 +20,17 @@ namespace PipeRack
         Model M = new Model();
         List<Frame> FraMES = new List<Frame>(); // список построенных рам
         List<Beam> Consoles = new List<Beam>();
+
+        private List<Attributes> _attributes { get; set; }
         public Form1()
         {
             if (!M.GetConnectionStatus())
                 MessageBox.Show("Не подключено к моделе");
-            else InitializeComponent();
+            else
+            {
+                InitializeComponent();
+                _attributes = new List<Attributes>();
+            }
         }
 
         public void Button1_Click(object sender, EventArgs e)
@@ -308,6 +314,23 @@ namespace PipeRack
                 }
             }
             return true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var attr = new Form_att(_attributeYarus1);
+            attr.ShowDialog();
+
+            _attributes.Add(attr.GetAttributes());
+
+            dataGridView1.Rows.Clear();
+
+            foreach (var at in _attributes)
+            {
+                dataGridView1.Rows.Add(at.Name, at.Material, at.Class);
+            }
+
+            dataGridView1.Update();
         }
     }
 }
