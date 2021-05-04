@@ -185,7 +185,10 @@ namespace PipeRack
                 balkiYarusa.Insert();
             }
 
-            string Y, FFF = null;
+            string Y = null , FFF = null;
+            double startLabelY = Double.Parse(LabelY.Text);
+            string _startLabelY = null;
+
             if (count_column == 2)
                 Y = (-1 * razdv_1_2).ToString() + " " + (razdv_1_2 + razdv_2_3).ToString();
            
@@ -196,13 +199,19 @@ namespace PipeRack
             for (int _count1 = 0; _count1 < yarus_count; _count1++)
                 FFF = FFF + " "+ Traversy[_count1].ToString() ;
 
+            for (int _count1 = 0; _count1 < FraMES.Count(); _count1++)
+                _startLabelY += (startLabelY + _count1).ToString() + " ";
+                
+         
+
+
             Grid Grid = new Grid()
             {
                 CoordinateX = shagRam,
                 CoordinateY = Y,
                 CoordinateZ = "0 " + FFF,
-                LabelX = LabelX.Text,
-                LabelY = LabelY.Text,
+                LabelX = _startLabelY,
+                LabelY = LabelX.Text,
                 LabelZ = "0 " + FFF,
                 ExtensionLeftX = 2000.0,
                 ExtensionLeftY = 2000.0,

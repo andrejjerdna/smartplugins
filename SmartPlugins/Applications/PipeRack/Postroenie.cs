@@ -12,6 +12,13 @@ namespace PipeRack
 {
     public partial class Form1 : Form
     {
+        private AttributesFrame attFrame;
+
+
+        private Attributes _attributeColumn1;
+        private Attributes _attributeColumn2;
+        private Attributes _attributeColumn3;
+
         private Attributes _attributeYarus1;
         private Attributes _attributeYarus2;
         private Attributes _attributeYarus3;
@@ -19,10 +26,6 @@ namespace PipeRack
         private Attributes _attributeYarus5;
         private Attributes _attributeYarus6;
         private Attributes _attributeYarus7;
-
-        private Attributes _attributeColumn1;
-        private Attributes _attributeColumn2;
-        private Attributes _attributeColumn3;
 
         private Attributes _AttYarus1L;
         private Attributes _AttYarus2L;
