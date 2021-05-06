@@ -37,7 +37,7 @@ stages:
           parameters:
             version: 2018    
 
-    - job: Applications_2018
+    - job: Applications_2017
       steps:
         - template: apps.yml      
           parameters:
