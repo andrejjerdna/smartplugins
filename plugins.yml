@@ -20,17 +20,7 @@ steps:
     inputs:
       flattenFolders: true
       contents : |
-        src\Plugins\AxCoDesign.Plugins.BeamBetweenColumns\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.BraceBox\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.BraceType1\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.BraceType2\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.BraceType3\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.Handrail_BC107A\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.IBeamBraceSplicePlate\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.Handrail2\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.PipeSupport\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.MetalStairs\bin\Release\**
-        src\Plugins\AxCoDesign.Plugins.Serie_2_440\bin\Release\**
+        src\Plugins\sp_DimensionsForReinforcement\bin\Release\**
       targetFolder: $(Build.ArtifactStagingDirectory)\plugins
 
   - task: PublishBuildArtifacts@1
