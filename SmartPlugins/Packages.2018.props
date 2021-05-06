@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PackageReference Update="Microsoft.NET.Test.Sdk"  Version="2020.0.3" />
+    <PackageReference Update="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Update="TeklaOpenAPI" Version="2018.0.13815" />
+	<PackageReference Update="System.Text.Json" Version="5.0.0"/>
+	<PackageReference Update="Newtonsoft.Json" Version="12.0.3"/>
+  </ItemGroup>
+</Project>

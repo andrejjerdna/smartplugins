@@ -10,7 +10,7 @@ steps:
       script: |
         del /f Packages.props
         rename  Packages.${{ parameters.version }}.props Packages.props
-      workingDirectory: src 
+      workingDirectory: SmartPlugins 
       failOnStderr: true
 
   - task: DotNetCoreCLI@2
@@ -24,7 +24,7 @@ steps:
   - task: MSBuild@1
     displayName: "Build applications ${{ parameters.version }}"
     inputs:
-      solution: 'src\Tekla.Applications.sln'
+      solution: 'SmartPlugins\SmartPlugins.sln'
       platform: '$(buildPlatform)'
       configuration: '$(buildConfiguration)'
       msbuildArguments: '/p:Version=$(Build.BuildNumber)'
@@ -32,7 +32,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive CorrectNameMainPart ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.CorrectNameMainPart\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.CorrectNameMainPart\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.CorrectNameMainPart.zip'
@@ -41,7 +41,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive CheckBolts ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.CheckBolts\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.CheckBolts\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.CheckBolts.zip'
@@ -50,7 +50,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive PhasesLNG2SPG2 ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.PhasesLNG2SPG2\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.PhasesLNG2SPG2\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.PhasesLNG2SPG2.zip'
@@ -59,7 +59,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive PriceGroup ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.PriceGroup\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.PriceGroup\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.PriceGroup.zip'
@@ -68,7 +68,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive ClearDrawingStatus ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.ClearDrawingStatus\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.ClearDrawingStatus\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.ClearDrawingStatus.zip'
@@ -77,7 +77,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive ZoomToPoint ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.ZoomToPoint\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.ZoomToPoint\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.ZoomToPoint.zip'
@@ -86,7 +86,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive WeldsUDA ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.WeldsUDA\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.WeldsUDA\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.WeldsUDA.zip'
@@ -95,7 +95,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive DrawingAssistant ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.DrawingAssistant\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.DrawingAssistant\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.DrawingAssistant.zip'
@@ -104,7 +104,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive PhasesTMP_01 ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.PhasesTMP_01\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.PhasesTMP_01\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.PhasesTMP_01.zip'
@@ -113,7 +113,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive Tools ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.Tools\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.Tools\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.Tools.zip'
@@ -122,7 +122,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive ReportsForAGHK ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.ReportsForAGHK\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.ReportsForAGHK\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.ReportsForAGHK.zip'
@@ -131,7 +131,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive TMPErectionDrawings ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.TMPErectionDrawings\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.TMPErectionDrawings\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.TMPErectionDrawings.zip'
@@ -140,7 +140,7 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive PlatformDrawingsAGHK ${{ parameters.version }}'
     inputs:
-      rootFolderOrFile: 'src\Applications\AxCoDesign.Applications.PlatformDrawingsAGHK\bin\Release\net48'
+      rootFolderOrFile: 'SmartPlugins\Applications\AxCoDesign.Applications.PlatformDrawingsAGHK\bin\Release\net48'
       includeRootFolder: false
       archiveType: 'zip'
       archiveFile: '$(Build.ArtifactStagingDirectory)\apps\${{ parameters.version }}\AxCoDesign.Applications.PlatformDrawingsAGHK.zip'
