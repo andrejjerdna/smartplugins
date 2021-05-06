@@ -16,6 +16,7 @@ namespace SmartCheckAssemblies
         public DetailsInfo(Assembly assembly)
         {
             _assembly = assembly;
+            GetDetails();
         }
 
         public void GetDetails()
@@ -29,7 +30,9 @@ namespace SmartCheckAssemblies
             var cogY = mainPart.SmartGetPropertyDouble("COG_Y");
             var cogZ = mainPart.SmartGetPropertyDouble("COG_Z");
 
-            var secondariesParts = _assembly.GetSecondaries();
+            var solidMainPart = mainPart.GetSolid();
+
+            var secondariesParts = _assembly.GetSecondaries().OfType<Part>().ToList();
         }
     }
 }

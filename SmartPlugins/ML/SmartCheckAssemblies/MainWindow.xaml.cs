@@ -21,29 +21,17 @@ namespace SmartCheckAssemblies
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly SmartCheckAssembliesViewModel _viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = _viewModel = new SmartCheckAssembliesViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var model = new Model();
-
-            if (!model.CommitChanges())
-                return;
-
-            var assemblies = model.GetModelObjectSelector().GetAllObjectsWithType(ModelObject.ModelObjectEnum.ASSEMBLY);
-
-            while (assemblies.MoveNext())
-            {
-                if (assemblies.Current is Assembly assembly)
-                {
-                    var d = new DetailsInfo(assembly);
-
-                    d.GetDetails();
-                }
-            }
+            _viewModel.RunApp();
         }
     }
 }
