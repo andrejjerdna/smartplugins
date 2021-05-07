@@ -12,6 +12,8 @@ using Tekla.Structures.Model.UI;
 using T3D = Tekla.Structures.Geometry3d;
 using SmartGeometry;
 using SmartTeklaModel;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace PipeRack
 {
@@ -21,7 +23,11 @@ namespace PipeRack
         List<Frame> FraMES = new List<Frame>(); // список построенных рам
         List<Beam> Consoles = new List<Beam>();
 
-        private List<Attributes> _attributes { get; set; }
+        private List<Attributes> _attributesProdolnie { get; set; }
+        private List<Attributes> _attributesProdolnieLeft { get; set; }
+        private List<Attributes> _attributesColumn { get; set; }
+        //  AttributesFrame _attFrame = new AttributesFrame();
+
         public Form1()
         {
             if (!M.GetConnectionStatus())
@@ -29,12 +35,31 @@ namespace PipeRack
             else
             {
                 InitializeComponent();
-                _attributes = new List<Attributes>();
+                Listovod();
+
+
             }
+        }
+
+        public void Listovod()
+        {
+            _attributesProdolnie = new List<Attributes>() // продольные балки левые
+                {
+                    _Prodovnie1, _Prodovnie2, _Prodovnie3, _Prodovnie4,_Prodovnie5,_Prodovnie6,_Prodovnie7,
+                };
+            _attributesProdolnieLeft = new List<Attributes>() // продольные балки левые
+                {
+                    _Prodovnie1L, _Prodovnie2L, _Prodovnie3L, _Prodovnie4L,_Prodovnie5L,_Prodovnie6L,_Prodovnie7L,
+                };
+            _attributesColumn = new List<Attributes>() // колонны
+                {
+                    _attributeColumn1, _attributeColumn2, _attributeColumn3,
+                };
         }
 
         public void Button1_Click(object sender, EventArgs e)
         {
+            Listovod();
             FraMES.Clear();
             T3D.Point CS_point = new T3D.Point(double.Parse(X_start.Text), double.Parse(Y_start.Text), double.Parse(Z_start.Text));
             T3D.Point CS_point_end = new T3D.Point(double.Parse(X_start2.Text), double.Parse(Y_start2.Text), double.Parse(Z_start2.Text));
@@ -48,22 +73,16 @@ namespace PipeRack
             int yarus_count = int.Parse(Yarus_count.Text);
             int count_column = int.Parse(Count_column.Text);
 
-            List<Attributes> _attributesColumn = new List<Attributes>() // правые балки при трёх колоннах или балки при бвух колоннах
-            {
-                _attributeColumn1,
-                _attributeColumn2,
-                _attributeColumn3,
-             };
             List<Attributes> _attributes = new List<Attributes>() // правые балки при трёх колоннах или балки при бвух колоннах
-            {
-                _attributeYarus1,
-                _attributeYarus2,
-                _attributeYarus3,
-                _attributeYarus4,
-                _attributeYarus5,
-                _attributeYarus6,
-                _attributeYarus7,
-             };
+                 {
+                    _attributeYarus1,
+                    _attributeYarus2,
+                    _attributeYarus3,
+                    _attributeYarus4,
+                    _attributeYarus5,
+                    _attributeYarus6,
+                    _attributeYarus7,
+                };
             List<Attributes> _attributes2 = new List<Attributes>() // левые балки при трех колоннах
             {
                 _AttYarus1L,
@@ -73,16 +92,6 @@ namespace PipeRack
                 _AttYarus5L,
                 _AttYarus6L,
                 _AttYarus7L,
-             };
-            List<Attributes> _attributesProdolnie = new List<Attributes>() // левые балки при трех колоннах
-            {
-                _Prodovnie1,
-                _Prodovnie2,
-                _Prodovnie3,
-                _Prodovnie4,
-                _Prodovnie5,
-                _Prodovnie6,
-                _Prodovnie7,
              };
             List<Attributes> _attributesTraversyvprovete = new List<Attributes>()
             {
@@ -95,10 +104,21 @@ namespace PipeRack
                 _travvprolete7,
             };
 
+
+            AddRowDataGrid(dataGridViewProdolnieRight);
+            //for (int count_r = 0; count_r < dataGridViewProdolnieRight.RowCount-1; count_r++)
+            //{
+               
+            //    var nomerProleta = Convert.ToInt32(dataGridViewProdolnieRight[0, count_r].Value)-1;
+            //        AttSetGrid(_attributesProdolnie[nomerProleta], curent);
+
+            //}
+
+
             if (!Nali4ieAtt(_attributesColumn, count_column, "колонны")) return;
             if (!Nali4ieAtt(_attributes, yarus_count, "яруса")) return;  // проверка наличия атрибутов
-            if (!Nali4ieAtt(_attributesProdolnie, yarus_count, "продольных балок яруса")) return;
-            if (!Nali4ieAtt(_attributesTraversyvprovete, yarus_count, "траверс в пролете яруса")) return;
+           // if (!Nali4ieAtt(_attributesProdolnie, yarus_count, "продольных балок яруса")) return;
+           // if (!Nali4ieAtt(_attributesTraversyvprovete, yarus_count, "траверс в пролете яруса")) return;
 
             if (count_column == 3)
             {
@@ -185,7 +205,8 @@ namespace PipeRack
 
                 var balkiYarusa = new BalkiYarysa(FRAMESS)
                 {
-                    AttributesProdolnie = _attributesProdolnie,
+                    AttributesProdolnieRight = _attributesProdolnie,
+                    AttributesProdolnieLeft = _attributesProdolnieLeft,
                     AttributesTraversyvprovete = _attributesTraversyvprovete,
                 };
                 balkiYarusa.Insert();
@@ -239,10 +260,7 @@ namespace PipeRack
 
 
 
-        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void Button3_Click(object sender, EventArgs e)
         {
@@ -318,36 +336,99 @@ namespace PipeRack
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var attr = new Form_att(_attributeYarus1);
+            WorkWithDataGrid(dataGridViewProdolnieRight, _attributesProdolnie);
+        }
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            WorkWithDataGrid(dataGridViewProdolnieLeft, _attributesProdolnieLeft);
+        }
+        private void WorkWithDataGrid (DataGridView dataGridView1, List<Attributes> _attributesProdolnie)
+        {
+
+
+            var curent = AddRowDataGrid(dataGridView1);
+
+                    var attr = new Form_att(_attributesProdolnie, curent);
             attr.ShowDialog();
-
-            _attributes.Add(attr.GetAttributes());
-
+            _attributesProdolnie[attr.selectY] = attr.GetAttributes();
             dataGridView1.Rows.Clear();
 
-            foreach (var at in _attributes)
+            for (int _count = 0; _count < _attributesProdolnie.Count; _count++)
             {
-                dataGridView1.Rows.Add(at.Name, at.Profile, at.Material, at.Class);
+                var at = _attributesProdolnie[_count];
+                if (at == null)
+                    continue;
+                else
+                    dataGridView1.Rows.Add(_count + 1, at.Name, at.Profile, at.Material, at.Class, at.PrefixSborki, at.NomerSborki, at.PolojenieVertikalno, at.PolojeniePovorot, at.PolojenieGorizontalno);
             }
-
             dataGridView1.Update();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private int AddRowDataGrid(DataGridView dataGridView1)
         {
-            var index = dataGridView1.CurrentCell.RowIndex;
+            var curent = 0;
+            var index = 0;
+            if (dataGridView1.CurrentRow != null)
+                index = dataGridView1.CurrentRow.Index;
 
-            var attr = new Form_att(_attributeYarus1);
-            attr.ShowDialog();
+            if (dataGridView1[0, index].Value != null)
+                curent = Convert.ToInt32(dataGridView1[0, index].Value) - 1;
+            else
+                curent = 0;
 
-            _attributes[index] = attr.GetAttributes();
-
-            dataGridView1.Rows.Clear();
-
-            foreach (var at in _attributes)
+            for (int count_r = 0; count_r < dataGridView1.RowCount - 1; count_r++)
             {
-                dataGridView1.Rows.Add(at.Name, at.Profile, at.Material, at.Class);
+                var nomerProleta = Convert.ToInt32(dataGridView1[0, count_r].Value) - 1;
+
+                if (_attributesProdolnie[nomerProleta] == null)
+                    _attributesProdolnie[nomerProleta] = new Attributes();
+
+                AttSetGrid(_attributesProdolnie[nomerProleta], index);
             }
+            return curent;
+        }
+        private void CreateNewRow (DataGridView dataGridView1)
+        {
+
+            int I = 0;
+            if (dataGridView1.CurrentRow == null)
+                return;
+            I = dataGridView1.SelectedCells[0].RowIndex;
+
+            dataGridView1.Rows.Add(CloneWithValues(dataGridView1.Rows[I]));
+
+        }
+
+        private void AttSetGrid (Attributes _attributesProdolnie, int I)
+        {
+            _attributesProdolnie.Name = dataGridViewProdolnieRight[1, I].Value.ToString();
+            _attributesProdolnie.Profile = dataGridViewProdolnieRight[2, I].Value.ToString();
+            _attributesProdolnie.Material = dataGridViewProdolnieRight[3, I].Value.ToString();
+            _attributesProdolnie.Class = dataGridViewProdolnieRight[4, I].Value.ToString();
+            _attributesProdolnie.PrefixSborki = dataGridViewProdolnieRight[5, I].Value.ToString();
+            _attributesProdolnie.NomerSborki = dataGridViewProdolnieRight[6, I].Value.ToString();
+            _attributesProdolnie.PolojenieVertikalno = Convert.ToInt32( dataGridViewProdolnieRight[7, I].Value.ToString());
+            _attributesProdolnie.PolojeniePovorot = Convert.ToInt32(dataGridViewProdolnieRight[8, I].Value.ToString());
+            _attributesProdolnie.PolojenieGorizontalno = Convert.ToInt32(dataGridViewProdolnieRight[9, I].Value.ToString());
+        }
+        public DataGridViewRow CloneWithValues(DataGridViewRow row)
+        {
+            DataGridViewRow clonedRow = (DataGridViewRow)row.Clone();
+            for (Int32 index = 0; index < row.Cells.Count; index++)
+            {
+                clonedRow.Cells[index].Value = row.Cells[index].Value;
+            }
+            return clonedRow;
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            CreateNewRow(dataGridViewProdolnieRight);
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            CreateNewRow(dataGridViewProdolnieLeft);
         }
     }
 }

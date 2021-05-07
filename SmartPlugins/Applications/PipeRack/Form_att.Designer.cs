@@ -54,6 +54,8 @@
             this.PlaneCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
             this.Plane = new System.Windows.Forms.ImageList(this.components);
             this.RotationCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
+            this.selectYarus = new System.Windows.Forms.Label();
+            this.SelectYarusCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label24
@@ -157,7 +159,7 @@
             this.structuresExtender.SetAttributeName(this.label2, null);
             this.structuresExtender.SetAttributeTypeName(this.label2, null);
             this.structuresExtender.SetBindPropertyName(this.label2, null);
-            this.label2.Location = new System.Drawing.Point(168, 218);
+            this.label2.Location = new System.Drawing.Point(166, 258);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 25);
             this.label2.TabIndex = 130;
@@ -205,7 +207,7 @@
             this.structuresExtender.SetAttributeName(this.label26, null);
             this.structuresExtender.SetAttributeTypeName(this.label26, null);
             this.structuresExtender.SetBindPropertyName(this.label26, null);
-            this.label26.Location = new System.Drawing.Point(1, 218);
+            this.label26.Location = new System.Drawing.Point(11, 260);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(131, 21);
             this.label26.TabIndex = 114;
@@ -217,7 +219,7 @@
             this.structuresExtender.SetAttributeName(this.label3, null);
             this.structuresExtender.SetAttributeTypeName(this.label3, null);
             this.structuresExtender.SetBindPropertyName(this.label3, null);
-            this.label3.Location = new System.Drawing.Point(91, 185);
+            this.label3.Location = new System.Drawing.Point(101, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 22);
             this.label3.TabIndex = 133;
@@ -229,7 +231,7 @@
             this.structuresExtender.SetAttributeName(this.label4, null);
             this.structuresExtender.SetAttributeTypeName(this.label4, null);
             this.structuresExtender.SetBindPropertyName(this.label4, null);
-            this.label4.Location = new System.Drawing.Point(319, 222);
+            this.label4.Location = new System.Drawing.Point(293, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 21);
             this.label4.TabIndex = 134;
@@ -241,12 +243,12 @@
             this.structuresExtender.SetAttributeName(this.button1, null);
             this.structuresExtender.SetAttributeTypeName(this.button1, null);
             this.structuresExtender.SetBindPropertyName(this.button1, null);
-            this.button1.Location = new System.Drawing.Point(188, 358);
+            this.button1.Location = new System.Drawing.Point(232, 389);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 31);
             this.button1.TabIndex = 136;
-            this.button1.Text = "Сохранить";
+            this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -295,7 +297,7 @@
             this.DepthCB.HoverColor = System.Drawing.Color.DodgerBlue;
             this.DepthCB.ImageList = this.Depth;
             this.DepthCB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.DepthCB.Location = new System.Drawing.Point(25, 255);
+            this.DepthCB.Location = new System.Drawing.Point(35, 297);
             this.DepthCB.MaximumSize = new System.Drawing.Size(5000, 5000);
             this.DepthCB.MinimumSize = new System.Drawing.Size(70, 56);
             this.DepthCB.Name = "DepthCB";
@@ -333,7 +335,7 @@
             this.PlaneCB.HoverColor = System.Drawing.Color.DodgerBlue;
             this.PlaneCB.ImageList = this.Plane;
             this.PlaneCB.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.PlaneCB.Location = new System.Drawing.Point(353, 255);
+            this.PlaneCB.Location = new System.Drawing.Point(321, 297);
             this.PlaneCB.MaximumSize = new System.Drawing.Size(5000, 5000);
             this.PlaneCB.MinimumSize = new System.Drawing.Size(70, 56);
             this.PlaneCB.Name = "PlaneCB";
@@ -362,7 +364,7 @@
             this.RotationCB.DefaultValue = "";
             this.RotationCB.HoverColor = System.Drawing.Color.DodgerBlue;
             this.RotationCB.ImageList = this.Rotation;
-            this.RotationCB.Location = new System.Drawing.Point(171, 255);
+            this.RotationCB.Location = new System.Drawing.Point(169, 297);
             this.RotationCB.MaximumSize = new System.Drawing.Size(5000, 5000);
             this.RotationCB.MinimumSize = new System.Drawing.Size(70, 56);
             this.RotationCB.Name = "RotationCB";
@@ -372,6 +374,39 @@
             this.RotationCB.TabIndex = 145;
             this.RotationCB.ToolTipText = "";
             // 
+            // selectYarus
+            // 
+            this.structuresExtender.SetAttributeName(this.selectYarus, null);
+            this.structuresExtender.SetAttributeTypeName(this.selectYarus, null);
+            this.structuresExtender.SetBindPropertyName(this.selectYarus, null);
+            this.selectYarus.Location = new System.Drawing.Point(16, 181);
+            this.selectYarus.Name = "selectYarus";
+            this.selectYarus.Size = new System.Drawing.Size(120, 21);
+            this.selectYarus.TabIndex = 147;
+            this.selectYarus.Text = "Выбор яруса";
+            this.selectYarus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SelectYarusCB
+            // 
+            this.structuresExtender.SetAttributeName(this.SelectYarusCB, null);
+            this.structuresExtender.SetAttributeTypeName(this.SelectYarusCB, null);
+            this.structuresExtender.SetBindPropertyName(this.SelectYarusCB, null);
+            this.SelectYarusCB.FormattingEnabled = true;
+            this.SelectYarusCB.Items.AddRange(new object[] {
+            "Ярус 1",
+            "Ярус 2",
+            "Ярус 3",
+            "Ярус 4",
+            "Ярус 5",
+            "Ярус 6",
+            "Ярус 7"});
+            this.SelectYarusCB.Location = new System.Drawing.Point(146, 178);
+            this.SelectYarusCB.Name = "SelectYarusCB";
+            this.SelectYarusCB.Size = new System.Drawing.Size(196, 24);
+            this.SelectYarusCB.TabIndex = 132;
+            this.SelectYarusCB.Text = "Ярус 1";
+            this.SelectYarusCB.SelectedIndexChanged += new System.EventHandler(this.SelectYarusCB_SelectedIndexChanged);
+            // 
             // Form_att
             // 
             this.structuresExtender.SetAttributeName(this, null);
@@ -380,6 +415,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.structuresExtender.SetBindPropertyName(this, null);
             this.ClientSize = new System.Drawing.Size(493, 431);
+            this.Controls.Add(this.SelectYarusCB);
+            this.Controls.Add(this.selectYarus);
             this.Controls.Add(this.RotationCB);
             this.Controls.Add(this.PlaneCB);
             this.Controls.Add(this.DepthCB);
@@ -434,5 +471,7 @@
         private Tekla.Structures.Dialog.UIControls.ImageListComboBox PlaneCB;
         private System.Windows.Forms.ImageList Plane;
         private Tekla.Structures.Dialog.UIControls.ImageListComboBox RotationCB;
+        private System.Windows.Forms.Label selectYarus;
+        private System.Windows.Forms.ComboBox SelectYarusCB;
     }
 }

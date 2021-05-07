@@ -12,7 +12,7 @@ namespace PipeRack
 {
     public partial class Form1 : Form
     {
-        private AttributesFrame attFrame;
+        public AttributesFrame attFrame;
 
 
         private Attributes _attributeColumn1;
@@ -42,6 +42,14 @@ namespace PipeRack
         private Attributes _Prodovnie5;
         private Attributes _Prodovnie6;
         private Attributes _Prodovnie7;
+
+        private Attributes _Prodovnie1L;
+        private Attributes _Prodovnie2L;
+        private Attributes _Prodovnie3L;
+        private Attributes _Prodovnie4L;
+        private Attributes _Prodovnie5L;
+        private Attributes _Prodovnie6L;
+        private Attributes _Prodovnie7L;
 
         private Attributes _travvprolete1;
         private Attributes _travvprolete2;
@@ -77,7 +85,6 @@ namespace PipeRack
             var AttYorus1 = new Form_att(_attributeYarus1);
             AttYorus1.ShowDialog();
             _attributeYarus1 = AttYorus1.GetAttributes();
-
         }
 
         private void AttYarus2_Click(object sender, EventArgs e)
@@ -191,54 +198,6 @@ namespace PipeRack
             _AttYarus7L = AttYorus7l.GetAttributes();
         }
 
-        private void Prodovnie1_Click(object sender, EventArgs e)
-        {
-            var Prodovnie1 = new Form_att(_Prodovnie1);
-            Prodovnie1.ShowDialog();
-            _Prodovnie1 = Prodovnie1.GetAttributes();
-        }
-
-        private void Prodovnie2_Click(object sender, EventArgs e)
-        {
-            var Prodovnie2 = new Form_att(_Prodovnie2);
-            Prodovnie2.ShowDialog();
-            _Prodovnie2 = Prodovnie2.GetAttributes();
-        }
-
-        private void Prodovnie3_Click(object sender, EventArgs e)
-        {
-            var Prodovnie3 = new Form_att(_Prodovnie3);
-            Prodovnie3.ShowDialog();
-            _Prodovnie3 = Prodovnie3.GetAttributes();
-        }
-
-        private void Prodovnie4_Click(object sender, EventArgs e)
-        {
-            var Prodovnie4 = new Form_att(_Prodovnie4);
-            Prodovnie4.ShowDialog();
-            _Prodovnie4 = Prodovnie4.GetAttributes();
-        }
-
-        private void Prodovnie5_Click(object sender, EventArgs e)
-        {
-            var Prodovnie5 = new Form_att(_Prodovnie5);
-            Prodovnie5.ShowDialog();
-            _Prodovnie5 = Prodovnie5.GetAttributes();
-        }
-
-        private void Prodovnie6_Click(object sender, EventArgs e)
-        {
-            var Prodovnie6 = new Form_att(_Prodovnie6);
-            Prodovnie6.ShowDialog();
-            _Prodovnie6 = Prodovnie6.GetAttributes();
-        }
-
-        private void Prodovnie7_Click(object sender, EventArgs e)
-        {
-            var Prodovnie7 = new Form_att(_Prodovnie7);
-            Prodovnie7.ShowDialog();
-            _Prodovnie7 = Prodovnie7.GetAttributes();
-        }
         private void Travvprolete1_Click(object sender, EventArgs e)
         {
             var Travvprolete1 = new Form_att(_travvprolete1);

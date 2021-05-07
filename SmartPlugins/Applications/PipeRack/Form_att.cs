@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Tekla.Structures.Dialog;
 
@@ -7,7 +8,9 @@ namespace PipeRack
     public partial class Form_att : ApplicationFormBase
     {
         Attributes _attributes { get; set; }
-
+        List<Attributes> _attributesFrame { get; set; }
+        public int selectY { get; set; }
+       
         public Form_att(Attributes attributes)
         {
             _attributes = attributes;
@@ -16,7 +19,15 @@ namespace PipeRack
             GetParams();
 
         }
-        
+        public Form_att(List<Attributes> attributesFrame, int Count)
+        {
+            _attributesFrame = attributesFrame;
+            selectY = Count;
+           InitializeComponent();
+            GetParams2();
+
+        }
+
         private void GetParams()
         {
             if (_attributes == null)
@@ -31,8 +42,31 @@ namespace PipeRack
             DepthCB.SelectedIndex = _attributes.PolojenieVertikalno;
             RotationCB.SelectedIndex = _attributes.PolojeniePovorot;
             PlaneCB.SelectedIndex = _attributes.PolojenieGorizontalno;
+            SelectYarusCB.SelectedIndex = selectY;
+        }
+        private void GetParams2()
+        {
+            _attributes = _attributesFrame[selectY];
+            if (_attributes == null)
+                return;
+
+            Namen.Text = _attributes.Name;
+            Profile.Text = _attributes.Profile;
+            Material.Text = _attributes.Material;
+            Class.Text = _attributes.Class;
+            PrefixSborki.Text = _attributes.PrefixSborki;
+            NomerSborki.Text = _attributes.NomerSborki.ToString();
+            DepthCB.SelectedIndex = _attributes.PolojenieVertikalno;
+            RotationCB.SelectedIndex = _attributes.PolojeniePovorot;
+            PlaneCB.SelectedIndex = _attributes.PolojenieGorizontalno;
+            SelectYarusCB.SelectedIndex = selectY;
         }
 
+
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             string namen = Namen.Text;
@@ -44,6 +78,7 @@ namespace PipeRack
             int polojenieVertikalno = DepthCB.SelectedIndex;
             int polojeniePovorot = RotationCB.SelectedIndex;
             int polojenieGorizontalno = PlaneCB.SelectedIndex;
+            selectY = SelectYarusCB.SelectedIndex;
             
 
 
@@ -60,6 +95,7 @@ namespace PipeRack
                 PolojeniePovorot = polojeniePovorot,
                 PolojenieGorizontalno = polojenieGorizontalno,
             };
+
             Form_att.ActiveForm.Close();
         }
 
@@ -103,5 +139,12 @@ namespace PipeRack
 
 
         }
+
+        private void SelectYarusCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }

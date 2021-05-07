@@ -10,7 +10,8 @@ namespace PipeRack
 {
     class BalkiYarysa
     {
-        public List<Attributes> AttributesProdolnie { get; set; }
+        public List<Attributes> AttributesProdolnieRight { get; set; }
+        public List<Attributes> AttributesProdolnieLeft { get; set; }
         public List<Attributes> AttributesTraversyvprovete { get; set; }
 
         List<Frame> _FraMES;
@@ -33,102 +34,110 @@ namespace PipeRack
 
         public void Insert()
         {
-
+            
             for (int i = 0; i < _FraMES[0]._TraversRight.Count(); i++) // правые балки половина балок
             {
-                var Att = _FraMES[0]._TraversRight[i];
-                var startPoint = new Point(_FraMES[0]._basePoint.X, Att.StartPoint.Y, Att.StartPoint.Z);
-                var endPoint = new Point(_FraMES[0]._basePoint.X, Att.EndPoint.Y, Att.EndPoint.Z);
-
-                var Att2 = _FraMES[1]._TraversRight[i];
-                var startPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.StartPoint.Y, Att2.StartPoint.Z);
-                var endPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
-
-                var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
-                var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X, 3000);
-                Frame frame = new Frame();
-
-                Check(i);
-
-                if (!checkBeamR)
+                if(AttributesProdolnieRight[i] !=null)
                 {
-                    _balki.Add(frame.Beam_main(AttributesProdolnie[i], startPoint, startPoint2)); // левая балка
-                    checkBeamL = true;
+                    var Att = _FraMES[0]._TraversRight[i];
+                    var startPoint = new Point(_FraMES[0]._basePoint.X, Att.StartPoint.Y, Att.StartPoint.Z);
+                    var endPoint = new Point(_FraMES[0]._basePoint.X, Att.EndPoint.Y, Att.EndPoint.Z);
 
-                    for (int _i = 0; _i < _shagi.Count(); _i++)
+                    var Att2 = _FraMES[1]._TraversRight[i];
+                    var startPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.StartPoint.Y, Att2.StartPoint.Z);
+                    var endPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
+
+                    var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
+                    var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X, 3000);
+                    Frame frame = new Frame();
+
+                    Check(i);
+
+                    if (!checkBeamR)
                     {
-                        Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
-                        Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                        _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
-                        double H = 0;
-                        _traversyvprovete[_i].GetReportProperty("WIDTH", ref H);
-                        Point startPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - H);
-                        Point EndPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - EndST);
+                        _balki.Add(frame.Beam_main(AttributesProdolnieRight[i], startPoint, startPoint2)); // левая балка
+                        checkBeamL = true;
+
+                        for (int _i = 0; _i < _shagi.Count(); _i++)
+                        {
+                            Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
+                            Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                            double H = 0;
+                            _traversyvprovete[_i].GetReportProperty("WIDTH", ref H);
+                            Point startPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - H);
+                            Point EndPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - EndST);
 
 
-                        frame.Beam_main(AttributesTraversyvprovete[i], startPointST, EndPointST);
+                            frame.Beam_main(AttributesTraversyvprovete[i], startPointST, EndPointST);
+                        }
                     }
-                }
-                else
-                { 
-                    _balki.Add(frame.Beam_main(AttributesProdolnie[i], startPoint, startPoint2)); // левая балка
-                    _balki.Add(frame.Beam_main(AttributesProdolnie[i], endPoint, endPoint2));     // правая балка  
-
-                    for (int _i = 0; _i < _shagi.Count(); _i++)
+                    else
                     {
-                        Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
-                        Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                        _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                        _balki.Add(frame.Beam_main(AttributesProdolnieRight[i], startPoint, startPoint2)); // левая балка
+                        _balki.Add(frame.Beam_main(AttributesProdolnieRight[i], endPoint, endPoint2));     // правая балка  
+
+                        for (int _i = 0; _i < _shagi.Count(); _i++)
+                        {
+                            Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
+                            Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                        }
                     }
                 }
             }
+                
 
-            for (int i = 0; i < _FraMES[0]._TraversLeft.Count(); i++) // девые балки половина балок
+            for (int i = 0; i < _FraMES[0]._TraversLeft.Count(); i++) // левые балки половина балок
             {
-                var Att = _FraMES[0]._TraversLeft[i];
-                var startPoint = new Point(_FraMES[0]._basePoint.X, Att.StartPoint.Y, Att.StartPoint.Z);
-                var endPoint = new Point(_FraMES[0]._basePoint.X, Att.EndPoint.Y, Att.EndPoint.Z);
-
-                var Att2 = _FraMES[1]._TraversLeft[i];
-                var startPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.StartPoint.Y, Att2.StartPoint.Z);
-                var endPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
-
-                var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
-                var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X, 3000);
-                Frame frame = new Frame();
-
-                Check2(i);
-
-                if (!checkBeamL)
+                if (AttributesProdolnieLeft[i] != null)
                 {
-                    _balki.Add(frame.Beam_main(AttributesProdolnie[i], endPoint, endPoint2));     // правая балка
-                    checkBeamR = true;
-                    for (int _i = 0; _i < _shagi.Count(); _i++)
-                    {
-                        Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
-                        Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                        _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
-                        double H = 0;
-                        _traversyvprovete[_i].GetReportProperty("WIDTH", ref H);
-                        Point startPointST = new Point(startPoint3.X, startPoint3.Y, startPoint3.Z - H);
-                        Point EndPointST = new Point(startPointST.X, startPointST.Y, endPoint3.Z - EndST);
+                    var Att = _FraMES[0]._TraversLeft[i];
+                    var startPoint = new Point(_FraMES[0]._basePoint.X, Att.StartPoint.Y, Att.StartPoint.Z);
+                    var endPoint = new Point(_FraMES[0]._basePoint.X, Att.EndPoint.Y, Att.EndPoint.Z);
 
-                        frame.Beam_main(AttributesTraversyvprovete[i], startPointST, EndPointST);
+                    var Att2 = _FraMES[1]._TraversLeft[i];
+                    var startPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.StartPoint.Y, Att2.StartPoint.Z);
+                    var endPoint2 = new Point(_FraMES[1]._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
+
+                    var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X);
+                    var _shagi = Shagtravers(_FraMES[1]._basePoint.X - _FraMES[0]._basePoint.X, 3000);
+                    Frame frame = new Frame();
+
+                    Check2(i);
+
+                    if (!checkBeamL)
+                    {
+                        _balki.Add(frame.Beam_main(AttributesProdolnieLeft[i], endPoint, endPoint2));     // правая балка
+                        checkBeamR = true;
+                        for (int _i = 0; _i < _shagi.Count(); _i++)
+                        {
+                            Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
+                            Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                            double H = 0;
+                            _traversyvprovete[_i].GetReportProperty("WIDTH", ref H);
+                            Point startPointST = new Point(startPoint3.X, startPoint3.Y, startPoint3.Z - H);
+                            Point EndPointST = new Point(startPointST.X, startPointST.Y, endPoint3.Z - EndST);
+
+                            frame.Beam_main(AttributesTraversyvprovete[i], startPointST, EndPointST);
+                        }
                     }
-                }
-                else
-                {
-                    _balki.Add(frame.Beam_main(AttributesProdolnie[i], startPoint, startPoint2)); // левая балка
-                    _balki.Add(frame.Beam_main(AttributesProdolnie[i], endPoint, endPoint2));     // правая балка  
-
-                    for (int _i = 0; _i < _shagi.Count(); _i++)
+                    else
                     {
-                        Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
-                        Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                        _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                        _balki.Add(frame.Beam_main(AttributesProdolnieLeft[i], startPoint, startPoint2)); // левая балка
+                        _balki.Add(frame.Beam_main(AttributesProdolnieLeft[i], endPoint, endPoint2));     // правая балка  
+
+                        for (int _i = 0; _i < _shagi.Count(); _i++)
+                        {
+                            Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
+                            Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                        }
                     }
                 }
             }
+                
         }
 
 
