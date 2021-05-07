@@ -26,7 +26,7 @@ namespace PipeRack
         private List<Attributes> _attributesProdolnie { get; set; }
         private List<Attributes> _attributesProdolnieLeft { get; set; }
         private List<Attributes> _attributesColumn { get; set; }
-        //  AttributesFrame _attFrame = new AttributesFrame();
+          AttributesFrame _attFrame = new AttributesFrame();
 
         public Form1()
         {
@@ -35,6 +35,7 @@ namespace PipeRack
             else
             {
                 InitializeComponent();
+                _attFrame.Listovod();
                 Listovod();
 
 
@@ -51,15 +52,33 @@ namespace PipeRack
                 {
                     _Prodovnie1L, _Prodovnie2L, _Prodovnie3L, _Prodovnie4L,_Prodovnie5L,_Prodovnie6L,_Prodovnie7L,
                 };
-            _attributesColumn = new List<Attributes>() // колонны
-                {
-                    _attributeColumn1, _attributeColumn2, _attributeColumn3,
-                };
+
         }
 
+        private void AttColumn1_Click(object sender, EventArgs e)
+        {
+            
+            var AttCol1 = new Form_att(_attFrame.attColumn1);
+            AttCol1.ShowDialog();
+            _attFrame.attColumn1 = AttCol1.GetAttributes();
+        }
+
+        private void AttColumn2_Click(object sender, EventArgs e)
+        {
+            var AttCol2 = new Form_att(_attFrame.attColumn2);
+            AttCol2.ShowDialog();
+            _attFrame.attColumn2 = AttCol2.GetAttributes();
+        }
+
+        private void AttColumn3_Click(object sender, EventArgs e)
+        {
+            var AttCol3 = new Form_att(_attFrame.attColumn3);
+            AttCol3.ShowDialog();
+            _attFrame.attColumn3 = AttCol3.GetAttributes();
+        }
         public void Button1_Click(object sender, EventArgs e)
         {
-            Listovod();
+            _attFrame.Listovod();
             FraMES.Clear();
             T3D.Point CS_point = new T3D.Point(double.Parse(X_start.Text), double.Parse(Y_start.Text), double.Parse(Z_start.Text));
             T3D.Point CS_point_end = new T3D.Point(double.Parse(X_start2.Text), double.Parse(Y_start2.Text), double.Parse(Z_start2.Text));
@@ -115,7 +134,7 @@ namespace PipeRack
             //}
 
 
-            if (!Nali4ieAtt(_attributesColumn, count_column, "колонны")) return;
+            if (!Nali4ieAtt(_attFrame._attributesColumn, count_column, "колонны")) return;
             if (!Nali4ieAtt(_attributes, yarus_count, "яруса")) return;  // проверка наличия атрибутов
            // if (!Nali4ieAtt(_attributesProdolnie, yarus_count, "продольных балок яруса")) return;
            // if (!Nali4ieAtt(_attributesTraversyvprovete, yarus_count, "траверс в пролете яруса")) return;
@@ -185,7 +204,7 @@ namespace PipeRack
                     Traversy = Traversy,
                     Attributes = _attributes,
                     Attributes2 = _attributes2,
-                    AttributeColumn = _attributesColumn,
+                    AttributeColumn = _attFrame._attributesColumn,
                     Traversy2 = Traversy2,
                     UklonbI = UklonbI,
                     _M = M,
@@ -257,11 +276,6 @@ namespace PipeRack
             M.CommitChanges();
         }
 
-
-
-
-
-
         private void Button3_Click(object sender, EventArgs e)
         {
             Consoles.Clear();
@@ -305,10 +319,6 @@ namespace PipeRack
                         };
                         PlatformMaintenance2.InsertBalkiPloshadki();
                 }
-           
-
-
-
             M.CommitChanges();
         }
         private List<double> Regen(List<double> Travs, int yarus_count)

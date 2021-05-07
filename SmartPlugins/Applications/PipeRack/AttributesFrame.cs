@@ -8,27 +8,34 @@ namespace PipeRack
 {
     public class AttributesFrame
     {
-        public Attributes attColumn1 { get; set; }
-        public Attributes attColumn2 { get; set; }
-        public Attributes attColumn3 { get; set; }
+        public Attributes attColumn1;
+        public Attributes attColumn2;
+        public Attributes attColumn3;
 
-        public Attributes attYarusRight1 { get; set; }
-        public Attributes attYarusRight2 { get; set; }
-        public Attributes attYarusRight3 { get; set; }
-        public Attributes attYarusRight4 { get; set; }
-        public Attributes attYarusRight5 { get; set; }
-        public Attributes attYarusRight6 { get; set; }
-        public Attributes attYarusRight7 { get; set; }
+        public Attributes attYarusRight1;
+        public Attributes attYarusRight2;
+        public Attributes attYarusRight3;
+        public Attributes attYarusRight4;
+        public Attributes attYarusRight5;
+        public Attributes attYarusRight6;
+        public Attributes attYarusRight7;
 
-        public Attributes attLeftYarus1 { get; set; }
-        public Attributes attLeftYarus2 { get; set; }
-        public Attributes attLeftYarus3 { get; set; }
-        public Attributes attLeftYarus4 { get; set; }
-        public Attributes attLeftYarus5 { get; set; }
-        public Attributes attLeftYarus6 { get; set; }
-        public Attributes attLeftYarus7 { get; set; }
+        public Attributes attLeftYarus1;
+        public Attributes attLeftYarus2;
+        public Attributes attLeftYarus3;
+        public Attributes attLeftYarus4;
+        public Attributes attLeftYarus5;
+        public Attributes attLeftYarus6;
+        public Attributes attLeftYarus7;
 
-
+        public List<Attributes> _attributesColumn { get; set; }
+        public void Listovod()
+        {
+            _attributesColumn = new List<Attributes>() // колонны
+                {
+                    attColumn1, attColumn2, attColumn3,
+                };
+        }
 
     }
 

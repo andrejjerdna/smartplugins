@@ -129,26 +129,7 @@ namespace PipeRack
             _attributeYarus7 = AttYorus7.GetAttributes();
         }
 
-        private void AttColumn1_Click(object sender, EventArgs e)
-        {
-            var AttCol1 = new Form_att(_attributeColumn1);
-            AttCol1.ShowDialog();
-            _attributeColumn1 = AttCol1.GetAttributes();
-        }
-
-        private void AttColumn2_Click(object sender, EventArgs e)
-        {
-            var AttCol2 = new Form_att(_attributeColumn2);
-            AttCol2.ShowDialog();
-            _attributeColumn2 = AttCol2.GetAttributes();
-        }
-
-        private void AttColumn3_Click(object sender, EventArgs e)
-        {
-            var AttCol3 = new Form_att(_attributeColumn3);
-            AttCol3.ShowDialog();
-            _attributeColumn3 = AttCol3.GetAttributes();
-        }
+       
         private void AttYarus1L_Click(object sender, EventArgs e)
         {
             var AttYorus1l = new Form_att(_AttYarus1L);
