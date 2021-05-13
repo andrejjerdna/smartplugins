@@ -12,7 +12,8 @@ namespace PipeRack
     {
         public List<Attributes> AttributesProdolnieRight { get; set; }
         public List<Attributes> AttributesProdolnieLeft { get; set; }
-        public List<Attributes> AttributesTraversyvprovete { get; set; }
+        public List<Attributes> AttributesTraversyvproveteRight { get; set; }
+        public List<Attributes> AttributesTraversyvproveteLeft { get; set; }
 
         List<Frame> _FraMES;
         private bool checkBeamR = true;
@@ -62,14 +63,14 @@ namespace PipeRack
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvproveteRight[i], startPoint3, endPoint3)); // траверса в пролете
                             double H = 0;
                             _traversyvprovete[_i].GetReportProperty("WIDTH", ref H);
                             Point startPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - H);
                             Point EndPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - EndST);
 
 
-                            frame.Beam_main(AttributesTraversyvprovete[i], startPointST, EndPointST);
+                            frame.Beam_main(AttributesTraversyvproveteRight[i], startPointST, EndPointST);
                         }
                     }
                     else
@@ -81,7 +82,7 @@ namespace PipeRack
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvproveteRight[i], startPoint3, endPoint3)); // траверса в пролете
                         }
                     }
                 }
@@ -114,13 +115,13 @@ namespace PipeRack
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvproveteLeft[i], startPoint3, endPoint3)); // траверса в пролете
                             double H = 0;
                             _traversyvprovete[_i].GetReportProperty("WIDTH", ref H);
                             Point startPointST = new Point(startPoint3.X, startPoint3.Y, startPoint3.Z - H);
                             Point EndPointST = new Point(startPointST.X, startPointST.Y, endPoint3.Z - EndST);
 
-                            frame.Beam_main(AttributesTraversyvprovete[i], startPointST, EndPointST);
+                            frame.Beam_main(AttributesTraversyvproveteLeft[i], startPointST, EndPointST);
                         }
                     }
                     else
@@ -132,7 +133,7 @@ namespace PipeRack
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvprovete[i], startPoint3, endPoint3)); // траверса в пролете
+                            _traversyvprovete.Add(frame.Beam_main(AttributesTraversyvproveteLeft[i], startPoint3, endPoint3)); // траверса в пролете
                         }
                     }
                 }

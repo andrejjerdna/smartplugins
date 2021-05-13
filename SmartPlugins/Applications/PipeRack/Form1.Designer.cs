@@ -67,18 +67,6 @@
             this.YklonYarys4 = new System.Windows.Forms.TextBox();
             this.YklonYarys3 = new System.Windows.Forms.TextBox();
             this.YklonYarys2 = new System.Windows.Forms.TextBox();
-            this.AttYarus7L = new System.Windows.Forms.Button();
-            this.AttYarus6L = new System.Windows.Forms.Button();
-            this.AttYarus5L = new System.Windows.Forms.Button();
-            this.AttYarus4L = new System.Windows.Forms.Button();
-            this.AttYarus3L = new System.Windows.Forms.Button();
-            this.AttYarus7 = new System.Windows.Forms.Button();
-            this.AttYarus6 = new System.Windows.Forms.Button();
-            this.AttYarus5 = new System.Windows.Forms.Button();
-            this.AttYarus4 = new System.Windows.Forms.Button();
-            this.AttYarus3 = new System.Windows.Forms.Button();
-            this.AttYarus2L = new System.Windows.Forms.Button();
-            this.AttYarus1L = new System.Windows.Forms.Button();
             this.L_H7 = new System.Windows.Forms.TextBox();
             this.L_H6 = new System.Windows.Forms.TextBox();
             this.L_H5 = new System.Windows.Forms.TextBox();
@@ -89,8 +77,6 @@
             this.AttColumn3 = new System.Windows.Forms.Button();
             this.AttColumn2 = new System.Windows.Forms.Button();
             this.AttColumn1 = new System.Windows.Forms.Button();
-            this.AttYarus2 = new System.Windows.Forms.Button();
-            this.AttYarus1 = new System.Windows.Forms.Button();
             this.B_H7 = new System.Windows.Forms.TextBox();
             this.B_H6 = new System.Windows.Forms.TextBox();
             this.B_H5 = new System.Windows.Forms.TextBox();
@@ -105,11 +91,42 @@
             this.Yarus_count = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.copyYarusLeft = new System.Windows.Forms.Button();
+            this.addYarusLeft = new System.Windows.Forms.Button();
+            this.dataGridViewYarusLeft = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button13 = new System.Windows.Forms.Button();
+            this.copyYarusRight = new System.Windows.Forms.Button();
+            this.addYarusRight = new System.Windows.Forms.Button();
+            this.dataGridViewYarusRight = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.copyProletBeamLeft = new System.Windows.Forms.Button();
+            this.addProletBeamLeft = new System.Windows.Forms.Button();
             this.dataGridViewProdolnieLeft = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,8 +140,8 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label9 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.copyProletBeamRight = new System.Windows.Forms.Button();
+            this.addProletBeamRight = new System.Windows.Forms.Button();
             this.dataGridViewProdolnieRight = new System.Windows.Forms.DataGridView();
             this.NumberR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Namen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,6 +165,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewYarusLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewYarusRight)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdolnieLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdolnieRight)).BeginInit();
@@ -159,6 +179,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(3, 2);
@@ -224,7 +245,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 21);
             this.label6.TabIndex = 245;
-            this.label6.Text = "Значения сетки осей вдоль";
+            this.label6.Text = "Значения осей вдоль";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelX
@@ -399,18 +420,6 @@
             this.tabPage2.Controls.Add(this.YklonYarys4);
             this.tabPage2.Controls.Add(this.YklonYarys3);
             this.tabPage2.Controls.Add(this.YklonYarys2);
-            this.tabPage2.Controls.Add(this.AttYarus7L);
-            this.tabPage2.Controls.Add(this.AttYarus6L);
-            this.tabPage2.Controls.Add(this.AttYarus5L);
-            this.tabPage2.Controls.Add(this.AttYarus4L);
-            this.tabPage2.Controls.Add(this.AttYarus3L);
-            this.tabPage2.Controls.Add(this.AttYarus7);
-            this.tabPage2.Controls.Add(this.AttYarus6);
-            this.tabPage2.Controls.Add(this.AttYarus5);
-            this.tabPage2.Controls.Add(this.AttYarus4);
-            this.tabPage2.Controls.Add(this.AttYarus3);
-            this.tabPage2.Controls.Add(this.AttYarus2L);
-            this.tabPage2.Controls.Add(this.AttYarus1L);
             this.tabPage2.Controls.Add(this.L_H7);
             this.tabPage2.Controls.Add(this.L_H6);
             this.tabPage2.Controls.Add(this.L_H5);
@@ -421,8 +430,6 @@
             this.tabPage2.Controls.Add(this.AttColumn3);
             this.tabPage2.Controls.Add(this.AttColumn2);
             this.tabPage2.Controls.Add(this.AttColumn1);
-            this.tabPage2.Controls.Add(this.AttYarus2);
-            this.tabPage2.Controls.Add(this.AttYarus1);
             this.tabPage2.Controls.Add(this.B_H7);
             this.tabPage2.Controls.Add(this.B_H6);
             this.tabPage2.Controls.Add(this.B_H5);
@@ -590,138 +597,6 @@
             this.YklonYarys2.TabIndex = 339;
             this.YklonYarys2.Text = "0";
             // 
-            // AttYarus7L
-            // 
-            this.AttYarus7L.Location = new System.Drawing.Point(237, 71);
-            this.AttYarus7L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus7L.Name = "AttYarus7L";
-            this.AttYarus7L.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus7L.TabIndex = 338;
-            this.AttYarus7L.Text = "Ярус 7";
-            this.AttYarus7L.UseVisualStyleBackColor = true;
-            this.AttYarus7L.Click += new System.EventHandler(this.AttYarus7L_Click);
-            // 
-            // AttYarus6L
-            // 
-            this.AttYarus6L.Location = new System.Drawing.Point(237, 117);
-            this.AttYarus6L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus6L.Name = "AttYarus6L";
-            this.AttYarus6L.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus6L.TabIndex = 337;
-            this.AttYarus6L.Text = "Ярус 6";
-            this.AttYarus6L.UseVisualStyleBackColor = true;
-            this.AttYarus6L.Click += new System.EventHandler(this.AttYarus6L_Click);
-            // 
-            // AttYarus5L
-            // 
-            this.AttYarus5L.Location = new System.Drawing.Point(237, 167);
-            this.AttYarus5L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus5L.Name = "AttYarus5L";
-            this.AttYarus5L.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus5L.TabIndex = 336;
-            this.AttYarus5L.Text = "Ярус 5";
-            this.AttYarus5L.UseVisualStyleBackColor = true;
-            this.AttYarus5L.Click += new System.EventHandler(this.AttYarus5L_Click);
-            // 
-            // AttYarus4L
-            // 
-            this.AttYarus4L.Location = new System.Drawing.Point(237, 218);
-            this.AttYarus4L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus4L.Name = "AttYarus4L";
-            this.AttYarus4L.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus4L.TabIndex = 335;
-            this.AttYarus4L.Text = "Ярус 4";
-            this.AttYarus4L.UseVisualStyleBackColor = true;
-            this.AttYarus4L.Click += new System.EventHandler(this.AttYarus4L_Click);
-            // 
-            // AttYarus3L
-            // 
-            this.AttYarus3L.Location = new System.Drawing.Point(237, 271);
-            this.AttYarus3L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus3L.Name = "AttYarus3L";
-            this.AttYarus3L.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus3L.TabIndex = 334;
-            this.AttYarus3L.Text = "Ярус 3";
-            this.AttYarus3L.UseVisualStyleBackColor = true;
-            this.AttYarus3L.Click += new System.EventHandler(this.AttYarus3L_Click);
-            // 
-            // AttYarus7
-            // 
-            this.AttYarus7.Location = new System.Drawing.Point(407, 71);
-            this.AttYarus7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus7.Name = "AttYarus7";
-            this.AttYarus7.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus7.TabIndex = 333;
-            this.AttYarus7.Text = "Ярус 7";
-            this.AttYarus7.UseVisualStyleBackColor = true;
-            this.AttYarus7.Click += new System.EventHandler(this.AttYarus7_Click);
-            // 
-            // AttYarus6
-            // 
-            this.AttYarus6.Location = new System.Drawing.Point(407, 117);
-            this.AttYarus6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus6.Name = "AttYarus6";
-            this.AttYarus6.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus6.TabIndex = 332;
-            this.AttYarus6.Text = "Ярус 6";
-            this.AttYarus6.UseVisualStyleBackColor = true;
-            this.AttYarus6.Click += new System.EventHandler(this.AttYarus6_Click);
-            // 
-            // AttYarus5
-            // 
-            this.AttYarus5.Location = new System.Drawing.Point(407, 167);
-            this.AttYarus5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus5.Name = "AttYarus5";
-            this.AttYarus5.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus5.TabIndex = 331;
-            this.AttYarus5.Text = "Ярус 5";
-            this.AttYarus5.UseVisualStyleBackColor = true;
-            this.AttYarus5.Click += new System.EventHandler(this.AttYarus5_Click);
-            // 
-            // AttYarus4
-            // 
-            this.AttYarus4.Location = new System.Drawing.Point(407, 218);
-            this.AttYarus4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus4.Name = "AttYarus4";
-            this.AttYarus4.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus4.TabIndex = 330;
-            this.AttYarus4.Text = "Ярус 4";
-            this.AttYarus4.UseVisualStyleBackColor = true;
-            this.AttYarus4.Click += new System.EventHandler(this.AttYarus4_Click);
-            // 
-            // AttYarus3
-            // 
-            this.AttYarus3.Location = new System.Drawing.Point(407, 271);
-            this.AttYarus3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus3.Name = "AttYarus3";
-            this.AttYarus3.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus3.TabIndex = 329;
-            this.AttYarus3.Text = "Ярус 3";
-            this.AttYarus3.UseVisualStyleBackColor = true;
-            this.AttYarus3.Click += new System.EventHandler(this.AttYarus3_Click);
-            // 
-            // AttYarus2L
-            // 
-            this.AttYarus2L.Location = new System.Drawing.Point(237, 321);
-            this.AttYarus2L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus2L.Name = "AttYarus2L";
-            this.AttYarus2L.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus2L.TabIndex = 328;
-            this.AttYarus2L.Text = "Ярус 2";
-            this.AttYarus2L.UseVisualStyleBackColor = true;
-            this.AttYarus2L.Click += new System.EventHandler(this.AttYarus2L_Click);
-            // 
-            // AttYarus1L
-            // 
-            this.AttYarus1L.Location = new System.Drawing.Point(237, 370);
-            this.AttYarus1L.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus1L.Name = "AttYarus1L";
-            this.AttYarus1L.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus1L.TabIndex = 320;
-            this.AttYarus1L.Text = "Ярус 1";
-            this.AttYarus1L.UseVisualStyleBackColor = true;
-            this.AttYarus1L.Click += new System.EventHandler(this.AttYarus1L_Click);
-            // 
             // L_H7
             // 
             this.L_H7.Location = new System.Drawing.Point(95, 117);
@@ -817,28 +692,6 @@
             this.AttColumn1.Text = "Колонна 1";
             this.AttColumn1.UseVisualStyleBackColor = true;
             this.AttColumn1.Click += new System.EventHandler(this.AttColumn1_Click);
-            // 
-            // AttYarus2
-            // 
-            this.AttYarus2.Location = new System.Drawing.Point(407, 321);
-            this.AttYarus2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus2.Name = "AttYarus2";
-            this.AttYarus2.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus2.TabIndex = 303;
-            this.AttYarus2.Text = "Ярус 2";
-            this.AttYarus2.UseVisualStyleBackColor = true;
-            this.AttYarus2.Click += new System.EventHandler(this.AttYarus2_Click);
-            // 
-            // AttYarus1
-            // 
-            this.AttYarus1.Location = new System.Drawing.Point(407, 370);
-            this.AttYarus1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AttYarus1.Name = "AttYarus1";
-            this.AttYarus1.Size = new System.Drawing.Size(80, 26);
-            this.AttYarus1.TabIndex = 295;
-            this.AttYarus1.Text = "Ярус 1";
-            this.AttYarus1.UseVisualStyleBackColor = true;
-            this.AttYarus1.Click += new System.EventHandler(this.AttYarus1_Click);
             // 
             // B_H7
             // 
@@ -983,17 +836,284 @@
             this.pictureBox2.TabIndex = 182;
             this.pictureBox2.TabStop = false;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label11);
+            this.tabPage5.Controls.Add(this.button10);
+            this.tabPage5.Controls.Add(this.copyYarusLeft);
+            this.tabPage5.Controls.Add(this.addYarusLeft);
+            this.tabPage5.Controls.Add(this.dataGridViewYarusLeft);
+            this.tabPage5.Controls.Add(this.label12);
+            this.tabPage5.Controls.Add(this.button13);
+            this.tabPage5.Controls.Add(this.copyYarusRight);
+            this.tabPage5.Controls.Add(this.addYarusRight);
+            this.tabPage5.Controls.Add(this.dataGridViewYarusRight);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(992, 591);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Cвойства траверс";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(56, 313);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(276, 17);
+            this.label11.TabIndex = 329;
+            this.label11.Text = "Атрибуры траверс между колоннами 2-3";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(599, 557);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(267, 26);
+            this.button10.TabIndex = 328;
+            this.button10.Text = "Удалить строку";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // copyYarusLeft
+            // 
+            this.copyYarusLeft.Location = new System.Drawing.Point(324, 555);
+            this.copyYarusLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.copyYarusLeft.Name = "copyYarusLeft";
+            this.copyYarusLeft.Size = new System.Drawing.Size(267, 26);
+            this.copyYarusLeft.TabIndex = 327;
+            this.copyYarusLeft.Text = "Скопировать выделенную строку";
+            this.copyYarusLeft.UseVisualStyleBackColor = true;
+            this.copyYarusLeft.Click += new System.EventHandler(this.CopyYarusLeft_Click);
+            // 
+            // addYarusLeft
+            // 
+            this.addYarusLeft.Location = new System.Drawing.Point(7, 555);
+            this.addYarusLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addYarusLeft.Name = "addYarusLeft";
+            this.addYarusLeft.Size = new System.Drawing.Size(297, 26);
+            this.addYarusLeft.TabIndex = 326;
+            this.addYarusLeft.Text = "Добавить/редактировать ярус";
+            this.addYarusLeft.UseVisualStyleBackColor = true;
+            this.addYarusLeft.Click += new System.EventHandler(this.AddYarusLeft_Click);
+            // 
+            // dataGridViewYarusLeft
+            // 
+            this.dataGridViewYarusLeft.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dataGridViewYarusLeft.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewYarusLeft.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.dataGridViewYarusLeft.Location = new System.Drawing.Point(4, 342);
+            this.dataGridViewYarusLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewYarusLeft.Name = "dataGridViewYarusLeft";
+            this.dataGridViewYarusLeft.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewYarusLeft.TabIndex = 325;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "№№";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "Имя";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "Профиль";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "Материал";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Класс";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Префикс сборки";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Номер сборки";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn18.HeaderText = "Вертикально";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn18.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "Поворот";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "Горизонтально";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 90;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(56, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(276, 17);
+            this.label12.TabIndex = 324;
+            this.label12.Text = "Атрибуры траверс между колоннами 1-2";
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(599, 254);
+            this.button13.Margin = new System.Windows.Forms.Padding(4);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(267, 26);
+            this.button13.TabIndex = 323;
+            this.button13.Text = "Удалить строку";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // copyYarusRight
+            // 
+            this.copyYarusRight.Location = new System.Drawing.Point(324, 252);
+            this.copyYarusRight.Margin = new System.Windows.Forms.Padding(4);
+            this.copyYarusRight.Name = "copyYarusRight";
+            this.copyYarusRight.Size = new System.Drawing.Size(267, 26);
+            this.copyYarusRight.TabIndex = 322;
+            this.copyYarusRight.Text = "Скопировать выделенную строку";
+            this.copyYarusRight.UseVisualStyleBackColor = true;
+            this.copyYarusRight.Click += new System.EventHandler(this.CopyYarusRight_Click);
+            // 
+            // addYarusRight
+            // 
+            this.addYarusRight.Location = new System.Drawing.Point(7, 252);
+            this.addYarusRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addYarusRight.Name = "addYarusRight";
+            this.addYarusRight.Size = new System.Drawing.Size(297, 26);
+            this.addYarusRight.TabIndex = 321;
+            this.addYarusRight.Text = "Добавить/редактировать ярус";
+            this.addYarusRight.UseVisualStyleBackColor = true;
+            this.addYarusRight.Click += new System.EventHandler(this.Button15_Click);
+            // 
+            // dataGridViewYarusRight
+            // 
+            this.dataGridViewYarusRight.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dataGridViewYarusRight.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewYarusRight.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30});
+            this.dataGridViewYarusRight.Location = new System.Drawing.Point(4, 39);
+            this.dataGridViewYarusRight.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewYarusRight.Name = "dataGridViewYarusRight";
+            this.dataGridViewYarusRight.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewYarusRight.TabIndex = 320;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.HeaderText = "№№";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.HeaderText = "Имя";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.HeaderText = "Профиль";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.HeaderText = "Материал";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "Класс";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.HeaderText = "Префикс сборки";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.HeaderText = "Номер сборки";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn28.HeaderText = "Вертикально";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn28.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.HeaderText = "Поворот";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.HeaderText = "Горизонтально";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.Width = 90;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.button7);
-            this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.button9);
+            this.tabPage3.Controls.Add(this.copyProletBeamLeft);
+            this.tabPage3.Controls.Add(this.addProletBeamLeft);
             this.tabPage3.Controls.Add(this.dataGridViewProdolnieLeft);
             this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.button5);
-            this.tabPage3.Controls.Add(this.button4);
+            this.tabPage3.Controls.Add(this.copyProletBeamRight);
+            this.tabPage3.Controls.Add(this.addProletBeamRight);
             this.tabPage3.Controls.Add(this.dataGridViewProdolnieRight);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
@@ -1023,27 +1143,27 @@
             this.button7.Text = "Удалить строку";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // copyProletBeamLeft
             // 
-            this.button8.Location = new System.Drawing.Point(324, 552);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(267, 26);
-            this.button8.TabIndex = 317;
-            this.button8.Text = "Скопировать выделенную строку";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Button8_Click);
+            this.copyProletBeamLeft.Location = new System.Drawing.Point(324, 552);
+            this.copyProletBeamLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.copyProletBeamLeft.Name = "copyProletBeamLeft";
+            this.copyProletBeamLeft.Size = new System.Drawing.Size(267, 26);
+            this.copyProletBeamLeft.TabIndex = 317;
+            this.copyProletBeamLeft.Text = "Скопировать выделенную строку";
+            this.copyProletBeamLeft.UseVisualStyleBackColor = true;
+            this.copyProletBeamLeft.Click += new System.EventHandler(this.Button8_Click);
             // 
-            // button9
+            // addProletBeamLeft
             // 
-            this.button9.Location = new System.Drawing.Point(7, 552);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(297, 26);
-            this.button9.TabIndex = 316;
-            this.button9.Text = "Добавить/редактировать ярус";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.Button9_Click);
+            this.addProletBeamLeft.Location = new System.Drawing.Point(7, 552);
+            this.addProletBeamLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addProletBeamLeft.Name = "addProletBeamLeft";
+            this.addProletBeamLeft.Size = new System.Drawing.Size(297, 26);
+            this.addProletBeamLeft.TabIndex = 316;
+            this.addProletBeamLeft.Text = "Добавить/редактировать ярус";
+            this.addProletBeamLeft.UseVisualStyleBackColor = true;
+            this.addProletBeamLeft.Click += new System.EventHandler(this.Button9_Click);
             // 
             // dataGridViewProdolnieLeft
             // 
@@ -1147,27 +1267,27 @@
             this.button6.Text = "Удалить строку";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // copyProletBeamRight
             // 
-            this.button5.Location = new System.Drawing.Point(324, 249);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(267, 26);
-            this.button5.TabIndex = 312;
-            this.button5.Text = "Скопировать выделенную строку";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button5_Click);
+            this.copyProletBeamRight.Location = new System.Drawing.Point(324, 249);
+            this.copyProletBeamRight.Margin = new System.Windows.Forms.Padding(4);
+            this.copyProletBeamRight.Name = "copyProletBeamRight";
+            this.copyProletBeamRight.Size = new System.Drawing.Size(267, 26);
+            this.copyProletBeamRight.TabIndex = 312;
+            this.copyProletBeamRight.Text = "Скопировать выделенную строку";
+            this.copyProletBeamRight.UseVisualStyleBackColor = true;
+            this.copyProletBeamRight.Click += new System.EventHandler(this.Button5_Click);
             // 
-            // button4
+            // addProletBeamRight
             // 
-            this.button4.Location = new System.Drawing.Point(7, 249);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(297, 26);
-            this.button4.TabIndex = 311;
-            this.button4.Text = "Добавить/редактировать ярус";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.addProletBeamRight.Location = new System.Drawing.Point(7, 249);
+            this.addProletBeamRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addProletBeamRight.Name = "addProletBeamRight";
+            this.addProletBeamRight.Size = new System.Drawing.Size(297, 26);
+            this.addProletBeamRight.TabIndex = 311;
+            this.addProletBeamRight.Text = "Добавить/редактировать ярус";
+            this.addProletBeamRight.UseVisualStyleBackColor = true;
+            this.addProletBeamRight.Click += new System.EventHandler(this.button4_Click);
             // 
             // dataGridViewProdolnieRight
             // 
@@ -1318,7 +1438,6 @@
             this.cBRight1.TabIndex = 184;
             this.cBRight1.Text = "\r\nПостроить слева";
             this.cBRight1.UseVisualStyleBackColor = true;
-            this.cBRight1.CheckedChanged += new System.EventHandler(this.AttYarus1_Click);
             // 
             // button1
             // 
@@ -1348,6 +1467,10 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewYarusLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewYarusRight)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdolnieLeft)).EndInit();
@@ -1364,18 +1487,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button AttYarus7L;
-        private System.Windows.Forms.Button AttYarus6L;
-        private System.Windows.Forms.Button AttYarus5L;
-        private System.Windows.Forms.Button AttYarus4L;
-        private System.Windows.Forms.Button AttYarus3L;
-        private System.Windows.Forms.Button AttYarus7;
-        private System.Windows.Forms.Button AttYarus6;
-        private System.Windows.Forms.Button AttYarus5;
-        private System.Windows.Forms.Button AttYarus4;
-        private System.Windows.Forms.Button AttYarus3;
-        private System.Windows.Forms.Button AttYarus2L;
-        private System.Windows.Forms.Button AttYarus1L;
         private System.Windows.Forms.TextBox L_H7;
         private System.Windows.Forms.TextBox L_H6;
         private System.Windows.Forms.TextBox L_H5;
@@ -1386,8 +1497,6 @@
         private System.Windows.Forms.Button AttColumn3;
         private System.Windows.Forms.Button AttColumn2;
         private System.Windows.Forms.Button AttColumn1;
-        private System.Windows.Forms.Button AttYarus2;
-        private System.Windows.Forms.Button AttYarus1;
         private System.Windows.Forms.TextBox B_H7;
         private System.Windows.Forms.TextBox B_H6;
         private System.Windows.Forms.TextBox B_H5;
@@ -1428,9 +1537,9 @@
         private System.Windows.Forms.TextBox ConsoleH;
         private System.Windows.Forms.TextBox ConsoleL;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button addProletBeamRight;
         private System.Windows.Forms.DataGridView dataGridViewProdolnieRight;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button copyProletBeamRight;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumberR;
         private System.Windows.Forms.DataGridViewTextBoxColumn Namen;
         private System.Windows.Forms.DataGridViewTextBoxColumn Profile;
@@ -1461,8 +1570,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button copyProletBeamLeft;
+        private System.Windows.Forms.Button addProletBeamLeft;
         private System.Windows.Forms.DataGridView dataGridViewProdolnieLeft;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1474,6 +1583,37 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button copyYarusLeft;
+        private System.Windows.Forms.Button addYarusLeft;
+        private System.Windows.Forms.DataGridView dataGridViewYarusLeft;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button copyYarusRight;
+        private System.Windows.Forms.Button addYarusRight;
+        private System.Windows.Forms.DataGridView dataGridViewYarusRight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
     }
 }
 
