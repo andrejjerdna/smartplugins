@@ -40,7 +40,7 @@ namespace PipeRack
                     attColumn3,
                 };
 
-            AttributesYarusRight = new List<Attributes>() // колонны
+            AttributesYarusRight = new List<Attributes>() 
                 {
                     attYarusRight1,
                     attYarusRight2,
@@ -51,7 +51,7 @@ namespace PipeRack
                     attYarusRight7,
                 };
 
-            AttributesYarusLeft = new List<Attributes>() // колонны
+            AttributesYarusLeft = new List<Attributes>() 
                 {
                     attYarusLeft1,
                     attYarusLeft2,
@@ -99,14 +99,27 @@ namespace PipeRack
         public Attributes attProletTraversaLeft6;
         public Attributes attProletTraversaLeft7;
 
+        public Attributes attProletStoyki1;
+        public Attributes attProletStoyki2;
+        public Attributes attProletStoyki3;
+        public Attributes attProletStoyki4;
+        public Attributes attProletStoyki5;
+        public Attributes attProletStoyki6;
+        public Attributes attProletStoyki7;
+
+
+
+
+
         public List<Attributes> AttProletBeamRight { get; set; }
         public List<Attributes> AttProletBeamLeft { get; set; }
-        public List<Attributes> attProletTraversaRight { get; set; }
-        public List<Attributes> attProletTraversaLeft { get; set; }
+        public List<Attributes> AttProletTraversaRight { get; set; }
+        public List<Attributes> AttProletTraversaLeft { get; set; }
+        public List<Attributes> AttProletStoyki { get; set; }
 
         public void Listovod()
         {
-            AttProletBeamRight = new List<Attributes>() // колонны
+            AttProletBeamRight = new List<Attributes>() 
                 {
                     attProletBeamRight1,
                     attProletBeamRight2,
@@ -117,7 +130,7 @@ namespace PipeRack
                     attProletBeamRight7,
                 };
 
-            AttProletBeamLeft = new List<Attributes>() // колонны
+            AttProletBeamLeft = new List<Attributes>() 
                 {
                     attProletBeamLeft1,
                     attProletBeamLeft2,
@@ -128,7 +141,7 @@ namespace PipeRack
                     attProletBeamLeft7,
                 };
 
-            attProletTraversaRight = new List<Attributes>() // колонны
+            AttProletTraversaRight = new List<Attributes>() 
                 {
                     attProletTraversaRight1,
                     attProletTraversaRight2,
@@ -139,7 +152,7 @@ namespace PipeRack
                     attProletTraversaRight7,
                 };
 
-            attProletTraversaLeft = new List<Attributes>() // колонны
+            AttProletTraversaLeft = new List<Attributes>() 
                 {
                     attProletTraversaLeft1,
                     attProletTraversaLeft2,
@@ -149,6 +162,18 @@ namespace PipeRack
                     attProletTraversaLeft6,
                     attProletTraversaLeft7,
                 };
+            AttProletStoyki = new List<Attributes>()
+            {
+                attProletStoyki1,
+                attProletStoyki2,
+                attProletStoyki3,
+                attProletStoyki4,
+                attProletStoyki5,
+                attProletStoyki6,
+                attProletStoyki7,
+            };
+
+
         }
     }
 }

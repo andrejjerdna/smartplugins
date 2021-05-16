@@ -43,7 +43,6 @@ namespace PipeRack
             _yarusCount = yarusCount;
             _count_column = count_column;
             _M = M;
-
         }
         public Frame()
         {
@@ -58,9 +57,21 @@ namespace PipeRack
             
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(workTP);
 
-            if (_count_column == 2)  CreateRamaDveKolony();
-            if (_count_column == 3)  CreateRamaTriKolony();
-
+            Connections Con = new Connections();
+            if (_count_column == 2)
+            {
+                CreateRamaDveKolony();
+                Con.BeamsToColumn(_Columns[0], _TraversRight);
+                Con.BeamsToColumn(_Columns[1], _TraversRight);
+            }
+            if (_count_column == 3)
+            {
+                CreateRamaTriKolony();
+                Con.BeamsToColumn(_Columns[0], _TraversRight);
+                Con.BeamsToColumn(_Columns[1], _TraversRight);
+                Con.BeamsToColumn(_Columns[1], _TraversLeft);
+                Con.BeamsToColumn(_Columns[2], _TraversLeft);
+            } 
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
         }
 

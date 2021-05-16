@@ -14,12 +14,14 @@ namespace PipeRack
         public List<Attributes> AttributesProdolnieLeft { get; set; }
         public List<Attributes> AttributesTraversyvproveteRight { get; set; }
         public List<Attributes> AttributesTraversyvproveteLeft { get; set; }
+        public List<Attributes> AttributesStoyki { get; set; }
 
         List<Frame> _FraMES;
         private bool checkBeamR = true;
         private bool checkBeamL = true;
 
         public List<Beam> _balki = new List<Beam>();
+        public List<Beam> _balkiLeft = new List<Beam>();
         public List<Beam> _traversyvprovete = new List<Beam>();
 
         double EndST = 0;
@@ -35,7 +37,7 @@ namespace PipeRack
 
         public void Insert()
         {
-            
+            Connections Con = new Connections();
             for (int i = 0; i < _FraMES[0]._TraversRight.Count(); i++) // правые балки половина балок
             {
                 if(AttributesProdolnieRight[i] !=null)
@@ -70,13 +72,13 @@ namespace PipeRack
                             Point EndPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - EndST);
 
 
-                            frame.Beam_main(AttributesTraversyvproveteRight[i], startPointST, EndPointST);
+                            frame.Beam_main(AttributesStoyki[i], startPointST, EndPointST);
                         }
                     }
                     else
                     {
                         _balki.Add(frame.Beam_main(AttributesProdolnieRight[i], startPoint, startPoint2)); // левая балка
-                        _balki.Add(frame.Beam_main(AttributesProdolnieRight[i], endPoint, endPoint2));     // правая балка  
+                        _balkiLeft.Add(frame.Beam_main(AttributesProdolnieRight[i], endPoint, endPoint2));     // правая балка  
 
                         for (int _i = 0; _i < _shagi.Count(); _i++)
                         {
@@ -86,6 +88,9 @@ namespace PipeRack
                         }
                     }
                 }
+
+                Con.BeamsToColumn(_FraMES[0]._Columns[0], _balki);
+                Con.BeamsToColumn(_FraMES[0]._Columns[1], _balkiLeft);
             }
                 
 
@@ -109,7 +114,7 @@ namespace PipeRack
 
                     if (!checkBeamL)
                     {
-                        _balki.Add(frame.Beam_main(AttributesProdolnieLeft[i], endPoint, endPoint2));     // правая балка
+                        _balkiLeft.Add(frame.Beam_main(AttributesProdolnieLeft[i], endPoint, endPoint2));     // правая балка
                         checkBeamR = true;
                         for (int _i = 0; _i < _shagi.Count(); _i++)
                         {
@@ -121,13 +126,13 @@ namespace PipeRack
                             Point startPointST = new Point(startPoint3.X, startPoint3.Y, startPoint3.Z - H);
                             Point EndPointST = new Point(startPointST.X, startPointST.Y, endPoint3.Z - EndST);
 
-                            frame.Beam_main(AttributesTraversyvproveteLeft[i], startPointST, EndPointST);
+                            frame.Beam_main(AttributesStoyki[i], startPointST, EndPointST);
                         }
                     }
                     else
                     {
                         _balki.Add(frame.Beam_main(AttributesProdolnieLeft[i], startPoint, startPoint2)); // левая балка
-                        _balki.Add(frame.Beam_main(AttributesProdolnieLeft[i], endPoint, endPoint2));     // правая балка  
+                        _balkiLeft.Add(frame.Beam_main(AttributesProdolnieLeft[i], endPoint, endPoint2));     // правая балка  
 
                         for (int _i = 0; _i < _shagi.Count(); _i++)
                         {
@@ -137,8 +142,15 @@ namespace PipeRack
                         }
                     }
                 }
+                Con.BeamsToColumn(_FraMES[0]._Columns[0], _balki);
+                Con.BeamsToColumn(_FraMES[0]._Columns[1], _balkiLeft);
+
             }
-                
+
+
+
+
+
         }
 
 

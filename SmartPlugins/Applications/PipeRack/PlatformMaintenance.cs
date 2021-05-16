@@ -16,6 +16,7 @@ namespace PipeRack
         Beam startColumn;
         List<Beam> Consoless;
         public double consoleH { get; set; }
+        public double yklonMP { get; set; }
         public double consoleL { get; set; }
         public bool checkRight { get; set; }
 
@@ -46,7 +47,7 @@ namespace PipeRack
             }
             
             var startPoint = new Point(startColumn.StartPoint);
-            startPoint.Z = consoleH;
+            startPoint.Z = consoleH+ yklonMP *0.001* _FraMES._basePoint.X;
 
             var endPoint = new Point(startPoint);
             startPoint.Y -= consoleL* napravlenie;

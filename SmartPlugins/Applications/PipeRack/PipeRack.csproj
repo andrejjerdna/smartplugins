@@ -72,6 +72,12 @@
     <Compile Include="Form_att.Designer.cs">
       <DependentUpon>Form_att.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_att_column.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_att_column.Designer.cs">
+      <DependentUpon>Form_att_column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frame.cs" />
     <Compile Include="PlatformMaintenance.cs" />
     <Compile Include="Program.cs" />
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_att.resx">
       <DependentUpon>Form_att.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_att_column.resx">
+      <DependentUpon>Form_att_column.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,6 +138,12 @@
     <PackageReference Include="TeklaOpenAPI">
       <Version>2020.0.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

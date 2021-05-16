@@ -441,6 +441,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_att";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form_att_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

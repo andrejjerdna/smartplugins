@@ -1,17 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tekla.Structures.Dialog;
 
 namespace PipeRack
 {
-    public partial class Form_att : ApplicationFormBase
+    public partial class Form_att_column : Form
     {
+
+
         Attributes _attributes { get; set; }
         List<Attributes> _attributesFrame { get; set; }
         public int selectY { get; set; }
-       
-        public Form_att(Attributes attributes)
+
+        public Form_att_column(Attributes attributes)
         {
             _attributes = attributes;
             InitializeComponent();
@@ -19,11 +26,11 @@ namespace PipeRack
             GetParams();
 
         }
-        public Form_att(List<Attributes> attributesFrame, int Count)
+        public Form_att_column(List<Attributes> attributesFrame, int Count)
         {
             _attributesFrame = attributesFrame;
             selectY = Count;
-           InitializeComponent();
+            InitializeComponent();
             GetParams2();
 
         }
@@ -31,7 +38,7 @@ namespace PipeRack
         private void GetParams()
         {
             if (_attributes == null)
-               return;
+                return;
 
             Namen.Text = _attributes.Name;
             Profile.Text = _attributes.Profile;
@@ -62,12 +69,7 @@ namespace PipeRack
             SelectYarusCB.SelectedIndex = selectY;
         }
 
-
-        private void LoadButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-        private void Button1_Click(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
             string namen = Namen.Text;
             string profile = Profile.Text;
@@ -79,7 +81,7 @@ namespace PipeRack
             int polojeniePovorot = RotationCB.SelectedIndex;
             int polojenieGorizontalno = PlaneCB.SelectedIndex;
             selectY = SelectYarusCB.SelectedIndex;
-            
+
 
 
             _attributes = new Attributes()
@@ -98,7 +100,6 @@ namespace PipeRack
 
             Form_att.ActiveForm.Close();
         }
-
         public Attributes GetAttributes()
         {
             return _attributes;
@@ -142,12 +143,14 @@ namespace PipeRack
 
         private void SelectYarusCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Form_att_Load(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

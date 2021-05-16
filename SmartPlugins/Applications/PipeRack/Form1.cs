@@ -41,7 +41,6 @@ namespace PipeRack
         public void Button1_Click(object sender, EventArgs e)
         {
             FraMES.Clear();
-
             AttFrame.Listovod();
             AttFrameProlet.Listovod();
             int yarus_count = int.Parse(Yarus_count.Text);
@@ -60,6 +59,8 @@ namespace PipeRack
             AddRowDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
             AddRowDataGrid(dataGridViewProdolnieRight, AttFrameProlet.AttProletBeamRight);
             AddRowDataGrid(dataGridViewProdolnieLeft, AttFrameProlet.AttProletBeamLeft);
+            AddRowDataGrid(dataGridColumn, AttFrame.AttributesColumn);
+            AddRowDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
 
             // проверка наличия атрибутов
             if (!Nali4ieAtt(AttFrame.AttributesColumn, count_column, "колонны")) return;
@@ -144,30 +145,27 @@ namespace PipeRack
                 var FF = FraMES.Skip(count);
                 List<Frame> FRAMESS = new List<Frame>();
                 foreach (Frame F in FF)
-                {
                     FRAMESS.Add(F);
-                }
-
+                
                 var balkiYarusa = new BalkiYarysa(FRAMESS)
                 {
                     AttributesProdolnieRight = AttFrameProlet.AttProletBeamRight,
                     AttributesProdolnieLeft = AttFrameProlet.AttProletBeamLeft,
-                    AttributesTraversyvproveteRight = AttFrameProlet.attProletTraversaRight,
-                    AttributesTraversyvproveteLeft = AttFrameProlet.attProletTraversaLeft,
+                    AttributesTraversyvproveteRight = AttFrameProlet.AttProletTraversaRight,
+                    AttributesTraversyvproveteLeft = AttFrameProlet.AttProletTraversaLeft,
+                    AttributesStoyki = AttFrameProlet.AttProletStoyki,
                 };
                 balkiYarusa.Insert();
+
             }
 
-            string Y = null , FFF = null;
+            string Y = null , FFF = null, _startLabelY = null;
             double startLabelY = Double.Parse(LabelY.Text);
-            string _startLabelY = null;
 
             if (count_column == 2)
                 Y = (-1 * razdv_1_2).ToString() + " " + (razdv_1_2 + razdv_2_3).ToString();
-           
             else 
                 Y = (-1 * razdv_1_2).ToString() + " " +razdv_1_2.ToString() +" "+ (razdv_2_3).ToString();
-            
 
             for (int _count1 = 0; _count1 < yarus_count; _count1++)
                 FFF = FFF + " "+ Traversy[_count1].ToString() ;
@@ -175,8 +173,6 @@ namespace PipeRack
             for (int _count1 = 0; _count1 < FraMES.Count(); _count1++)
                 _startLabelY += (startLabelY + _count1).ToString() + " ";
                 
-         
-
 
             Grid Grid = new Grid()
             {
@@ -194,7 +190,6 @@ namespace PipeRack
                 ExtensionRightZ = 2000.0,
                 IsMagnetic = false,
             };
-
             Grid.Insert();
             Grid.Origin.Z = CS_point.Z;
             Grid.Modify();
@@ -205,9 +200,11 @@ namespace PipeRack
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             Consoles.Clear();
             var consoleH = Double.Parse(ConsoleH.Text);
             var consoleL = Double.Parse(ConsoleL.Text);
+            var yklonMP = Double.Parse(YklonMP.Text);
            bool checkRight = cBRight1.Checked;
 
             for (int count = 0; count < FraMES.Count(); count++)
@@ -217,6 +214,7 @@ namespace PipeRack
                         consoleH = consoleH,
                         consoleL = consoleL,
                         checkRight = checkRight,
+                        yklonMP = yklonMP,
                     };
                     PlatformMaintenance.InsertConsole();
                 Consoles.Add(PlatformMaintenance.Console);
@@ -243,9 +241,11 @@ namespace PipeRack
                             consoleH = consoleH,
                             consoleL = consoleL,
                             checkRight = checkRight,
-                        };
+                        
+                    };
                         PlatformMaintenance2.InsertBalkiPloshadki();
                 }
+            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
         }
         private List<double> Regen(List<double> Travs, int yarus_count)
@@ -287,7 +287,14 @@ namespace PipeRack
         {
             WorkWithDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
         }
-
+        private void AddCoiumn_Click(object sender, EventArgs e)
+        {
+            WorkWithDataGrid(dataGridColumn, AttFrame.AttributesColumn);
+        }
+        private void AddStoyki_Click(object sender, EventArgs e)
+        {
+            WorkWithDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
+        }
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -305,17 +312,35 @@ namespace PipeRack
         {
             CreateNewRow(dataGridViewYarusLeft);
         }
+        private void CopyColumn_Click(object sender, EventArgs e)
+        {
+            CreateNewRow(dataGridColumn);
+        }
+        private void CopyStoyki_Click(object sender, EventArgs e)
+        {
+            CreateNewRow(dataGridViewStoyki);
+        }
+
 
         private void WorkWithDataGrid (DataGridView dataGridView1, List<Attributes> _attributesProdolnie)
         {
-
-
             var curent = AddRowDataGrid(dataGridView1, _attributesProdolnie);
 
-                    var attr = new Form_att(_attributesProdolnie, curent);
-            attr.ShowDialog();
-            _attributesProdolnie[attr.selectY] = attr.GetAttributes();
-            dataGridView1.Rows.Clear();
+            if (dataGridView1.Name == dataGridColumn.Name)
+            {
+                var attr = new Form_att_column(_attributesProdolnie, curent);
+                attr.ShowDialog();
+                _attributesProdolnie[attr.selectY] = attr.GetAttributes();
+                dataGridView1.Rows.Clear();
+            }
+            else
+            {
+                var attr = new Form_att(_attributesProdolnie, curent);
+                attr.ShowDialog();
+                _attributesProdolnie[attr.selectY] = attr.GetAttributes();
+                dataGridView1.Rows.Clear();
+
+            }
 
             for (int _count = 0; _count < _attributesProdolnie.Count; _count++)
             {
@@ -327,14 +352,12 @@ namespace PipeRack
             }
             dataGridView1.Update();
         }
-
         private int AddRowDataGrid(DataGridView dataGridView1, List<Attributes> _attributesProdolnie)
         {
-            var curent = 0;
-            var index = 0;
+            var curent = 0; // конкретный ярус в строке
+            var index = 0;  // индекс яруса в конкретной строке
             if (dataGridView1.CurrentRow != null)
                 index = dataGridView1.CurrentRow.Index;
-
 
             if (dataGridView1[0, index].Value != null)
                 curent = Convert.ToInt32(dataGridView1[0, index].Value) - 1;
@@ -348,21 +371,20 @@ namespace PipeRack
                 if (_attributesProdolnie[nomerProleta] == null)
                     _attributesProdolnie[nomerProleta] = new Attributes();
 
-                AttSetGrid(_attributesProdolnie[nomerProleta], curent, dataGridView1);
+                AttSetGrid(_attributesProdolnie[nomerProleta], count_r, dataGridView1);
             }
             return curent;
         }
         private void CreateNewRow (DataGridView dataGridView1)
         {
-
             int I = 0;
             if (dataGridView1.CurrentRow == null)
                 return;
             I = dataGridView1.SelectedCells[0].RowIndex;
 
             dataGridView1.Rows.Add(CloneWithValues(dataGridView1.Rows[I]));
-
         }
+
 
         private void AttSetGrid (Attributes _attributesProdolnie, int I, DataGridView dataGridView1)
         {
@@ -408,27 +430,24 @@ namespace PipeRack
             Z_start2.Text = pickedPoint2.Z.ToString();
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
         }
-        private void AttColumn1_Click(object sender, EventArgs e)
+
+        private void Count_column_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var AttCol1 = new Form_att(AttFrame.attColumn1);
-            AttCol1.ShowDialog();
-            AttFrame.attColumn1 = AttCol1.GetAttributes();
+            ComboBox comboBox = (ComboBox)sender;
+
+            if (comboBox.SelectedIndex == 0)
+                pictureBox2.Image = imageList1.Images[0];
+            else
+                pictureBox2.Image = imageList1.Images[1];
         }
 
-        private void AttColumn2_Click(object sender, EventArgs e)
+        private void PictureBox2_Click(object sender, EventArgs e)
         {
-            var AttCol2 = new Form_att(AttFrame.attColumn2);
-            AttCol2.ShowDialog();
-            AttFrame.attColumn2 = AttCol2.GetAttributes();
         }
 
-        private void AttColumn3_Click(object sender, EventArgs e)
+        private void Yarus_count_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var AttCol3 = new Form_att(AttFrame.attColumn3);
-            AttCol3.ShowDialog();
-            AttFrame.attColumn3 = AttCol3.GetAttributes();
+            
         }
-
-
     }
 }
