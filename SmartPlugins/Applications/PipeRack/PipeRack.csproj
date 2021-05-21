@@ -125,6 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\SmartExtensions\SmartExtensions.csproj">
+      <Project>{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}</Project>
+      <Name>SmartExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartGeometry\SmartGeometry.csproj">
       <Project>{7f08e701-0d4f-4a7d-835c-7adb9b7a4b09}</Project>
       <Name>SmartGeometry</Name>

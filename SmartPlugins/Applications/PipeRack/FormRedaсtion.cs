@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tekla.Structures.Model;
 using Tekla.Structures.Geometry3d;
+using SmartExtensions;
 
 namespace PipeRack
 {
@@ -38,6 +39,11 @@ namespace PipeRack
                 if (!NameOfRack.Items.Contains(Nazvanie))
                      NameOfRack.Items.Add(Nazvanie);
             }
+
+            var namesOfRack = M.GetModelObjectSelector()
+                .GetAllObjectsWithType(ModelObject.ModelObjectEnum.BEAM)
+                .ToIEnumerable<Beam>()
+                .Select(beam => beam.)
 
         }
 
