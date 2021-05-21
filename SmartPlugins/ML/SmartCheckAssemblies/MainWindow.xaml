@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmartCheckAssemblies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Topmost="True">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="GetData" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="GetBug" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Content="MLTraining" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="MLPredict" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
 
     </Grid>
 </Window>

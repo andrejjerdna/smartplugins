@@ -58,7 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataConnect.cs" />
+    <Compile Include="BugGenerator.cs" />
+    <Compile Include="CheckData.cs" />
+    <Compile Include="MLCheck.cs" />
     <Compile Include="SmartCheckAssembliesModel.cs" />
     <Compile Include="SmartCheckAssembliesViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -105,14 +107,29 @@
     <PackageReference Include="Microsoft.ML">
       <Version>1.5.5</Version>
     </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>5.0.2</Version>
+    </PackageReference>
     <PackageReference Include="TeklaOpenAPI">
       <Version>2020.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\CSLib\CSLib.csproj">
+      <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
+      <Name>CSLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartExtensions\SmartExtensions.csproj">
       <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
       <Name>SmartExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartGeometry\SmartGeometry.csproj">
+      <Project>{7F08E701-0D4F-4A7D-835C-7ADB9B7A4B09}</Project>
+      <Name>SmartGeometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartTeklaModel.csproj">
+      <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
+      <Name>SmartTeklaModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

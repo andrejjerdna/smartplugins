@@ -49,6 +49,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoltsExtensions.cs" />
+    <Compile Include="WeldsExtensions.cs" />
     <Compile Include="CollectionExtension.cs" />
     <Compile Include="PartExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
