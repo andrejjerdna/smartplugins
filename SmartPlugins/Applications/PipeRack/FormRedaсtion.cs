@@ -28,23 +28,26 @@ namespace PipeRack
         }
         private void Obsledovanie()
         {
-            ModelObjectEnumerator Enuml = M.GetModelObjectSelector().GetAllObjectsWithType(ModelObject.ModelObjectEnum.BEAM);
+            //ModelObjectEnumerator Enuml = M.GetModelObjectSelector().GetAllObjectsWithType(ModelObject.ModelObjectEnum.BEAM);
 
-            foreach (Beam allBeam in Enuml)
-            {
-                string Nazvanie = null ;
-                allBeam.GetUserProperty("Nazvanie", ref Nazvanie);
-                if (Nazvanie == null)
-                    continue;
-                if (!NameOfRack.Items.Contains(Nazvanie))
-                     NameOfRack.Items.Add(Nazvanie);
-            }
+            //foreach (Beam allBeam in Enuml)
+            //{
+            //    string Nazvanie = null;
+            //    allBeam.GetUserProperty("Nazvanie", ref Nazvanie);
+            //    if (Nazvanie == null)
+            //        continue;
+            //    if (!NameOfRack.Items.Contains(Nazvanie))
+            //        NameOfRack.Items.Add(Nazvanie);
+            //}
 
             var namesOfRack = M.GetModelObjectSelector()
-                .GetAllObjectsWithType(ModelObject.ModelObjectEnum.BEAM)
+                .GetObjectsByFilterName("FiterName")
                 .ToIEnumerable<Beam>()
-                .Select(beam => beam.)
+                .Select(beam => beam.SmartGetPropertyString("Nazvanie"))
+                .Distinct()
+                .ToArray();
 
+            NameOfRack.Items.AddRange(namesOfRack);
         }
 
 
