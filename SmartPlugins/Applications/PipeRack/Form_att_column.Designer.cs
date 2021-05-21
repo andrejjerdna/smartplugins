@@ -33,8 +33,11 @@
             this.SelectYarusCB = new System.Windows.Forms.ComboBox();
             this.selectYarus = new System.Windows.Forms.Label();
             this.RotationCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
+            this.Rotation = new System.Windows.Forms.ImageList(this.components);
             this.PlaneCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
+            this.Plane = new System.Windows.Forms.ImageList(this.components);
             this.DepthCB = new Tekla.Structures.Dialog.UIControls.ImageListComboBox();
+            this.Depth = new System.Windows.Forms.ImageList(this.components);
             this.materialCatalog1 = new Tekla.Structures.Dialog.UIControls.MaterialCatalog();
             this.profileCatalog1 = new Tekla.Structures.Dialog.UIControls.ProfileCatalog();
             this.button1 = new System.Windows.Forms.Button();
@@ -53,9 +56,6 @@
             this.Profile = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.Rotation = new System.Windows.Forms.ImageList(this.components);
-            this.Plane = new System.Windows.Forms.ImageList(this.components);
-            this.Depth = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // SelectYarusCB
@@ -98,6 +98,13 @@
             this.RotationCB.TabIndex = 169;
             this.RotationCB.ToolTipText = "";
             // 
+            // Rotation
+            // 
+            this.Rotation.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Rotation.ImageStream")));
+            this.Rotation.TransparentColor = System.Drawing.Color.Transparent;
+            this.Rotation.Images.SetKeyName(0, "Rotation_top_below.PNG");
+            this.Rotation.Images.SetKeyName(1, "Rotation_front_back.PNG");
+            // 
             // PlaneCB
             // 
             this.PlaneCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -117,6 +124,14 @@
             this.PlaneCB.TabIndex = 168;
             this.PlaneCB.ToolTipText = "";
             // 
+            // Plane
+            // 
+            this.Plane.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Plane.ImageStream")));
+            this.Plane.TransparentColor = System.Drawing.Color.Transparent;
+            this.Plane.Images.SetKeyName(0, "Plane_middle.PNG");
+            this.Plane.Images.SetKeyName(1, "Plane_left.PNG");
+            this.Plane.Images.SetKeyName(2, "Plane_right.PNG");
+            // 
             // DepthCB
             // 
             this.DepthCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -135,6 +150,14 @@
             this.DepthCB.Size = new System.Drawing.Size(70, 56);
             this.DepthCB.TabIndex = 167;
             this.DepthCB.ToolTipText = "";
+            // 
+            // Depth
+            // 
+            this.Depth.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Depth.ImageStream")));
+            this.Depth.TransparentColor = System.Drawing.Color.Transparent;
+            this.Depth.Images.SetKeyName(0, "Depth_front.PNG");
+            this.Depth.Images.SetKeyName(1, "Depth_middle.PNG");
+            this.Depth.Images.SetKeyName(2, "Depth_behind.PNG");
             // 
             // materialCatalog1
             // 
@@ -303,29 +326,6 @@
             this.label26.TabIndex = 148;
             this.label26.Text = "Вертикально";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Rotation
-            // 
-            this.Rotation.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Rotation.ImageStream")));
-            this.Rotation.TransparentColor = System.Drawing.Color.Transparent;
-            this.Rotation.Images.SetKeyName(0, "Rotation_top_below.PNG");
-            this.Rotation.Images.SetKeyName(1, "Rotation_front_back.PNG");
-            // 
-            // Plane
-            // 
-            this.Plane.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Plane.ImageStream")));
-            this.Plane.TransparentColor = System.Drawing.Color.Transparent;
-            this.Plane.Images.SetKeyName(0, "Plane_middle.PNG");
-            this.Plane.Images.SetKeyName(1, "Plane_left.PNG");
-            this.Plane.Images.SetKeyName(2, "Plane_right.PNG");
-            // 
-            // Depth
-            // 
-            this.Depth.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Depth.ImageStream")));
-            this.Depth.TransparentColor = System.Drawing.Color.Transparent;
-            this.Depth.Images.SetKeyName(0, "Depth_front.PNG");
-            this.Depth.Images.SetKeyName(1, "Depth_middle.PNG");
-            this.Depth.Images.SetKeyName(2, "Depth_behind.PNG");
             // 
             // Form_att_column
             // 

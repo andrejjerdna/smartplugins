@@ -26,6 +26,8 @@ namespace PipeRack
         AttributesFrame AttFrame = new AttributesFrame();                   // атрибуты внутри рамы
         AttributesFrameProlet AttFrameProlet = new AttributesFrameProlet(); // атрибуты продольных элементов
 
+        DataGrids DataGrids = new DataGrids();
+
         public Form1()
         {
             if (!M.GetConnectionStatus())
@@ -55,12 +57,12 @@ namespace PipeRack
                 return;
             }
 
-            AddRowDataGrid(dataGridViewYarusRight, AttFrame.AttributesYarusRight);  // считали атрибуты с гридов
-            AddRowDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
-            AddRowDataGrid(dataGridViewProdolnieRight, AttFrameProlet.AttProletBeamRight);
-            AddRowDataGrid(dataGridViewProdolnieLeft, AttFrameProlet.AttProletBeamLeft);
-            AddRowDataGrid(dataGridColumn, AttFrame.AttributesColumn);
-            AddRowDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
+            DataGrids.AddRowDataGrid(dataGridViewYarusRight, AttFrame.AttributesYarusRight);  // считали атрибуты с гридов
+            DataGrids.AddRowDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
+            DataGrids.AddRowDataGrid(dataGridViewProdolnieRight, AttFrameProlet.AttProletBeamRight);
+            DataGrids.AddRowDataGrid(dataGridViewProdolnieLeft, AttFrameProlet.AttProletBeamLeft);
+            DataGrids.AddRowDataGrid(dataGridColumn, AttFrame.AttributesColumn);
+            DataGrids.AddRowDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
 
             // проверка наличия атрибутов
             if (!Nali4ieAtt(AttFrame.AttributesColumn, count_column, "колонны")) return;
@@ -271,142 +273,12 @@ namespace PipeRack
             return true;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button15_Click_1(object sender, EventArgs e)
         {
-            WorkWithDataGrid(dataGridViewProdolnieRight, AttFrameProlet.AttProletBeamRight);
-        }
-        private void Button9_Click(object sender, EventArgs e)
-        {
-            WorkWithDataGrid(dataGridViewProdolnieLeft, AttFrameProlet.AttProletBeamLeft);
-        }
-        private void Button15_Click(object sender, EventArgs e)
-        {
-            WorkWithDataGrid(dataGridViewYarusRight, AttFrame.AttributesYarusRight);
-        }
-        private void AddYarusLeft_Click(object sender, EventArgs e)
-        {
-            WorkWithDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
-        }
-        private void AddCoiumn_Click(object sender, EventArgs e)
-        {
-            WorkWithDataGrid(dataGridColumn, AttFrame.AttributesColumn);
-        }
-        private void AddStoyki_Click(object sender, EventArgs e)
-        {
-            WorkWithDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
+            var Redaсtion = new FormRedaсtion();
+            Redaсtion.ShowDialog();
         }
 
-        private void Button5_Click(object sender, EventArgs e)
-        {
-            CreateNewRow(dataGridViewProdolnieRight);
-        }
-        private void Button8_Click(object sender, EventArgs e)
-        {
-            CreateNewRow(dataGridViewProdolnieLeft);
-        }
-        private void CopyYarusRight_Click(object sender, EventArgs e)
-        {
-            CreateNewRow(dataGridViewYarusRight);
-        }
-        private void CopyYarusLeft_Click(object sender, EventArgs e)
-        {
-            CreateNewRow(dataGridViewYarusLeft);
-        }
-        private void CopyColumn_Click(object sender, EventArgs e)
-        {
-            CreateNewRow(dataGridColumn);
-        }
-        private void CopyStoyki_Click(object sender, EventArgs e)
-        {
-            CreateNewRow(dataGridViewStoyki);
-        }
-
-
-        private void WorkWithDataGrid (DataGridView dataGridView1, List<Attributes> _attributesProdolnie)
-        {
-            var curent = AddRowDataGrid(dataGridView1, _attributesProdolnie);
-
-            if (dataGridView1.Name == dataGridColumn.Name)
-            {
-                var attr = new Form_att_column(_attributesProdolnie, curent);
-                attr.ShowDialog();
-                _attributesProdolnie[attr.selectY] = attr.GetAttributes();
-                dataGridView1.Rows.Clear();
-            }
-            else
-            {
-                var attr = new Form_att(_attributesProdolnie, curent);
-                attr.ShowDialog();
-                _attributesProdolnie[attr.selectY] = attr.GetAttributes();
-                dataGridView1.Rows.Clear();
-
-            }
-
-            for (int _count = 0; _count < _attributesProdolnie.Count; _count++)
-            {
-                var at = _attributesProdolnie[_count];
-                if (at == null)
-                    continue;
-                else
-                    dataGridView1.Rows.Add(_count + 1, at.Name, at.Profile, at.Material, at.Class, at.PrefixSborki, at.NomerSborki, at.PolojenieVertikalno, at.PolojeniePovorot, at.PolojenieGorizontalno);
-            }
-            dataGridView1.Update();
-        }
-        private int AddRowDataGrid(DataGridView dataGridView1, List<Attributes> _attributesProdolnie)
-        {
-            var curent = 0; // конкретный ярус в строке
-            var index = 0;  // индекс яруса в конкретной строке
-            if (dataGridView1.CurrentRow != null)
-                index = dataGridView1.CurrentRow.Index;
-
-            if (dataGridView1[0, index].Value != null)
-                curent = Convert.ToInt32(dataGridView1[0, index].Value) - 1;
-            else
-                curent = 0;
-
-            for (int count_r = 0; count_r < dataGridView1.RowCount - 1; count_r++)
-            {
-                var nomerProleta = Convert.ToInt32(dataGridView1[0, count_r].Value) - 1;
-
-                if (_attributesProdolnie[nomerProleta] == null)
-                    _attributesProdolnie[nomerProleta] = new Attributes();
-
-                AttSetGrid(_attributesProdolnie[nomerProleta], count_r, dataGridView1);
-            }
-            return curent;
-        }
-        private void CreateNewRow (DataGridView dataGridView1)
-        {
-            int I = 0;
-            if (dataGridView1.CurrentRow == null)
-                return;
-            I = dataGridView1.SelectedCells[0].RowIndex;
-
-            dataGridView1.Rows.Add(CloneWithValues(dataGridView1.Rows[I]));
-        }
-
-
-        private void AttSetGrid (Attributes _attributesProdolnie, int I, DataGridView dataGridView1)
-        {
-            _attributesProdolnie.Name = dataGridView1[1, I].Value.ToString();
-            _attributesProdolnie.Profile = dataGridView1[2, I].Value.ToString();
-            _attributesProdolnie.Material = dataGridView1[3, I].Value.ToString();
-            _attributesProdolnie.Class = dataGridView1[4, I].Value.ToString();
-            _attributesProdolnie.PrefixSborki = dataGridView1[5, I].Value.ToString();
-            _attributesProdolnie.NomerSborki = dataGridView1[6, I].Value.ToString();
-            _attributesProdolnie.PolojenieVertikalno = Convert.ToInt32(dataGridView1[7, I].Value.ToString());
-            _attributesProdolnie.PolojeniePovorot = Convert.ToInt32(dataGridView1[8, I].Value.ToString());
-            _attributesProdolnie.PolojenieGorizontalno = Convert.ToInt32(dataGridView1[9, I].Value.ToString());
-        }
-        public DataGridViewRow CloneWithValues(DataGridViewRow row)
-        {
-            DataGridViewRow clonedRow = (DataGridViewRow)row.Clone();
-            for (Int32 index = 0; index < row.Cells.Count; index++)
-            {
-                clonedRow.Cells[index].Value = row.Cells[index].Value;
-            }
-            return clonedRow;
-        }
 
 
         private void Button2_Click(object sender, EventArgs e)
@@ -441,13 +313,79 @@ namespace PipeRack
                 pictureBox2.Image = imageList1.Images[1];
         }
 
-        private void PictureBox2_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
+            DataGrids.WorkWithDataGrid(dataGridViewProdolnieRight, AttFrameProlet.AttProletBeamRight);
+        }
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            DataGrids.WorkWithDataGrid(dataGridViewProdolnieLeft, AttFrameProlet.AttProletBeamLeft);
+        }
+        private void Button15_Click(object sender, EventArgs e)
+        {
+            DataGrids.WorkWithDataGrid(dataGridViewYarusRight, AttFrame.AttributesYarusRight);
+        }
+        private void AddYarusLeft_Click(object sender, EventArgs e)
+        {
+            DataGrids.WorkWithDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
+        }
+        private void AddCoiumn_Click(object sender, EventArgs e)
+        {
+            DataGrids.WorkWithDataGrid(dataGridColumn, AttFrame.AttributesColumn);
+        }
+        private void AddStoyki_Click(object sender, EventArgs e)
+        {
+            DataGrids.WorkWithDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
         }
 
-        private void Yarus_count_SelectedIndexChanged(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
-            
+            DataGrids.CreateNewRow(dataGridViewProdolnieRight);
+        }
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            DataGrids.CreateNewRow(dataGridViewProdolnieLeft);
+        }
+        private void CopyYarusRight_Click(object sender, EventArgs e)
+        {
+            DataGrids.CreateNewRow(dataGridViewYarusRight);
+        }
+        private void CopyYarusLeft_Click(object sender, EventArgs e)
+        {
+            DataGrids.CreateNewRow(dataGridViewYarusLeft);
+        }
+        private void CopyColumn_Click(object sender, EventArgs e)
+        {
+            DataGrids.CreateNewRow(dataGridColumn);
+        }
+        private void CopyStoyki_Click(object sender, EventArgs e)
+        {
+            DataGrids.CreateNewRow(dataGridViewStoyki);
+        }
+
+        private void DelRowCol_Click(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridColumn);
+        }
+        private void Button4_Click_1(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridViewStoyki);
+        }
+        private void Button13_Click(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridViewYarusRight); 
+        }
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridViewYarusLeft);
+        }
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridViewProdolnieRight);
+        }
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridViewProdolnieLeft);
         }
     }
 }
