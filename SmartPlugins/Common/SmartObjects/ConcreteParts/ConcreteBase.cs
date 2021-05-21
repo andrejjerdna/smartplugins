@@ -20,6 +20,7 @@ namespace SmartObjects
             PRECAST,
             CAST_IN_PLACE
         }
+
         private protected TSM.Model _currentModel { get; set; }
         public string PartName { get; set; }
         public string AssemblyName { get; set; }

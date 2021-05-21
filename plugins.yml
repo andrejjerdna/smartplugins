@@ -1,0 +1,41 @@
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: "Restore packages"
+    inputs:
+      command: 'restore'
+      projects: '**/*.sln'
+      noCache: true
+      verbosityRestore: 'Normal'
+      
+  - task: MSBuild@1
+    displayName: "Build plugins"
+    inputs:
+      solution: 'src\Tekla.sln'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
+      msbuildArguments: '/p:Version=$(Build.BuildNumber)'
+
+  - task: CopyFiles@2
+    displayName: 'Copy plugins'
+    inputs:
+      flattenFolders: true
+      contents : |
+        src\Plugins\AxCoDesign.Plugins.BeamBetweenColumns\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.BraceBox\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.BraceType1\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.BraceType2\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.BraceType3\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.Handrail_BC107A\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.IBeamBraceSplicePlate\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.Handrail2\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.PipeSupport\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.MetalStairs\bin\Release\**
+        src\Plugins\AxCoDesign.Plugins.Serie_2_440\bin\Release\**
+      targetFolder: $(Build.ArtifactStagingDirectory)\plugins
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish plugins'
+    inputs:
+      PathtoPublish: $(Build.ArtifactStagingDirectory)\plugins
+      ArtifactName: 'plugins'
+      publishLocation: 'Container'

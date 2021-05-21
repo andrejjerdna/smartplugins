@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TEP Version="1.0">
+	
+	<Product Id="SmetaWIZARD" UpgradeCode="F8860CDF-7704-4132-A451-35AD7BB7BB0F" Version="0.22" Language="1033"
+		Name="BIM WIZARD" Manufacturer="WIZARDSOFT"  Description= "WizardsoftTeklaAddIn"
+		IconPath="%TEPDEFINITIONFILEFOLDER%\Icon.png">
+		<TeklaVersions>
+			<MinTeklaVersion Name="2018.0"/>
+			<MaxTeklaVersion Name="2099.1"/>
+		</TeklaVersions>
+	</Product>
+	 
+	<SourcePathVariables>
+		<SourcePathVariable Id="TepOutputFolder" Value="%TEPDEFINITIONFILEFOLDER%\output" Comment="This provides the location where the package builder is to save the package."/>
+		<SourcePathVariable Id="BinariesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\binaries"/>
+		<SourcePathVariable Id="StandardFileFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\standard file"/>
+		<SourcePathVariable Id="MessagesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\messages"/>
+		<SourcePathVariable Id="BitmapsFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\bitmaps"/>
+    </SourcePathVariables>
+
+	<TargetPathVariables>
+		<PathVariable Id="ModelPluginsDirectory" Value="%ENVDIR%\extensions\plugins\tekla\model\"/>
+		<PathVariable Id="ModelApplicationsDirectory" Value="%ENVDIR%\extensions\applications\tekla\model\"/>
+		<PathVariable Id="ExtensionsDir" Value="%commonEnvFolder%\extensions\"/>
+		<PathVariable Id="BinariesTargetDirectory" Value="%ExtensionsDir%\MainpartGLPlugins\"/>
+		<PathVariable Id="BitmapsDirectory" Value="%ENVDIR%\..\bitmaps\"/>
+		<PathVariable Id="AttributeFileDirectory" Value="%commonEnvFolder%\system\"/>
+		<PathVariable Id="TabFileDirectory" Value="%commonEnvFolder%\system\Ribbons\CustomTabs\Modeling\"/>
+		<PathVariable Id="InpFileDirectory" Value="%commonEnvFolder%\inp\"/>
+		<PathVariable Id="CommonMacroDirectoryModel" Value="%commonEnvFolder%\macros\modeling\"/>
+		<PathVariable Id="CommonMacroDirectoryDrawings" Value="%commonEnvFolder%\macros\drawings\"/>
+		<PathVariable Id="CommonMacroDirectoryCommon" Value="%commonEnvFolder%\macros\"/>
+		<PathVariable Id="BitmapsDirectoryTabs" Value="C:\ProgramData\SmetaWIZARD\Bitmaps\"/>
+	</TargetPathVariables>
+
+	<Component Id="TheExtensionComponent" Guid="9BDE8A2F-0A88-4AB1-959F-BEF020184943">
+		<File Id="objects_wizardsoft" Source="%BinariesFolder%\objects_wizardsoft.inp" Target="%InpFileDirectory%"/>
+		<File Id="WizardSoft.SmetaAddIn.TeklaExtension" Source="%BinariesFolder%\WizardSoft.SmetaAddIn.TeklaExtension.dll" Target="%CommonMacroDirectoryModel%"/>
+		<!--<File Id="SmetaWIZARD_ComponentCatalog.ac" Source="%BinariesFolder%\SmetaWIZARD_ComponentCatalog.ac.xml" Target="%AttributeFileDirectory%"/>-->
+		<File Id="SmetaWIZARD" Source="%BinariesFolder%\SmetaWIZARD.xml" Target="%TabFileDirectory%"/>
+		
+		<File Id="et_element_Add-Propertis" Source="%BitmapsFolder%\et_element_Add-Propertis.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_Dell-Same-Properties" Source="%BitmapsFolder%\et_element_Dell-Same-Properties.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_Dell-Select-All-Properties" Source="%BitmapsFolder%\et_element_Dell-Select-All-Properties.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_Hide-All" Source="%BitmapsFolder%\et_element_Hide-All.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_Show_Hide_Properties" Source="%BitmapsFolder%\et_element_Show_Hide_Properties.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_AddInBase" Source="%BitmapsFolder%\et_element_SmetaWIZARD_AddInBase.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_DellAllProperties" Source="%BitmapsFolder%\et_element_SmetaWIZARD_DellAllProperties.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_DellSelectProperties" Source="%BitmapsFolder%\et_element_SmetaWIZARD_DellSelectProperties.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_DubleAll" Source="%BitmapsFolder%\et_element_SmetaWIZARD_DubleAll.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_Export" Source="%BitmapsFolder%\et_element_SmetaWIZARD_Export.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_ExportBIM" Source="%BitmapsFolder%\et_element_SmetaWIZARD_ExportBIM.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_Import" Source="%BitmapsFolder%\et_element_SmetaWIZARD_Import.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_Settings" Source="%BitmapsFolder%\et_element_SmetaWIZARD_Settings.bmp" Target="%BitmapsDirectory%"/>
+		<File Id="et_element_SmetaWIZARD_ShowAll" Source="%BitmapsFolder%\et_element_SmetaWIZARD_ShowAll.bmp" Target="%BitmapsDirectory%"/>
+		
+		<File Id="SmetaWIZARD_AddPropertis" Source="%BinariesFolder%\SmetaWIZARD_AddPropertis.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_AddInBase" Source="%BinariesFolder%\SmetaWIZARD_AddInBase.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_DeletePropertiesAllObjects" Source="%BinariesFolder%\SmetaWIZARD_DeletePropertiesAllObjects.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_DeletePropertiesFromSelectObjects" Source="%BinariesFolder%\SmetaWIZARD_DeletePropertiesFromSelectObjects.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_DeletePropertiesFromTypes" Source="%BinariesFolder%\SmetaWIZARD_DeletePropertiesFromTypes.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_DubleAll" Source="%BinariesFolder%\SmetaWIZARD_DubleAll.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_Export" Source="%BinariesFolder%\SmetaWIZARD_Export.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_ExportBIM" Source="%BinariesFolder%\SmetaWIZARD_ExportBIM.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_HidewithAttribute" Source="%BinariesFolder%\SmetaWIZARD_HidewithAttribute.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_HidewithoutAttribute" Source="%BinariesFolder%\SmetaWIZARD_HidewithoutAttribute.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_Import" Source="%BinariesFolder%\SmetaWIZARD_Import.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_PropertyView" Source="%BinariesFolder%\SmetaWIZARD_PropertyView.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_Settings" Source="%BinariesFolder%\SmetaWIZARD_Settings.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_ShowAll" Source="%BinariesFolder%\SmetaWIZARD_ShowAll.cs" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD_ComponentCatalog" Source="%BinariesFolder%\SmetaWIZARD_ComponentCatalog.ac.xml" Target="%AttributeFileDirectory%"/>
+		
+		<File Id="Add-Propertis" Source="%BitmapsFolder%\Add-Propertis.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Add-In-Base" Source="%BitmapsFolder%\Add-In-Base.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Dell-All-Properties" Source="%BitmapsFolder%\Dell-All-Properties.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Dell-Same-Properties" Source="%BitmapsFolder%\Dell-Same-Properties.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Dell-Select-All-Properties" Source="%BitmapsFolder%\Dell-Select-All-Properties.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Dell-Select-Properties" Source="%BitmapsFolder%\Dell-Select-Properties.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Duble-All" Source="%BitmapsFolder%\Duble-All.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Export" Source="%BitmapsFolder%\Export.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Export_BIM" Source="%BitmapsFolder%\Export_BIM.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Hide-All" Source="%BitmapsFolder%\Hide-All.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Import" Source="%BitmapsFolder%\Import.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Settings" Source="%BitmapsFolder%\Settings.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Show_Hide_Properties" Source="%BitmapsFolder%\Show_Hide_Properties.png" Target="%BitmapsDirectoryTabs%"/>
+		<File Id="Show-All" Source="%BitmapsFolder%\Show-All.png" Target="%BitmapsDirectoryTabs%"/>
+	</Component>
+
+	<Feature Id="TheExtensionFeature" Title="ExtensionFeature">
+		<ComponentRef ReferenceId="TheExtensionComponent" />
+	</Feature>
+
+ </TEP>

@@ -62,7 +62,7 @@
     <Compile Include="Plugins\ConcretePluginBase.cs" />
     <Compile Include="Plugins\PluginDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TeklaModel.cs" />
+    <Compile Include="SmartModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ObjectsPropertyes\" />
