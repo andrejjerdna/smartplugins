@@ -9,30 +9,21 @@ namespace SmartTeklaModel
 {
     public class TeklaModel
     {
-        public Model Model { get => GetModel(); }
-        public string FilterPath { get => GetFilterPath(); }
-        public string DataPath { get => GetDataPath(); }
-        public string IFCPath { get => GetIFCPath(); }
-        public string attributes { get => Model.GetInfo().ModelPath + "\\attributes\\"; }
+        public Model Model { get; }
+        public bool ConectStatus { get; }
+        public string FilterPath { get; }
+        public string Attributes { get; }
 
-        private string GetFilterPath()
+        public TeklaModel()
         {
-            return Model.GetInfo().ModelPath + "\\attributes\\" + GlobalParameters.FilterName;
-        }
+            Model = new Model();
+            ConectStatus = Model.GetConnectionStatus();
 
-        private string GetDataPath()
-        {
-            return Model.GetInfo().ModelPath + "\\attributes\\" + GlobalParameters.WizardData;
-        }
-
-        private string GetIFCPath()
-        {
-            return Model.GetInfo().ModelPath + "\\attributes\\" + GlobalParameters.WizardIFC;
-        }
-
-        private Model GetModel()
-        {
-            return new Model();
+            if (ConectStatus)
+            {
+                Attributes = Model.GetInfo().ModelPath + "\\attributes\\";
+                FilterPath = Attributes;
+            }
         }
     }
 }
