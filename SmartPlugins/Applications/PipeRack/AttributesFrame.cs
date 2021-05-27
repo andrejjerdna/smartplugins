@@ -108,9 +108,6 @@ namespace PipeRack
         public Attributes attProletStoyki7;
 
 
-
-
-
         public List<Attributes> AttProletBeamRight { get; set; }
         public List<Attributes> AttProletBeamLeft { get; set; }
         public List<Attributes> AttProletTraversaRight { get; set; }

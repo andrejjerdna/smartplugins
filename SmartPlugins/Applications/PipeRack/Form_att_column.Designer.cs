@@ -331,7 +331,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 428);
+            this.ClientSize = new System.Drawing.Size(493, 431);
             this.Controls.Add(this.SelectYarusCB);
             this.Controls.Add(this.selectYarus);
             this.Controls.Add(this.RotationCB);
@@ -355,7 +355,9 @@
             this.Controls.Add(this.Profile);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label26);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form_att_column";
+            this.ShowInTaskbar = false;
             this.Text = "Form_att_column";
             this.ResumeLayout(false);
             this.PerformLayout();

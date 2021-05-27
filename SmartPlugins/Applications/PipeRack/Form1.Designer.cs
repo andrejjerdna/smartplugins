@@ -36,6 +36,7 @@
             this.LabelY = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.LabelX = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Z_start2 = new System.Windows.Forms.TextBox();
             this.Y_start2 = new System.Windows.Forms.TextBox();
             this.X_start2 = new System.Windows.Forms.TextBox();
@@ -87,6 +88,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Yarus_count = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -218,15 +220,17 @@
             this.ConsoleH = new System.Windows.Forms.TextBox();
             this.ConsoleL = new System.Windows.Forms.TextBox();
             this.cBRight1 = new System.Windows.Forms.CheckBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button15 = new System.Windows.Forms.Button();
+            this.NameOfPipeRack = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStoyki)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridColumn)).BeginInit();
@@ -240,8 +244,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewYarusLeftVProlete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewYarusRightVProlete)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -263,6 +265,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.NameOfPipeRack);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.LabelY);
             this.tabPage1.Controls.Add(this.label6);
@@ -293,7 +297,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(316, 76);
+            this.label8.Location = new System.Drawing.Point(394, 71);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(220, 21);
             this.label8.TabIndex = 247;
@@ -304,7 +308,7 @@
             // 
             this.LabelY.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.LabelY.Location = new System.Drawing.Point(543, 75);
+            this.LabelY.Location = new System.Drawing.Point(621, 70);
             this.LabelY.Margin = new System.Windows.Forms.Padding(4);
             this.LabelY.Name = "LabelY";
             this.LabelY.Size = new System.Drawing.Size(120, 22);
@@ -313,7 +317,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(316, 114);
+            this.label6.Location = new System.Drawing.Point(394, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 21);
             this.label6.TabIndex = 245;
@@ -324,12 +328,23 @@
             // 
             this.LabelX.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.LabelX.Location = new System.Drawing.Point(543, 114);
+            this.LabelX.Location = new System.Drawing.Point(621, 100);
             this.LabelX.Margin = new System.Windows.Forms.Padding(4);
             this.LabelX.Name = "LabelX";
             this.LabelX.Size = new System.Drawing.Size(120, 22);
             this.LabelX.TabIndex = 244;
             this.LabelX.Text = "0";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(17, 217);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(724, 358);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 243;
+            this.pictureBox1.TabStop = false;
             // 
             // Z_start2
             // 
@@ -447,7 +462,7 @@
             // 
             // ShagRam
             // 
-            this.ShagRam.Location = new System.Drawing.Point(413, 153);
+            this.ShagRam.Location = new System.Drawing.Point(492, 130);
             this.ShagRam.Margin = new System.Windows.Forms.Padding(4);
             this.ShagRam.Name = "ShagRam";
             this.ShagRam.Size = new System.Drawing.Size(249, 22);
@@ -456,7 +471,7 @@
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(327, 154);
+            this.label18.Location = new System.Drawing.Point(406, 131);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(80, 21);
             this.label18.TabIndex = 230;
@@ -850,6 +865,17 @@
             this.label5.TabIndex = 280;
             this.label5.Text = "Кол-во ярусов:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::PipeRack.Properties.Resources._3;
+            this.pictureBox2.Location = new System.Drawing.Point(7, 62);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(739, 523);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 182;
+            this.pictureBox2.TabStop = false;
             // 
             // tabPage6
             // 
@@ -1699,6 +1725,7 @@
             this.button5.TabIndex = 338;
             this.button5.Text = "Удалить строку";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click_1);
             // 
             // button8
             // 
@@ -1709,6 +1736,7 @@
             this.button8.TabIndex = 337;
             this.button8.Text = "Скопировать выделенную строку";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Button8_Click_1);
             // 
             // button9
             // 
@@ -1719,6 +1747,7 @@
             this.button9.TabIndex = 336;
             this.button9.Text = "Добавить/редактировать ярус";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.Button9_Click_1);
             // 
             // dataGridViewYarusLeftVProlete
             // 
@@ -1821,6 +1850,7 @@
             this.button11.TabIndex = 333;
             this.button11.Text = "Удалить строку";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.Button11_Click);
             // 
             // button12
             // 
@@ -1831,6 +1861,7 @@
             this.button12.TabIndex = 332;
             this.button12.Text = "Скопировать выделенную строку";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
             // button14
             // 
@@ -1841,6 +1872,7 @@
             this.button14.TabIndex = 331;
             this.button14.Text = "Добавить/редактировать ярус";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // dataGridViewYarusRightVProlete
             // 
@@ -2001,6 +2033,17 @@
             this.cBRight1.Text = "\r\nПостроить слева";
             this.cBRight1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(53, 49);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(373, 412);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 185;
+            this.pictureBox3.TabStop = false;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(292, 639);
@@ -2019,39 +2062,6 @@
             this.imageList1.Images.SetKeyName(0, "5.PNG");
             this.imageList1.Images.SetKeyName(1, "3.PNG");
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(17, 217);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(724, 358);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 243;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::PipeRack.Properties.Resources._3;
-            this.pictureBox2.Location = new System.Drawing.Point(7, 62);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(739, 523);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 182;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(53, 49);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(373, 412);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 185;
-            this.pictureBox3.TabStop = false;
-            // 
             // button15
             // 
             this.button15.Location = new System.Drawing.Point(662, 639);
@@ -2062,6 +2072,22 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.Button15_Click_1);
             // 
+            // NameOfPipeRack
+            // 
+            this.NameOfPipeRack.Location = new System.Drawing.Point(485, 169);
+            this.NameOfPipeRack.Name = "NameOfPipeRack";
+            this.NameOfPipeRack.Size = new System.Drawing.Size(256, 22);
+            this.NameOfPipeRack.TabIndex = 248;
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(336, 169);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(143, 23);
+            this.label20.TabIndex = 249;
+            this.label20.Text = "Название эстакады";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2070,14 +2096,17 @@
             this.Controls.Add(this.button15);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Эстакада 0.2.1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStoyki)).EndInit();
@@ -2096,8 +2125,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewYarusRightVProlete)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -2298,6 +2325,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn69;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
         private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox NameOfPipeRack;
     }
 }
 

@@ -21,6 +21,9 @@ namespace PipeRack
     {
         Model M = new Model();                  // текущая модель
         List<Frame> FraMES = new List<Frame>(); // список построенных рам
+        List<BalkiYarysa> BalkiYarysA = new List<BalkiYarysa>();
+
+
         List<Beam> Consoles = new List<Beam>(); 
 
         AttributesFrame AttFrame = new AttributesFrame();                   // атрибуты внутри рамы
@@ -43,10 +46,13 @@ namespace PipeRack
         public void Button1_Click(object sender, EventArgs e)
         {
             FraMES.Clear();
+            BalkiYarysA.Clear();
             AttFrame.Listovod();
             AttFrameProlet.Listovod();
             int yarus_count = int.Parse(Yarus_count.Text);
             int count_column = int.Parse(Count_column.Text);
+
+            var nameOfpipeRack = NameOfPipeRack.Text;
 
             T3D.Point CS_point = new T3D.Point(double.Parse(X_start.Text), double.Parse(Y_start.Text), double.Parse(Z_start.Text));
             T3D.Point CS_point_end = new T3D.Point(double.Parse(X_start2.Text), double.Parse(Y_start2.Text), double.Parse(Z_start2.Text));
@@ -63,6 +69,8 @@ namespace PipeRack
             DataGrids.AddRowDataGrid(dataGridViewProdolnieLeft, AttFrameProlet.AttProletBeamLeft);
             DataGrids.AddRowDataGrid(dataGridColumn, AttFrame.AttributesColumn);
             DataGrids.AddRowDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
+            DataGrids.AddRowDataGrid(dataGridViewYarusRightVProlete, AttFrameProlet.AttProletTraversaRight);
+            DataGrids.AddRowDataGrid(dataGridViewYarusLeftVProlete, AttFrameProlet.AttProletTraversaLeft);
 
             // проверка наличия атрибутов
             if (!Nali4ieAtt(AttFrame.AttributesColumn, count_column, "колонны")) return;
@@ -139,8 +147,9 @@ namespace PipeRack
                     _M = M,
                 };
                 frame.Insert();             // построились рамы (колонны и траверсы)
-                FraMES.Add(frame); 
+                FraMES.Add(frame);
             }
+            UserAttsFrame(FraMES, nameOfpipeRack);
 
             for (int count = 0; count < FraMES.Count() - 1; count++)  //выбрал пару рам между которыми буду строить продольные балки
             {
@@ -158,8 +167,10 @@ namespace PipeRack
                     AttributesStoyki = AttFrameProlet.AttProletStoyki,
                 };
                 balkiYarusa.Insert();
-
+                BalkiYarysA.Add(balkiYarusa);
             }
+            UserAttsBalkiYarysa(BalkiYarysA, nameOfpipeRack);
+
 
             string Y = null , FFF = null, _startLabelY = null;
             double startLabelY = Double.Parse(LabelY.Text);
@@ -175,7 +186,6 @@ namespace PipeRack
             for (int _count1 = 0; _count1 < FraMES.Count(); _count1++)
                 _startLabelY += (startLabelY + _count1).ToString() + " ";
                 
-
             Grid Grid = new Grid()
             {
                 CoordinateX = shagRam,
@@ -200,7 +210,7 @@ namespace PipeRack
             M.CommitChanges();
         }
 
-        private void Button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e) //построение площадок обслуживания
         {
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             Consoles.Clear();
@@ -273,13 +283,11 @@ namespace PipeRack
             return true;
         }
 
-        private void Button15_Click_1(object sender, EventArgs e)
+        private void Button15_Click_1(object sender, EventArgs e) // запуск модуля редактирования
         {
             var Redaсtion = new FormRedaсtion();
             Redaсtion.ShowDialog();
         }
-
-
 
         private void Button2_Click(object sender, EventArgs e)
         {
@@ -337,6 +345,14 @@ namespace PipeRack
         {
             DataGrids.WorkWithDataGrid(dataGridViewStoyki, AttFrameProlet.AttProletStoyki);
         }
+        private void Button14_Click(object sender, EventArgs e)
+        {
+            DataGrids.WorkWithDataGrid(dataGridViewYarusRightVProlete, AttFrameProlet.AttProletTraversaRight);
+        }
+        private void Button9_Click_1(object sender, EventArgs e)
+        {
+            DataGrids.WorkWithDataGrid(dataGridViewYarusLeftVProlete, AttFrameProlet.AttProletTraversaLeft);
+        }
 
         private void Button5_Click(object sender, EventArgs e)
         {
@@ -361,6 +377,14 @@ namespace PipeRack
         private void CopyStoyki_Click(object sender, EventArgs e)
         {
             DataGrids.CreateNewRow(dataGridViewStoyki);
+        }
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            DataGrids.CreateNewRow(dataGridViewYarusRightVProlete);
+        }
+        private void Button8_Click_1(object sender, EventArgs e)
+        {
+            DataGrids.CreateNewRow(dataGridViewYarusLeftVProlete);
         }
 
         private void DelRowCol_Click(object sender, EventArgs e)
@@ -387,5 +411,65 @@ namespace PipeRack
         {
             DataGrids.DeleteeNewRow(dataGridViewProdolnieLeft);
         }
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridViewYarusRightVProlete);
+        }
+        private void Button5_Click_1(object sender, EventArgs e)
+        {
+            DataGrids.DeleteeNewRow(dataGridViewYarusLeftVProlete);
+        }
+
+        private void UserAttsFrame (List<Frame> FraMES, string RNazvanie)
+        {
+            for (int i = 0; i< FraMES.Count(); i++)
+            {
+                foreach (Beam beam in FraMES[i]._Columns)
+                {
+                    beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam.SetUserProperty("RType", "Колонны");
+                    beam.SetUserProperty("RNumberOfSpan", (i+1).ToString());
+                }
+                foreach (Beam beam in FraMES[i]._Travers)
+                {
+                    beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam.SetUserProperty("RType", "Траверсы яруса");
+                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                }
+            }
+        }
+
+        private void UserAttsBalkiYarysa(List<BalkiYarysa> BalkiYarysA, string RNazvanie)
+        {
+            for (int i = 0; i < BalkiYarysA.Count(); i++)
+            {
+                foreach (Beam beam in BalkiYarysA[i]._balki)
+                {
+                    beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam.SetUserProperty("RType", "Продольные балки");
+                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                }
+                foreach (Beam beam in BalkiYarysA[i]._balkiLeft)
+                {
+                    beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam.SetUserProperty("RType", "Продольные балки");
+                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                }
+                foreach (Beam beam in BalkiYarysA[i]._stoiki)
+                {
+                    beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam.SetUserProperty("RType", "Стойки");
+                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                }
+                foreach (Beam beam in BalkiYarysA[i]._traversyvprovete)
+                {
+                    beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam.SetUserProperty("RType", "Траверсы в пролете");
+                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                }
+            }
+        }
+
+
     }
 }

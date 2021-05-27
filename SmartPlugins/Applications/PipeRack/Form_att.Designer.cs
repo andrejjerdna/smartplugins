@@ -438,6 +438,7 @@
             this.Controls.Add(this.Profile);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label26);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_att";
             this.Text = "Form2";
