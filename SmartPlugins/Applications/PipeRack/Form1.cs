@@ -14,6 +14,8 @@ using SmartGeometry;
 using SmartTeklaModel;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace PipeRack
 {
@@ -208,6 +210,23 @@ namespace PipeRack
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
             M.CommitChanges();
+
+            var jsonString = JsonConvert.SerializeObject(FraMES);
+
+            var path = M.GetInfo().ModelPath + "frames.json";
+
+            var dirInfo = new DirectoryInfo(M.GetInfo().ModelPath);
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+
+            using (var file = new StreamWriter(path, false))
+            {
+                file.WriteLine(jsonString);
+            }
+
+
         }
 
         private void Button3_Click(object sender, EventArgs e) //построение площадок обслуживания
@@ -470,6 +489,10 @@ namespace PipeRack
             }
         }
 
-
+        private void button16_Click(object sender, EventArgs e)
+        {
+            var jsonString = File.ReadAllText(M.GetInfo().ModelPath + "frames.json");
+            var result = JsonConvert.DeserializeObject<IEnumerable<Frame>>(jsonString).ToList();
+        }
     }
 }

@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.NameOfPipeRack = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.LabelY = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -224,8 +226,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.button15 = new System.Windows.Forms.Button();
-            this.NameOfPipeRack = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.button16 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -256,15 +257,15 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(3, 2);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1000, 620);
+            this.tabControl1.Size = new System.Drawing.Size(750, 504);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button16);
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.NameOfPipeRack);
             this.tabPage1.Controls.Add(this.label8);
@@ -286,20 +287,38 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.ShagRam);
             this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(992, 591);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(742, 478);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Старт";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(252, 137);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(107, 19);
+            this.label20.TabIndex = 249;
+            this.label20.Text = "Название эстакады";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NameOfPipeRack
+            // 
+            this.NameOfPipeRack.Location = new System.Drawing.Point(364, 137);
+            this.NameOfPipeRack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NameOfPipeRack.Name = "NameOfPipeRack";
+            this.NameOfPipeRack.Size = new System.Drawing.Size(193, 20);
+            this.NameOfPipeRack.TabIndex = 248;
+            // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(394, 71);
+            this.label8.Location = new System.Drawing.Point(296, 58);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(220, 21);
+            this.label8.Size = new System.Drawing.Size(165, 17);
             this.label8.TabIndex = 247;
             this.label8.Text = "Начальный номер осей рам";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -308,18 +327,18 @@
             // 
             this.LabelY.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.LabelY.Location = new System.Drawing.Point(621, 70);
-            this.LabelY.Margin = new System.Windows.Forms.Padding(4);
+            this.LabelY.Location = new System.Drawing.Point(466, 57);
             this.LabelY.Name = "LabelY";
-            this.LabelY.Size = new System.Drawing.Size(120, 22);
+            this.LabelY.Size = new System.Drawing.Size(91, 20);
             this.LabelY.TabIndex = 246;
             this.LabelY.Text = "0";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(394, 100);
+            this.label6.Location = new System.Drawing.Point(296, 81);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 21);
+            this.label6.Size = new System.Drawing.Size(165, 17);
             this.label6.TabIndex = 245;
             this.label6.Text = "Значения осей вдоль";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -328,39 +347,36 @@
             // 
             this.LabelX.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.LabelX.Location = new System.Drawing.Point(621, 100);
-            this.LabelX.Margin = new System.Windows.Forms.Padding(4);
+            this.LabelX.Location = new System.Drawing.Point(466, 81);
             this.LabelX.Name = "LabelX";
-            this.LabelX.Size = new System.Drawing.Size(120, 22);
+            this.LabelX.Size = new System.Drawing.Size(91, 20);
             this.LabelX.TabIndex = 244;
             this.LabelX.Text = "0";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(17, 217);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 176);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(724, 358);
+            this.pictureBox1.Size = new System.Drawing.Size(543, 291);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 243;
             this.pictureBox1.TabStop = false;
             // 
             // Z_start2
             // 
-            this.Z_start2.Location = new System.Drawing.Point(156, 127);
-            this.Z_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.Z_start2.Location = new System.Drawing.Point(117, 103);
             this.Z_start2.Name = "Z_start2";
-            this.Z_start2.Size = new System.Drawing.Size(85, 22);
+            this.Z_start2.Size = new System.Drawing.Size(65, 20);
             this.Z_start2.TabIndex = 242;
             this.Z_start2.Text = "0";
             // 
             // Y_start2
             // 
-            this.Y_start2.Location = new System.Drawing.Point(156, 101);
-            this.Y_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.Y_start2.Location = new System.Drawing.Point(117, 82);
             this.Y_start2.Name = "Y_start2";
-            this.Y_start2.Size = new System.Drawing.Size(85, 22);
+            this.Y_start2.Size = new System.Drawing.Size(65, 20);
             this.Y_start2.TabIndex = 241;
             this.Y_start2.Text = "0";
             // 
@@ -368,28 +384,27 @@
             // 
             this.X_start2.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.X_start2.Location = new System.Drawing.Point(156, 75);
-            this.X_start2.Margin = new System.Windows.Forms.Padding(4);
+            this.X_start2.Location = new System.Drawing.Point(117, 61);
             this.X_start2.Name = "X_start2";
-            this.X_start2.Size = new System.Drawing.Size(85, 22);
+            this.X_start2.Size = new System.Drawing.Size(65, 20);
             this.X_start2.TabIndex = 240;
             this.X_start2.Text = "0";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(168, 39);
+            this.label27.Location = new System.Drawing.Point(126, 32);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(60, 17);
+            this.label27.Size = new System.Drawing.Size(46, 13);
             this.label27.TabIndex = 239;
             this.label27.Text = "Точка 2";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(31, 167);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(23, 136);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(211, 26);
+            this.button2.Size = new System.Drawing.Size(158, 21);
             this.button2.TabIndex = 238;
             this.button2.Text = "Координаты из модели";
             this.button2.UseVisualStyleBackColor = true;
@@ -397,19 +412,17 @@
             // 
             // Z_start
             // 
-            this.Z_start.Location = new System.Drawing.Point(60, 127);
-            this.Z_start.Margin = new System.Windows.Forms.Padding(4);
+            this.Z_start.Location = new System.Drawing.Point(45, 103);
             this.Z_start.Name = "Z_start";
-            this.Z_start.Size = new System.Drawing.Size(85, 22);
+            this.Z_start.Size = new System.Drawing.Size(65, 20);
             this.Z_start.TabIndex = 237;
             this.Z_start.Text = "0";
             // 
             // Y_start
             // 
-            this.Y_start.Location = new System.Drawing.Point(60, 101);
-            this.Y_start.Margin = new System.Windows.Forms.Padding(4);
+            this.Y_start.Location = new System.Drawing.Point(45, 82);
             this.Y_start.Name = "Y_start";
-            this.Y_start.Size = new System.Drawing.Size(85, 22);
+            this.Y_start.Size = new System.Drawing.Size(65, 20);
             this.Y_start.TabIndex = 236;
             this.Y_start.Text = "0";
             // 
@@ -417,36 +430,38 @@
             // 
             this.X_start.AutoCompleteCustomSource.AddRange(new string[] {
             "0"});
-            this.X_start.Location = new System.Drawing.Point(60, 75);
-            this.X_start.Margin = new System.Windows.Forms.Padding(4);
+            this.X_start.Location = new System.Drawing.Point(45, 61);
             this.X_start.Name = "X_start";
-            this.X_start.Size = new System.Drawing.Size(85, 22);
+            this.X_start.Size = new System.Drawing.Size(65, 20);
             this.X_start.TabIndex = 235;
             this.X_start.Text = "0";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(35, 129);
+            this.label4.Location = new System.Drawing.Point(26, 105);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 21);
+            this.label4.Size = new System.Drawing.Size(14, 17);
             this.label4.TabIndex = 234;
             this.label4.Text = "Z";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(35, 101);
+            this.label3.Location = new System.Drawing.Point(26, 82);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 21);
+            this.label3.Size = new System.Drawing.Size(14, 17);
             this.label3.TabIndex = 233;
             this.label3.Text = "Y";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(35, 76);
+            this.label2.Location = new System.Drawing.Point(26, 62);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 21);
+            this.label2.Size = new System.Drawing.Size(14, 17);
             this.label2.TabIndex = 232;
             this.label2.Text = "X";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -454,26 +469,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 39);
+            this.label1.Location = new System.Drawing.Point(56, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 231;
             this.label1.Text = "Точка 1";
             // 
             // ShagRam
             // 
-            this.ShagRam.Location = new System.Drawing.Point(492, 130);
-            this.ShagRam.Margin = new System.Windows.Forms.Padding(4);
+            this.ShagRam.Location = new System.Drawing.Point(369, 106);
             this.ShagRam.Name = "ShagRam";
-            this.ShagRam.Size = new System.Drawing.Size(249, 22);
+            this.ShagRam.Size = new System.Drawing.Size(188, 20);
             this.ShagRam.TabIndex = 229;
             this.ShagRam.Text = "10";
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(406, 131);
+            this.label18.Location = new System.Drawing.Point(304, 106);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(80, 21);
+            this.label18.Size = new System.Drawing.Size(60, 17);
             this.label18.TabIndex = 230;
             this.label18.Text = "Шаг рам";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -517,300 +533,285 @@
             this.tabPage2.Controls.Add(this.Yarus_count);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.pictureBox2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(992, 591);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(742, 478);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Сечение";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(773, 106);
+            this.label17.Location = new System.Drawing.Point(580, 86);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(189, 21);
+            this.label17.Size = new System.Drawing.Size(142, 17);
             this.label17.TabIndex = 354;
             this.label17.Text = "Уклон вдоль эстакады";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
-            this.label22.Location = new System.Drawing.Point(773, 345);
+            this.label22.Location = new System.Drawing.Point(580, 280);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(80, 21);
+            this.label22.Size = new System.Drawing.Size(60, 17);
             this.label22.TabIndex = 353;
             this.label22.Text = "Ярус 7";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label25
             // 
-            this.label25.Location = new System.Drawing.Point(773, 313);
+            this.label25.Location = new System.Drawing.Point(580, 254);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(80, 21);
+            this.label25.Size = new System.Drawing.Size(60, 17);
             this.label25.TabIndex = 352;
             this.label25.Text = "Ярус 6";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label26
             // 
-            this.label26.Location = new System.Drawing.Point(773, 281);
+            this.label26.Location = new System.Drawing.Point(580, 228);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(80, 21);
+            this.label26.Size = new System.Drawing.Size(60, 17);
             this.label26.TabIndex = 351;
             this.label26.Text = "Ярус 5";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label28
             // 
-            this.label28.Location = new System.Drawing.Point(773, 247);
+            this.label28.Location = new System.Drawing.Point(580, 201);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(80, 21);
+            this.label28.Size = new System.Drawing.Size(60, 17);
             this.label28.TabIndex = 350;
             this.label28.Text = "Ярус 4";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label29
             // 
-            this.label29.Location = new System.Drawing.Point(773, 215);
+            this.label29.Location = new System.Drawing.Point(580, 175);
+            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(80, 21);
+            this.label29.Size = new System.Drawing.Size(60, 17);
             this.label29.TabIndex = 349;
             this.label29.Text = "Ярус 3";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label30
             // 
-            this.label30.Location = new System.Drawing.Point(773, 180);
+            this.label30.Location = new System.Drawing.Point(580, 146);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(80, 21);
+            this.label30.Size = new System.Drawing.Size(60, 17);
             this.label30.TabIndex = 348;
             this.label30.Text = "Ярус 2";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label31
             // 
-            this.label31.Location = new System.Drawing.Point(773, 148);
+            this.label31.Location = new System.Drawing.Point(580, 120);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(80, 21);
+            this.label31.Size = new System.Drawing.Size(60, 17);
             this.label31.TabIndex = 347;
             this.label31.Text = "Ярус 1";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // YklonYarys1
             // 
-            this.YklonYarys1.Location = new System.Drawing.Point(863, 151);
-            this.YklonYarys1.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys1.Location = new System.Drawing.Point(647, 123);
             this.YklonYarys1.Name = "YklonYarys1";
-            this.YklonYarys1.Size = new System.Drawing.Size(93, 22);
+            this.YklonYarys1.Size = new System.Drawing.Size(71, 20);
             this.YklonYarys1.TabIndex = 346;
             this.YklonYarys1.Text = "0";
             // 
             // label23
             // 
-            this.label23.Location = new System.Drawing.Point(859, 127);
+            this.label23.Location = new System.Drawing.Point(644, 103);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(100, 21);
+            this.label23.Size = new System.Drawing.Size(75, 17);
             this.label23.TabIndex = 345;
             this.label23.Text = "Уклон, ‰";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // YklonYarys7
             // 
-            this.YklonYarys7.Location = new System.Drawing.Point(863, 345);
-            this.YklonYarys7.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys7.Location = new System.Drawing.Point(647, 280);
             this.YklonYarys7.Name = "YklonYarys7";
-            this.YklonYarys7.Size = new System.Drawing.Size(93, 22);
+            this.YklonYarys7.Size = new System.Drawing.Size(71, 20);
             this.YklonYarys7.TabIndex = 344;
             this.YklonYarys7.Text = "0";
             // 
             // YklonYarys6
             // 
-            this.YklonYarys6.Location = new System.Drawing.Point(863, 316);
-            this.YklonYarys6.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys6.Location = new System.Drawing.Point(647, 257);
             this.YklonYarys6.Name = "YklonYarys6";
-            this.YklonYarys6.Size = new System.Drawing.Size(93, 22);
+            this.YklonYarys6.Size = new System.Drawing.Size(71, 20);
             this.YklonYarys6.TabIndex = 343;
             this.YklonYarys6.Text = "0";
             // 
             // YklonYarys5
             // 
-            this.YklonYarys5.Location = new System.Drawing.Point(863, 284);
-            this.YklonYarys5.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys5.Location = new System.Drawing.Point(647, 231);
             this.YklonYarys5.Name = "YklonYarys5";
-            this.YklonYarys5.Size = new System.Drawing.Size(93, 22);
+            this.YklonYarys5.Size = new System.Drawing.Size(71, 20);
             this.YklonYarys5.TabIndex = 342;
             this.YklonYarys5.Text = "0";
             // 
             // YklonYarys4
             // 
-            this.YklonYarys4.Location = new System.Drawing.Point(863, 249);
-            this.YklonYarys4.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys4.Location = new System.Drawing.Point(647, 202);
             this.YklonYarys4.Name = "YklonYarys4";
-            this.YklonYarys4.Size = new System.Drawing.Size(93, 22);
+            this.YklonYarys4.Size = new System.Drawing.Size(71, 20);
             this.YklonYarys4.TabIndex = 341;
             this.YklonYarys4.Text = "0";
             // 
             // YklonYarys3
             // 
-            this.YklonYarys3.Location = new System.Drawing.Point(863, 217);
-            this.YklonYarys3.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys3.Location = new System.Drawing.Point(647, 176);
             this.YklonYarys3.Name = "YklonYarys3";
-            this.YklonYarys3.Size = new System.Drawing.Size(93, 22);
+            this.YklonYarys3.Size = new System.Drawing.Size(71, 20);
             this.YklonYarys3.TabIndex = 340;
             this.YklonYarys3.Text = "0";
             // 
             // YklonYarys2
             // 
-            this.YklonYarys2.Location = new System.Drawing.Point(863, 183);
-            this.YklonYarys2.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonYarys2.Location = new System.Drawing.Point(647, 149);
             this.YklonYarys2.Name = "YklonYarys2";
-            this.YklonYarys2.Size = new System.Drawing.Size(93, 22);
+            this.YklonYarys2.Size = new System.Drawing.Size(71, 20);
             this.YklonYarys2.TabIndex = 339;
             this.YklonYarys2.Text = "0";
             // 
             // L_H7
             // 
-            this.L_H7.Location = new System.Drawing.Point(95, 117);
-            this.L_H7.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H7.Location = new System.Drawing.Point(71, 95);
             this.L_H7.Name = "L_H7";
-            this.L_H7.Size = new System.Drawing.Size(80, 22);
+            this.L_H7.Size = new System.Drawing.Size(61, 20);
             this.L_H7.TabIndex = 318;
             this.L_H7.Text = "0";
             // 
             // L_H6
             // 
-            this.L_H6.Location = new System.Drawing.Point(95, 169);
-            this.L_H6.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H6.Location = new System.Drawing.Point(71, 137);
             this.L_H6.Name = "L_H6";
-            this.L_H6.Size = new System.Drawing.Size(80, 22);
+            this.L_H6.Size = new System.Drawing.Size(61, 20);
             this.L_H6.TabIndex = 317;
             this.L_H6.Text = "0";
             // 
             // L_H5
             // 
-            this.L_H5.Location = new System.Drawing.Point(95, 220);
-            this.L_H5.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H5.Location = new System.Drawing.Point(71, 179);
             this.L_H5.Name = "L_H5";
-            this.L_H5.Size = new System.Drawing.Size(80, 22);
+            this.L_H5.Size = new System.Drawing.Size(61, 20);
             this.L_H5.TabIndex = 316;
             this.L_H5.Text = "0";
             // 
             // L_H4
             // 
-            this.L_H4.Location = new System.Drawing.Point(95, 273);
-            this.L_H4.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H4.Location = new System.Drawing.Point(71, 222);
             this.L_H4.Name = "L_H4";
-            this.L_H4.Size = new System.Drawing.Size(80, 22);
+            this.L_H4.Size = new System.Drawing.Size(61, 20);
             this.L_H4.TabIndex = 315;
             this.L_H4.Text = "0";
             // 
             // L_H3
             // 
-            this.L_H3.Location = new System.Drawing.Point(95, 322);
-            this.L_H3.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H3.Location = new System.Drawing.Point(71, 262);
             this.L_H3.Name = "L_H3";
-            this.L_H3.Size = new System.Drawing.Size(80, 22);
+            this.L_H3.Size = new System.Drawing.Size(61, 20);
             this.L_H3.TabIndex = 314;
             this.L_H3.Text = "0";
             // 
             // L_H2
             // 
-            this.L_H2.Location = new System.Drawing.Point(95, 373);
-            this.L_H2.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H2.Location = new System.Drawing.Point(71, 303);
             this.L_H2.Name = "L_H2";
-            this.L_H2.Size = new System.Drawing.Size(80, 22);
+            this.L_H2.Size = new System.Drawing.Size(61, 20);
             this.L_H2.TabIndex = 313;
             this.L_H2.Text = "0";
             // 
             // L_H1
             // 
-            this.L_H1.Location = new System.Drawing.Point(95, 420);
-            this.L_H1.Margin = new System.Windows.Forms.Padding(4);
+            this.L_H1.Location = new System.Drawing.Point(71, 341);
             this.L_H1.Name = "L_H1";
-            this.L_H1.Size = new System.Drawing.Size(80, 22);
+            this.L_H1.Size = new System.Drawing.Size(61, 20);
             this.L_H1.TabIndex = 312;
             this.L_H1.Text = "0";
             // 
             // B_H7
             // 
-            this.B_H7.Location = new System.Drawing.Point(552, 117);
-            this.B_H7.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H7.Location = new System.Drawing.Point(414, 95);
             this.B_H7.Name = "B_H7";
-            this.B_H7.Size = new System.Drawing.Size(80, 22);
+            this.B_H7.Size = new System.Drawing.Size(61, 20);
             this.B_H7.TabIndex = 293;
             this.B_H7.Text = "0";
             // 
             // B_H6
             // 
-            this.B_H6.Location = new System.Drawing.Point(552, 169);
-            this.B_H6.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H6.Location = new System.Drawing.Point(414, 137);
             this.B_H6.Name = "B_H6";
-            this.B_H6.Size = new System.Drawing.Size(80, 22);
+            this.B_H6.Size = new System.Drawing.Size(61, 20);
             this.B_H6.TabIndex = 292;
             this.B_H6.Text = "0";
             // 
             // B_H5
             // 
-            this.B_H5.Location = new System.Drawing.Point(552, 220);
-            this.B_H5.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H5.Location = new System.Drawing.Point(414, 179);
             this.B_H5.Name = "B_H5";
-            this.B_H5.Size = new System.Drawing.Size(80, 22);
+            this.B_H5.Size = new System.Drawing.Size(61, 20);
             this.B_H5.TabIndex = 291;
             this.B_H5.Text = "0";
             // 
             // B_H4
             // 
-            this.B_H4.Location = new System.Drawing.Point(552, 273);
-            this.B_H4.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H4.Location = new System.Drawing.Point(414, 222);
             this.B_H4.Name = "B_H4";
-            this.B_H4.Size = new System.Drawing.Size(80, 22);
+            this.B_H4.Size = new System.Drawing.Size(61, 20);
             this.B_H4.TabIndex = 290;
             this.B_H4.Text = "0";
             // 
             // B_H3
             // 
-            this.B_H3.Location = new System.Drawing.Point(552, 322);
-            this.B_H3.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H3.Location = new System.Drawing.Point(414, 262);
             this.B_H3.Name = "B_H3";
-            this.B_H3.Size = new System.Drawing.Size(80, 22);
+            this.B_H3.Size = new System.Drawing.Size(61, 20);
             this.B_H3.TabIndex = 289;
             this.B_H3.Text = "0";
             // 
             // B_H2
             // 
-            this.B_H2.Location = new System.Drawing.Point(552, 373);
-            this.B_H2.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H2.Location = new System.Drawing.Point(414, 303);
             this.B_H2.Name = "B_H2";
-            this.B_H2.Size = new System.Drawing.Size(80, 22);
+            this.B_H2.Size = new System.Drawing.Size(61, 20);
             this.B_H2.TabIndex = 288;
             this.B_H2.Text = "0";
             // 
             // B_H1
             // 
-            this.B_H1.Location = new System.Drawing.Point(552, 420);
-            this.B_H1.Margin = new System.Windows.Forms.Padding(4);
+            this.B_H1.Location = new System.Drawing.Point(414, 341);
             this.B_H1.Name = "B_H1";
-            this.B_H1.Size = new System.Drawing.Size(80, 22);
+            this.B_H1.Size = new System.Drawing.Size(61, 20);
             this.B_H1.TabIndex = 287;
             this.B_H1.Text = "0";
             // 
             // Razdv_2_3
             // 
-            this.Razdv_2_3.Location = new System.Drawing.Point(237, 505);
-            this.Razdv_2_3.Margin = new System.Windows.Forms.Padding(4);
+            this.Razdv_2_3.Location = new System.Drawing.Point(178, 410);
             this.Razdv_2_3.Name = "Razdv_2_3";
-            this.Razdv_2_3.Size = new System.Drawing.Size(80, 22);
+            this.Razdv_2_3.Size = new System.Drawing.Size(61, 20);
             this.Razdv_2_3.TabIndex = 286;
             this.Razdv_2_3.Text = "1500";
             // 
             // Razdv_1_2
             // 
-            this.Razdv_1_2.Location = new System.Drawing.Point(421, 505);
-            this.Razdv_1_2.Margin = new System.Windows.Forms.Padding(4);
+            this.Razdv_1_2.Location = new System.Drawing.Point(316, 410);
             this.Razdv_1_2.Name = "Razdv_1_2";
-            this.Razdv_1_2.Size = new System.Drawing.Size(80, 22);
+            this.Razdv_1_2.Size = new System.Drawing.Size(61, 20);
             this.Razdv_1_2.TabIndex = 285;
             this.Razdv_1_2.Text = "1500";
             // 
@@ -821,10 +822,9 @@
             this.Count_column.Items.AddRange(new object[] {
             "2",
             "3"});
-            this.Count_column.Location = new System.Drawing.Point(279, 21);
-            this.Count_column.Margin = new System.Windows.Forms.Padding(4);
+            this.Count_column.Location = new System.Drawing.Point(209, 17);
             this.Count_column.Name = "Count_column";
-            this.Count_column.Size = new System.Drawing.Size(63, 24);
+            this.Count_column.Size = new System.Drawing.Size(48, 21);
             this.Count_column.TabIndex = 283;
             this.Count_column.Tag = "";
             this.Count_column.Text = "3";
@@ -832,9 +832,10 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(151, 22);
+            this.label7.Location = new System.Drawing.Point(113, 18);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 21);
+            this.label7.Size = new System.Drawing.Size(90, 17);
             this.label7.TabIndex = 282;
             this.label7.Text = "Кол-во колонн:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -850,18 +851,18 @@
             "5",
             "6",
             "7"});
-            this.Yarus_count.Location = new System.Drawing.Point(507, 21);
-            this.Yarus_count.Margin = new System.Windows.Forms.Padding(4);
+            this.Yarus_count.Location = new System.Drawing.Point(380, 17);
             this.Yarus_count.Name = "Yarus_count";
-            this.Yarus_count.Size = new System.Drawing.Size(63, 24);
+            this.Yarus_count.Size = new System.Drawing.Size(48, 21);
             this.Yarus_count.TabIndex = 281;
             this.Yarus_count.Text = "7";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(372, 22);
+            this.label5.Location = new System.Drawing.Point(279, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 21);
+            this.label5.Size = new System.Drawing.Size(90, 17);
             this.label5.TabIndex = 280;
             this.label5.Text = "Кол-во ярусов:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -869,10 +870,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PipeRack.Properties.Resources._3;
-            this.pictureBox2.Location = new System.Drawing.Point(7, 62);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(5, 50);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(739, 523);
+            this.pictureBox2.Size = new System.Drawing.Size(554, 425);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 182;
             this.pictureBox2.TabStop = false;
@@ -889,10 +890,10 @@
             this.tabPage6.Controls.Add(this.copyColumn);
             this.tabPage6.Controls.Add(this.addCoiumn);
             this.tabPage6.Controls.Add(this.dataGridColumn);
-            this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(992, 591);
+            this.tabPage6.Size = new System.Drawing.Size(742, 478);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Свойства колонн и стоек";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -900,18 +901,18 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(63, 313);
+            this.label13.Location = new System.Drawing.Point(47, 254);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(358, 17);
+            this.label13.Size = new System.Drawing.Size(278, 13);
             this.label13.TabIndex = 339;
             this.label13.Text = "Атрибуры стоек в пролете между ярусными балками";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(605, 556);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(454, 452);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(267, 26);
+            this.button4.Size = new System.Drawing.Size(200, 21);
             this.button4.TabIndex = 338;
             this.button4.Text = "Удалить строку";
             this.button4.UseVisualStyleBackColor = true;
@@ -919,10 +920,9 @@
             // 
             // copyStoyki
             // 
-            this.copyStoyki.Location = new System.Drawing.Point(331, 554);
-            this.copyStoyki.Margin = new System.Windows.Forms.Padding(4);
+            this.copyStoyki.Location = new System.Drawing.Point(248, 450);
             this.copyStoyki.Name = "copyStoyki";
-            this.copyStoyki.Size = new System.Drawing.Size(267, 26);
+            this.copyStoyki.Size = new System.Drawing.Size(200, 21);
             this.copyStoyki.TabIndex = 337;
             this.copyStoyki.Text = "Скопировать выделенную строку";
             this.copyStoyki.UseVisualStyleBackColor = true;
@@ -930,10 +930,10 @@
             // 
             // addStoyki
             // 
-            this.addStoyki.Location = new System.Drawing.Point(13, 554);
-            this.addStoyki.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addStoyki.Location = new System.Drawing.Point(10, 450);
+            this.addStoyki.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addStoyki.Name = "addStoyki";
-            this.addStoyki.Size = new System.Drawing.Size(297, 26);
+            this.addStoyki.Size = new System.Drawing.Size(223, 21);
             this.addStoyki.TabIndex = 336;
             this.addStoyki.Text = "Добавить/редактировать ярус";
             this.addStoyki.UseVisualStyleBackColor = true;
@@ -954,10 +954,9 @@
             this.dataGridViewTextBoxColumn38,
             this.dataGridViewTextBoxColumn39,
             this.dataGridViewTextBoxColumn40});
-            this.dataGridViewStoyki.Location = new System.Drawing.Point(11, 341);
-            this.dataGridViewStoyki.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewStoyki.Location = new System.Drawing.Point(8, 277);
             this.dataGridViewStoyki.Name = "dataGridViewStoyki";
-            this.dataGridViewStoyki.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewStoyki.Size = new System.Drawing.Size(728, 168);
             this.dataGridViewStoyki.TabIndex = 335;
             // 
             // dataGridViewTextBoxColumn31
@@ -1025,18 +1024,18 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(63, 9);
+            this.label14.Location = new System.Drawing.Point(47, 7);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(124, 17);
+            this.label14.Size = new System.Drawing.Size(95, 13);
             this.label14.TabIndex = 334;
             this.label14.Text = "Атрибуры колонн";
             // 
             // DelRowCol
             // 
-            this.DelRowCol.Location = new System.Drawing.Point(605, 254);
-            this.DelRowCol.Margin = new System.Windows.Forms.Padding(4);
+            this.DelRowCol.Location = new System.Drawing.Point(454, 206);
             this.DelRowCol.Name = "DelRowCol";
-            this.DelRowCol.Size = new System.Drawing.Size(267, 26);
+            this.DelRowCol.Size = new System.Drawing.Size(200, 21);
             this.DelRowCol.TabIndex = 333;
             this.DelRowCol.Text = "Удалить строку";
             this.DelRowCol.UseVisualStyleBackColor = true;
@@ -1044,10 +1043,9 @@
             // 
             // copyColumn
             // 
-            this.copyColumn.Location = new System.Drawing.Point(331, 251);
-            this.copyColumn.Margin = new System.Windows.Forms.Padding(4);
+            this.copyColumn.Location = new System.Drawing.Point(248, 204);
             this.copyColumn.Name = "copyColumn";
-            this.copyColumn.Size = new System.Drawing.Size(267, 26);
+            this.copyColumn.Size = new System.Drawing.Size(200, 21);
             this.copyColumn.TabIndex = 332;
             this.copyColumn.Text = "Скопировать выделенную строку";
             this.copyColumn.UseVisualStyleBackColor = true;
@@ -1055,10 +1053,10 @@
             // 
             // addCoiumn
             // 
-            this.addCoiumn.Location = new System.Drawing.Point(13, 251);
-            this.addCoiumn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addCoiumn.Location = new System.Drawing.Point(10, 204);
+            this.addCoiumn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addCoiumn.Name = "addCoiumn";
-            this.addCoiumn.Size = new System.Drawing.Size(297, 26);
+            this.addCoiumn.Size = new System.Drawing.Size(223, 21);
             this.addCoiumn.TabIndex = 331;
             this.addCoiumn.Text = "Добавить/редактировать ярус";
             this.addCoiumn.UseVisualStyleBackColor = true;
@@ -1079,10 +1077,9 @@
             this.dataGridViewTextBoxColumn48,
             this.dataGridViewTextBoxColumn49,
             this.dataGridViewTextBoxColumn50});
-            this.dataGridColumn.Location = new System.Drawing.Point(11, 38);
-            this.dataGridColumn.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridColumn.Location = new System.Drawing.Point(8, 31);
             this.dataGridColumn.Name = "dataGridColumn";
-            this.dataGridColumn.Size = new System.Drawing.Size(971, 207);
+            this.dataGridColumn.Size = new System.Drawing.Size(728, 168);
             this.dataGridColumn.TabIndex = 330;
             // 
             // dataGridViewTextBoxColumn41
@@ -1159,10 +1156,10 @@
             this.tabPage5.Controls.Add(this.copyYarusRight);
             this.tabPage5.Controls.Add(this.addYarusRight);
             this.tabPage5.Controls.Add(this.dataGridViewYarusRight);
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(992, 591);
+            this.tabPage5.Size = new System.Drawing.Size(742, 478);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Cвойства траверс";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1170,18 +1167,18 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(56, 313);
+            this.label11.Location = new System.Drawing.Point(42, 254);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(276, 17);
+            this.label11.Size = new System.Drawing.Size(213, 13);
             this.label11.TabIndex = 329;
             this.label11.Text = "Атрибуры траверс между колоннами 2-3";
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(599, 558);
-            this.button10.Margin = new System.Windows.Forms.Padding(4);
+            this.button10.Location = new System.Drawing.Point(449, 453);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(267, 26);
+            this.button10.Size = new System.Drawing.Size(200, 21);
             this.button10.TabIndex = 328;
             this.button10.Text = "Удалить строку";
             this.button10.UseVisualStyleBackColor = true;
@@ -1189,10 +1186,9 @@
             // 
             // copyYarusLeft
             // 
-            this.copyYarusLeft.Location = new System.Drawing.Point(324, 555);
-            this.copyYarusLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.copyYarusLeft.Location = new System.Drawing.Point(243, 451);
             this.copyYarusLeft.Name = "copyYarusLeft";
-            this.copyYarusLeft.Size = new System.Drawing.Size(267, 26);
+            this.copyYarusLeft.Size = new System.Drawing.Size(200, 21);
             this.copyYarusLeft.TabIndex = 327;
             this.copyYarusLeft.Text = "Скопировать выделенную строку";
             this.copyYarusLeft.UseVisualStyleBackColor = true;
@@ -1200,10 +1196,10 @@
             // 
             // addYarusLeft
             // 
-            this.addYarusLeft.Location = new System.Drawing.Point(7, 555);
-            this.addYarusLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addYarusLeft.Location = new System.Drawing.Point(5, 451);
+            this.addYarusLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addYarusLeft.Name = "addYarusLeft";
-            this.addYarusLeft.Size = new System.Drawing.Size(297, 26);
+            this.addYarusLeft.Size = new System.Drawing.Size(223, 21);
             this.addYarusLeft.TabIndex = 326;
             this.addYarusLeft.Text = "Добавить/редактировать ярус";
             this.addYarusLeft.UseVisualStyleBackColor = true;
@@ -1224,10 +1220,9 @@
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20});
-            this.dataGridViewYarusLeft.Location = new System.Drawing.Point(4, 342);
-            this.dataGridViewYarusLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewYarusLeft.Location = new System.Drawing.Point(3, 278);
             this.dataGridViewYarusLeft.Name = "dataGridViewYarusLeft";
-            this.dataGridViewYarusLeft.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewYarusLeft.Size = new System.Drawing.Size(728, 168);
             this.dataGridViewYarusLeft.TabIndex = 325;
             // 
             // dataGridViewTextBoxColumn11
@@ -1295,18 +1290,18 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(56, 10);
+            this.label12.Location = new System.Drawing.Point(42, 8);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(276, 17);
+            this.label12.Size = new System.Drawing.Size(213, 13);
             this.label12.TabIndex = 324;
             this.label12.Text = "Атрибуры траверс между колоннами 1-2";
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(599, 254);
-            this.button13.Margin = new System.Windows.Forms.Padding(4);
+            this.button13.Location = new System.Drawing.Point(449, 206);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(267, 26);
+            this.button13.Size = new System.Drawing.Size(200, 21);
             this.button13.TabIndex = 323;
             this.button13.Text = "Удалить строку";
             this.button13.UseVisualStyleBackColor = true;
@@ -1314,10 +1309,9 @@
             // 
             // copyYarusRight
             // 
-            this.copyYarusRight.Location = new System.Drawing.Point(324, 252);
-            this.copyYarusRight.Margin = new System.Windows.Forms.Padding(4);
+            this.copyYarusRight.Location = new System.Drawing.Point(243, 205);
             this.copyYarusRight.Name = "copyYarusRight";
-            this.copyYarusRight.Size = new System.Drawing.Size(267, 26);
+            this.copyYarusRight.Size = new System.Drawing.Size(200, 21);
             this.copyYarusRight.TabIndex = 322;
             this.copyYarusRight.Text = "Скопировать выделенную строку";
             this.copyYarusRight.UseVisualStyleBackColor = true;
@@ -1325,10 +1319,10 @@
             // 
             // addYarusRight
             // 
-            this.addYarusRight.Location = new System.Drawing.Point(7, 252);
-            this.addYarusRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addYarusRight.Location = new System.Drawing.Point(5, 205);
+            this.addYarusRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addYarusRight.Name = "addYarusRight";
-            this.addYarusRight.Size = new System.Drawing.Size(297, 26);
+            this.addYarusRight.Size = new System.Drawing.Size(223, 21);
             this.addYarusRight.TabIndex = 321;
             this.addYarusRight.Text = "Добавить/редактировать ярус";
             this.addYarusRight.UseVisualStyleBackColor = true;
@@ -1349,10 +1343,9 @@
             this.dataGridViewTextBoxColumn28,
             this.dataGridViewTextBoxColumn29,
             this.dataGridViewTextBoxColumn30});
-            this.dataGridViewYarusRight.Location = new System.Drawing.Point(4, 39);
-            this.dataGridViewYarusRight.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewYarusRight.Location = new System.Drawing.Point(3, 32);
             this.dataGridViewYarusRight.Name = "dataGridViewYarusRight";
-            this.dataGridViewYarusRight.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewYarusRight.Size = new System.Drawing.Size(728, 168);
             this.dataGridViewYarusRight.TabIndex = 320;
             // 
             // dataGridViewTextBoxColumn21
@@ -1429,11 +1422,10 @@
             this.tabPage3.Controls.Add(this.copyProletBeamRight);
             this.tabPage3.Controls.Add(this.addProletBeamRight);
             this.tabPage3.Controls.Add(this.dataGridViewProdolnieRight);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(992, 591);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Size = new System.Drawing.Size(742, 478);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Свойства продольных балок";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1441,18 +1433,18 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(56, 310);
+            this.label10.Location = new System.Drawing.Point(42, 252);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(345, 17);
+            this.label10.Size = new System.Drawing.Size(266, 13);
             this.label10.TabIndex = 319;
             this.label10.Text = "Атрибуры продольных балок между колоннами 2-3";
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(599, 554);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
+            this.button7.Location = new System.Drawing.Point(449, 450);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(267, 26);
+            this.button7.Size = new System.Drawing.Size(200, 21);
             this.button7.TabIndex = 318;
             this.button7.Text = "Удалить строку";
             this.button7.UseVisualStyleBackColor = true;
@@ -1460,10 +1452,9 @@
             // 
             // copyProletBeamLeft
             // 
-            this.copyProletBeamLeft.Location = new System.Drawing.Point(324, 551);
-            this.copyProletBeamLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.copyProletBeamLeft.Location = new System.Drawing.Point(243, 448);
             this.copyProletBeamLeft.Name = "copyProletBeamLeft";
-            this.copyProletBeamLeft.Size = new System.Drawing.Size(267, 26);
+            this.copyProletBeamLeft.Size = new System.Drawing.Size(200, 21);
             this.copyProletBeamLeft.TabIndex = 317;
             this.copyProletBeamLeft.Text = "Скопировать выделенную строку";
             this.copyProletBeamLeft.UseVisualStyleBackColor = true;
@@ -1471,10 +1462,10 @@
             // 
             // addProletBeamLeft
             // 
-            this.addProletBeamLeft.Location = new System.Drawing.Point(7, 551);
-            this.addProletBeamLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addProletBeamLeft.Location = new System.Drawing.Point(5, 448);
+            this.addProletBeamLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addProletBeamLeft.Name = "addProletBeamLeft";
-            this.addProletBeamLeft.Size = new System.Drawing.Size(297, 26);
+            this.addProletBeamLeft.Size = new System.Drawing.Size(223, 21);
             this.addProletBeamLeft.TabIndex = 316;
             this.addProletBeamLeft.Text = "Добавить/редактировать ярус";
             this.addProletBeamLeft.UseVisualStyleBackColor = true;
@@ -1495,10 +1486,9 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
-            this.dataGridViewProdolnieLeft.Location = new System.Drawing.Point(4, 338);
-            this.dataGridViewProdolnieLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewProdolnieLeft.Location = new System.Drawing.Point(3, 275);
             this.dataGridViewProdolnieLeft.Name = "dataGridViewProdolnieLeft";
-            this.dataGridViewProdolnieLeft.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewProdolnieLeft.Size = new System.Drawing.Size(728, 168);
             this.dataGridViewProdolnieLeft.TabIndex = 315;
             // 
             // dataGridViewTextBoxColumn1
@@ -1566,18 +1556,18 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(56, 7);
+            this.label9.Location = new System.Drawing.Point(42, 6);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(345, 17);
+            this.label9.Size = new System.Drawing.Size(266, 13);
             this.label9.TabIndex = 314;
             this.label9.Text = "Атрибуры продольных балок между колоннами 1-2";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(599, 251);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Location = new System.Drawing.Point(449, 204);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(267, 26);
+            this.button6.Size = new System.Drawing.Size(200, 21);
             this.button6.TabIndex = 313;
             this.button6.Text = "Удалить строку";
             this.button6.UseVisualStyleBackColor = true;
@@ -1585,10 +1575,9 @@
             // 
             // copyProletBeamRight
             // 
-            this.copyProletBeamRight.Location = new System.Drawing.Point(324, 249);
-            this.copyProletBeamRight.Margin = new System.Windows.Forms.Padding(4);
+            this.copyProletBeamRight.Location = new System.Drawing.Point(243, 202);
             this.copyProletBeamRight.Name = "copyProletBeamRight";
-            this.copyProletBeamRight.Size = new System.Drawing.Size(267, 26);
+            this.copyProletBeamRight.Size = new System.Drawing.Size(200, 21);
             this.copyProletBeamRight.TabIndex = 312;
             this.copyProletBeamRight.Text = "Скопировать выделенную строку";
             this.copyProletBeamRight.UseVisualStyleBackColor = true;
@@ -1596,10 +1585,10 @@
             // 
             // addProletBeamRight
             // 
-            this.addProletBeamRight.Location = new System.Drawing.Point(7, 249);
-            this.addProletBeamRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addProletBeamRight.Location = new System.Drawing.Point(5, 202);
+            this.addProletBeamRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addProletBeamRight.Name = "addProletBeamRight";
-            this.addProletBeamRight.Size = new System.Drawing.Size(297, 26);
+            this.addProletBeamRight.Size = new System.Drawing.Size(223, 21);
             this.addProletBeamRight.TabIndex = 311;
             this.addProletBeamRight.Text = "Добавить/редактировать ярус";
             this.addProletBeamRight.UseVisualStyleBackColor = true;
@@ -1620,10 +1609,9 @@
             this.Vertik,
             this.Povorot,
             this.Gorizontalno});
-            this.dataGridViewProdolnieRight.Location = new System.Drawing.Point(4, 36);
-            this.dataGridViewProdolnieRight.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewProdolnieRight.Location = new System.Drawing.Point(3, 29);
             this.dataGridViewProdolnieRight.Name = "dataGridViewProdolnieRight";
-            this.dataGridViewProdolnieRight.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewProdolnieRight.Size = new System.Drawing.Size(728, 168);
             this.dataGridViewProdolnieRight.TabIndex = 310;
             // 
             // NumberR
@@ -1700,9 +1688,10 @@
             this.tabPage7.Controls.Add(this.button12);
             this.tabPage7.Controls.Add(this.button14);
             this.tabPage7.Controls.Add(this.dataGridViewYarusRightVProlete);
-            this.tabPage7.Location = new System.Drawing.Point(4, 25);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(992, 591);
+            this.tabPage7.Size = new System.Drawing.Size(742, 478);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Свойства траверс в пролете";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -1710,18 +1699,18 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(63, 311);
+            this.label15.Location = new System.Drawing.Point(47, 253);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(346, 17);
+            this.label15.Size = new System.Drawing.Size(266, 13);
             this.label15.TabIndex = 339;
             this.label15.Text = "Атрибуры траверс в пролете между колоннами 2-3";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(606, 556);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Location = new System.Drawing.Point(454, 452);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(267, 26);
+            this.button5.Size = new System.Drawing.Size(200, 21);
             this.button5.TabIndex = 338;
             this.button5.Text = "Удалить строку";
             this.button5.UseVisualStyleBackColor = true;
@@ -1729,10 +1718,9 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(331, 553);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
+            this.button8.Location = new System.Drawing.Point(248, 449);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(267, 26);
+            this.button8.Size = new System.Drawing.Size(200, 21);
             this.button8.TabIndex = 337;
             this.button8.Text = "Скопировать выделенную строку";
             this.button8.UseVisualStyleBackColor = true;
@@ -1740,10 +1728,10 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(14, 553);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button9.Location = new System.Drawing.Point(10, 449);
+            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(297, 26);
+            this.button9.Size = new System.Drawing.Size(223, 21);
             this.button9.TabIndex = 336;
             this.button9.Text = "Добавить/редактировать ярус";
             this.button9.UseVisualStyleBackColor = true;
@@ -1764,10 +1752,9 @@
             this.dataGridViewTextBoxColumn58,
             this.dataGridViewTextBoxColumn59,
             this.dataGridViewTextBoxColumn60});
-            this.dataGridViewYarusLeftVProlete.Location = new System.Drawing.Point(11, 340);
-            this.dataGridViewYarusLeftVProlete.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewYarusLeftVProlete.Location = new System.Drawing.Point(8, 276);
             this.dataGridViewYarusLeftVProlete.Name = "dataGridViewYarusLeftVProlete";
-            this.dataGridViewYarusLeftVProlete.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewYarusLeftVProlete.Size = new System.Drawing.Size(728, 168);
             this.dataGridViewYarusLeftVProlete.TabIndex = 335;
             // 
             // dataGridViewTextBoxColumn51
@@ -1835,18 +1822,18 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(63, 8);
+            this.label19.Location = new System.Drawing.Point(47, 6);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(346, 17);
+            this.label19.Size = new System.Drawing.Size(266, 13);
             this.label19.TabIndex = 334;
             this.label19.Text = "Атрибуры траверс в пролете между колоннами 1-2";
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(606, 252);
-            this.button11.Margin = new System.Windows.Forms.Padding(4);
+            this.button11.Location = new System.Drawing.Point(454, 205);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(267, 26);
+            this.button11.Size = new System.Drawing.Size(200, 21);
             this.button11.TabIndex = 333;
             this.button11.Text = "Удалить строку";
             this.button11.UseVisualStyleBackColor = true;
@@ -1854,10 +1841,9 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(331, 250);
-            this.button12.Margin = new System.Windows.Forms.Padding(4);
+            this.button12.Location = new System.Drawing.Point(248, 203);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(267, 26);
+            this.button12.Size = new System.Drawing.Size(200, 21);
             this.button12.TabIndex = 332;
             this.button12.Text = "Скопировать выделенную строку";
             this.button12.UseVisualStyleBackColor = true;
@@ -1865,10 +1851,10 @@
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(14, 250);
-            this.button14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button14.Location = new System.Drawing.Point(10, 203);
+            this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(297, 26);
+            this.button14.Size = new System.Drawing.Size(223, 21);
             this.button14.TabIndex = 331;
             this.button14.Text = "Добавить/редактировать ярус";
             this.button14.UseVisualStyleBackColor = true;
@@ -1889,10 +1875,9 @@
             this.dataGridViewTextBoxColumn68,
             this.dataGridViewTextBoxColumn69,
             this.dataGridViewTextBoxColumn70});
-            this.dataGridViewYarusRightVProlete.Location = new System.Drawing.Point(11, 37);
-            this.dataGridViewYarusRightVProlete.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewYarusRightVProlete.Location = new System.Drawing.Point(8, 30);
             this.dataGridViewYarusRightVProlete.Name = "dataGridViewYarusRightVProlete";
-            this.dataGridViewYarusRightVProlete.Size = new System.Drawing.Size(971, 207);
+            this.dataGridViewYarusRightVProlete.Size = new System.Drawing.Size(728, 168);
             this.dataGridViewYarusRightVProlete.TabIndex = 330;
             // 
             // dataGridViewTextBoxColumn61
@@ -1966,39 +1951,39 @@
             this.tabPage4.Controls.Add(this.ConsoleL);
             this.tabPage4.Controls.Add(this.cBRight1);
             this.tabPage4.Controls.Add(this.pictureBox3);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(992, 591);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Size = new System.Drawing.Size(742, 478);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Проходные площадки";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // YklonMP
             // 
-            this.YklonMP.Location = new System.Drawing.Point(580, 217);
-            this.YklonMP.Margin = new System.Windows.Forms.Padding(4);
+            this.YklonMP.Location = new System.Drawing.Point(435, 176);
             this.YklonMP.Name = "YklonMP";
-            this.YklonMP.Size = new System.Drawing.Size(93, 22);
+            this.YklonMP.Size = new System.Drawing.Size(71, 20);
             this.YklonMP.TabIndex = 356;
             this.YklonMP.Text = "0";
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(473, 218);
+            this.label16.Location = new System.Drawing.Point(355, 177);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(100, 21);
+            this.label16.Size = new System.Drawing.Size(75, 17);
             this.label16.TabIndex = 355;
             this.label16.Text = "Уклон, ‰";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(479, 391);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Location = new System.Drawing.Point(359, 318);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(125, 69);
+            this.button3.Size = new System.Drawing.Size(94, 56);
             this.button3.TabIndex = 296;
             this.button3.Text = "Строить";
             this.button3.UseVisualStyleBackColor = true;
@@ -2006,29 +1991,27 @@
             // 
             // ConsoleH
             // 
-            this.ConsoleH.Location = new System.Drawing.Point(347, 287);
-            this.ConsoleH.Margin = new System.Windows.Forms.Padding(4);
+            this.ConsoleH.Location = new System.Drawing.Point(260, 233);
             this.ConsoleH.Name = "ConsoleH";
-            this.ConsoleH.Size = new System.Drawing.Size(80, 22);
+            this.ConsoleH.Size = new System.Drawing.Size(61, 20);
             this.ConsoleH.TabIndex = 295;
             this.ConsoleH.Text = "0";
             // 
             // ConsoleL
             // 
-            this.ConsoleL.Location = new System.Drawing.Point(189, 59);
-            this.ConsoleL.Margin = new System.Windows.Forms.Padding(4);
+            this.ConsoleL.Location = new System.Drawing.Point(142, 48);
             this.ConsoleL.Name = "ConsoleL";
-            this.ConsoleL.Size = new System.Drawing.Size(80, 22);
+            this.ConsoleL.Size = new System.Drawing.Size(61, 20);
             this.ConsoleL.TabIndex = 294;
             this.ConsoleL.Text = "0";
             // 
             // cBRight1
             // 
             this.cBRight1.AutoSize = true;
-            this.cBRight1.Location = new System.Drawing.Point(477, 135);
-            this.cBRight1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cBRight1.Location = new System.Drawing.Point(358, 110);
+            this.cBRight1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cBRight1.Name = "cBRight1";
-            this.cBRight1.Size = new System.Drawing.Size(142, 38);
+            this.cBRight1.Size = new System.Drawing.Size(113, 30);
             this.cBRight1.TabIndex = 184;
             this.cBRight1.Text = "\r\nПостроить слева";
             this.cBRight1.UseVisualStyleBackColor = true;
@@ -2036,20 +2019,20 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(53, 49);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(40, 40);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(373, 412);
+            this.pictureBox3.Size = new System.Drawing.Size(280, 335);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 185;
             this.pictureBox3.TabStop = false;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(292, 639);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(219, 519);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 58);
+            this.button1.Size = new System.Drawing.Size(140, 47);
             this.button1.TabIndex = 22;
             this.button1.Text = "Волшебство";
             this.button1.UseVisualStyleBackColor = true;
@@ -2064,40 +2047,35 @@
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(662, 639);
+            this.button15.Location = new System.Drawing.Point(496, 519);
+            this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(201, 58);
+            this.button15.Size = new System.Drawing.Size(151, 47);
             this.button15.TabIndex = 23;
             this.button15.Text = "Редактирование";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.Button15_Click_1);
             // 
-            // NameOfPipeRack
+            // button16
             // 
-            this.NameOfPipeRack.Location = new System.Drawing.Point(485, 169);
-            this.NameOfPipeRack.Name = "NameOfPipeRack";
-            this.NameOfPipeRack.Size = new System.Drawing.Size(256, 22);
-            this.NameOfPipeRack.TabIndex = 248;
-            // 
-            // label20
-            // 
-            this.label20.Location = new System.Drawing.Point(336, 169);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(143, 23);
-            this.label20.TabIndex = 249;
-            this.label20.Text = "Название эстакады";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.button16.Location = new System.Drawing.Point(641, 410);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(75, 23);
+            this.button16.TabIndex = 250;
+            this.button16.Text = "button16";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 702);
+            this.ClientSize = new System.Drawing.Size(758, 570);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Эстакада 0.2.1";
             this.tabControl1.ResumeLayout(false);
@@ -2327,6 +2305,7 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox NameOfPipeRack;
+        private System.Windows.Forms.Button button16;
     }
 }
 
