@@ -15,6 +15,9 @@ using Tekla.Structures.Solid;
 using TSD = Tekla.Structures.Drawing;
 using t3d = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Geometry3d;
+using Tekla.Structures.Model.Operations;
+using SmartExtensions;
+using Part = Tekla.Structures.Model.Part;
 
 namespace Test
 {
@@ -117,6 +120,44 @@ namespace Test
                 }
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var model = new Model();
+
+            var picker = new Picker();
+
+            var r1 = picker.PickObject(Picker.PickObjectEnum.PICK_ONE_PART) as Part;
+            var r2 = picker.PickObject(Picker.PickObjectEnum.PICK_ONE_REINFORCEMENT) as RebarSet;
+
+            r1.GetCenterLine().
+
+            r1.GetReportProperty
+
+            var z = r1.Guidelines[0].Spacing.Zones;
+
+            r2.Guidelines[0].Spacing.Zones = z;
+            r2.Modify();
+
+            model.CommitChanges();
+            //var sel = model.GetModelObjectSelector().GetAllObjectsWithType(Tekla.Structures.Model.ModelObject.ModelObjectEnum.REBAR_SET).ToIEnumerable<RebarSet>();
+
+            //ArrayList listObj = new ArrayList();
+
+            //foreach (var rebarSet in sel)
+            //{
+            //    var faces = rebarSet.LegFaces;
+
+            //    foreach (var face in faces)
+            //    {
+            //        listObj.Add(face);
+            //    }
+            //}
+
+            //Tekla.Structures.Model.UI.ModelObjectSelector ms = new Tekla.Structures.Model.UI.ModelObjectSelector();
+            //ms.Select(listObj);
+            //Tekla.Structures.ModelInternal.Operation.dotStartAction("ZoomToSelected", "");
         }
 
         //var drawingHandler = new DrawingHandler();

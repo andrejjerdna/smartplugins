@@ -33,17 +33,17 @@ xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
             <Button x:Name="SteelButton" HorizontalAlignment="Center" Width="100" Height="50" Click="OnSteelClick">
                 <StackPanel>
                     <iconPacks:PackIconMaterial Kind="WifiSettings" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    <Label Content="STEEL"/>
+                    <Label Content="СТАЛЬ"/>
                 </StackPanel>
                 </Button>
             <Button x:Name="ConcreteButton" HorizontalAlignment="Center"  Width="100" Height="50" Click="OnConcreteClick">
                 <StackPanel>
                     <iconPacks:PackIconMaterial Kind="EmoticonCool" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    <Label Content="CONCRETE"/>
+                    <Label Content="БЕТОН"/>
                 </StackPanel>
             </Button>
         </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Column="1">
+        <Frame x:Name="MainFrame" Grid.Column="1" JournalOwnership="UsesParentJournal">
             
         </Frame>
     </Grid>

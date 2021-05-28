@@ -34,12 +34,12 @@ namespace SmartHelper
 
         private void OnSteelClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Pages.SteelPage1());
+            MainFrame.Navigate(new Pages.SteelPage1());
         }
 
         private void OnConcreteClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Pages.ConcretePage1());
+            MainFrame.Navigate(new Pages.ConcretePage1());
         }
     }
 }

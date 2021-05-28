@@ -1,0 +1,6 @@
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.csprojAssemblyReference.cache
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.CopyParametersLegFacesWindow.resources
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.GenerateResource.cache
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.CoreCompileInputs.cache
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.dll
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.pdb
