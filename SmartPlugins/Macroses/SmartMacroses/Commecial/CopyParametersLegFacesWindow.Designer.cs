@@ -50,11 +50,11 @@ namespace SmartMacroses
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 107);
+            this.button1.Location = new System.Drawing.Point(15, 84);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(258, 23);
+            this.button1.Size = new System.Drawing.Size(293, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "ПРИМЕНИТЬ ВЫБРАННЫМ";
+            this.button1.Text = "ПРИМЕНИТЬ К ВЫБРАННЫМ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -107,26 +107,28 @@ namespace SmartMacroses
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 81);
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button2.Image = global::SmartMacroses.Properties.Resources.add_black_24dp;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(276, 6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(258, 23);
+            this.button2.Size = new System.Drawing.Size(32, 72);
             this.button2.TabIndex = 8;
-            this.button2.Text = "ПОЛУЧИТЬ ИЗ МОДЕЛИ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 136);
+            this.progressBar1.Location = new System.Drawing.Point(15, 113);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(258, 23);
+            this.progressBar1.Size = new System.Drawing.Size(293, 23);
             this.progressBar1.TabIndex = 9;
             // 
             // CopyParametersLegFacesWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 166);
+            this.ClientSize = new System.Drawing.Size(320, 148);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Flip);
@@ -136,8 +138,10 @@ namespace SmartMacroses
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Delta);
+            this.MaximumSize = new System.Drawing.Size(336, 187);
+            this.MinimumSize = new System.Drawing.Size(336, 187);
             this.Name = "CopyParametersLegFacesWindow";
-            this.Text = "CopyParametersLegFacesWindow";
+            this.Text = "CopyParametersLegFaces";
             this.Load += new System.EventHandler(this.CopyParametersLegFacesWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

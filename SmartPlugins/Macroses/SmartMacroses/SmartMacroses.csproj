@@ -92,7 +92,18 @@
       <DependentUpon>CopyParametersLegFacesWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Commecial\CopyParametersRebarSets.cs" />
+    <Compile Include="Commecial\CopyParametersRebarSetsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Commecial\CopyParametersRebarSetsWindow.Designer.cs">
+      <DependentUpon>CopyParametersRebarSetsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ILMerge.props" />
@@ -106,10 +117,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILMergeOrder.txt" />
+    <None Include="img\add_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Commecial\CopyParametersLegFacesWindow.resx">
       <DependentUpon>CopyParametersLegFacesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commecial\CopyParametersRebarSetsWindow.resx">
+      <DependentUpon>CopyParametersRebarSetsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
@@ -125,7 +144,8 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Debug (
-xcopy $(TargetDir)$(TargetName).dll "C:\ProgramData\Trimble\Tekla Structures\2020.0\Environments\common\macros\modeling\" /R /Y)</PostBuildEvent>
+xcopy $(TargetDir)$(TargetName).dll "C:\ProgramData\Trimble\Tekla Structures\2020.0\Environments\common\macros\modeling\" /R /Y
+xcopy $(TargetDir)$(TargetName).dll "C:\Work\SmartPlugins\SmartPlugins\Macroses\TSEPs\CopyParameters\binaries\" /R /Y)</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets" Condition="Exists('..\..\packages\MSBuild.ILMerge.Task.1.1.3\build\MSBuild.ILMerge.Task.targets')" />
 </Project>

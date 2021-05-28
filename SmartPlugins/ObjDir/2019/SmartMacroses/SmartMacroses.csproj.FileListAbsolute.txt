@@ -4,3 +4,5 @@ C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.csproj
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.CoreCompileInputs.cache
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.dll
 C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.pdb
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.Properties.Resources.resources
+C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartMacroses\SmartMacroses.Commecial.CopyParametersRebarSetsWindow.resources

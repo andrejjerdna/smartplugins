@@ -61,8 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHelper", "Applications
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commercial", "Commercial", "{D5B01E5F-E92F-4E85-8D39-25A4250D25CE}"
 	ProjectSection(SolutionItems) = preProject
-		Macroses\ModelMacroses\Commercial\CopyParametersLegFaces.cs = Macroses\ModelMacroses\Commercial\CopyParametersLegFaces.cs
-		Macroses\ModelMacroses\Commercial\CopyParametersRebarSets.cs = Macroses\ModelMacroses\Commercial\CopyParametersRebarSets.cs
+		Macroses\ModelMacroses\Commercial\sp_CopyParametersLegFaces.cs = Macroses\ModelMacroses\Commercial\sp_CopyParametersLegFaces.cs
+		Macroses\ModelMacroses\Commercial\sp_CopyParametersRebarSets.cs = Macroses\ModelMacroses\Commercial\sp_CopyParametersRebarSets.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMacroses", "Macroses\SmartMacroses\SmartMacroses.csproj", "{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}"
