@@ -27,7 +27,8 @@ namespace PipeRack
         public Model _M;
         private int _yarusCount;
         private int _count_column;
-        public TransformationPlane workTP;
+        private string _nameOfPipeRack;
+        public TransformationPlane workTP { get; set; }
 
         public Point _basePoint;
 
@@ -37,12 +38,22 @@ namespace PipeRack
         public List<Beam> _TraversLeft = new List<Beam>();
         public List<double> Z { get; set; }
 
-        public Frame(Model M, Point basePoint, int yarusCount, int count_column)
+        private Point C_Start_point1;
+        private Point C_Start_point2;
+        private Point C_Start_point3;
+        private Point C_End_point1;
+        private Point C_End_point2;
+        private Point C_End_point3;
+
+
+
+        public Frame(Model M, Point basePoint, int yarusCount, int count_column, string nameOfpipeRack)
         {
             _basePoint = basePoint;
             _yarusCount = yarusCount;
             _count_column = count_column;
             _M = M;
+            _nameOfPipeRack = nameOfpipeRack;
         }
         public Frame()
         {
@@ -53,8 +64,8 @@ namespace PipeRack
         {
             var currentTP = _M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             var workCS = new CoordinateSystem(_basePoint, new Vector(1, 0, 0), new Vector(0, 1, 0));
-             workTP = new TransformationPlane(workCS);
-            
+            workTP = new TransformationPlane(workCS);
+
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(workTP);
 
             Connections Con = new Connections();
@@ -71,60 +82,41 @@ namespace PipeRack
                 Con.BeamsToColumn(_Columns[1], _TraversRight);
                 Con.BeamsToColumn(_Columns[1], _TraversLeft);
                 Con.BeamsToColumn(_Columns[2], _TraversLeft);
-            } 
+            }
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
         }
 
         private void CreateRamaDveKolony()
         {
-            int H = _yarusCount;
+            Points();
 
-            Point C_Start_point1 = new Point(0 , 0 - Razdv_1_2, 0 + _basePoint.X * UklonbI[0] * 0.001 );                           //точка низа 1 колонны
-            Point C_End_point1 = new Point(0 , 0 - Razdv_1_2, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1]* 0.001);     //точка верха  1 колонны 
-
-            Point C_Start_point2 = new Point(0 , 0 + Razdv_2_3, 0 + _basePoint.X * UklonbI[0] * 0.001);                           //точка низа 2 колонны
-            Point C_End_point2 = new Point(0 , 0 + Razdv_2_3, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1]* 0.001);     //точка верха  2 колонны 
- 
-            _Columns.Add(Beam_main(AttributeColumn[0], C_Start_point1, C_End_point1 , ( 1).ToString(), "Center"));
-            _Columns.Add(Beam_main(AttributeColumn[1], C_Start_point2, C_End_point2, (2).ToString(), "Center"));
+            var C = new CreateColumn(AttributeColumn[0], C_Start_point1, C_End_point1);
+            _Columns.Add(C.Insert());
+            //_Columns.Add(BeamMain(AttributeColumn[0], C_Start_point1, C_End_point1 , ( 1).ToString(), "Center"));
+            _Columns.Add(BeamMain(AttributeColumn[1], C_Start_point2, C_End_point2, (2).ToString(), "Center"));
 
             for (int _count = 0; _count < _yarusCount; _count++)
             {
-                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count]+ _basePoint.X * UklonbI[_count]* 0.001);
-                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count]+ _basePoint.X * UklonbI[_count]* 0.001);
-                _TraversRight.Add(Beam_main(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), "Right"));
+                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
+                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
+                _TraversRight.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), "Right"));
                 _Travers.Add(_TraversRight[_count]);
             }
         }
 
         private void CreateRamaTriKolony()
-           {
-               int H = _yarusCount;
+        {
+            Points();
 
-               Point C_Start_point1 = new Point(0, 0 - Razdv_1_2, _basePoint.X * UklonbI[0] * 0.001);                           //точка низа 1 колонны
-               Point C_End_point1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);     //точка верха  1 колонны 
-
-               Point C_Start_point2 = new Point(0, 0 , _basePoint.X * UklonbI[0] * 0.001);                           //точка низа 2 колонны
-               Point C_End_point2 = new Point(0, 0, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1]* 0.001);  //точка верха  2 колонны 
-
-                if (Traversy2[H-1] > Traversy[H-1])
-                {
-                   C_End_point2 = new Point(0, 0, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);
-                }
-
-
-               Point C_Start_point3 = new Point(0, 0 + Razdv_2_3, _basePoint.X * UklonbI[0] * 0.001);                                       //точка низа 3 колонны
-               Point C_End_point3 = new Point(0, 0 + Razdv_2_3, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);            //точка верха  3 колонны 
-
-            _Columns.Add(Beam_main(AttributeColumn[0], C_Start_point1, C_End_point1, ( 1).ToString(), "Center"));
-            _Columns.Add(Beam_main(AttributeColumn[1], C_Start_point2, C_End_point2, (2).ToString(), "Center"));
-            _Columns.Add(Beam_main(AttributeColumn[2],C_Start_point3, C_End_point3, (3).ToString(), "Center"));
+            _Columns.Add(BeamMain(AttributeColumn[0], C_Start_point1, C_End_point1, (1).ToString(), "Center"));
+            _Columns.Add(BeamMain(AttributeColumn[1], C_Start_point2, C_End_point2, (2).ToString(), "Center"));
+            _Columns.Add(BeamMain(AttributeColumn[2], C_Start_point3, C_End_point3, (3).ToString(), "Center"));
 
             for (int _count = 0; _count < _yarusCount; _count++)
             {
-                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count] + _basePoint.X * UklonbI[_count]*0.001);
-                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count] + _basePoint.X * UklonbI[_count]*0.001);
-                _TraversRight.Add(Beam_main(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), "Right"));
+                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
+                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
+                _TraversRight.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), "Right"));
                 _Travers.Add(_TraversRight[_count]);
             }
 
@@ -132,14 +124,14 @@ namespace PipeRack
             {
                 Point B_2_start = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy2[_count] + _basePoint.X * UklonbI[_count] * 0.001);
                 Point B_2_end = new Point(C_Start_point3.X, C_Start_point3.Y, Traversy2[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                _TraversLeft.Add(Beam_main(Attributes2[_count], B_2_start, B_2_end, (_count + 1).ToString(), "Left"));
+                _TraversLeft.Add(BeamMain(Attributes2[_count], B_2_start, B_2_end, (_count + 1).ToString(), "Left"));
                 _Travers.Add(_TraversLeft[_count]);
             }
         }
 
- 
 
-        public Beam Beam_main(Attributes attributes, Point startPoint, Point endPoint, string RNumberOfYarus, string DirectionOfYarus)
+
+        public Beam BeamMain(Attributes attributes, Point startPoint, Point endPoint, string RNumberOfYarus, string DirectionOfYarus)
         {
             Beam newBeam = new Beam(startPoint, endPoint);
             newBeam.Profile.ProfileString = "I30K1_20_93";
@@ -151,7 +143,7 @@ namespace PipeRack
             newBeam.Modify();
             return newBeam;
         }
-        public Beam Beam_main(Point startPoint, Point endPoint)
+        public Beam BeamMain(Point startPoint, Point endPoint)
         {
             Beam newBeam = new Beam(startPoint, endPoint);
             newBeam.Profile.ProfileString = "I30K1_20_93";
@@ -168,20 +160,16 @@ namespace PipeRack
                 beam.Material.MaterialString = _attributes.Material;
                 beam.Class = _attributes.Class;
                 beam.PartNumber.Prefix = _attributes.PrefixSborki;
-                
-                if (_attributes.NomerSborki != null)
-                {
-                    int nomerSborki;
-                    var H = Int32.TryParse(_attributes.NomerSborki.ToString(), out nomerSborki);
-                    if (!H)
-                    {
-                        MessageBox.Show("Введено не целое число сборки");
-                        return;
-                    }
 
-                    beam.PartNumber.StartNumber = nomerSborki;
+                int nomerSborki;
+                var H = Int32.TryParse(_attributes.NomerSborki.ToString(), out nomerSborki);
+                if (!H)
+                {
+                    MessageBox.Show("Введено не целое число сборки");
+                    return;
                 }
 
+                beam.PartNumber.StartNumber = nomerSborki;
 
                 //LEFT MIDDLE RIGHT
                 if (_attributes.PolojenieGorizontalno == 1) beam.Position.Plane = Position.PlaneEnum.LEFT;
@@ -191,19 +179,36 @@ namespace PipeRack
                 // BACK BELOW FRONT TOP
                 if (_attributes.PolojeniePovorot == 1) beam.Position.Rotation = Position.RotationEnum.FRONT;
                 if (_attributes.PolojeniePovorot == 0) beam.Position.Rotation = Position.RotationEnum.TOP;
-               // if (_attributes.PolojeniePovorot == 0) beam.Position.Rotation = Position.RotationEnum.BACK;
-               // if (_attributes.PolojeniePovorot == 1) beam.Position.Rotation = Position.RotationEnum.BELOW;
 
                 // BEHIND  FRONT MIDLE
                 if (_attributes.PolojenieVertikalno == 1) beam.Position.Depth = Position.DepthEnum.MIDDLE;
                 if (_attributes.PolojenieVertikalno == 0) beam.Position.Depth = Position.DepthEnum.BEHIND;
                 if (_attributes.PolojenieVertikalno == 2) beam.Position.Depth = Position.DepthEnum.FRONT;
-
             }
 
-            beam.Modify(); 
+            beam.Modify();
         }
 
+        private void Points()
+        {
+            
+            int H = _yarusCount;
+
+            Point C_Start_point1 = new Point(0, 0 - Razdv_1_2, _basePoint.X * UklonbI[0] * 0.001);                           //точка низа 1 колонны
+            Point C_End_point1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);     //точка верха  1 колонны 
+
+            Point C_Start_point2 = new Point(0, 0, _basePoint.X * UklonbI[0] * 0.001);                           //точка низа 2 колонны
+            Point C_End_point2 = new Point(0, 0, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);  //точка верха  2 колонны 
+
+            if (Traversy2[H - 1] > Traversy[H - 1])
+            {
+                C_End_point2 = new Point(0, 0, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);
+            }
+
+            Point C_Start_point3 = new Point(0, 0 + Razdv_2_3, _basePoint.X * UklonbI[0] * 0.001);                                       //точка низа 3 колонны
+            Point C_End_point3 = new Point(0, 0 + Razdv_2_3, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);            //точка верха  3 колонны 
+
+        }
 
     }
 }

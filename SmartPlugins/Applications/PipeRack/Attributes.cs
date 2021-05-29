@@ -20,5 +20,8 @@ namespace PipeRack
         public int PolojenieVertikalno { get; set; }
         public int PolojeniePovorot { get; set; }
         public int PolojenieGorizontalno { get; set; }
+        public int RNumberOfYarus { get; set; }
+        public string DirectionOfYarus { get; set; }
+        public string RNazvanie { get; set; }
     }
 }

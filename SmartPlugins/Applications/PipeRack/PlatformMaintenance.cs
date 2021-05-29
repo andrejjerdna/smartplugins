@@ -52,7 +52,7 @@ namespace PipeRack
             var endPoint = new Point(startPoint);
             startPoint.Y -= consoleL* napravlenie;
 
-            Console = frame.Beam_main(startPoint, endPoint);
+            Console = frame.BeamMain(startPoint, endPoint);
 
             Podcos(startColumn, Console);
         }
@@ -70,8 +70,8 @@ namespace PipeRack
             var startPoint2 = new Point(_FraMESS[1]._basePoint.X- _FraMESS[0]._basePoint.X, Consoless[1].StartPoint.Y, Consoless[1].StartPoint.Z);
             var endPoint2 = new Point(_FraMESS[1]._basePoint.X- _FraMESS[0]._basePoint.X, Consoless[1].EndPoint.Y, Consoless[1].EndPoint.Z);
 
-                frame.Beam_main(startPoint, startPoint2); // левая балка
-                frame.Beam_main(endPoint, endPoint2);     // правая балка  
+                frame.BeamMain(startPoint, startPoint2); // левая балка
+                frame.BeamMain(endPoint, endPoint2);     // правая балка  
             BalkiYarysa Balki = new BalkiYarysa();
 
             List<double> _shagi = new List<double>();
@@ -81,7 +81,7 @@ namespace PipeRack
             {
                 Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z  );
                 Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z  );
-                frame.Beam_main( startPoint3, endPoint3); 
+                frame.BeamMain( startPoint3, endPoint3); 
             }
         }
 

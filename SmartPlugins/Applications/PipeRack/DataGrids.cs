@@ -75,17 +75,18 @@ namespace PipeRack
             return curent;
         }
 
-        private void AttSetGrid(Attributes _attributesProdolnie, int I, DataGridView dataGridView1)
+        private void AttSetGrid(Attributes _attributes, int I, DataGridView dataGridView1)
         {
-            _attributesProdolnie.Name = dataGridView1[1, I].Value.ToString();
-            _attributesProdolnie.Profile = dataGridView1[2, I].Value.ToString();
-            _attributesProdolnie.Material = dataGridView1[3, I].Value.ToString();
-            _attributesProdolnie.Class = dataGridView1[4, I].Value.ToString();
-            _attributesProdolnie.PrefixSborki = dataGridView1[5, I].Value.ToString();
-            _attributesProdolnie.NomerSborki = dataGridView1[6, I].Value.ToString();
-            _attributesProdolnie.PolojenieVertikalno = Convert.ToInt32(dataGridView1[7, I].Value.ToString());
-            _attributesProdolnie.PolojeniePovorot = Convert.ToInt32(dataGridView1[8, I].Value.ToString());
-            _attributesProdolnie.PolojenieGorizontalno = Convert.ToInt32(dataGridView1[9, I].Value.ToString());
+            _attributes.RNumberOfYarus = Convert.ToInt32(dataGridView1[0, I].Value.ToString());
+            _attributes.Name = dataGridView1[1, I].Value.ToString();
+            _attributes.Profile = dataGridView1[2, I].Value.ToString();
+            _attributes.Material = dataGridView1[3, I].Value.ToString();
+            _attributes.Class = dataGridView1[4, I].Value.ToString();
+            _attributes.PrefixSborki = dataGridView1[5, I].Value.ToString();
+            _attributes.NomerSborki = dataGridView1[6, I].Value.ToString();
+            _attributes.PolojenieVertikalno = Convert.ToInt32(dataGridView1[7, I].Value.ToString());
+            _attributes.PolojeniePovorot = Convert.ToInt32(dataGridView1[8, I].Value.ToString());
+            _attributes.PolojenieGorizontalno = Convert.ToInt32(dataGridView1[9, I].Value.ToString());
         }
         public DataGridViewRow CloneWithValues(DataGridViewRow row)
         {

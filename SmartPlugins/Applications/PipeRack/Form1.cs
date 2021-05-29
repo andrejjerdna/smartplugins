@@ -15,7 +15,9 @@ using SmartTeklaModel;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System.Text.Json;
 using System.IO;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace PipeRack
 {
@@ -56,6 +58,7 @@ namespace PipeRack
 
             var nameOfpipeRack = NameOfPipeRack.Text;
 
+           
             T3D.Point CS_point = new T3D.Point(double.Parse(X_start.Text), double.Parse(Y_start.Text), double.Parse(Z_start.Text));
             T3D.Point CS_point_end = new T3D.Point(double.Parse(X_start2.Text), double.Parse(Y_start2.Text), double.Parse(Z_start2.Text));
 
@@ -136,7 +139,7 @@ namespace PipeRack
                 tempX += x;
                 var point = new T3D.Point(tempX, 0, 0);
 
-                var frame = new Frame(M, point, yarus_count, count_column)
+                var frame = new Frame(M, point, yarus_count, count_column, nameOfpipeRack)
                 {
                     Razdv_1_2 = razdv_1_2,
                     Razdv_2_3 = razdv_2_3,
@@ -213,7 +216,7 @@ namespace PipeRack
 
             var jsonString = JsonConvert.SerializeObject(FraMES);
 
-            var path = M.GetInfo().ModelPath + "frames.json";
+            var path = M.GetInfo().ModelPath + "\\frames.json";
 
             var dirInfo = new DirectoryInfo(M.GetInfo().ModelPath);
             if (!dirInfo.Exists)
@@ -491,8 +494,9 @@ namespace PipeRack
 
         private void button16_Click(object sender, EventArgs e)
         {
-            var jsonString = File.ReadAllText(M.GetInfo().ModelPath + "frames.json");
-            var result = JsonConvert.DeserializeObject<IEnumerable<Frame>>(jsonString).ToList();
+            var jsonString = File.ReadAllText(M.GetInfo().ModelPath + "\\frames.json");
+            //var result = JsonConvert.DeserializeObject<List<Frame>>(jsonString);
+            var result = JsonSerializer.Deserialize<List<Frame>>(jsonString);
         }
     }
 }
