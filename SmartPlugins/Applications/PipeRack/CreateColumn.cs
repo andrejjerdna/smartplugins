@@ -10,12 +10,17 @@ namespace PipeRack
 {
     class CreateColumn : CreateBeam
     {
-        public CreateColumn(Attributes att, Point startPoint, Point endPoint)
+        
+        public CreateColumn()  //Attributes att, Point startPoint, Point endPoint
         {
-            _AttBeam = att;
-            _StartPoint = startPoint;
-            _EndtPoint = endPoint;
+            // _AttBeam = att;
+            // _StartPoint = startPoint;
+            // _EndtPoint = endPoint;
+            
+            
             _AttBeam.DirectionOfYarus = "Center";
+         
         }
+
     }
 }

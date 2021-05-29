@@ -38,13 +38,12 @@ namespace PipeRack
         public List<Beam> _TraversLeft = new List<Beam>();
         public List<double> Z { get; set; }
 
-        private Point C_Start_point1;
-        private Point C_Start_point2;
-        private Point C_Start_point3;
-        private Point C_End_point1;
-        private Point C_End_point2;
-        private Point C_End_point3;
-
+        private Point ColumnStartPoint1;
+        private Point ColumnStartPoint2;
+        private Point ColumnStartPoint3;
+        private Point ColumnEndPoint1;
+        private Point ColumnEndPoint2;
+        private Point ColumnEndPoint3;
 
 
         public Frame(Model M, Point basePoint, int yarusCount, int count_column, string nameOfpipeRack)
@@ -65,71 +64,52 @@ namespace PipeRack
             var currentTP = _M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             var workCS = new CoordinateSystem(_basePoint, new Vector(1, 0, 0), new Vector(0, 1, 0));
             workTP = new TransformationPlane(workCS);
-
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(workTP);
 
             Connections Con = new Connections();
-            if (_count_column == 2)
-            {
-                CreateRamaDveKolony();
-                Con.BeamsToColumn(_Columns[0], _TraversRight);
-                Con.BeamsToColumn(_Columns[1], _TraversRight);
-            }
+
+            Points();
+
+            var Columns = new CreateColumn();
+
+            _Columns.Add(Columns.Insert(AttributeColumn[0], ColumnStartPoint1, ColumnEndPoint1));
+            _Columns.Add(Columns.Insert(AttributeColumn[1], ColumnStartPoint2, ColumnEndPoint2));
+            CreateTraversy(_Columns[0], _Columns[1], Traversy, Attributes, "Right");
+
+            Con.BeamsToColumn(_Columns[0], _TraversRight);
+            Con.BeamsToColumn(_Columns[1], _TraversRight);
+
+
             if (_count_column == 3)
             {
-                CreateRamaTriKolony();
-                Con.BeamsToColumn(_Columns[0], _TraversRight);
-                Con.BeamsToColumn(_Columns[1], _TraversRight);
+                //var Column3 = new CreateColumn(AttributeColumn[2], ColumnStartPoint3, ColumnEndPoint3);
+                _Columns.Add(Columns.Insert(AttributeColumn[2], ColumnStartPoint3, ColumnEndPoint3));
+                CreateTraversy(_Columns[1], _Columns[2], Traversy2, Attributes, "Left");
+
                 Con.BeamsToColumn(_Columns[1], _TraversLeft);
                 Con.BeamsToColumn(_Columns[2], _TraversLeft);
             }
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
         }
 
-        private void CreateRamaDveKolony()
+        private void CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes, string AR)
         {
-            Points();
-
-            var C = new CreateColumn(AttributeColumn[0], C_Start_point1, C_End_point1);
-            _Columns.Add(C.Insert());
-            //_Columns.Add(BeamMain(AttributeColumn[0], C_Start_point1, C_End_point1 , ( 1).ToString(), "Center"));
-            _Columns.Add(BeamMain(AttributeColumn[1], C_Start_point2, C_End_point2, (2).ToString(), "Center"));
-
             for (int _count = 0; _count < _yarusCount; _count++)
             {
-                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                _TraversRight.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), "Right"));
-                _Travers.Add(_TraversRight[_count]);
+                Point B_1_start = new Point(Column1.StartPoint.X, Column1.StartPoint.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
+                Point B_1_end = new Point(Column2.StartPoint.X, Column2.StartPoint.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
+                if (AR == "Right")
+                {
+                    _TraversRight.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), AR));
+                    _Travers.Add(_TraversRight[_count]);
+                }
+                if (AR == "Left")
+                {
+                    _TraversLeft.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), AR));
+                    _Travers.Add(_TraversRight[_count]);
+                }
             }
         }
-
-        private void CreateRamaTriKolony()
-        {
-            Points();
-
-            _Columns.Add(BeamMain(AttributeColumn[0], C_Start_point1, C_End_point1, (1).ToString(), "Center"));
-            _Columns.Add(BeamMain(AttributeColumn[1], C_Start_point2, C_End_point2, (2).ToString(), "Center"));
-            _Columns.Add(BeamMain(AttributeColumn[2], C_Start_point3, C_End_point3, (3).ToString(), "Center"));
-
-            for (int _count = 0; _count < _yarusCount; _count++)
-            {
-                Point B_1_start = new Point(C_Start_point1.X, C_Start_point1.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                Point B_1_end = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                _TraversRight.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), "Right"));
-                _Travers.Add(_TraversRight[_count]);
-            }
-
-            for (int _count = 0; _count < _yarusCount; _count++)
-            {
-                Point B_2_start = new Point(C_Start_point2.X, C_Start_point2.Y, Traversy2[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                Point B_2_end = new Point(C_Start_point3.X, C_Start_point3.Y, Traversy2[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                _TraversLeft.Add(BeamMain(Attributes2[_count], B_2_start, B_2_end, (_count + 1).ToString(), "Left"));
-                _Travers.Add(_TraversLeft[_count]);
-            }
-        }
-
-
 
         public Beam BeamMain(Attributes attributes, Point startPoint, Point endPoint, string RNumberOfYarus, string DirectionOfYarus)
         {
@@ -191,24 +171,27 @@ namespace PipeRack
 
         private void Points()
         {
-            
             int H = _yarusCount;
 
-            Point C_Start_point1 = new Point(0, 0 - Razdv_1_2, _basePoint.X * UklonbI[0] * 0.001);                           //точка низа 1 колонны
-            Point C_End_point1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);     //точка верха  1 колонны 
+            ColumnStartPoint1 = new Point(0, 0 - Razdv_1_2, _basePoint.X * UklonbI[0] * 0.001);                           
+            ColumnEndPoint1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);     
 
-            Point C_Start_point2 = new Point(0, 0, _basePoint.X * UklonbI[0] * 0.001);                           //точка низа 2 колонны
-            Point C_End_point2 = new Point(0, 0, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);  //точка верха  2 колонны 
-
-            if (Traversy2[H - 1] > Traversy[H - 1])
+            if (_count_column == 2)
             {
-                C_End_point2 = new Point(0, 0, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);
+                ColumnStartPoint2 = new Point(0, 0 + Razdv_2_3, _basePoint.X * UklonbI[0] * 0.001);                                      
+                ColumnEndPoint2 = new Point(0, 0 + Razdv_2_3, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);         
             }
+            if (_count_column == 3)
+            {
+                 ColumnStartPoint2 = new Point(0, 0, _basePoint.X * UklonbI[0] * 0.001);                         
+                 ColumnEndPoint2 = new Point(0, 0, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001); 
 
-            Point C_Start_point3 = new Point(0, 0 + Razdv_2_3, _basePoint.X * UklonbI[0] * 0.001);                                       //точка низа 3 колонны
-            Point C_End_point3 = new Point(0, 0 + Razdv_2_3, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);            //точка верха  3 колонны 
+                if (Traversy2[H - 1] > Traversy[H - 1])
+                    ColumnEndPoint2 = new Point(0, 0, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);
 
+                ColumnStartPoint3 = new Point(0, 0 + Razdv_2_3, _basePoint.X * UklonbI[0] * 0.001);                                     
+                ColumnEndPoint3 = new Point(0, 0 + Razdv_2_3, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);           
+            }
         }
-
     }
 }

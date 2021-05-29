@@ -15,16 +15,22 @@ namespace PipeRack
         public Point _StartPoint { get; set; }
         public Point _EndtPoint { get; set; }
 
-        protected CreateBeam() { }
+        //protected CreateBeam() { }
 
-        public CreateBeam(Attributes att, Point startPoint, Point endPoint)
+        public CreateBeam() //Attributes att, Point startPoint, Point endPoint
+        {
+            _AttBeam = new Attributes();
+           // _AttBeam = att;
+           // _StartPoint = startPoint;
+           // _EndtPoint = endPoint;
+
+        }
+        public Beam Insert(Attributes att, Point startPoint, Point endPoint)
         {
             _AttBeam = att;
             _StartPoint = startPoint;
             _EndtPoint = endPoint;
-        }
-        public Beam Insert()
-        {
+
             Beam beam = new Beam(_StartPoint, _EndtPoint);
             beam.Profile.ProfileString = "I30K1_20_93";
             beam.Insert();
@@ -32,7 +38,7 @@ namespace PipeRack
             beam.Modify();
             return beam;
         }
-        public void SetAtt(Beam beam, Attributes _attributes)
+        private void SetAtt(Beam beam, Attributes _attributes)
         {
             if (_attributes != null)
             {
