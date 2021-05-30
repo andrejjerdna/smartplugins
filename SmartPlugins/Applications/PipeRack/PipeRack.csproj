@@ -65,9 +65,9 @@
     <Compile Include="AttributesFrameProlet.cs" />
     <Compile Include="BalkiYarysa.cs" />
     <Compile Include="Connections.cs" />
-    <Compile Include="CreateBeam.cs" />
-    <Compile Include="CreateColumn.cs" />
-    <Compile Include="CreateTraversaYarysa.cs" />
+    <Compile Include="SuperBeam.cs" />
+    <Compile Include="SuperColumn.cs" />
+    <Compile Include="SuperTraversaYarysa.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

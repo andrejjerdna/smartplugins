@@ -15,21 +15,20 @@ namespace PipeRack
         {
             _attributes = attributes;
             InitializeComponent();
-
             GetParams();
-
         }
         public Form_att(List<Attributes> attributesFrame, int Count)
         {
             _attributesFrame = attributesFrame;
             selectY = Count;
            InitializeComponent();
-            GetParams2();
-
+            GetParams();
         }
 
-        private void GetParams()
+        protected void GetParams()
         {
+            if (_attributesFrame[selectY] != null)
+                _attributes = _attributesFrame[selectY];
             if (_attributes == null)
                return;
 
@@ -44,56 +43,22 @@ namespace PipeRack
             PlaneCB.SelectedIndex = _attributes.PolojenieGorizontalno;
             SelectYarusCB.SelectedIndex = selectY;
         }
-        private void GetParams2()
-        {
-            _attributes = _attributesFrame[selectY];
-            if (_attributes == null)
-                return;
 
-            Namen.Text = _attributes.Name;
-            Profile.Text = _attributes.Profile;
-            Material.Text = _attributes.Material;
-            Class.Text = _attributes.Class;
-            PrefixSborki.Text = _attributes.PrefixSborki;
-            NomerSborki.Text = _attributes.NomerSborki.ToString();
-            DepthCB.SelectedIndex = _attributes.PolojenieVertikalno;
-            RotationCB.SelectedIndex = _attributes.PolojeniePovorot;
-            PlaneCB.SelectedIndex = _attributes.PolojenieGorizontalno;
-            SelectYarusCB.SelectedIndex = selectY;
-        }
-
-
-        private void LoadButton_Click(object sender, EventArgs e)
-        {
-            
-        }
         private void Button1_Click(object sender, EventArgs e)
         {
-            string namen = Namen.Text;
-            string profile = Profile.Text;
-            string material = Material.Text;
-            string class1 = Class.Text;
-            string prefixSborki = PrefixSborki.Text;
-            string nomerSborki = NomerSborki.Text;
-            int polojenieVertikalno = DepthCB.SelectedIndex;
-            int polojeniePovorot = RotationCB.SelectedIndex;
-            int polojenieGorizontalno = PlaneCB.SelectedIndex;
             selectY = SelectYarusCB.SelectedIndex;
             
-
-
             _attributes = new Attributes()
-
             {
-                Name = namen,
-                Profile = profile,
-                Material = material,
-                Class = class1,
-                PrefixSborki = prefixSborki,
-                NomerSborki = nomerSborki,
-                PolojenieVertikalno = polojenieVertikalno,
-                PolojeniePovorot = polojeniePovorot,
-                PolojenieGorizontalno = polojenieGorizontalno,
+                Name = Namen.Text,
+                Profile = Profile.Text,
+                Material = Material.Text,
+                Class = Class.Text,
+                PrefixSborki = PrefixSborki.Text,
+                NomerSborki = NomerSborki.Text,
+                PolojenieVertikalno = DepthCB.SelectedIndex,
+                PolojeniePovorot = RotationCB.SelectedIndex,
+                PolojenieGorizontalno = PlaneCB.SelectedIndex,
             };
 
             Form_att.ActiveForm.Close();
@@ -124,30 +89,5 @@ namespace PipeRack
             Material.Text = materialCatalog1.SelectedMaterial;
         }
 
-        private void ProfileCatalog1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ImageComboBox1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ImageListComboBox1_Load(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void SelectYarusCB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form_att_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

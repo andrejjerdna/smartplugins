@@ -23,5 +23,6 @@ namespace PipeRack
         public int RNumberOfYarus { get; set; }
         public string DirectionOfYarus { get; set; }
         public string RNazvanie { get; set; }
+        public string RType { get; set; }
     }
 }

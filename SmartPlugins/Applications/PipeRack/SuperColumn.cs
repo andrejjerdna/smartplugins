@@ -8,14 +8,12 @@ using Tekla.Structures.Model;
 
 namespace PipeRack
 {
-    class CreateTraversaYarysa : CreateBeam
+    class SuperColumn : SuperBeam
     {
-        public CreateTraversaYarysa(Attributes att, Point startPoint, Point endPoint)
+        public SuperColumn(Attributes att, Point startPoint, Point endPoint): base (att, startPoint, endPoint)
         {
-            _AttBeam = att;
-            _StartPoint = startPoint;
-            _EndtPoint = endPoint;
             _AttBeam.DirectionOfYarus = "Center";
+            _AttBeam.RType = "Колонны";
         }
     }
 }

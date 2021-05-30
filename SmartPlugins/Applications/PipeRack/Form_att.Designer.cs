@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        protected void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_att));
@@ -247,7 +247,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 31);
-            this.button1.TabIndex = 136;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
@@ -267,7 +267,6 @@
             this.profileCatalog1.TabIndex = 139;
             this.profileCatalog1.SelectClicked += new System.EventHandler(this.profileCatalog1_SelectClicked);
             this.profileCatalog1.SelectionDone += new System.EventHandler(this.profileCatalog1_SelectionDone);
-            this.profileCatalog1.Load += new System.EventHandler(this.ProfileCatalog1_Load);
             // 
             // materialCatalog1
             // 
@@ -306,7 +305,6 @@
             this.DepthCB.Size = new System.Drawing.Size(70, 56);
             this.DepthCB.TabIndex = 142;
             this.DepthCB.ToolTipText = "";
-            this.DepthCB.Load += new System.EventHandler(this.ImageListComboBox1_Load);
             // 
             // Depth
             // 
@@ -405,7 +403,6 @@
             this.SelectYarusCB.Size = new System.Drawing.Size(196, 24);
             this.SelectYarusCB.TabIndex = 132;
             this.SelectYarusCB.Text = "Ярус 1";
-            this.SelectYarusCB.SelectedIndexChanged += new System.EventHandler(this.SelectYarusCB_SelectedIndexChanged);
             // 
             // Form_att
             // 
@@ -442,7 +439,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form_att";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Form_att_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,7 +469,7 @@
         private Tekla.Structures.Dialog.UIControls.ImageListComboBox PlaneCB;
         private System.Windows.Forms.ImageList Plane;
         private Tekla.Structures.Dialog.UIControls.ImageListComboBox RotationCB;
-        private System.Windows.Forms.Label selectYarus;
-        private System.Windows.Forms.ComboBox SelectYarusCB;
+        protected System.Windows.Forms.Label selectYarus;
+        protected System.Windows.Forms.ComboBox SelectYarusCB;
     }
 }

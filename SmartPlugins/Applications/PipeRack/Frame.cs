@@ -21,8 +21,8 @@ namespace PipeRack
         public List<string> Profiles { get; set; }
         public List<double> UklonbI { get; set; }
 
-        public double Razdv_1_2 { get; set; }
-        public double Razdv_2_3 { get; set; }
+        public double Razdv12 { get; set; }
+        public double Razdv23 { get; set; }
 
         public Model _M;
         private int _yarusCount;
@@ -44,7 +44,6 @@ namespace PipeRack
         private Point ColumnEndPoint1;
         private Point ColumnEndPoint2;
         private Point ColumnEndPoint3;
-
 
         public Frame(Model M, Point basePoint, int yarusCount, int count_column, string nameOfpipeRack)
         {
@@ -70,11 +69,12 @@ namespace PipeRack
 
             Points();
 
-            var Columns = new CreateColumn();
+            var Column1 = new SuperColumn(AttributeColumn[0], ColumnStartPoint1, ColumnEndPoint1);
+            _Columns.Add(Column1.Insert());
+            var Column2 = new SuperColumn(AttributeColumn[1], ColumnStartPoint2, ColumnEndPoint2);
+            _Columns.Add(Column2.Insert());
 
-            _Columns.Add(Columns.Insert(AttributeColumn[0], ColumnStartPoint1, ColumnEndPoint1));
-            _Columns.Add(Columns.Insert(AttributeColumn[1], ColumnStartPoint2, ColumnEndPoint2));
-            CreateTraversy(_Columns[0], _Columns[1], Traversy, Attributes, "Right");
+            _TraversRight = ( CreateTraversy(_Columns[0], _Columns[1], Traversy, Attributes));
 
             Con.BeamsToColumn(_Columns[0], _TraversRight);
             Con.BeamsToColumn(_Columns[1], _TraversRight);
@@ -82,9 +82,9 @@ namespace PipeRack
 
             if (_count_column == 3)
             {
-                //var Column3 = new CreateColumn(AttributeColumn[2], ColumnStartPoint3, ColumnEndPoint3);
-                _Columns.Add(Columns.Insert(AttributeColumn[2], ColumnStartPoint3, ColumnEndPoint3));
-                CreateTraversy(_Columns[1], _Columns[2], Traversy2, Attributes, "Left");
+                var Column3 = new SuperColumn(AttributeColumn[2], ColumnStartPoint3, ColumnEndPoint3);
+                _Columns.Add(Column3.Insert());
+                _TraversLeft =  CreateTraversy(_Columns[1], _Columns[2], Traversy2, Attributes);
 
                 Con.BeamsToColumn(_Columns[1], _TraversLeft);
                 Con.BeamsToColumn(_Columns[2], _TraversLeft);
@@ -92,34 +92,26 @@ namespace PipeRack
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
         }
 
-        private void CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes, string AR)
+        private List<Beam> CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes)
         {
+            List<Beam> beams = new List<Beam>();
             for (int _count = 0; _count < _yarusCount; _count++)
             {
                 Point B_1_start = new Point(Column1.StartPoint.X, Column1.StartPoint.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
                 Point B_1_end = new Point(Column2.StartPoint.X, Column2.StartPoint.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                if (AR == "Right")
-                {
-                    _TraversRight.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), AR));
-                    _Travers.Add(_TraversRight[_count]);
-                }
-                if (AR == "Left")
-                {
-                    _TraversLeft.Add(BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString(), AR));
-                    _Travers.Add(_TraversRight[_count]);
-                }
+                var C = BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString());
+                beams.Add(C);
             }
+            return beams;
         }
 
-        public Beam BeamMain(Attributes attributes, Point startPoint, Point endPoint, string RNumberOfYarus, string DirectionOfYarus)
+        public Beam BeamMain(Attributes attributes, Point startPoint, Point endPoint, string RNumberOfYarus)
         {
             Beam newBeam = new Beam(startPoint, endPoint);
             newBeam.Profile.ProfileString = "I30K1_20_93";
             newBeam.Insert();
             SetAtt(newBeam, attributes);
-
             newBeam.SetUserProperty("RNumberOfYarus", RNumberOfYarus);
-            newBeam.SetUserProperty("DirectionOfYarus", DirectionOfYarus);
             newBeam.Modify();
             return newBeam;
         }
@@ -173,13 +165,13 @@ namespace PipeRack
         {
             int H = _yarusCount;
 
-            ColumnStartPoint1 = new Point(0, 0 - Razdv_1_2, _basePoint.X * UklonbI[0] * 0.001);                           
-            ColumnEndPoint1 = new Point(0, 0 - Razdv_1_2, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);     
+            ColumnStartPoint1 = new Point(0, 0 - Razdv12, _basePoint.X * UklonbI[0] * 0.001);                           
+            ColumnEndPoint1 = new Point(0, 0 - Razdv12, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);     
 
             if (_count_column == 2)
             {
-                ColumnStartPoint2 = new Point(0, 0 + Razdv_2_3, _basePoint.X * UklonbI[0] * 0.001);                                      
-                ColumnEndPoint2 = new Point(0, 0 + Razdv_2_3, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);         
+                ColumnStartPoint2 = new Point(0, 0 + Razdv23, _basePoint.X * UklonbI[0] * 0.001);                                      
+                ColumnEndPoint2 = new Point(0, 0 + Razdv23, Traversy[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);         
             }
             if (_count_column == 3)
             {
@@ -189,8 +181,8 @@ namespace PipeRack
                 if (Traversy2[H - 1] > Traversy[H - 1])
                     ColumnEndPoint2 = new Point(0, 0, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);
 
-                ColumnStartPoint3 = new Point(0, 0 + Razdv_2_3, _basePoint.X * UklonbI[0] * 0.001);                                     
-                ColumnEndPoint3 = new Point(0, 0 + Razdv_2_3, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);           
+                ColumnStartPoint3 = new Point(0, 0 + Razdv23, _basePoint.X * UklonbI[0] * 0.001);                                     
+                ColumnEndPoint3 = new Point(0, 0 + Razdv23, Traversy2[H - 1] + 100 + _basePoint.X * UklonbI[H - 1] * 0.001);           
             }
         }
     }

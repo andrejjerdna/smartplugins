@@ -9,28 +9,23 @@ using System.Windows.Forms;
 
 namespace PipeRack
 {
-    abstract class CreateBeam 
+    abstract class SuperBeam 
     {
         public Attributes _AttBeam { get; set; }
         public Point _StartPoint { get; set; }
         public Point _EndtPoint { get; set; }
 
-        //protected CreateBeam() { }
+        protected SuperBeam() { }
 
-        public CreateBeam() //Attributes att, Point startPoint, Point endPoint
+        public SuperBeam(Attributes att, Point startPoint, Point endPoint) 
         {
-            _AttBeam = new Attributes();
-           // _AttBeam = att;
-           // _StartPoint = startPoint;
-           // _EndtPoint = endPoint;
-
+           _AttBeam = att;
+           _StartPoint = startPoint;
+          _EndtPoint = endPoint;
+            
         }
-        public Beam Insert(Attributes att, Point startPoint, Point endPoint)
+        public Beam Insert()
         {
-            _AttBeam = att;
-            _StartPoint = startPoint;
-            _EndtPoint = endPoint;
-
             Beam beam = new Beam(_StartPoint, _EndtPoint);
             beam.Profile.ProfileString = "I30K1_20_93";
             beam.Insert();
@@ -74,6 +69,7 @@ namespace PipeRack
                 beam.SetUserProperty("RNumberOfYarus", _attributes.RNumberOfYarus);
                 beam.SetUserProperty("DirectionOfYarus", _attributes.DirectionOfYarus);
                 beam.SetUserProperty("RNazvanie", _attributes.RNazvanie);
+                beam.SetUserProperty("RType", _attributes.RType);
             }
             beam.Modify();
         }
