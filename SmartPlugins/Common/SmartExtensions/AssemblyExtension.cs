@@ -34,17 +34,9 @@ namespace SmartExtensions
         /// <param name="assembly"></param>
         /// <param name="getMainPart">Надо ли получать главную деталь сборки.</param>
         /// <returns></returns>
-        public static IEnumerable<Part> GetAllRebars(this Assembly assembly, bool getMainPart)
+        public static IEnumerable<BaseRebarGroup> GetAllRebars(this Assembly assembly)
         {
-            var result = assembly.GetAllParts(true);
-
-            if (getMainPart)
-                result.Add(assembly.GetMainPart() as Part);
-
-            var secondariesParts = assembly.GetSecondaries().OfType<Part>();
-            result.AddRange(secondariesParts);
-
-            return result.Where(part => part != null);
+            return assembly.GetAllParts(true).SelectMany(part => part.GetAllRebars());
         }
     }
 }
