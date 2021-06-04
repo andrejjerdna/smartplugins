@@ -8,10 +8,11 @@ using Tekla.Structures.Model;
 
 namespace PipeRack
 {
-    class SuperColumn : SuperBeam
+    public class SuperColumn : SuperBeam
     {
         public SuperColumn(Attributes att, Point startPoint, Point endPoint): base (att, startPoint, endPoint)
         {
+            _AttBeam = att;
             _AttBeam.DirectionOfYarus = "Center";
             _AttBeam.RType = "Колонны";
         }

@@ -32,7 +32,8 @@ namespace PipeRack
 
         public Point _basePoint;
 
-        public List<Beam> _Columns = new List<Beam>();
+        public List<SuperColumn> _Columns = new List<SuperColumn>();
+        
         public List<Beam> _Travers = new List<Beam>();
         public List<Beam> _TraversRight = new List<Beam>();
         public List<Beam> _TraversLeft = new List<Beam>();
@@ -60,6 +61,7 @@ namespace PipeRack
 
         public void Insert()
         {
+            
             var currentTP = _M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             var workCS = new CoordinateSystem(_basePoint, new Vector(1, 0, 0), new Vector(0, 1, 0));
             workTP = new TransformationPlane(workCS);
@@ -70,24 +72,28 @@ namespace PipeRack
             Points();
 
             var Column1 = new SuperColumn(AttributeColumn[0], ColumnStartPoint1, ColumnEndPoint1);
-            _Columns.Add(Column1.Insert());
+            if (!Column1.Insert())
+                return;    //если не создалать что-то надо сделать - продумать
+            _Columns.Add(Column1);
+           
             var Column2 = new SuperColumn(AttributeColumn[1], ColumnStartPoint2, ColumnEndPoint2);
-            _Columns.Add(Column2.Insert());
+            Column2.Insert();
+            _Columns.Add(Column2);
 
-            _TraversRight = ( CreateTraversy(_Columns[0], _Columns[1], Traversy, Attributes));
+            _TraversRight = ( CreateTraversy(Column1._beam, Column2._beam, Traversy, Attributes));
 
-            Con.BeamsToColumn(_Columns[0], _TraversRight);
-            Con.BeamsToColumn(_Columns[1], _TraversRight);
+            Con.BeamsToColumn(Column1._beam, _TraversRight);
+            Con.BeamsToColumn(Column2._beam, _TraversRight);
 
 
             if (_count_column == 3)
             {
                 var Column3 = new SuperColumn(AttributeColumn[2], ColumnStartPoint3, ColumnEndPoint3);
-                _Columns.Add(Column3.Insert());
-                _TraversLeft =  CreateTraversy(_Columns[1], _Columns[2], Traversy2, Attributes);
+                _Columns.Add(Column3);
+                _TraversLeft =  CreateTraversy(Column1._beam, Column2._beam, Traversy2, Attributes);
 
-                Con.BeamsToColumn(_Columns[1], _TraversLeft);
-                Con.BeamsToColumn(_Columns[2], _TraversLeft);
+                Con.BeamsToColumn(Column1._beam, _TraversLeft);
+                Con.BeamsToColumn(Column2._beam, _TraversLeft);
             }
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
         }

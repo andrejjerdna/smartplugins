@@ -13,7 +13,7 @@ namespace PipeRack
         Frame _FraMES;
         List<Frame> _FraMESS;
         public Beam Console { get; set; }
-        Beam startColumn;
+        SuperColumn startColumn;
         List<Beam> Consoless;
         public double consoleH { get; set; }
         public double yklonMP { get; set; }
@@ -46,7 +46,7 @@ namespace PipeRack
                 napravlenie = -1;
             }
             
-            var startPoint = new Point(startColumn.StartPoint);
+            var startPoint = new Point(startColumn._StartPoint);
             startPoint.Z = consoleH+ yklonMP *0.001* _FraMES._basePoint.X;
 
             var endPoint = new Point(startPoint);
@@ -54,7 +54,7 @@ namespace PipeRack
 
             Console = frame.BeamMain(startPoint, endPoint);
 
-            Podcos(startColumn, Console);
+            Podcos(startColumn._beam, Console);
         }
 
         public void InsertBalkiPloshadki()

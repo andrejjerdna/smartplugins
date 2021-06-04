@@ -9,11 +9,12 @@ using System.Windows.Forms;
 
 namespace PipeRack
 {
-    abstract class SuperBeam 
+    public abstract class SuperBeam 
     {
         public Attributes _AttBeam { get; set; }
         public Point _StartPoint { get; set; }
         public Point _EndtPoint { get; set; }
+        public Beam _beam { get; set; }
 
         protected SuperBeam() { }
 
@@ -22,16 +23,31 @@ namespace PipeRack
            _AttBeam = att;
            _StartPoint = startPoint;
           _EndtPoint = endPoint;
-            
         }
-        public Beam Insert()
+
+        public Beam GetBeam()
+        {
+            return _beam;
+        }
+
+        public bool Insert()
         {
             Beam beam = new Beam(_StartPoint, _EndtPoint);
-            beam.Profile.ProfileString = "I30K1_20_93";
-            beam.Insert();
-            SetAtt(beam, _AttBeam);
-            beam.Modify();
-            return beam;
+
+           beam.Profile.ProfileString = "I30K1_20_93";
+
+            if (beam.Insert())
+            {
+                SetAtt(beam, _AttBeam);
+                beam.Modify();
+                _beam = beam;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
         private void SetAtt(Beam beam, Attributes _attributes)
         {

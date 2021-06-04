@@ -91,8 +91,8 @@ namespace PipeRack
                     }
                 }
 
-                Con.BeamsToColumn(_FraMES[0]._Columns[0], _balki);
-                Con.BeamsToColumn(_FraMES[0]._Columns[1], _balkiLeft);
+                Con.BeamsToColumn(_FraMES[0]._Columns[0]._beam, _balki);
+                Con.BeamsToColumn(_FraMES[0]._Columns[1]._beam, _balkiLeft);
             }
                 
 
@@ -144,8 +144,8 @@ namespace PipeRack
                         }
                     }
                 }
-                Con.BeamsToColumn(_FraMES[0]._Columns[0], _balki);
-                Con.BeamsToColumn(_FraMES[0]._Columns[1], _balkiLeft);
+                Con.BeamsToColumn(_FraMES[0]._Columns[0]._beam, _balki);
+                Con.BeamsToColumn(_FraMES[0]._Columns[1]._beam, _balkiLeft);
 
             }
 

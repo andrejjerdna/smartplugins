@@ -14,7 +14,7 @@ namespace PipeRack
         public List<Attributes> AttProletTraversaLeft { get; set; }
         public List<Attributes> AttProletStoyki { get; set; }
 
-        public void Listovod()
+        public AttributesFrameProlet()
         {
             Attributes attProletBeamRight1 = null ;
              Attributes attProletBeamRight2 = null;

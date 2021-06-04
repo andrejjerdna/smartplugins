@@ -11,7 +11,7 @@ namespace PipeRack
         public List<Attributes> AttributesColumn { get; set; }
         public List<Attributes> AttributesYarusRight { get; set; }
         public List<Attributes> AttributesYarusLeft { get; set; }
-        public void Listovod()
+        public AttributesFrame()
         {
             Attributes attColumn1 = null;
             Attributes attColumn2 = null;
