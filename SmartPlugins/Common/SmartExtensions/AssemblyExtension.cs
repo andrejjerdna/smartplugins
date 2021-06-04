@@ -27,16 +27,15 @@ namespace SmartExtensions
 
             return result.Where(part => part != null);
         }
-
         /// <summary>
         /// Получаем всю арматуру сборки сборки.
         /// </summary>
         /// <param name="assembly"></param>
         /// <param name="getMainPart">Надо ли получать главную деталь сборки.</param>
         /// <returns></returns>
-        public static IEnumerable<BaseRebarGroup> GetAllRebars(this Assembly assembly)
+        public static IEnumerable<Reinforcement> GetAllReinforcements(this Assembly assembly)
         {
-            return assembly.GetAllParts(true).SelectMany(part => part.GetAllRebars());
+            return assembly.GetAllParts(true).SelectMany(part => part.GetAllReinforcements());
         }
     }
 }

@@ -40,9 +40,7 @@ namespace SmartExtensions
             while (enumerator.MoveNext())
             {
                 if (enumerator.Current is T item)
-                {
                     yield return item;
-                }
             }
         }
 

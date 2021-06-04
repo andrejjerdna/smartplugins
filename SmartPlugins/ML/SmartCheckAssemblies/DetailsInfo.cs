@@ -1,5 +1,4 @@
 ﻿using SmartExtensions;
-using SmartGeometry;
 using System;
 using System.Collections.Generic;
 using System.Linq;

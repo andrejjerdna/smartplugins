@@ -18,11 +18,17 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model.Operations;
 using SmartExtensions;
 using Part = Tekla.Structures.Model.Part;
+using Parallel = System.Threading.Tasks.Parallel;
+using SmartTeklaModel.Rebar;
+using View = Tekla.Structures.Drawing.View;
+using Tekla.Structures;
 
 namespace Test
 {
     public partial class Form1 : Form
     {
+        private Dictionary<string, List<string>> objctsInDrws = new Dictionary<string, List<string>>();
+
         public Form1()
         {
             InitializeComponent();
@@ -31,53 +37,51 @@ namespace Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var model = new Model();
+            var views = new DrawingHandler().GetDrawings()
+                .ToIEnumerable<GADrawing>()
+                .Where(d => !d.Name.ToLower().Contains("титул"))
+                .SelectMany(d => d.GetSheet().GetViews().ToIEnumerable<View>()
+                .Where(v => v.ViewType != View.ViewTypes.SectionView || v.ViewType != View.ViewTypes.DetailView));
 
-            if (!model.CommitChanges())
-                return;
+            var TypeFilter = new Type[] { typeof(Tekla.Structures.Drawing.Part) };
 
-            var pick = new Picker();
-
-            var point = pick.PickPoint();
-
-            var face = pick.PickFace();
-
-            if (point == null || face == null)
-                return;
-
-            var items = face.GetEnumerator();
-
-            while (items.MoveNext())
+            foreach (var view in views)
             {
-                var ii = items.Current as InputItem;
+                var parts = view.GetAllObjects(TypeFilter).ToIEnumerable<Tekla.Structures.Drawing.Part>();
 
-                if (ii.GetInputType() == InputItem.InputTypeEnum.INPUT_POLYGON)
+                foreach (var part in parts)
                 {
-                    var pointsArray = ii.GetData() as ArrayList;
-
-                    var points = pointsArray.OfType<t3d.Point>().ToList();
-
-                    if (points.Count < 3)
-                        break;
-
-                    var workCS = new CoordinateSystem
+                    if (!part.Hideable.IsHidden)
                     {
-                        Origin = points.First(),
-                        AxisX = new Vector(points[1] - points[0]),
-                        AxisY = new Vector(points.Last() - points[0])
-                    };
+                        AssignValues(part, 1, view.Name);
+                    }
+                }
+                }
+        }
 
-                    var geomPlane = new GeometricPlane(workCS);
+        private void AssignValues(Tekla.Structures.Drawing.Part ass, double nmbr, string viewName)
+        {
+            //Получил ID и привел к балке по ID
+            System.Int32 atrs = ass.ModelIdentifier.ID;
+            Beam part = new Beam();
+            part.Identifier.ID = atrs;
+            string assPos = string.Empty;
+            //Таким обр после приведения я могу запросить GUID 
+            part.GetReportProperty("ASSEMBLY.GUID", ref assPos);
 
-                    var dist = Distance.PointToPlane(point, geomPlane);
-
-                    textBox1.Text = dist.ToString();
-
-                    var gd = new GraphicsDrawer();
-
-                    var userInputDist = Math.Round(dist, 3);
-
-                    gd.DrawText(point, userInputDist.ToString(), new Tekla.Structures.Model.UI.Color());
+            string value = $"л./s. {nmbr}: {viewName}";
+            if (!objctsInDrws.ContainsKey(assPos))
+            {
+                objctsInDrws.Add(assPos, new List<string> { value });
+            }
+            else
+            {
+                //Конкретная сборка может 
+                //располоагаться и на другом виде и на другом чертеже, поэтому 
+                //добавляем для конкретной сборки список имен видов исключая повтор
+                if (!objctsInDrws[assPos].Contains(value))
+                {
+                    objctsInDrws[assPos].Add(value);
                 }
             }
         }
@@ -126,63 +130,22 @@ namespace Test
         {
             var model = new Model();
 
-            var picker = new Picker();
+            if (!model.CommitChanges())
+                return;
 
-            var r1 = picker.PickObject(Picker.PickObjectEnum.PICK_ONE_PART) as Part;
-            var r2 = picker.PickObject(Picker.PickObjectEnum.PICK_ONE_REINFORCEMENT) as RebarSet;
+            var assemblies = model.GetModelObjectSelector()
+                .GetAllObjectsWithType(Tekla.Structures.Model.ModelObject.ModelObjectEnum.ASSEMBLY)
+                .ToConcurrentBag<Assembly>();
 
-            r1.GetCenterLine().
-
-            r1.GetReportProperty
-
-            var z = r1.Guidelines[0].Spacing.Zones;
-
-            r2.Guidelines[0].Spacing.Zones = z;
-            r2.Modify();
+            Parallel.ForEach(assemblies, (assembly) =>
+            {
+                var num = new RebarNumberator(assembly, "REBAR_SEQ_NO");
+                num.RefreshNumbers();
+            });
 
             model.CommitChanges();
-            //var sel = model.GetModelObjectSelector().GetAllObjectsWithType(Tekla.Structures.Model.ModelObject.ModelObjectEnum.REBAR_SET).ToIEnumerable<RebarSet>();
-
-            //ArrayList listObj = new ArrayList();
-
-            //foreach (var rebarSet in sel)
-            //{
-            //    var faces = rebarSet.LegFaces;
-
-            //    foreach (var face in faces)
-            //    {
-            //        listObj.Add(face);
-            //    }
-            //}
-
-            //Tekla.Structures.Model.UI.ModelObjectSelector ms = new Tekla.Structures.Model.UI.ModelObjectSelector();
-            //ms.Select(listObj);
-            //Tekla.Structures.ModelInternal.Operation.dotStartAction("ZoomToSelected", "");
         }
-
-        //var drawingHandler = new DrawingHandler();
-        //if (!drawingHandler.GetConnectionStatus()) return;
-
-            var picker = drawingHandler.GetPicker();
-
-            var pick = picker.PickObject("");
-
-            var pointlist = pick.Item1;
-            var viewbase = pick.Item2;
-
-            TSD.View v = viewbase as TSD.View;
-
-            var objs = viewbase.GetAllObjects().ToIEnumerable<Plugin>().ToList();
-
-            foreach(var pl in objs)
-            {
-                //Tekla.Structures.DrawingInternal.Operation.ex
-            }
-
-                //v.Modify();
-                // viewbase.Modify();
-
-                drawingHandler.GetConnectionStatus();
+        
         }
     }
-}
+

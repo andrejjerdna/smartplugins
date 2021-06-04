@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoltsExtensions.cs" />
+    <Compile Include="ModelObjectExtension.cs" />
+    <Compile Include="RebarExtension.cs" />
     <Compile Include="WeldsExtensions.cs" />
     <Compile Include="AssemblyExtension.cs" />
     <Compile Include="CollectionExtension.cs" />

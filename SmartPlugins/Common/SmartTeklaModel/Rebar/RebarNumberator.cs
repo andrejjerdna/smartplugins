@@ -26,27 +26,34 @@ namespace SmartTeklaModel.Rebar
 
         public void RefreshNumbers()
         {
-            var allRebars = _assembly.GetAllRebars()
-                .OrderByDescending(r => r.Size)
-                .OrderByDescending(r => r.Class);
+            //var allRebars = _assembly.GetAllRebars()
+            //    .GroupBy(r => new { Lenght = r.SmartGetPropertyDouble("LENGTH"), Weight = r.SmartGetPropertyDouble("WEIGHT"), r.Size, r.Grade })
+            //    .OrderByDescending(g => g.Key.Grade)
+            //    .OrderByDescending(g => g.Key.Size)
+            //    .OrderByDescending(g => g.Key.Lenght)
+            //    .OrderByDescending(g => g.Key.Weight);
+
+            var allRebars = _assembly.GetAllReinforcements()
+                .GroupBy(r => new { Pos = r.SmartGetPropertyString("REBAR_POS"), Lenght = r.SmartGetPropertyDouble("LENGTH") })
+                .OrderByDescending(g => g.Key.Lenght).ToList();
+
+            var count = 1;
+
+            foreach (var rebarGroup in allRebars)
+            {
+                foreach (var rebar in rebarGroup)
+                {
+                    WriteUDA(rebar, count);
+                }
+
+                count++;
+            }
         }
 
-        private void WriteUDA(IEnumerable<BaseRebarGroup> rebarGroups)
+        private void WriteUDA(ModelObject rebar, int count)
         {
-            var count = 0;
-
-            var localPrefix = Prefix + _separator;
-
-            if (string.IsNullOrEmpty(Prefix))
-                localPrefix = string.Empty;
-
-            foreach (var rebar in rebarGroups)
-            {
-                count++;
-
-                var number = string.Format("{0}+{1}", localPrefix, count);
-                rebar.SetUserProperty(_attributeForNumber, number);
-            }
+            rebar.SetUserProperty(_attributeForNumber, count);
+            rebar.Modify();
         }
     }
 }
