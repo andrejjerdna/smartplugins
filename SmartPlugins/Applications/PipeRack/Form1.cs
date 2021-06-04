@@ -174,7 +174,6 @@ namespace PipeRack
             var jsonString = File.ReadAllText(M.GetInfo().ModelPath + "\\frames.json");
            //var result = JsonConvert.DeserializeObject<List<Frame>>(jsonString);
             var result = JsonSerializer.Deserialize<List<Frame>>(jsonString);
-            
 
         }
         
@@ -184,9 +183,30 @@ namespace PipeRack
             ComboBox comboBox = (ComboBox)sender;
 
             if (comboBox.SelectedIndex == 0)
+            {
                 pictureBox2.Image = imageList1.Images[0];
+                L_H7.Hide();
+                L_H6.Hide();
+                L_H5.Hide();
+                L_H4.Hide();
+                L_H3.Hide();
+                L_H2.Hide();
+                L_H1.Hide();
+            }
+                
             else
+            {
                 pictureBox2.Image = imageList1.Images[1];
+                L_H7.Show();
+                L_H6.Show();
+                L_H5.Show();
+                L_H4.Show();
+                L_H3.Show();
+                L_H2.Show();
+                L_H1.Show();
+            }
+               
+
         }
 
         private void button4_Click(object sender, EventArgs e)

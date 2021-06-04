@@ -100,19 +100,10 @@ namespace PipeRack
             //-------------------построение продольных балок
             for (int count = 0; count < FraMES.Count() - 1; count++)  //выбрал пару рам между которыми буду строить продольные балки
             {
-                var FF = FraMES.Skip(count);
-                List<Frame> FRAMESS = new List<Frame>();
-                foreach (Frame F in FF)
-                    FRAMESS.Add(F);
+                var Frame1 = FraMES[count];
+                var Frame2 = FraMES[count + 1];
 
-                var balkiYarusa = new BalkiYarysa(FRAMESS)
-                {
-                    AttributesProdolnieRight = AttFrameProlet.AttProletBeamRight,
-                    AttributesProdolnieLeft = AttFrameProlet.AttProletBeamLeft,
-                    AttributesTraversyvproveteRight = AttFrameProlet.AttProletTraversaRight,
-                    AttributesTraversyvproveteLeft = AttFrameProlet.AttProletTraversaLeft,
-                    AttributesStoyki = AttFrameProlet.AttProletStoyki,
-                };
+                var balkiYarusa = new BalkiYarysa(Frame1, Frame2, AttFrameProlet);
                 balkiYarusa.Insert();
                 BalkiYarysA.Add(balkiYarusa);
             }

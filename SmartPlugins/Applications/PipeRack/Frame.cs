@@ -30,7 +30,7 @@ namespace PipeRack
         private string _nameOfPipeRack;
         public TransformationPlane workTP { get; set; }
 
-        public Point _basePoint;
+        public Point _basePoint { get; set; }
 
         public List<SuperColumn> _Columns = new List<SuperColumn>();
         
@@ -61,7 +61,6 @@ namespace PipeRack
 
         public void Insert()
         {
-            
             var currentTP = _M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             var workCS = new CoordinateSystem(_basePoint, new Vector(1, 0, 0), new Vector(0, 1, 0));
             workTP = new TransformationPlane(workCS);
@@ -89,11 +88,13 @@ namespace PipeRack
             if (_count_column == 3)
             {
                 var Column3 = new SuperColumn(AttributeColumn[2], ColumnStartPoint3, ColumnEndPoint3);
+                Column3.Insert();
                 _Columns.Add(Column3);
-                _TraversLeft =  CreateTraversy(Column1._beam, Column2._beam, Traversy2, Attributes);
+                
+                _TraversLeft =  CreateTraversy(Column2._beam, Column3._beam, Traversy2, Attributes);
 
-                Con.BeamsToColumn(Column1._beam, _TraversLeft);
                 Con.BeamsToColumn(Column2._beam, _TraversLeft);
+                Con.BeamsToColumn(Column3._beam, _TraversLeft);
             }
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
         }
