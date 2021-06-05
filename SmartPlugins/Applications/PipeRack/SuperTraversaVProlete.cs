@@ -10,9 +10,9 @@ namespace PipeRack
 {
     public class SuperTraversaVProlete : SuperBeam
     {
-        public SuperTraversaVProlete(Attributes att, Point startPoint, Point endPoint) : base(att, startPoint, endPoint)
+        public SuperTraversaVProlete(Attributes attBeam, Point startPoint, Point endPoint) : base(attBeam, startPoint, endPoint)
         {
-            _AttBeam.RType = "Траверсы в пролете";
+            AttBeam.RType = "Траверсы в пролете";
         }
     }
 }

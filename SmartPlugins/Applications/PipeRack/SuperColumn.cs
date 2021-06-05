@@ -10,11 +10,16 @@ namespace PipeRack
 {
     public class SuperColumn : SuperBeam
     {
-        public SuperColumn(Attributes att, Point startPoint, Point endPoint): base (att, startPoint, endPoint)
+        
+        public SuperColumn(Attributes attBeam, Point startPoint, Point endPoint) : base (attBeam, startPoint, endPoint)
         {
-            _AttBeam = att;
-            _AttBeam.DirectionOfYarus = "Center";
-            _AttBeam.RType = "Колонны";
+           
+            if(AttBeam != null)
+            {
+                AttBeam.DirectionOfYarus = "Center";
+                AttBeam.RType = "Колонны";
+            }
+
         }
     }
 }

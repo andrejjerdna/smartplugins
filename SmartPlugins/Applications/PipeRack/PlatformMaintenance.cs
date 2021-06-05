@@ -46,7 +46,7 @@ namespace PipeRack
                 napravlenie = -1;
             }
             
-            var startPoint = new Point(startColumn._StartPoint);
+            var startPoint = new Point(startColumn.StartPoint);
             startPoint.Z = consoleH+ yklonMP *0.001* _FraMES._basePoint.X;
 
             var endPoint = new Point(startPoint);

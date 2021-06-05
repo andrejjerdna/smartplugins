@@ -25,28 +25,27 @@ namespace PipeRack
         public double Razdv23 { get; set; }
 
         public Model _M;
-        private int _yarusCount;
-        private int _count_column;
-        private string _nameOfPipeRack;
+        public int _yarusCount { get; set; }
+        public int _count_column { get; set; }
+        public string _nameOfPipeRack { get; set; }
         public TransformationPlane workTP { get; set; }
 
         public Point _basePoint { get; set; }
 
 
-        public List<SuperColumn> _Columns { get; set; }
 
-
+        public List<SuperColumn> _Columns = new List<SuperColumn>();
         public List<Beam> _Travers = new List<Beam>();
         public List<Beam> _TraversRight = new List<Beam>();
         public List<Beam> _TraversLeft = new List<Beam>();
         public List<double> Z { get; set; }
 
-        private Point ColumnStartPoint1;
-        private Point ColumnStartPoint2;
-        private Point ColumnStartPoint3;
-        private Point ColumnEndPoint1;
-        private Point ColumnEndPoint2;
-        private Point ColumnEndPoint3;
+        public Point ColumnStartPoint1 { get; set; }
+        public Point ColumnStartPoint2 { get; set; }
+        public Point ColumnStartPoint3 { get; set; }
+        public Point ColumnEndPoint1 { get; set; }
+        public Point ColumnEndPoint2 { get; set; }
+        public Point ColumnEndPoint3 { get; set; }
 
         public Frame(Model M, Point basePoint, int yarusCount, int count_column, string nameOfpipeRack)
         {
@@ -55,11 +54,9 @@ namespace PipeRack
             _count_column = count_column;
             _M = M;
             _nameOfPipeRack = nameOfpipeRack;
-            _Columns = new List<SuperColumn>();
         }
         public Frame()
         {
-
         }
 
         public void Insert()
@@ -103,6 +100,25 @@ namespace PipeRack
             }
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
             
+        }
+
+        public void Modify()
+        {
+            var workCS = new CoordinateSystem(_basePoint, new Vector(1, 0, 0), new Vector(0, 1, 0));
+            workTP = new TransformationPlane(workCS);
+            _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(workTP);
+            Points();
+            ModifyColumn(_Columns[0], ColumnStartPoint1, ColumnEndPoint1);
+            ModifyColumn(_Columns[1], ColumnStartPoint2, ColumnEndPoint2);
+            if(_count_column ==3)
+            ModifyColumn(_Columns[2], ColumnStartPoint3, ColumnEndPoint3);
+        }
+
+        public void ModifyColumn(SuperColumn Col, Point start, Point end)
+        {
+            Col.StartPoint = start;
+            Col.EndPoint = end;
+            Col.Modify();
         }
 
         private List<Beam> CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes)

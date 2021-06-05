@@ -9,10 +9,10 @@ namespace PipeRack
 {
     public class SuperProdolnayaBalka : SuperBeam
     {
-        public SuperProdolnayaBalka(Attributes att, Point startPoint, Point endPoint) : base(att, startPoint, endPoint)
+        public SuperProdolnayaBalka(Attributes attBeam, Point startPoint, Point endPoint) : base(attBeam, startPoint, endPoint)
         {
-            _AttBeam = att;
-            _AttBeam.RType = "Продольные балки";
+            AttBeam = attBeam;
+            AttBeam.RType = "Продольные балки";
         }
     }
 }

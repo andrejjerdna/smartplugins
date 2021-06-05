@@ -151,6 +151,7 @@ namespace PipeRack
 
 
             var jsonString = JsonConvert.SerializeObject(FraMES);
+            //var jsonString = JsonSerializer.Serialize(FraMES);
             var path = M.GetInfo().ModelPath + "\\frames.json";
             var dirInfo = new DirectoryInfo(M.GetInfo().ModelPath);
             if (!dirInfo.Exists)

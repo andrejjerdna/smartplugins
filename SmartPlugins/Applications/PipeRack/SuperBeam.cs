@@ -11,18 +11,18 @@ namespace PipeRack
 {
     public abstract class SuperBeam 
     {
-        public Attributes _AttBeam { get; set; }
-        public Point _StartPoint { get; set; }
-        public Point _EndtPoint { get; set; }
+        public Attributes AttBeam { get; set; }
+        public Point StartPoint { get; set; }
+        public Point EndPoint { get; set; }
         public Beam _beam { get; set; }
 
         protected SuperBeam() { }
 
-        public SuperBeam(Attributes att, Point startPoint, Point endPoint) 
+        public SuperBeam(Attributes attBeam, Point startPoint, Point endPoint) 
         {
-           _AttBeam = att;
-           _StartPoint = startPoint;
-          _EndtPoint = endPoint;
+            AttBeam = attBeam;
+            StartPoint = startPoint;
+            EndPoint = endPoint;
         }
 
         public Beam GetBeam()
@@ -32,13 +32,13 @@ namespace PipeRack
 
         public bool Insert()
         {
-            Beam beam = new Beam(_StartPoint, _EndtPoint);
+            Beam beam = new Beam(StartPoint, EndPoint);
 
            beam.Profile.ProfileString = "I30K1_20_93";
 
             if (beam.Insert())
             {
-                SetAtt(beam, _AttBeam);
+                SetAtt(beam, AttBeam);
                 beam.Modify();
                 _beam = beam;
                 return true;
@@ -48,6 +48,13 @@ namespace PipeRack
                 return false;
             }
 
+        }
+        public bool Modify()
+        {
+            _beam.StartPoint = StartPoint;
+            _beam.EndPoint = EndPoint;
+            _beam.Modify();
+            return true;
         }
         private void SetAtt(Beam beam, Attributes _attributes)
         {
@@ -91,3 +98,6 @@ namespace PipeRack
         }
     }
 }
+
+
+

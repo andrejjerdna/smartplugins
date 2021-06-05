@@ -15,6 +15,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 using T3D = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
+using Newtonsoft.Json;
 
 namespace PipeRack
 {
@@ -172,9 +173,13 @@ namespace PipeRack
         private void button16_Click(object sender, EventArgs e)
         {
             var jsonString = File.ReadAllText(M.GetInfo().ModelPath + "\\frames.json");
-           //var result = JsonConvert.DeserializeObject<List<Frame>>(jsonString);
-            var result = JsonSerializer.Deserialize<List<Frame>>(jsonString);
 
+
+           // var result = JsonSerializer.Deserialize<List<Frame>>(jsonString);
+            var oldFrames = JsonConvert.DeserializeObject<List<Frame>>(jsonString);
+
+            ////oldFrames[0]._basePoint.X = 5000;
+            oldFrames[0].Modify();
         }
         
 

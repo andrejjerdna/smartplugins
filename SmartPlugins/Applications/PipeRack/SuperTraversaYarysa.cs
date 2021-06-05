@@ -10,9 +10,9 @@ namespace PipeRack
 {
     class SuperTraversaYarysa : SuperBeam
     {
-        public SuperTraversaYarysa(Attributes att, Point startPoint, Point endPoint) : base(att, startPoint, endPoint)
+        public SuperTraversaYarysa(Attributes attBeam, Point startPoint, Point endPoint) : base(attBeam, startPoint, endPoint)
         {
-            _AttBeam.RType = "Траверсы яруса";
+            AttBeam.RType = "Траверсы яруса";
         }
     }
 }
