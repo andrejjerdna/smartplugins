@@ -32,8 +32,10 @@ namespace PipeRack
 
         public Point _basePoint { get; set; }
 
-        public List<SuperColumn> _Columns = new List<SuperColumn>();
-        
+
+        public List<SuperColumn> _Columns { get; set; }
+
+
         public List<Beam> _Travers = new List<Beam>();
         public List<Beam> _TraversRight = new List<Beam>();
         public List<Beam> _TraversLeft = new List<Beam>();
@@ -53,6 +55,7 @@ namespace PipeRack
             _count_column = count_column;
             _M = M;
             _nameOfPipeRack = nameOfpipeRack;
+            _Columns = new List<SuperColumn>();
         }
         public Frame()
         {
@@ -73,6 +76,8 @@ namespace PipeRack
             var Column1 = new SuperColumn(AttributeColumn[0], ColumnStartPoint1, ColumnEndPoint1);
             if (!Column1.Insert())
                 return;    //если не создалать что-то надо сделать - продумать
+            
+
             _Columns.Add(Column1);
            
             var Column2 = new SuperColumn(AttributeColumn[1], ColumnStartPoint2, ColumnEndPoint2);
@@ -97,6 +102,7 @@ namespace PipeRack
                 Con.BeamsToColumn(Column3._beam, _TraversLeft);
             }
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
+            
         }
 
         private List<Beam> CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes)
