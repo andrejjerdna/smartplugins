@@ -36,8 +36,8 @@ namespace PipeRack
 
         public List<SuperColumn> _Columns = new List<SuperColumn>();
         public List<Beam> _Travers = new List<Beam>();
-        public List<Beam> _TraversRight = new List<Beam>();
-        public List<Beam> _TraversLeft = new List<Beam>();
+        public List<SuperTraversaYarysa> _TraversRight = new List<SuperTraversaYarysa>();
+        public List<SuperTraversaYarysa> _TraversLeft = new List<SuperTraversaYarysa>();
         public List<double> Z { get; set; }
 
         public Point ColumnStartPoint1 { get; set; }
@@ -108,28 +108,43 @@ namespace PipeRack
             workTP = new TransformationPlane(workCS);
             _M.GetWorkPlaneHandler().SetCurrentTransformationPlane(workTP);
             Points();
-            ModifyColumn(_Columns[0], ColumnStartPoint1, ColumnEndPoint1);
-            ModifyColumn(_Columns[1], ColumnStartPoint2, ColumnEndPoint2);
-            if(_count_column ==3)
-            ModifyColumn(_Columns[2], ColumnStartPoint3, ColumnEndPoint3);
+
+            foreach (SuperColumn col in _Columns)
+            {
+                col.Modify();
+            }
+            foreach (SuperTraversaYarysa travers in _TraversRight)
+            {
+                travers.Modify();
+            }
+            foreach (SuperTraversaYarysa travers in _TraversLeft)
+            {
+                travers.Modify();
+            }
+
+            //   ModifyColumn(_Columns[0], ColumnStartPoint1, ColumnEndPoint1);
+            // ModifyColumn(_Columns[1], ColumnStartPoint2, ColumnEndPoint2);
+            //  if(_count_column ==3)
+            //  ModifyColumn(_Columns[2], ColumnStartPoint3, ColumnEndPoint3);
         }
 
-        public void ModifyColumn(SuperColumn Col, Point start, Point end)
-        {
-            Col.StartPoint = start;
-            Col.EndPoint = end;
-            Col.Modify();
-        }
+     //   public void ModifyColumn(SuperColumn Col, Point start, Point end)
+      //  {
+      //      Col.StartPoint = start;
+      //      Col.EndPoint = end;
+      //      Col.Modify();
+      //  }
 
-        private List<Beam> CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes)
+        private List<SuperTraversaYarysa> CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes)
         {
-            List<Beam> beams = new List<Beam>();
+            List<SuperTraversaYarysa> beams = new List<SuperTraversaYarysa>();
             for (int _count = 0; _count < _yarusCount; _count++)
             {
                 Point B_1_start = new Point(Column1.StartPoint.X, Column1.StartPoint.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
                 Point B_1_end = new Point(Column2.StartPoint.X, Column2.StartPoint.Y, Traversy[_count] + _basePoint.X * UklonbI[_count] * 0.001);
-                var C = BeamMain(Attributes[_count], B_1_start, B_1_end, (_count + 1).ToString());
-                beams.Add(C);
+                SuperTraversaYarysa traversa = new SuperTraversaYarysa(Attributes[_count], B_1_start, B_1_end);
+                traversa.Insert();
+                beams.Add(traversa);
             }
             return beams;
         }
@@ -139,56 +154,20 @@ namespace PipeRack
             Beam newBeam = new Beam(startPoint, endPoint);
             newBeam.Profile.ProfileString = "I30K1_20_93";
             newBeam.Insert();
-            SetAtt(newBeam, attributes);
+          
             newBeam.SetUserProperty("RNumberOfYarus", RNumberOfYarus);
             newBeam.Modify();
             return newBeam;
-        }
+        } //удалить как пропадут ссылки
         public Beam BeamMain(Point startPoint, Point endPoint)
         {
             Beam newBeam = new Beam(startPoint, endPoint);
             newBeam.Profile.ProfileString = "I30K1_20_93";
             newBeam.Insert();
             return newBeam;
-        }
+        }   //удалить как пропадут ссылки
 
-        public void SetAtt(Beam beam, Attributes _attributes)
-        {
-            if (_attributes != null)
-            {
-                beam.Name = _attributes.Name;
-                beam.Profile.ProfileString = _attributes.Profile;
-                beam.Material.MaterialString = _attributes.Material;
-                beam.Class = _attributes.Class;
-                beam.PartNumber.Prefix = _attributes.PrefixSborki;
 
-                int nomerSborki;
-                var H = Int32.TryParse(_attributes.NomerSborki.ToString(), out nomerSborki);
-                if (!H)
-                {
-                    MessageBox.Show("Введено не целое число сборки");
-                    return;
-                }
-
-                beam.PartNumber.StartNumber = nomerSborki;
-
-                //LEFT MIDDLE RIGHT
-                if (_attributes.PolojenieGorizontalno == 1) beam.Position.Plane = Position.PlaneEnum.LEFT;
-                if (_attributes.PolojenieGorizontalno == 0) beam.Position.Plane = Position.PlaneEnum.MIDDLE;
-                if (_attributes.PolojenieGorizontalno == 2) beam.Position.Plane = Position.PlaneEnum.RIGHT;
-
-                // BACK BELOW FRONT TOP
-                if (_attributes.PolojeniePovorot == 1) beam.Position.Rotation = Position.RotationEnum.FRONT;
-                if (_attributes.PolojeniePovorot == 0) beam.Position.Rotation = Position.RotationEnum.TOP;
-
-                // BEHIND  FRONT MIDLE
-                if (_attributes.PolojenieVertikalno == 1) beam.Position.Depth = Position.DepthEnum.MIDDLE;
-                if (_attributes.PolojenieVertikalno == 0) beam.Position.Depth = Position.DepthEnum.BEHIND;
-                if (_attributes.PolojenieVertikalno == 2) beam.Position.Depth = Position.DepthEnum.FRONT;
-            }
-
-            beam.Modify();
-        }
 
         private void Points()
         {

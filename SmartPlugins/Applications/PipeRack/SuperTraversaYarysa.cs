@@ -8,7 +8,7 @@ using Tekla.Structures.Model;
 
 namespace PipeRack
 {
-    class SuperTraversaYarysa : SuperBeam
+    public class SuperTraversaYarysa : SuperBeam
     {
         public SuperTraversaYarysa(Attributes attBeam, Point startPoint, Point endPoint) : base(attBeam, startPoint, endPoint)
         {

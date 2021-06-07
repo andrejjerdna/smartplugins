@@ -13,13 +13,11 @@ namespace PipeRack
         
         public SuperColumn(Attributes attBeam, Point startPoint, Point endPoint) : base (attBeam, startPoint, endPoint)
         {
-           
             if(AttBeam != null)
             {
                 AttBeam.DirectionOfYarus = "Center";
                 AttBeam.RType = "Колонны";
             }
-
         }
     }
 }

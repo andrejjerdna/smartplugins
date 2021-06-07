@@ -10,11 +10,15 @@ using System.Windows.Forms;
 using Tekla.Structures.Model;
 using Tekla.Structures.Geometry3d;
 using SmartExtensions;
+using System.IO;
+using SmartGeometry;
+using SmartTeklaModel;
 
 namespace PipeRack
 {
     public partial class FormRedaсtion : Form
     {
+        Postroenie oldPostroenie { get; set; }
         Model M = new Model();                  // текущая модель
 
         public FormRedaсtion()
@@ -24,7 +28,8 @@ namespace PipeRack
             else
             {
                 InitializeComponent();
-                Obsledovanie(); 
+                Obsledovanie();
+                GetPostroenie();
             }
         }
         private void Obsledovanie()
@@ -139,6 +144,69 @@ namespace PipeRack
                 if (PolojeniePovorot == 1) beam.Position.Rotation = Position.RotationEnum.FRONT;
                 if (PolojeniePovorot == 0) beam.Position.Rotation = Position.RotationEnum.TOP;
             }
+        }
+
+        private void GetShagRam_Click(object sender, EventArgs e)
+        {
+            ShagRamTB.Text = oldPostroenie.shagRam;
+        }
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            ModifyPostroenie();
+        }
+
+        private void GetPostroenie()
+        {
+            var jsonString = File.ReadAllText(M.GetInfo().ModelPath + "\\frames.json");
+            oldPostroenie = Newtonsoft.Json.JsonConvert.DeserializeObject<Postroenie>(jsonString);
+        }
+
+
+        private void ModifyPostroenie()
+        {
+            TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
+            TransformationPlane zero_plane = new TransformationPlane();
+            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane);
+            var TP = SmartTransfomationPlane.GetTransformationPlaneTwoPoints(M, oldPostroenie.CS_point, oldPostroenie.CS_point_end);
+            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
+
+            var DistanceList = BoltsMethods.GetDistanceList(ShagRamTB.Text);
+            List<double> Trav = DistanceList.ToList();
+
+            oldPostroenie.Grid.CoordinateX = ShagRamTB.Text;
+            oldPostroenie.Grid.Modify();
+
+            for (int _count = 0; _count < oldPostroenie.FraMES.Count(); _count++)
+            {
+                oldPostroenie.FraMES[_count]._basePoint.X = Trav[_count];
+                oldPostroenie.FraMES[_count].Modify();
+            }
+            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
+
+
+
+                List<double> Travs = Trav;
+                for (int _count = 1; _count < Travs.Count(); _count++)
+                {
+                Travs[0] = Travs[0];
+                Travs[_count] = Travs[_count - 1] + Travs[_count];
+                }
+
+            for (int count = 0; count < oldPostroenie.FraMES.Count() - 1; count++)  //выбрал пару рам между которыми буду строить продольные балки
+            {
+                oldPostroenie.BalkiYarysA[count]._Frame1 = oldPostroenie.FraMES[count];
+                oldPostroenie.BalkiYarysA[count]._Frame1._basePoint.X = Travs[count];
+                oldPostroenie.BalkiYarysA[count]._Frame2 = oldPostroenie.FraMES[count + 1];
+                oldPostroenie.BalkiYarysA[count]._Frame2._basePoint.X = Travs[count + 1];
+                oldPostroenie.BalkiYarysA[count].Modify();
+            }
+
+
+
+            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);
+            M.CommitChanges();
+
+
         }
     }
 }

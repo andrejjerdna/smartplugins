@@ -11,20 +11,18 @@ namespace PipeRack
     class BalkiYarysa
     {
         AttributesFrameProlet _AttFrameProlet;
-        Frame  _Frame1;
-        Frame  _Frame2;
+        public Frame _Frame1 { get; set; }
+        public Frame _Frame2 { get; set; }
 
-        private bool checkBeamR = true;
+    private bool checkBeamR = true;
         private bool checkBeamL = true;
 
-        public List<Beam> _balki = new List<Beam>();
-        public List<Beam> _balkiLeft = new List<Beam>();
-        public List<Beam> _traversyvprovete = new List<Beam>();
-        public List<Beam> _traversyvproveteLeft = new List<Beam>();
+        public List<SuperProdolnayaBalka> BalkiRight = new List<SuperProdolnayaBalka>();
+        public List<SuperProdolnayaBalka> BalkiLeft = new List<SuperProdolnayaBalka>();
+        public List<SuperTraversaVProlete> TraversyVProveteRight = new List<SuperTraversaVProlete>();
+        public List<SuperTraversaVProlete> TraversyVProveteLeft = new List<SuperTraversaVProlete>();
         public List<Beam> _stoiki = new List<Beam>();
 
-        public List<SuperProdolnayaBalka> _balkiRight = new List<SuperProdolnayaBalka>();
-        public List<SuperProdolnayaBalka> _balkiLeft1 = new List<SuperProdolnayaBalka>();
         public List<SuperTraversaVProlete> _traversyVprovete = new List<SuperTraversaVProlete>();
 
         double EndST = 0;
@@ -51,8 +49,6 @@ namespace PipeRack
             //    StroimTraversyVProvete(_balkiLeft1[i]._beam, _balkiLeft1[i + 1]._beam, _AttFrameProlet.AttProletTraversaLeft[i]);
             //}
 
-
-
             Connections Con = new Connections();
             for (int i = 0; i < _Frame1._TraversRight.Count(); i++) // правые балки половина балок
             {
@@ -74,16 +70,22 @@ namespace PipeRack
 
                     if (!checkBeamR)
                     {
-                        _balki.Add(frame.BeamMain(_AttFrameProlet.AttProletBeamRight[i], startPoint, startPoint2, (i + 1).ToString())); // левая балка
+                        SuperProdolnayaBalka prodolnaya = new SuperProdolnayaBalka(_AttFrameProlet.AttProletBeamRight[i], startPoint, startPoint2); // левая балка
+                        prodolnaya.Insert();
+                        BalkiRight.Add(prodolnaya);
                         checkBeamL = true;
 
                         for (int _i = 0; _i < _shagi.Count(); _i++)
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvprovete.Add(frame.BeamMain(_AttFrameProlet.AttProletTraversaRight[i], startPoint3, endPoint3, (i + 1).ToString())); // траверса в пролете
+
+                            SuperTraversaVProlete traversavprolete = new SuperTraversaVProlete(_AttFrameProlet.AttProletTraversaRight[i], startPoint3, endPoint3);// траверса в пролете
+                            traversavprolete.Insert();
+                            TraversyVProveteRight.Add(traversavprolete); 
+
                             double H = 0;
-                            _traversyvprovete[_i].GetReportProperty("WIDTH", ref H);
+                            TraversyVProveteRight[_i]._beam.GetReportProperty("WIDTH", ref H);
                             Point startPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - H);
                             Point EndPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - EndST);
 
@@ -93,20 +95,30 @@ namespace PipeRack
                     }
                     else
                     {
-                        _balki.Add(frame.BeamMain(_AttFrameProlet.AttProletBeamRight[i], startPoint, startPoint2, (i + 1).ToString())); // левая балка
-                        _balkiLeft.Add(frame.BeamMain(_AttFrameProlet.AttProletBeamRight[i], endPoint, endPoint2, (i + 1).ToString()));     // правая балка  
+                        SuperProdolnayaBalka prodolnayaR = new SuperProdolnayaBalka(_AttFrameProlet.AttProletBeamRight[i], startPoint, startPoint2); 
+                        prodolnayaR.Insert();
+                        BalkiRight.Add(prodolnayaR);
+
+                        SuperProdolnayaBalka prodolnayaL = new SuperProdolnayaBalka(_AttFrameProlet.AttProletBeamRight[i], endPoint, endPoint2); 
+                        prodolnayaL.Insert();
+                        BalkiLeft.Add(prodolnayaL);
 
                         for (int _i = 0; _i < _shagi.Count(); _i++)
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvprovete.Add(frame.BeamMain(_AttFrameProlet.AttProletTraversaRight[i], startPoint3, endPoint3, (i + 1).ToString())); // траверса в пролете
+
+                            SuperTraversaVProlete traversavprolete = new SuperTraversaVProlete(_AttFrameProlet.AttProletTraversaRight[i], startPoint3, endPoint3);// траверса в пролете
+                            traversavprolete.Insert();
+                            TraversyVProveteRight.Add(traversavprolete);
+
+
                         }
                     }
                 }
 
-                Con.BeamsToColumn(_Frame1._Columns[0]._beam, _balki);
-                Con.BeamsToColumn(_Frame1._Columns[1]._beam, _balkiLeft);
+                Con.BeamsToColumn(_Frame1._Columns[0]._beam, BalkiRight);
+                Con.BeamsToColumn(_Frame1._Columns[1]._beam, BalkiLeft);
             }
 
 
@@ -130,15 +142,22 @@ namespace PipeRack
 
                     if (!checkBeamL)
                     {
-                        _balkiLeft.Add(frame.BeamMain(_AttFrameProlet.AttProletBeamLeft[i], endPoint, endPoint2, (i + 1).ToString()));     // правая балка
+                        SuperProdolnayaBalka prodolnaya = new SuperProdolnayaBalka(_AttFrameProlet.AttProletBeamLeft[i], endPoint, endPoint2); 
+                        prodolnaya.Insert();
+                        BalkiLeft.Add(prodolnaya);
+
                         checkBeamR = true;
                         for (int _i = 0; _i < _shagi.Count(); _i++)
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvproveteLeft.Add(frame.BeamMain(_AttFrameProlet.AttProletTraversaLeft[i], startPoint3, endPoint3, (i + 1).ToString())); // траверса в пролете
+
+                            SuperTraversaVProlete traversavprolete = new SuperTraversaVProlete(_AttFrameProlet.AttProletTraversaLeft[i], startPoint3, endPoint3);// траверса в пролете
+                            traversavprolete.Insert();
+                            TraversyVProveteLeft.Add(traversavprolete);
+
                             double H = 0;
-                            _traversyvproveteLeft[_i].GetReportProperty("WIDTH", ref H);
+                            TraversyVProveteLeft[_i]._beam.GetReportProperty("WIDTH", ref H);
                             Point startPointST = new Point(startPoint3.X, startPoint3.Y, startPoint3.Z - H);
                             Point EndPointST = new Point(startPointST.X, startPointST.Y, endPoint3.Z - EndST);
 
@@ -147,20 +166,61 @@ namespace PipeRack
                     }
                     else
                     {
-                        _balki.Add(frame.BeamMain(_AttFrameProlet.AttProletBeamLeft[i], startPoint, startPoint2, (i + 1).ToString())); // левая балка
-                        _balkiLeft.Add(frame.BeamMain(_AttFrameProlet.AttProletBeamLeft[i], endPoint, endPoint2, (i + 1).ToString()));     // правая балка  
+                        SuperProdolnayaBalka prodolnayaR = new SuperProdolnayaBalka(_AttFrameProlet.AttProletBeamLeft[i], startPoint, startPoint2);
+                        prodolnayaR.Insert();
+                        BalkiRight.Add(prodolnayaR);
+
+                        SuperProdolnayaBalka prodolnayaL = new SuperProdolnayaBalka(_AttFrameProlet.AttProletBeamLeft[i], endPoint, endPoint2);
+                        prodolnayaL.Insert();
+                        BalkiLeft.Add(prodolnayaL);
 
                         for (int _i = 0; _i < _shagi.Count(); _i++)
                         {
                             Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
                             Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-                            _traversyvproveteLeft.Add(frame.BeamMain(_AttFrameProlet.AttProletTraversaLeft[i], startPoint3, endPoint3, (i + 1).ToString())); // траверса в пролете
+
+                            SuperTraversaVProlete traversavprolete = new SuperTraversaVProlete(_AttFrameProlet.AttProletTraversaLeft[i], startPoint3, endPoint3);// траверса в пролете
+                            traversavprolete.Insert();
+                            TraversyVProveteLeft.Add(traversavprolete);
                         }
                     }
                 }
-                Con.BeamsToColumn(_Frame1._Columns[0]._beam, _balki);
-                Con.BeamsToColumn(_Frame1._Columns[1]._beam, _balkiLeft);
+                Con.BeamsToColumn(_Frame1._Columns[0]._beam, BalkiRight);
+                Con.BeamsToColumn(_Frame1._Columns[1]._beam, BalkiLeft);
 
+            }
+        }
+
+        public void Modify()
+        {
+
+            foreach (SuperProdolnayaBalka balka in BalkiLeft)
+            {
+                balka.StartPoint.X = _Frame1._basePoint.X;
+                balka.EndPoint.X = _Frame2._basePoint.X;
+
+                balka.Modify();
+            }
+            foreach (SuperProdolnayaBalka balka in BalkiRight)
+            {
+                balka.StartPoint.X = _Frame1._basePoint.X;
+                balka.EndPoint.X = _Frame2._basePoint.X;
+                balka.Modify();
+            }
+            foreach (SuperTraversaVProlete traversa in TraversyVProveteLeft)
+            {
+                //var _shagi = Shagtravers(_Frame2._basePoint.X - _Frame1._basePoint.X, 3000);
+                //var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_Frame2._basePoint.X - _Frame1._basePoint.X);
+
+
+                //traversa.StartPoint.X  = _shagi[_i];
+                //traversa.EndPoint.X = _shagi[_i];
+
+                traversa.Modify();
+            }
+            foreach (SuperTraversaVProlete traversa in TraversyVProveteRight)
+            {
+                traversa.Modify();
             }
         }
 
@@ -209,10 +269,10 @@ namespace PipeRack
         private void Check(int _i)
         {
             
-            foreach ( Beam  B in _Frame1._TraversLeft)
+            foreach ( SuperTraversaYarysa  B in _Frame1._TraversLeft)
             {
                 var M = B.StartPoint.Z;
-                var M2 = _Frame1._TraversRight[_i].StartPoint.Z - M;
+                var M2 = _Frame1._TraversRight[_i]._beam.StartPoint.Z - M;
 
 
                 if (M2 <= 500 & M2  > 0)
@@ -229,10 +289,10 @@ namespace PipeRack
         }
         private void Check2(int _i)
         {
-            foreach (Beam B in _Frame1._TraversRight)
+            foreach (SuperTraversaYarysa B in _Frame1._TraversRight)
             {
                 var M = B.StartPoint.Z;
-                var M2 = _Frame1._TraversLeft[_i].StartPoint.Z - M;
+                var M2 = _Frame1._TraversLeft[_i]._beam.StartPoint.Z - M;
 
                 if (M2 <= 500 & M2 > 0)
                 {

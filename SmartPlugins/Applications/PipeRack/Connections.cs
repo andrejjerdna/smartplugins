@@ -12,14 +12,20 @@ namespace PipeRack
     {
         public void BeamsToColumn(Beam Column, List<Beam> _Travers)
         {
-
                 for (int u = 0; u < _Travers.Count; u++)
-                {
                     BeamToColumn(Column, _Travers[u]);
-                }
-            
+        }
+        public void BeamsToColumn(Beam Column, List<SuperProdolnayaBalka> _Travers)
+        {
 
+            for (int u = 0; u < _Travers.Count; u++)
+                BeamToColumn(Column, _Travers[u]._beam);
+        }
+        public void BeamsToColumn(Beam Column, List<SuperTraversaYarysa> _Travers)
+        {
 
+            for (int u = 0; u < _Travers.Count; u++)
+                BeamToColumn(Column, _Travers[u]._beam);
         }
 
         private Connection BeamToColumn(Beam PrimaryBeam, ModelObject SecondaryBeam)

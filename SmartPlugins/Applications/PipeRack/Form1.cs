@@ -16,6 +16,7 @@ using T3D = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 using Newtonsoft.Json;
+using SmartGeometry;
 
 namespace PipeRack
 {
@@ -26,6 +27,7 @@ namespace PipeRack
         AttributesFrameProlet AttFrameProlet = new AttributesFrameProlet(); // атрибуты продольных элементов
         DataGrids DataGrids = new DataGrids();
         Postroenie StroikaVeka;
+        IEnumerable<double> DistanceList;
 
         public Form1()
         {
@@ -43,7 +45,7 @@ namespace PipeRack
                 return;
             }
             string shagRam = ShagRam.Text;
-            var DistanceList = BoltsMethods.GetDistanceList(shagRam);  // получили список шагов
+            DistanceList = BoltsMethods.GetDistanceList(shagRam);  // получили список шагов
 
             double razdv1to2 = double.Parse(Razdv_1_2.Text);
             double razdv2to3 = double.Parse(Razdv_2_3.Text);
@@ -116,6 +118,21 @@ namespace PipeRack
             };
             StroikaVeka.Insert();
             this.StroikaVeka = StroikaVeka;
+
+
+            var jsonString = JsonConvert.SerializeObject(StroikaVeka);
+            //var jsonString = JsonSerializer.Serialize(FraMES);
+            var path = M.GetInfo().ModelPath + "\\frames.json";
+            var dirInfo = new DirectoryInfo(M.GetInfo().ModelPath);
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+
+            using (var file = new StreamWriter(path, false))
+            {
+                file.WriteLine(jsonString);
+            }
         }
 
         private void Button3_Click(object sender, EventArgs e) //построение площадок обслуживания
@@ -172,14 +189,8 @@ namespace PipeRack
         }
         private void button16_Click(object sender, EventArgs e)
         {
-            var jsonString = File.ReadAllText(M.GetInfo().ModelPath + "\\frames.json");
+           
 
-
-           // var result = JsonSerializer.Deserialize<List<Frame>>(jsonString);
-            var oldFrames = JsonConvert.DeserializeObject<List<Frame>>(jsonString);
-
-            ////oldFrames[0]._basePoint.X = 5000;
-            oldFrames[0].Modify();
         }
         
 

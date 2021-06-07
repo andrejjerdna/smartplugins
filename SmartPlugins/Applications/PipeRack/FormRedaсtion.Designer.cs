@@ -47,8 +47,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.ShagRamTB = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.GetShagRam = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // NameOfRack
@@ -242,13 +247,17 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.GetShagRam);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.ShagRamTB);
+            this.tabPage2.Controls.Add(this.button3);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Size = new System.Drawing.Size(459, 324);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Расстояние между рамами";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -261,6 +270,43 @@
             this.button1.Text = "Закрыть";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(230, 197);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(144, 38);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "Изменить";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // ShagRamTB
+            // 
+            this.ShagRamTB.Location = new System.Drawing.Point(134, 127);
+            this.ShagRamTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ShagRamTB.Name = "ShagRamTB";
+            this.ShagRamTB.Size = new System.Drawing.Size(259, 22);
+            this.ShagRamTB.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(67, 130);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 17);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "Шаг рам";
+            // 
+            // GetShagRam
+            // 
+            this.GetShagRam.Location = new System.Drawing.Point(80, 197);
+            this.GetShagRam.Name = "GetShagRam";
+            this.GetShagRam.Size = new System.Drawing.Size(144, 38);
+            this.GetShagRam.TabIndex = 6;
+            this.GetShagRam.Text = "Получить";
+            this.GetShagRam.UseVisualStyleBackColor = true;
+            this.GetShagRam.Click += new System.EventHandler(this.GetShagRam_Click);
             // 
             // FormRedaсtion
             // 
@@ -278,6 +324,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +352,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button GetShagRam;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox ShagRamTB;
+        private System.Windows.Forms.Button button3;
     }
 }

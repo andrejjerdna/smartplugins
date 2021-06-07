@@ -45,7 +45,9 @@ namespace PipeRack
         Model M = new Model(); // текущая модель
         public List<Frame> FraMES = new List<Frame>(); // список построенных рам
         public List<BalkiYarysa> BalkiYarysA = new List<BalkiYarysa>();
-        
+        public Grid Grid = new Grid();
+
+
 
         public Postroenie()
         {
@@ -125,7 +127,7 @@ namespace PipeRack
             for (int _count1 = 0; _count1 < FraMES.Count(); _count1++)
                 _startLabelY += (startLabelY + _count1).ToString() + " ";
 
-            Grid Grid = new Grid()
+            Grid = new Grid()
             {
                 CoordinateX = shagRam,
                 CoordinateY = Y,
@@ -150,19 +152,6 @@ namespace PipeRack
             M.CommitChanges();
 
 
-            var jsonString = JsonConvert.SerializeObject(FraMES);
-            //var jsonString = JsonSerializer.Serialize(FraMES);
-            var path = M.GetInfo().ModelPath + "\\frames.json";
-            var dirInfo = new DirectoryInfo(M.GetInfo().ModelPath);
-            if (!dirInfo.Exists)
-            {
-                dirInfo.Create();
-            }
-
-            using (var file = new StreamWriter(path, false))
-            {
-                file.WriteLine(jsonString);
-            }
         }
 
         private void CheckConnectionToModel()
@@ -194,19 +183,19 @@ namespace PipeRack
                     beam._beam.SetUserProperty("RNazvanie", RNazvanie);
                     beam._beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
                 }
-                foreach (Beam beam in FraMES[i]._TraversRight)
+                foreach (SuperTraversaYarysa beam in FraMES[i]._TraversRight)
                 {
-                    beam.SetUserProperty("RNazvanie", RNazvanie);
-                    beam.SetUserProperty("RType", "Траверсы яруса");
-                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
-                    beam.SetUserProperty("DirectionOfYarus", "Right");
+                    beam._beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam._beam.SetUserProperty("RType", "Траверсы яруса");
+                    beam._beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                    beam._beam.SetUserProperty("DirectionOfYarus", "Right");
                 }
-                foreach (Beam beam in FraMES[i]._TraversLeft)
+                foreach (SuperTraversaYarysa beam in FraMES[i]._TraversLeft)
                 {
-                    beam.SetUserProperty("RNazvanie", RNazvanie);
-                    beam.SetUserProperty("RType", "Траверсы яруса");
-                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
-                    beam.SetUserProperty("DirectionOfYarus", "Left");
+                    beam._beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam._beam.SetUserProperty("RType", "Траверсы яруса");
+                    beam._beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                    beam._beam.SetUserProperty("DirectionOfYarus", "Left");
                 }
             }
         }
@@ -214,19 +203,19 @@ namespace PipeRack
         {
             for (int i = 0; i < BalkiYarysA.Count(); i++)
             {
-                foreach (Beam beam in BalkiYarysA[i]._balki)
+                foreach (SuperProdolnayaBalka beam in BalkiYarysA[i].BalkiRight)
                 {
-                    beam.SetUserProperty("RNazvanie", RNazvanie);
-                    beam.SetUserProperty("RType", "Продольные балки");
-                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
-                    beam.SetUserProperty("DirectionOfYarus", "Right");
+                    beam._beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam._beam.SetUserProperty("RType", "Продольные балки");
+                    beam._beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                    beam._beam.SetUserProperty("DirectionOfYarus", "Right");
                 }
-                foreach (Beam beam in BalkiYarysA[i]._balkiLeft)
+                foreach (SuperProdolnayaBalka beam in BalkiYarysA[i].BalkiLeft)
                 {
-                    beam.SetUserProperty("RNazvanie", RNazvanie);
-                    beam.SetUserProperty("RType", "Продольные балки");
-                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
-                    beam.SetUserProperty("DirectionOfYarus", "Left");
+                    beam._beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam._beam.SetUserProperty("RType", "Продольные балки");
+                    beam._beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                    beam._beam.SetUserProperty("DirectionOfYarus", "Left");
                 }
                 foreach (Beam beam in BalkiYarysA[i]._stoiki)
                 {
@@ -235,19 +224,19 @@ namespace PipeRack
                     beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
                     beam.SetUserProperty("DirectionOfYarus", "Center");
                 }
-                foreach (Beam beam in BalkiYarysA[i]._traversyvprovete)
+                foreach (SuperTraversaVProlete beam in BalkiYarysA[i].TraversyVProveteRight)
                 {
-                    beam.SetUserProperty("RNazvanie", RNazvanie);
-                    beam.SetUserProperty("RType", "Траверсы в пролете");
-                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
-                    beam.SetUserProperty("DirectionOfYarus", "Right");
+                    beam._beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam._beam.SetUserProperty("RType", "Траверсы в пролете");
+                    beam._beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                    beam._beam.SetUserProperty("DirectionOfYarus", "Right");
                 }
-                foreach (Beam beam in BalkiYarysA[i]._traversyvproveteLeft)
+                foreach (SuperTraversaVProlete beam in BalkiYarysA[i].TraversyVProveteLeft)
                 {
-                    beam.SetUserProperty("RNazvanie", RNazvanie);
-                    beam.SetUserProperty("RType", "Траверсы в пролете");
-                    beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
-                    beam.SetUserProperty("DirectionOfYarus", "Left");
+                    beam._beam.SetUserProperty("RNazvanie", RNazvanie);
+                    beam._beam.SetUserProperty("RType", "Траверсы в пролете");
+                    beam._beam.SetUserProperty("RNumberOfSpan", (i + 1).ToString());
+                    beam._beam.SetUserProperty("DirectionOfYarus", "Left");
                 }
             }
         }
