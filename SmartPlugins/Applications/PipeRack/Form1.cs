@@ -85,8 +85,6 @@ namespace PipeRack
             Regen(Traversy, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
             Regen(Traversy2, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
 
-
-
             DataGrids.AddRowDataGrid(dataGridViewYarusRight, AttFrame.AttributesYarusRight);  // считали атрибуты с гридов
             DataGrids.AddRowDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
             DataGrids.AddRowDataGrid(dataGridViewProdolnieRight, AttFrameProlet.AttProletBeamRight);

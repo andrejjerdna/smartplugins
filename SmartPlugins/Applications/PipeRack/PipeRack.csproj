@@ -66,6 +66,7 @@
     <Compile Include="SuperBeam.cs" />
     <Compile Include="SuperColumn.cs" />
     <Compile Include="SuperProdolnayaBalka.cs" />
+    <Compile Include="SuperProdolnieBalkiYarusa.cs" />
     <Compile Include="SuperTraversaVProlete.cs" />
     <Compile Include="SuperTraversaYarysa.cs" />
     <Compile Include="Form1.cs">
