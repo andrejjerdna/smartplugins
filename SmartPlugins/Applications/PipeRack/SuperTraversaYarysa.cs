@@ -12,7 +12,11 @@ namespace PipeRack
     {
         public SuperTraversaYarysa(Attributes attBeam, Point startPoint, Point endPoint) : base(attBeam, startPoint, endPoint)
         {
-            AttBeam.RType = "Траверсы яруса";
+            if (AttBeam != null)
+            {
+                AttBeam.RType = "Траверсы яруса";
+            }
         }
+
     }
 }

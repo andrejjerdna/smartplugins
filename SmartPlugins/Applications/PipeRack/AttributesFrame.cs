@@ -62,5 +62,13 @@ namespace PipeRack
                 attYarusLeft7,
             };
         }
+
+        public void Clear()
+        {
+            AttributesColumn.Clear();
+            AttributesYarusRight.Clear();
+            AttributesYarusLeft.Clear();
+
+        }
     }
 }

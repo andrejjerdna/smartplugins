@@ -67,6 +67,8 @@
     <Compile Include="SuperColumn.cs" />
     <Compile Include="SuperProdolnayaBalka.cs" />
     <Compile Include="SuperProdolnieBalkiYarusa.cs" />
+    <Compile Include="SuperStoika.cs" />
+    <Compile Include="SuperStoikiVProlete.cs" />
     <Compile Include="SuperTraversaVProlete.cs" />
     <Compile Include="SuperTraversaYarysa.cs" />
     <Compile Include="Form1.cs">
@@ -98,6 +100,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataGrids.cs" />
+    <Compile Include="SuperTraversyVProleteYarysa.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,14 +158,11 @@
     <PackageReference Include="ILMerge">
       <Version>3.0.41</Version>
     </PackageReference>
-    <PackageReference Include="ILMerge.MSBuild.Task">
-      <Version>1.0.7</Version>
+    <PackageReference Include="ILMerge.MSBuild.Tasks">
+      <Version>1.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="System.Text.Json">
-      <Version>6.0.0-preview.4.21253.7</Version>
+      <Version>10.0.3</Version>
     </PackageReference>
     <PackageReference Include="TeklaOpenAPI">
       <Version>2020.0.3</Version>
@@ -173,9 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\5.PNG" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="NewFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

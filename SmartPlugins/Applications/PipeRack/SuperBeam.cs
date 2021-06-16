@@ -56,6 +56,13 @@ namespace PipeRack
             _beam.Modify();
             return true;
         }
+
+        public void Delete()
+        {
+            _beam.Delete();
+        }
+
+
         private void SetAtt(Beam beam, Attributes _attributes)
         {
             if (_attributes != null)

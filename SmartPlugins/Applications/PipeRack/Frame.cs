@@ -93,7 +93,7 @@ namespace PipeRack
                 Column3.Insert();
                 _Columns.Add(Column3);
                 
-                _TraversLeft =  CreateTraversy(Column2._beam, Column3._beam, Traversy2, Attributes);
+                _TraversLeft =  CreateTraversy(Column2._beam, Column3._beam, Traversy2, Attributes2);
 
                 Con.BeamsToColumn(Column2._beam, _TraversLeft);
                 Con.BeamsToColumn(Column3._beam, _TraversLeft);
@@ -121,19 +121,24 @@ namespace PipeRack
             {
                 travers.Modify();
             }
-
-            //   ModifyColumn(_Columns[0], ColumnStartPoint1, ColumnEndPoint1);
-            // ModifyColumn(_Columns[1], ColumnStartPoint2, ColumnEndPoint2);
-            //  if(_count_column ==3)
-            //  ModifyColumn(_Columns[2], ColumnStartPoint3, ColumnEndPoint3);
         }
 
-     //   public void ModifyColumn(SuperColumn Col, Point start, Point end)
-      //  {
-      //      Col.StartPoint = start;
-      //      Col.EndPoint = end;
-      //      Col.Modify();
-      //  }
+        public void Delete()
+        {
+            foreach (SuperColumn col in _Columns)
+            {
+                col.Delete();
+            }
+            foreach (SuperTraversaYarysa travers in _TraversRight)
+            {
+                travers.Delete();
+            }
+            foreach (SuperTraversaYarysa travers in _TraversLeft)
+            {
+                travers.Delete();
+            }
+        }
+
 
         private List<SuperTraversaYarysa> CreateTraversy(Beam Column1, Beam Column2, List<double> Traversy, List<Attributes> Attributes)
         {
@@ -149,16 +154,6 @@ namespace PipeRack
             return beams;
         }
 
-        public Beam BeamMain(Attributes attributes, Point startPoint, Point endPoint, string RNumberOfYarus)
-        {
-            Beam newBeam = new Beam(startPoint, endPoint);
-            newBeam.Profile.ProfileString = "I30K1_20_93";
-            newBeam.Insert();
-          
-            newBeam.SetUserProperty("RNumberOfYarus", RNumberOfYarus);
-            newBeam.Modify();
-            return newBeam;
-        } //удалить как пропадут ссылки
         public Beam BeamMain(Point startPoint, Point endPoint)
         {
             Beam newBeam = new Beam(startPoint, endPoint);
@@ -166,8 +161,6 @@ namespace PipeRack
             newBeam.Insert();
             return newBeam;
         }   //удалить как пропадут ссылки
-
-
 
         private void Points()
         {

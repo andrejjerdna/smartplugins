@@ -13,6 +13,8 @@ using SmartExtensions;
 using System.IO;
 using SmartGeometry;
 using SmartTeklaModel;
+using T3D = Tekla.Structures.Geometry3d;
+using Newtonsoft.Json;
 
 namespace PipeRack
 {
@@ -164,6 +166,17 @@ namespace PipeRack
 
         private void ModifyPostroenie()
         {
+            oldPostroenie.AttFrame.AttributesYarusRight.RemoveRange(0, oldPostroenie.AttFrame.AttributesYarusRight.Count() / 2);
+            oldPostroenie.AttFrame.AttributesYarusLeft.RemoveRange(0, oldPostroenie.AttFrame.AttributesYarusLeft.Count() / 2);
+            oldPostroenie.AttFrame.AttributesColumn.RemoveRange(0, oldPostroenie.AttFrame.AttributesColumn.Count() / 2);
+
+            oldPostroenie.AttFrameProlet.AttProletBeamLeft.RemoveRange(0, oldPostroenie.AttFrameProlet.AttProletBeamLeft.Count() / 2);
+            oldPostroenie.AttFrameProlet.AttProletBeamRight.RemoveRange(0, oldPostroenie.AttFrameProlet.AttProletBeamRight.Count() / 2);
+            oldPostroenie.AttFrameProlet.AttProletTraversaLeft.RemoveRange(0, oldPostroenie.AttFrameProlet.AttProletTraversaLeft.Count() / 2);
+            oldPostroenie.AttFrameProlet.AttProletTraversaRight.RemoveRange(0, oldPostroenie.AttFrameProlet.AttProletTraversaRight.Count() / 2);
+            oldPostroenie.AttFrameProlet.AttProletStoyki.RemoveRange(0, oldPostroenie.AttFrameProlet.AttProletStoyki.Count() / 2);
+
+
             TransformationPlane currentPlane = M.GetWorkPlaneHandler().GetCurrentTransformationPlane();
             TransformationPlane zero_plane = new TransformationPlane();
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(zero_plane);
@@ -172,35 +185,128 @@ namespace PipeRack
 
             var DistanceList = BoltsMethods.GetDistanceList(ShagRamTB.Text);
             List<double> Trav = DistanceList.ToList();
+            var oldCountFrames = oldPostroenie.FraMES.Count();
 
-            oldPostroenie.Grid.CoordinateX = ShagRamTB.Text;
-            oldPostroenie.Grid.Modify();
 
-            for (int _count = 0; _count < oldPostroenie.FraMES.Count(); _count++)
+
+            if (DistanceList.Count() == oldPostroenie.DistanceList.Count() || DistanceList.Count() > oldPostroenie.DistanceList.Count()) // если количество рам такое же, то изменение координат и тут новое построение
             {
-                oldPostroenie.FraMES[_count]._basePoint.X = Trav[_count];
-                oldPostroenie.FraMES[_count].Modify();
-            }
-            M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
 
 
+                oldPostroenie.Grid.CoordinateX = ShagRamTB.Text;
+                oldPostroenie.Grid.Modify();
+
+                for (int _count = 0; _count < oldPostroenie.FraMES.Count(); _count++)
+                {
+                    oldPostroenie.FraMES[_count]._basePoint.X = Trav[_count];
+                    oldPostroenie.FraMES[_count].Modify();
+                }
 
                 List<double> Travs = Trav;
                 for (int _count = 1; _count < Travs.Count(); _count++)
                 {
-                Travs[0] = Travs[0];
-                Travs[_count] = Travs[_count - 1] + Travs[_count];
+                    Travs[0] = Travs[0];
+                    Travs[_count] = Travs[_count - 1] + Travs[_count];
+                }
+                for (int _count = oldCountFrames; _count < DistanceList.Count(); _count++)
+                {
+                    M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
+                    var point = new T3D.Point(Travs[_count], 0, 0);
+                    var frame = new Frame(M, point, oldPostroenie.yarus_count, oldPostroenie.count_column, oldPostroenie.nameOfpipeRack)
+                    {
+                        Razdv12 = oldPostroenie.razdv1to2,
+                        Razdv23 = oldPostroenie.razdv2to3,
+                        Traversy = oldPostroenie.Traversy,
+                        Traversy2 = oldPostroenie.Traversy2,
+                        Attributes = oldPostroenie.AttFrame.AttributesYarusRight,
+                        Attributes2 = oldPostroenie.AttFrame.AttributesYarusLeft,
+                        AttributeColumn = oldPostroenie.AttFrame.AttributesColumn,
+                        UklonbI = oldPostroenie.UklonbI,
+                        _M = M,
+                    };
+                    frame.Insert();             // построились рамы (колонны и траверсы)
+                    oldPostroenie.FraMES.Add(frame);
+                    
                 }
 
-            for (int count = 0; count < oldPostroenie.FraMES.Count() - 1; count++)  //выбрал пару рам между которыми буду строить продольные балки
+                M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
+                for (int count = 0; count < oldCountFrames - 1; count++)  
+                {
+                    oldPostroenie.BalkiYarysA[count]._Frame1 = oldPostroenie.FraMES[count];
+                    oldPostroenie.BalkiYarysA[count]._Frame1._basePoint.X = Travs[count];
+                    oldPostroenie.BalkiYarysA[count]._Frame2 = oldPostroenie.FraMES[count + 1];
+                    oldPostroenie.BalkiYarysA[count]._Frame2._basePoint.X = Travs[count + 1];
+                    oldPostroenie.BalkiYarysA[count].Modify();
+                }
+
+                for (int count = oldCountFrames - 1; count < DistanceList.Count()-1; count++)
+                {
+                    var balkiYarusa = new BalkiYarysa(oldPostroenie.FraMES[count], oldPostroenie.FraMES[count +1], oldPostroenie.AttFrameProlet);
+                    balkiYarusa.Insert();
+                    oldPostroenie.BalkiYarysA.Add(balkiYarusa);
+                }
+
+
+
+
+                }
+            else if(DistanceList.Count() < oldPostroenie.DistanceList.Count()) // если шагов стало меньше, то удалить лишние
             {
-                oldPostroenie.BalkiYarysA[count]._Frame1 = oldPostroenie.FraMES[count];
-                oldPostroenie.BalkiYarysA[count]._Frame1._basePoint.X = Travs[count];
-                oldPostroenie.BalkiYarysA[count]._Frame2 = oldPostroenie.FraMES[count + 1];
-                oldPostroenie.BalkiYarysA[count]._Frame2._basePoint.X = Travs[count + 1];
-                oldPostroenie.BalkiYarysA[count].Modify();
+                List<double> Travs = Trav;
+                for (int _count = 1; _count < Travs.Count(); _count++)
+                {
+                    Travs[0] = Travs[0];
+                    Travs[_count] = Travs[_count - 1] + Travs[_count];
+                }
+
+                oldPostroenie.Grid.CoordinateX = ShagRamTB.Text;
+                oldPostroenie.Grid.Modify();
+
+                for (int _count = 0; _count < DistanceList.Count(); _count++)
+                {
+                    oldPostroenie.FraMES[_count]._basePoint.X = Trav[_count];
+                    oldPostroenie.FraMES[_count].Modify();
+                }
+
+                for (int _count = DistanceList.Count(); _count < oldPostroenie.FraMES.Count(); _count++)
+                {
+                    oldPostroenie.FraMES[_count].Delete();
+                }
+
+                M.GetWorkPlaneHandler().SetCurrentTransformationPlane(TP);
+
+
+                for (int count = 0; count < DistanceList.Count() - 1; count++)  //выбрал пару рам между которыми буду строить продольные балки
+                {
+                    oldPostroenie.BalkiYarysA[count]._Frame1 = oldPostroenie.FraMES[count];
+                    oldPostroenie.BalkiYarysA[count]._Frame1._basePoint.X = Travs[count];
+                    oldPostroenie.BalkiYarysA[count]._Frame2 = oldPostroenie.FraMES[count + 1];
+                    oldPostroenie.BalkiYarysA[count]._Frame2._basePoint.X = Travs[count + 1];
+                    oldPostroenie.BalkiYarysA[count].Modify();
+                }
+                for (int count = DistanceList.Count() - 1; count < oldPostroenie.FraMES.Count() - 1; count++)  //выбрал пару рам между которыми буду строить продольные балки
+                {
+
+                    oldPostroenie.BalkiYarysA[count].Delete();
+                }
             }
 
+
+
+
+            var jsonString = JsonConvert.SerializeObject(oldPostroenie);
+            //var jsonString = JsonSerializer.Serialize(FraMES);
+            var path = M.GetInfo().ModelPath + "\\frames.json";
+            var dirInfo = new DirectoryInfo(M.GetInfo().ModelPath);
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+
+            using (var file = new StreamWriter(path, false))
+            {
+                file.WriteLine(jsonString);
+            }
 
 
             M.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentPlane);

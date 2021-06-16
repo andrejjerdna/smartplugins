@@ -11,7 +11,7 @@ using SmartTeklaModel;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
-using JsonSerializer = System.Text.Json.JsonSerializer;
+
 using T3D = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
@@ -36,6 +36,7 @@ namespace PipeRack
 
         public void Button1_Click(object sender, EventArgs e)
         {
+
             var CS_point = new T3D.Point(double.Parse(X_start.Text), double.Parse(Y_start.Text), double.Parse(Z_start.Text));
             var CS_point_end = new T3D.Point(double.Parse(X_start2.Text), double.Parse(Y_start2.Text), double.Parse(Z_start2.Text));
             
@@ -85,6 +86,7 @@ namespace PipeRack
             Regen(Traversy, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
             Regen(Traversy2, yarus_count); // преобразовал расстояния между траверсами в длины от точки начала координат
 
+            
             DataGrids.AddRowDataGrid(dataGridViewYarusRight, AttFrame.AttributesYarusRight);  // считали атрибуты с гридов
             DataGrids.AddRowDataGrid(dataGridViewYarusLeft, AttFrame.AttributesYarusLeft);
             DataGrids.AddRowDataGrid(dataGridViewProdolnieRight, AttFrameProlet.AttProletBeamRight);

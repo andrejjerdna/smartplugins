@@ -29,22 +29,39 @@ namespace PipeRack
             {
                 if (Stroim)
                 {
-                    SuperProdolnayaBalka beamLeft = new SuperProdolnayaBalka(Att, StartPoint2, EndPoint2);
+                    beamLeft = new SuperProdolnayaBalka(Att, StartPoint2, EndPoint2);
                     beamLeft.Insert();
                 }
-                SuperProdolnayaBalka beamRight = new SuperProdolnayaBalka(Att, StartPoint1, EndPoint1);
+                beamRight = new SuperProdolnayaBalka(Att, StartPoint1, EndPoint1);
                 beamRight.Insert();
             }
             if (Direction == "Left")
             {
                 if (Stroim)
                 {
-                    SuperProdolnayaBalka beamRight = new SuperProdolnayaBalka(Att, StartPoint1, EndPoint1);
+                    beamRight = new SuperProdolnayaBalka(Att, StartPoint1, EndPoint1);
                     beamRight.Insert();
                 }
-                SuperProdolnayaBalka beamLeft = new SuperProdolnayaBalka(Att, StartPoint2, EndPoint2);
+                beamLeft = new SuperProdolnayaBalka(Att, StartPoint2, EndPoint2);
                 beamLeft.Insert();
             }
+        }
+        public void Modify()
+        {
+            beamRight.StartPoint.X = StartPoint1.X;
+            beamRight.EndPoint.X = EndPoint1.X;
+
+            beamLeft.StartPoint.X = StartPoint2.X;
+            beamLeft.EndPoint.X = EndPoint2.X;
+
+            beamRight.Modify();
+            beamLeft.Modify();
+        }
+
+        public void Delete()
+        {
+            beamRight.Delete();
+            beamLeft.Delete();
         }
 
     }

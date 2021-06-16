@@ -14,25 +14,24 @@ namespace PipeRack
         public Frame _Frame1 { get; set; }
         public Frame _Frame2 { get; set; }
 
-        private bool checkBeamR = true;
-        private bool checkBeamL = true;
-
-        //public List<SuperProdolnayaBalka> BalkiRight = new List<SuperProdolnayaBalka>();
-       // public List<SuperProdolnayaBalka> BalkiLeft = new List<SuperProdolnayaBalka>();
+        public List<SuperProdolnayaBalka> BalkiRight = new List<SuperProdolnayaBalka>(); //удалить позже
+        public List<SuperProdolnayaBalka> BalkiLeft = new List<SuperProdolnayaBalka>();  //удалить позже
 
         public List<SuperProdolnieBalkiYarusa> BalkiRightT = new List<SuperProdolnieBalkiYarusa>();
         public List<SuperProdolnieBalkiYarusa> BalkiLeftT = new List<SuperProdolnieBalkiYarusa>();
 
-        public List<SuperTraversaVProlete> TraversyVProveteRight = new List<SuperTraversaVProlete>();
-        public List<SuperTraversaVProlete> TraversyVProveteLeft = new List<SuperTraversaVProlete>();
+        public List<SuperTraversaVProlete> TraversyVProveteRight = new List<SuperTraversaVProlete>();  //удалить позже
+        public List<SuperTraversaVProlete> TraversyVProveteLeft = new List<SuperTraversaVProlete>();  //удалить позже
+
+        public List<SuperTraversyVProleteYarysa> TraversyVProveteRightT = new List<SuperTraversyVProleteYarysa>();
+        public List<SuperTraversyVProleteYarysa> TraversyVProveteLeftT = new List<SuperTraversyVProleteYarysa>();
+
         public List<Beam> _stoiki = new List<Beam>();
 
         public List<SuperTraversaVProlete> _traversyVprovete = new List<SuperTraversaVProlete>();
 
         public List<bool> RightZ = new List<bool>();
         public List<bool> LeftZ = new List<bool>();
-
-        double EndST = 0;
 
         public BalkiYarysa(Frame Frame1, Frame Frame2, AttributesFrameProlet AttFrameProlet)
         {
@@ -47,156 +46,166 @@ namespace PipeRack
 
         public void Insert()
         {
-
-
             CheckNaxlest();
 
-            for (int i = 0; i < _Frame1._TraversRight.Count(); i++)
+            BalkiRightT = PostroenieProdolnihBalok("Right");
+            BalkiLeftT = PostroenieProdolnihBalok("Left");
+
+            TraversyVProveteRightT = PostroenieTravers("Right");
+            TraversyVProveteLeftT = PostroenieTravers("Left");
+
+            var ii = 0;
+            foreach (bool boolevo in RightZ)
             {
-                var beams1 = _Frame1._TraversRight[i];
-                var beams2 = _Frame2._TraversRight[i];
-
-                var startPoint = new Point(_Frame1._basePoint.X, beams1.StartPoint.Y, beams1.StartPoint.Z);
-                var endPoint = new Point(_Frame2._basePoint.X, beams2.StartPoint.Y, beams2.StartPoint.Z);
-
-                var startPoint2 = new Point(_Frame1._basePoint.X, beams1.EndPoint.Y, beams1.EndPoint.Z);
-                var endPoint2 = new Point(_Frame2._basePoint.X, beams2.EndPoint.Y, beams2.EndPoint.Z);
-
-                SuperProdolnieBalkiYarusa balkiRight = new SuperProdolnieBalkiYarusa()
+                if (!boolevo)
                 {
-                    Stroim = RightZ[i],
-                    Direction = "Right",
-                    StartPoint1 = startPoint,
-                    StartPoint2 = startPoint2,
-                    EndPoint1 = endPoint,
-                    EndPoint2 = endPoint2,
-                    Att = _AttFrameProlet.AttProletBeamRight[i],
-                };
-                balkiRight.Insert();
-                BalkiRightT.Add(balkiRight);
-            }
-
-            for (int i = 0; i < _Frame1._TraversLeft.Count(); i++)
-            {
-                var beams1 = _Frame1._TraversLeft[i];
-                var beams2 = _Frame2._TraversLeft[i];
-
-                var startPoint = new Point(_Frame1._basePoint.X, beams1.StartPoint.Y, beams1.StartPoint.Z);
-                var endPoint = new Point(_Frame2._basePoint.X, beams2.StartPoint.Y, beams2.StartPoint.Z);
-                
-                var startPoint2 = new Point(_Frame1._basePoint.X, beams1.EndPoint.Y, beams1.EndPoint.Z);
-                var endPoint2 = new Point(_Frame2._basePoint.X, beams2.EndPoint.Y, beams2.EndPoint.Z);
-
-
-                SuperProdolnieBalkiYarusa balkiLeft = new SuperProdolnieBalkiYarusa()
-                {
-                    Stroim = LeftZ[i],
-                    Direction = "Left",
-                    StartPoint1 = startPoint,
-                    StartPoint2 = startPoint2,
-                    EndPoint1 = endPoint,
-                    EndPoint2 = endPoint2,
-                    Att = _AttFrameProlet.AttProletBeamLeft[i],
-                };
-                balkiLeft.Insert();
-                BalkiRightT.Add(balkiLeft);
-            }
-
-
-
-            Connections Con = new Connections();
-            for (int i = 0; i < _Frame1._TraversRight.Count(); i++) // правые балки половина балок
-            {
-                if (_AttFrameProlet.AttProletBeamRight[i] != null)
-                {
-                    var Att = _Frame1._TraversRight[i];
-                    var startPoint = new Point(_Frame1._basePoint.X, Att.StartPoint.Y, Att.StartPoint.Z);
-                    var endPoint = new Point(_Frame1._basePoint.X, Att.EndPoint.Y, Att.EndPoint.Z);
-
-                    var Att2 = _Frame2._TraversRight[i];
-                    var startPoint2 = new Point(_Frame2._basePoint.X, Att2.StartPoint.Y, Att2.StartPoint.Z);
-                    var endPoint2 = new Point(_Frame2._basePoint.X, Att2.EndPoint.Y, Att2.EndPoint.Z);
-
-                    var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_Frame2._basePoint.X - _Frame1._basePoint.X);
-                    var _shagi = Shagtravers(_Frame2._basePoint.X - _Frame1._basePoint.X, 3000);
-
-                        for (int _i = 0; _i < _shagi.Count(); _i++)
-                        {
-                            Point startPoint3 = new Point(startPoint.X + _shagi[_i], startPoint.Y, startPoint.Z + _shagi[_i] * uklon);
-                            Point endPoint3 = new Point(endPoint.X + _shagi[_i], endPoint.Y, endPoint.Z + _shagi[_i] * uklon);
-
-                            SuperTraversaVProlete traversavprolete = new SuperTraversaVProlete(_AttFrameProlet.AttProletTraversaRight[i], startPoint3, endPoint3);// траверса в пролете
-                            traversavprolete.Insert();
-                            TraversyVProveteRight.Add(traversavprolete);
-
-                            double H = 0;
-                            TraversyVProveteRight[_i]._beam.GetReportProperty("WIDTH", ref H);
-                            Point startPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - H);
-                            Point EndPointST = new Point(endPoint3.X, endPoint3.Y, endPoint3.Z - EndST);
-
-
-                            _stoiki.Add(frame.BeamMain(_AttFrameProlet.AttProletStoyki[i], startPointST, EndPointST, (i + 1).ToString()));
-                        }
-                   
+                    SuperStoikiVProlete stoiki = new SuperStoikiVProlete(TraversyVProveteRightT[ii])
+                    {
+                        Att = _AttFrameProlet.AttProletStoyki[ii],
+                    };
+                    stoiki.Insert();
+                    ii++;
                 }
-
-              //  Con.BeamsToColumn(_Frame1._Columns[0]._beam, BalkiRight);
-              //  Con.BeamsToColumn(_Frame1._Columns[1]._beam, BalkiLeft);
             }
+            var kk = 0;
+            foreach (bool boolevo in LeftZ)
+            {
+                if (!boolevo)
+                {
+                    SuperStoikiVProlete stoiki = new SuperStoikiVProlete(TraversyVProveteLeftT[kk])
+                    {
+                        Att = _AttFrameProlet.AttProletStoyki[kk],
+                    };
+                    stoiki.Insert();
+                    kk++;
+                }
+            }
+
+
+
+            //     Connections Con = new Connections();
+            //    Con.BeamsToColumn(_Frame1._Columns[0]._beam, BalkiRight);
+            //    Con.BeamsToColumn(_Frame1._Columns[1]._beam, BalkiLeft);
+            //
 
         }
 
         public void Modify()
         {
 
-            foreach (SuperProdolnayaBalka balka in BalkiLeft)
+            foreach (SuperProdolnieBalkiYarusa balkiProdolnie in BalkiRightT)
             {
-                balka.StartPoint.X = _Frame1._basePoint.X;
-                balka.EndPoint.X = _Frame2._basePoint.X;
-
-                balka.Modify();
+                balkiProdolnie.StartPoint1.X = _Frame1._basePoint.X;
+                balkiProdolnie.StartPoint2.X = _Frame1._basePoint.X;
+                balkiProdolnie.EndPoint1.X = _Frame2._basePoint.X;
+                balkiProdolnie.EndPoint2.X = _Frame2._basePoint.X;
+                balkiProdolnie.Modify();
             }
-            foreach (SuperProdolnayaBalka balka in BalkiRight)
+            foreach (SuperProdolnieBalkiYarusa balkiProdolnie in BalkiLeftT)
             {
-                balka.StartPoint.X = _Frame1._basePoint.X;
-                balka.EndPoint.X = _Frame2._basePoint.X;
-                balka.Modify();
+                balkiProdolnie.StartPoint1.X = _Frame1._basePoint.X;
+                balkiProdolnie.StartPoint2.X = _Frame1._basePoint.X;
+                balkiProdolnie.EndPoint1.X = _Frame2._basePoint.X;
+                balkiProdolnie.EndPoint2.X = _Frame2._basePoint.X;
+                balkiProdolnie.Modify();
             }
-            foreach (SuperTraversaVProlete traversa in TraversyVProveteLeft)
+            foreach(SuperTraversyVProleteYarysa traversyVProlete in TraversyVProveteRightT)
             {
-                //var _shagi = Shagtravers(_Frame2._basePoint.X - _Frame1._basePoint.X, 3000);
-                //var uklon = (Att2.EndPoint.Z - Att.StartPoint.Z) / (_Frame2._basePoint.X - _Frame1._basePoint.X);
-
-
-                //traversa.StartPoint.X  = _shagi[_i];
-                //traversa.EndPoint.X = _shagi[_i];
-
-                traversa.Modify();
+                var _shagi = Shagtravers(_Frame2._basePoint.X - _Frame1._basePoint.X, 3000);
+                traversyVProlete.Shagi = _shagi;
+                traversyVProlete.StartPoint.X = _Frame1._basePoint.X;
+                traversyVProlete.EndPoint.X = _Frame1._basePoint.X;
+                traversyVProlete.Modify();
             }
-            foreach (SuperTraversaVProlete traversa in TraversyVProveteRight)
-            {
-                traversa.Modify();
-            }
+
         }
 
-
-        private void StroimTraversyVProvete(Beam Right, Beam Left, Attributes att)
+        public void Delete()
         {
-            var uklon = (Right.EndPoint.Z - Right.StartPoint.Z) / (_Frame2._basePoint.X - _Frame1._basePoint.X);
-            var _shagi = Shagtravers(_Frame2._basePoint.X - _Frame1._basePoint.X, 3000);
-            for (int _i = 0; _i < _shagi.Count(); _i++)
+            foreach (SuperProdolnieBalkiYarusa balkiProdolnie in BalkiRightT)
             {
-                Point startPoint = new Point(Right.StartPoint.X + _shagi[_i], Right.StartPoint.Y, Right.StartPoint.Z + _shagi[_i] * uklon);
-                Point endPoint = new Point(Left.EndPoint.X + _shagi[_i], Left.EndPoint.Y, Left.EndPoint.Z + _shagi[_i] * uklon);
 
-                SuperTraversaVProlete traversaVprolete = new SuperTraversaVProlete(att, startPoint, endPoint);
-                traversaVprolete.Insert();
+                balkiProdolnie.Delete();
+            }
+            foreach (SuperProdolnieBalkiYarusa balkiProdolnie in BalkiLeftT)
+            {
 
+                balkiProdolnie.Delete();
+            }
+            foreach (SuperTraversyVProleteYarysa traversyVProlete in TraversyVProveteRightT)
+            {
 
-               // _traversyvprovete.Add(frame.BeamMain(_AttFrameProlet.AttProletTraversaRight[i], startPoint3, endPoint3, (i + 1).ToString())); // траверса в пролете
+                traversyVProlete.Delete();
             }
         }
 
+
+        private List<SuperProdolnieBalkiYarusa> PostroenieProdolnihBalok(String direction)
+        {
+            List<SuperProdolnieBalkiYarusa> sBalki = new List<SuperProdolnieBalkiYarusa>();
+            List<SuperTraversaYarysa> beams1 = _Frame1._TraversRight;
+            List<SuperTraversaYarysa> beams2 = _Frame2._TraversRight;
+            List<Attributes> attributes = _AttFrameProlet.AttProletBeamRight;
+            List<bool> stroim = RightZ;
+
+            if (direction == "Left")
+            {
+                beams1 = _Frame1._TraversLeft;
+                beams2 = _Frame2._TraversLeft;
+                attributes = _AttFrameProlet.AttProletBeamLeft;
+                stroim = LeftZ;
+            }
+
+            for (int i = 0; i < beams1.Count(); i++)
+            {
+                var startPoint = new Point(_Frame1._basePoint.X, beams1[i].StartPoint.Y, beams1[i].StartPoint.Z);
+                var endPoint = new Point(_Frame2._basePoint.X, beams2[i].StartPoint.Y, beams2[i].StartPoint.Z);
+
+                var startPoint2 = new Point(_Frame1._basePoint.X, beams1[i].EndPoint.Y, beams1[i].EndPoint.Z);
+                var endPoint2 = new Point(_Frame2._basePoint.X, beams2[i].EndPoint.Y, beams2[i].EndPoint.Z);
+
+                SuperProdolnieBalkiYarusa balki = new SuperProdolnieBalkiYarusa()
+                {
+                    Stroim = stroim[i],
+                    Direction = direction,
+                    StartPoint1 = startPoint,
+                    StartPoint2 = startPoint2,
+                    EndPoint1 = endPoint,
+                    EndPoint2 = endPoint2,
+                    Att = attributes[i],
+                };
+                balki.Insert();
+                sBalki.Add(balki);
+            }
+            return sBalki;
+        }
+        private List<SuperTraversyVProleteYarysa> PostroenieTravers (String direction)
+        {
+            List<SuperTraversyVProleteYarysa> traversyYarysa = new List<SuperTraversyVProleteYarysa>();
+            var balki = BalkiRightT;
+            if (direction == "Left")
+            {
+                balki = BalkiLeftT;
+            }
+            var _shagi = Shagtravers(_Frame2._basePoint.X - _Frame1._basePoint.X, 3000);
+
+            int i = 0;
+            foreach (SuperProdolnieBalkiYarusa beams in balki)
+            {
+
+                var uklon = (beams.EndPoint1.Z - beams.StartPoint1.Z) / (_Frame2._basePoint.X - _Frame1._basePoint.X);
+                SuperTraversyVProleteYarysa traversyVprolete = new SuperTraversyVProleteYarysa(_shagi, uklon)
+                {
+                    Att = _AttFrameProlet.AttProletTraversaRight[i],
+                    StartPoint = beams.StartPoint1,
+                    EndPoint = beams.StartPoint2,
+                };
+                traversyVprolete.Insert();
+                traversyYarysa.Add(traversyVprolete);
+                i++;
+            }
+            return traversyYarysa;
+        }
 
         private void CheckNaxlest()
         {
@@ -239,7 +248,6 @@ namespace PipeRack
                     LeftZ.Add(true);
             }
         }
-
         public List<double> Shagtravers(double n, double Shag)
         {
             List<double> shagtravers = new List<double>();

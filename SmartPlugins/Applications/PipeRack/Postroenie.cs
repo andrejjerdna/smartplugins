@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 using T3D = Tekla.Structures.Geometry3d;
-using JsonSerializer = System.Text.Json.JsonSerializer;
+
 using Newtonsoft.Json;
 using System.IO;
 
@@ -58,6 +58,7 @@ namespace PipeRack
             CheckConnectionToModel(); //проверили подключение к модели
             FraMES.Clear();
             BalkiYarysA.Clear();
+
 
             // проверка наличия атрибутов
             if (!Nali4ieAtt(AttFrame.AttributesColumn, count_column, "колонны")) return;
