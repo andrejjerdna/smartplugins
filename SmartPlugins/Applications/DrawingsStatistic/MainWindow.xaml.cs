@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrawingsStatistic.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,14 @@ namespace DrawingsStatistic
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowViewModel _mainWindowViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            _mainWindowViewModel = new MainWindowViewModel();
+            DataContext = _mainWindowViewModel;
         }
     }
 }

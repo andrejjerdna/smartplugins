@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DrawingsStatistic"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Topmost="True">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid Grid.Column="1" Margin="5"/>
+        <DataGrid ItemsSource="{Binding DrawingDatas, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Grid.Column="1" Margin="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding d, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="ID" Width="200"/>
+                <DataGridTextColumn Binding="{Binding WorkTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Время работы" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

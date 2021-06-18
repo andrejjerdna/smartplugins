@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DrawingData.cs" />
+    <Compile Include="Model\TeklaDrawingsObserver.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +106,17 @@
     <PackageReference Include="TeklaOpenAPI">
       <Version>2020.0.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartTeklaModel.csproj">
+      <Project>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</Project>
+      <Name>SmartTeklaModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartWPFElements.csproj">
+      <Project>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</Project>
+      <Name>SmartWPFElements</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
