@@ -30,16 +30,14 @@ xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
             <ColumnDefinition Width="155*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Grid.Column="0">
-            <Button x:Name="SteelButton" HorizontalAlignment="Center" Width="100" Height="50" Click="OnSteelClick">
+            <Button x:Name="SteelButton" HorizontalAlignment="Center" Width="100" Height="100" Click="OnSteelClick" Background="{x:Null}">
                 <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="WifiSettings" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    <Label Content="СТАЛЬ"/>
+                    <iconPacks:PackIconMaterial Kind="WifiSettings" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50"/>
                 </StackPanel>
                 </Button>
-            <Button x:Name="ConcreteButton" HorizontalAlignment="Center"  Width="100" Height="50" Click="OnConcreteClick">
+            <Button x:Name="ConcreteButton" HorizontalAlignment="Center"  Width="100" Height="100" Click="OnConcreteClick" Background="{x:Null}">
                 <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="EmoticonCool" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                    <Label Content="БЕТОН"/>
+                    <iconPacks:PackIconMaterial Kind="EmoticonCool" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" Height="50"/>
                 </StackPanel>
             </Button>
         </StackPanel>
