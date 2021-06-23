@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,36 +16,41 @@ namespace DrawingsStatistic.Model
     {
         private DrawingHandler _drawingHandler { get; }
         private Drawing _drawingCurrent { get; set; }
-        private List<DrawingData> _drawingDatas { get; set; }
-        private Timer _timer { get; set; }
+        private ObservableCollection<DrawingData> _drawingDatas { get; set; }
+        private Stopwatch _stopwatch { get; set; }
 
         public Tekla.Structures.Drawing.UI.Events Events;
 
-        public TeklaDrawingsObserver()
+        public TeklaDrawingsObserver(ObservableCollection<DrawingData> drawingDatas)
         {
             _drawingHandler = new DrawingHandler();
-            _drawingDatas = new List<DrawingData>();
+            _drawingDatas = drawingDatas;
 
             Events = new Tekla.Structures.Drawing.UI.Events();
 
-            _timer = new Timer();
+            _stopwatch = new Stopwatch();
 
             Events.DrawingLoaded += GetCurrentDrawing;
             Events.DrawingEditorClosed += DrawingClosed;
             Events.Register();
         }
 
+        public async Task<bool> StartObserver()
+        {
+            DrawingClosed();
+            return true;
+        }
+
         private void GetCurrentDrawing()
         {
-            _timer.AutoReset = true;
-            _timer.Start();
+            _stopwatch.Start();
 
             _drawingCurrent = _drawingHandler.GetActiveDrawing();
         }
 
         private void DrawingClosed()
         {
-            _timer.Stop();
+            _stopwatch.Stop();
 
             if (_drawingCurrent == null)
                 return;
@@ -57,14 +63,14 @@ namespace DrawingsStatistic.Model
             {
                 var drawing = _drawingDatas.Where(dd => dd.DrawingID == identifier.ID).First();
 
-                drawing.WorkTime += _timer.Interval;
+                drawing.WorkTime += _stopwatch.Elapsed.TotalSeconds;
             }
             else
             {
                 var drawingData = new DrawingData
                 {
                     DrawingID = identifier.ID,
-                    WorkTime = _timer.Interval
+                    WorkTime = _stopwatch.Elapsed.TotalSeconds
                 };
 
                 _drawingDatas.Add(drawingData);

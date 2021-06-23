@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows.Data;
+using System.Windows.Threading;
 
 namespace DrawingsStatistic.ViewModel
 {
@@ -20,34 +22,32 @@ namespace DrawingsStatistic.ViewModel
             set => Set(value);
         }
 
-        public ObservableCollection<DrawingData> DrawingDatas
+        private ObservableCollection<DrawingData> _drawingDatas
         {
             get => GetColl<DrawingData>();
             set => SetColl(value);
         }
 
+        private object _lock = new object();
+
+        public ObservableCollection<DrawingData> DrawingDatas { get { return _drawingDatas; } }
+
         public TeklaDrawingsObserver TeklaDrawingsObserver
         {
-            get => Get(new TeklaDrawingsObserver());
+            get => Get(new TeklaDrawingsObserver(_drawingDatas));
             set => Set(value);
         }
 
         public MainWindowViewModel()
         {
-            var timer = new System.Timers.Timer(1000);
-            timer.Elapsed += GetData;
-            timer.AutoReset = true;
-            timer.Enabled = true;
+            BindingOperations.EnableCollectionSynchronization(_drawingDatas, _lock);
 
-            TeklaDrawingsObserver = new TeklaDrawingsObserver();
-        }
+            TeklaDrawingsObserver = new TeklaDrawingsObserver(_drawingDatas);
 
-        private void GetData(Object source, ElapsedEventArgs e)
-        {
-            foreach(var data in TeklaDrawingsObserver.DrawingDatas())
+            Tasks.Run(() =>
             {
-                DrawingDatas.Add(data);
-            }
+                TeklaDrawingsObserver.StartObserver();
+            });
         }
     }
 }

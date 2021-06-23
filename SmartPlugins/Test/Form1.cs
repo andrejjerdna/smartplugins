@@ -22,6 +22,10 @@ using Parallel = System.Threading.Tasks.Parallel;
 using SmartTeklaModel.Rebar;
 using View = Tekla.Structures.Drawing.View;
 using Tekla.Structures;
+using System.IO;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
+using System.Text.Json;
 
 namespace Test
 {
@@ -56,7 +60,7 @@ namespace Test
                         AssignValues(part, 1, view.Name);
                     }
                 }
-                }
+            }
         }
 
         private void AssignValues(Tekla.Structures.Drawing.Part ass, double nmbr, string viewName)
@@ -128,24 +132,32 @@ namespace Test
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var model = new Model();
+            var file = new FileInfo(@"1.xlsx");
 
-            if (!model.CommitChanges())
-                return;
+            var list = new List<Tuple<string, string>>();
 
-            var assemblies = model.GetModelObjectSelector()
-                .GetAllObjectsWithType(Tekla.Structures.Model.ModelObject.ModelObjectEnum.ASSEMBLY)
-                .ToConcurrentBag<Assembly>();
+            ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
 
-            Parallel.ForEach(assemblies, (assembly) =>
+            ExcelPackage package = new ExcelPackage(file);
+            ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault();
+
+            // get number of rows and columns in the sheet
+            int rows = worksheet.Dimension.Rows;
+            int columns = worksheet.Dimension.Columns;
+
+            // loop through the worksheet rows and columns
+            for (int i = 5; i <= 1382; i++)
             {
-                var num = new RebarNumberator(assembly, "REBAR_SEQ_NO");
-                num.RefreshNumbers();
-            });
+                var assemblyPos = worksheet.Cells[i, 4].Value.ToString();
+                var category = worksheet.Cells[i, 5].Value.ToString();
 
-            model.CommitChanges();
-        }
-        
+                list.Add(new Tuple<string, string>(assemblyPos, category));
+            }
+
+            string jsonString = JsonSerializer.Serialize(list);
+            File.WriteAllText("data.txt", jsonString);
+
         }
     }
+}
 
