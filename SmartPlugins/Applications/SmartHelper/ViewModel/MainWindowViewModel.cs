@@ -11,10 +11,10 @@ namespace SmartHelper.ViewModel
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        public SteelWindowViewModel SteelWindowViewModel
-        {
-            get => Get(new SteelWindowViewModel());
-            set => Set(value);
-        }
+        //public SteelWindowViewModel SteelWindowViewModel
+        //{
+        //    get => Get(new SteelWindowViewModel());
+        //    set => Set(value);
+        //}
     }
 }

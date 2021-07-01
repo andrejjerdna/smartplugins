@@ -81,6 +81,10 @@
       <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
       <Name>SmartTeklaModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmartWPFElements\SmartWPFElements.csproj">
+      <Project>{9d12b1dd-4a5e-4eac-bc1d-543f339b6971}</Project>
+      <Name>SmartWPFElements</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">

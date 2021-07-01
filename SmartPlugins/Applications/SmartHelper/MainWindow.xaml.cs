@@ -38,7 +38,7 @@ namespace SmartHelper
 
         private void OnSteelClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Pages.SteelPage1());
+            MainFrame.Navigate(new Pages.SteelPage1(MainFrame));
         }
 
         private void OnConcreteClick(object sender, RoutedEventArgs e)

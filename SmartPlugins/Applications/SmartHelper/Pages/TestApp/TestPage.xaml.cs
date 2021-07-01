@@ -1,5 +1,4 @@
-﻿using SmartHelper.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartHelper.Pages
+namespace SmartHelper.Pages.TestApp
 {
     /// <summary>
-    /// Interaction logic for SteelPage1.xaml
+    /// Interaction logic for TestPage.xaml
     /// </summary>
-    public partial class SteelPage1 : Page
+    public partial class TestPage : Page
     {
-        private SteelWindowViewModel _steelWindowViewModel;
+        private TestAppViewModel _testApp;
 
-        public SteelPage1(Frame frameMainWindow)
+        public TestPage()
         {
             InitializeComponent();
+            _testApp = new TestAppViewModel();
 
-            _steelWindowViewModel = new SteelWindowViewModel(frameMainWindow);
-            DataContext = _steelWindowViewModel;
+            DataContext = _testApp;
         }
     }
 }
