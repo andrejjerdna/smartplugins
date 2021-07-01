@@ -1,12 +1,16 @@
-﻿using System;
+﻿/* System */
+using System;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+/* Tekla Structures */
 using Tekla.Structures.Model;
 using tsm = Tekla.Structures.Model;
+using tsg = Tekla.Structures.Drawing;
+
 
 namespace SmartExtensions
 {
@@ -29,6 +33,49 @@ namespace SmartExtensions
                 .GetAllObjectsWithType(types)
                 .ToIEnumerable<T>();
         }
+
+        /// <summary>
+        /// Получает объекты модели в IEnumerable из ModelObjectEnumerator
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="moe"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> Get<T>(this tsm.ModelObjectEnumerator moe)
+        {
+            foreach (var item in moe)
+            {
+                if (item is T result)
+                    yield return result;
+            }
+        }
+
+        /// <summary>
+        /// Получает объекты чертежа в IEnumerable из DrawingObjectEnumerator
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="doe"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> Get<T>(this tsd.DrawingObjectEnumerator doe)
+        {
+            foreach (var item in doe)
+            {
+                if (item is T result)
+                    yield return result;
+            }
+        }
+
+        /// <summary>
+        /// Выбрать объект по ID
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static T ToModel<T>(this Identifier id)
+        {
+            var obj = new tsm.Model().SelectModelObject(id);
+            return (T)(object)obj;
+        }
+
         /// <summary>
         /// IEnumerator to IEnumerable.
         /// </summary>

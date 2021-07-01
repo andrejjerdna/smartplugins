@@ -50,6 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoltsExtensions.cs" />
+    <Compile Include="Geometry\AABBExtensions.cs" />
+    <Compile Include="Geometry\CoordinateSystemExtensions.cs" />
+    <Compile Include="Drawing\DrawingBoltExtensions.cs" />
+    <Compile Include="Geometry\OBBExtensions.cs" />
+    <Compile Include="Geometry\PointExtensions.cs" />
     <Compile Include="ModelObjectExtension.cs" />
     <Compile Include="RebarExtension.cs" />
     <Compile Include="WeldsExtensions.cs" />
