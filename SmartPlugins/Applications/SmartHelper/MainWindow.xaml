@@ -7,7 +7,7 @@ xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:SmartHelper" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                        mc:Ignorable="d"
         Title="SmartHelper" Height="450" Width="800"
-                       WindowStartupLocation="CenterScreen" >
+                       WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
             <StackPanel Orientation="Horizontal">

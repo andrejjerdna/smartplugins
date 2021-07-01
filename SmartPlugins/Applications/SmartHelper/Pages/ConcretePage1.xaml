@@ -8,14 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ConcretePage1">
     <Grid>
-        <WrapPanel>
+        <WrapPanel Name="Buttons">
             <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
                 <StackPanel>
                     <iconPacks:PackIconMaterial Kind="WifiSettings" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     <TextBlock Text="НУМЕРАЦИЯ АРМАТУРЫ" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
                 </StackPanel>
             </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
+            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10" Background="{x:Null}">
                 <StackPanel>
                     <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>

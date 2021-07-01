@@ -52,6 +52,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SmartHelper\BaseViewModel.cs" />
+    <Compile Include="SmartHelper\ISmartHelperApp.cs" />
+    <Compile Include="SmartHelper\IWindowSmartHelper.cs" />
+    <Compile Include="SmartHelper\SmartButton.cs" />
+    <Compile Include="SmartHelper\TaskRunner.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Page Include="ConcreteDetailsWindow.xaml">
       <SubType>Designer</SubType>

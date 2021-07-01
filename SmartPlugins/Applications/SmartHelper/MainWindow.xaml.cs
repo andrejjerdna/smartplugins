@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using SmartHelper.ViewModel;
 
 namespace SmartHelper
 {
@@ -22,9 +23,12 @@ namespace SmartHelper
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private MainWindowViewModel _mainWindowViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            _mainWindowViewModel = new MainWindowViewModel();
         }
 
         private async void OnButtonClick(object sender, RoutedEventArgs e)
@@ -40,6 +44,11 @@ namespace SmartHelper
         private void OnConcreteClick(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new Pages.ConcretePage1());
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

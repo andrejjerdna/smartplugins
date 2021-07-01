@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHelper.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace SmartHelper.Pages
     /// </summary>
     public partial class SteelPage1 : Page
     {
+        private SteelWindowViewModel _steelWindowViewModel;
+
         public SteelPage1()
         {
             InitializeComponent();
+            _steelWindowViewModel = new SteelWindowViewModel();
+            DataContext = _steelWindowViewModel;
         }
     }
 }

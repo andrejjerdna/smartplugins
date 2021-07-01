@@ -56,7 +56,7 @@ namespace Test
                         AssignValues(part, 1, view.Name);
                     }
                 }
-                }
+            }
         }
 
         private void AssignValues(Tekla.Structures.Drawing.Part ass, double nmbr, string viewName)
@@ -145,7 +145,18 @@ namespace Test
 
             model.CommitChanges();
         }
-        
-        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var drawingHandler = new DrawingHandler();
+
+            var currentDrawing = drawingHandler.GetActiveDrawing();
+
+            if (currentDrawing != null)
+            {
+                var drawingObjectEnumerator = currentDrawing.GetSheet().GetAllObjects(typeof(StraightDimension)).ToIEnumerable<StraightDimension>().ToList();
+            }
+            }
     }
+}
 

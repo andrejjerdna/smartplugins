@@ -9,61 +9,22 @@
       Title="SteelPage1">
 
     <Grid>
-        <WrapPanel>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-            <Button HorizontalAlignment="Center" Width="150" Height="100" Margin="10">
-                <StackPanel>
-                    <iconPacks:PackIconMaterial Kind="SettingsHelper" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Empty Button" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                </StackPanel>
-            </Button>
-        </WrapPanel>
+        <ItemsControl ItemsSource="{Binding SmartButtons}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding Command}" Width="150" Height="100" Background="{x:Null}">
+                        <StackPanel>
+                            <iconPacks:PackIconMaterial Kind="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding TextButton}" TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </Page>
