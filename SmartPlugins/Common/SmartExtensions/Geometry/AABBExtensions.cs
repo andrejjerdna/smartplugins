@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Linq;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
@@ -18,54 +19,9 @@ namespace SmartExtensions.Geometry
         {
             return Distance.PointToPoint(ab.MinPoint, ab.MaxPoint);
         }
-        /// <summary>
-        /// Получить коробку AABB детали из чертежа
-        /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static AABB GetAabb(this tsd.Part p)
-        {
-            var part = new Model().SelectModelObject(p.ModelIdentifier) as Part;
-            return part.GetAabb();
-        }
-        /// <summary>
-        /// Получить коробку AABB детали
-        /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static AABB GetAabb(this Part p)
-        {
-            var min = p.GetSolid().MinimumPoint;
-            var max = p.GetSolid().MaximumPoint;
-            return new AABB(min, max);
-        }
-        /// <summary>
-        /// Получить коробку AABB болта по 
-        /// координатам позиций
-        /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static AABB GetAabb(this BoltGroup bg)
-        {
-            Point MinPoint = bg.BoltPositions.GetMinPoint();
-            Point MaxPoint = bg.BoltPositions.GetMaxPoint();
-            PointExtensions.MinMax(ref MinPoint, ref MaxPoint);
-            return new AABB(MinPoint, MaxPoint);
-        }
-        /// <summary>
-        /// Получить коробку AABB сборки
-        /// </summary>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static AABB GetAabb(this Assembly asm)
-        {
-            var main = (asm.GetMainPart() as Part).GetAabb();
-            foreach (var p in asm.GetSecondaries())
-            {
-                main += (p as Part).GetAabb();
-            }
-            return main;
-        }
+        
+
+
         /// <summary>
         /// Проверка что одна AABB лежит внутри другой
         /// </summary>
@@ -84,6 +40,34 @@ namespace SmartExtensions.Geometry
             return min && max && center;
         }
 
+        /// <summary>
+        /// Получить минимальную точку 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static Point Min(this AABB a)
+        {
+            return new Point
+            {
+                X = Math.Min(a.MinPoint.X, a.MaxPoint.X),
+                Y = Math.Min(a.MinPoint.Y, a.MaxPoint.Y),
+                Z = Math.Min(a.MinPoint.Z, a.MaxPoint.Z),
+            };
+        }
 
+        /// <summary>
+        /// Получить максимальную точку
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static Point Max(this AABB a)
+        {
+            return new Point
+            {
+                X = Math.Max(a.MinPoint.X, a.MaxPoint.X),
+                Y = Math.Max(a.MinPoint.Y, a.MaxPoint.Y),
+                Z = Math.Max(a.MinPoint.Z, a.MaxPoint.Z),
+            };
+        }
     }
 }

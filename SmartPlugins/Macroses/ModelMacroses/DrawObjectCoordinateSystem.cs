@@ -7,6 +7,9 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 
+#warning Включить
+using SmartMacros.Extensions;
+
 namespace SmartMacros
 {
     public class DrawObjectCoordinateSystem
@@ -39,6 +42,7 @@ namespace SmartMacros
 
             if (modelObject == null) return;
 
+            /*
             if (modelObject is Part part)
             {
                 var partCoordinateSystem = part.GetCoordinateSystem();
@@ -61,7 +65,9 @@ namespace SmartMacros
             {
                 var partCoordinateSystem = rebarGroup.GetCoordinateSystem();
                 DrawPlane(partCoordinateSystem);
-            }
+            }*/
+            var coordinateSystem = modelObject.GetCoordinateSystem();
+            DrawPlane(coordinateSystem);
 
             workPlaneHandler.SetCurrentTransformationPlane(originalTransformationPlane);
         }

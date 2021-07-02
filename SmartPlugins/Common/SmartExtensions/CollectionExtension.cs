@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 /* Tekla Structures */
 using Tekla.Structures.Model;
 using tsm = Tekla.Structures.Model;
-using tsg = Tekla.Structures.Drawing;
-
+using ts = Tekla.Structures;
+using tsd = Tekla.Structures.Drawing;
 
 namespace SmartExtensions
 {
@@ -70,7 +71,7 @@ namespace SmartExtensions
         /// <typeparam name="T"></typeparam>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static T ToModel<T>(this Identifier id)
+        public static T ToModel<T>(this ts.Identifier id)
         {
             var obj = new tsm.Model().SelectModelObject(id);
             return (T)(object)obj;
