@@ -73,5 +73,26 @@ namespace SmartExtensions
                 bg.SecondPosition
             };
         }
+
+        /// Получить список сборок
+        public static IEnumerable<string> GetAssembliesPosition(this BoltGroup bg)
+        {
+            var parts = bg.GetAllParts();
+            List<int> IDasmFiltered = new List<int>();
+            List<string> result = new List<string>();
+            foreach (var p in parts)
+            {
+                string temp = "";
+                p.GetReportProperty("ASSEMBLY_POS", ref temp);
+                int id = p.GetAssembly().Identifier.ID;
+                if (!IDasmFiltered.Contains(id))
+                {
+                    result.Add(temp);
+                    IDasmFiltered.Add(id);
+                }
+            }
+
+            return result;
+        }
     }
 }
