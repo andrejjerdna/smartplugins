@@ -59,10 +59,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\TestApp\TestApp.cs" />
+    <Compile Include="Pages\ConcreteApps.xaml.cs">
+      <DependentUpon>ConcreteApps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SteelApps.xaml.cs">
+      <DependentUpon>SteelApps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TestApp\TestAppRunner.cs" />
+    <Compile Include="Pages\TestApp\TestApp.xaml.cs">
+      <DependentUpon>TestApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TestApp\TestAppViewModel.cs" />
-    <Compile Include="Pages\TestApp\TestPage.xaml.cs">
-      <DependentUpon>TestPage.xaml</DependentUpon>
+    <Compile Include="Pages\WelcomApps.xaml.cs">
+      <DependentUpon>WelcomApps.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ConcreteWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -79,26 +88,24 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\ConcretePage1.xaml">
+    <Page Include="Pages\ConcreteApps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\SteelPage1.xaml">
+    <Page Include="Pages\SteelApps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\TestApp\TestPage.xaml">
+    <Page Include="Pages\TestApp\TestApp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WelcomApps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\ConcretePage1.xaml.cs">
-      <DependentUpon>ConcretePage1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\SteelPage1.xaml.cs">
-      <DependentUpon>SteelPage1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -142,6 +149,10 @@
     <Resource Include="favicon_v2.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartTeklaModel.csproj">
+      <Project>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</Project>
+      <Name>SmartTeklaModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartWPFElements\SmartWPFElements.csproj">
       <Project>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</Project>
       <Name>SmartWPFElements</Name>

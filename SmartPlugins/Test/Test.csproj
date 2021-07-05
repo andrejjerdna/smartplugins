@@ -93,6 +93,10 @@
       <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
       <Name>SmartExtensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common\SmartGeometry\SmartGeometry.csproj">
+      <Project>{7F08E701-0D4F-4A7D-835C-7ADB9B7A4B09}</Project>
+      <Name>SmartGeometry</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\SmartTeklaModel\SmartTeklaModel.csproj">
       <Project>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</Project>
       <Name>SmartTeklaModel</Name>

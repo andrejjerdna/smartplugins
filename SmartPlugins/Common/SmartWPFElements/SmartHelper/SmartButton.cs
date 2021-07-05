@@ -16,8 +16,8 @@ namespace SmartWPFElements
         public string TextButton { get; set; }
         public string Icon { get; set; }
         public ICommand Command { get; }
-        public Frame FrameMainWindow { get; set; }
-        public Page PageApp { get; set; }
+        public UserControl UI { get; set; }
+        public object Presenter { get; set; }
 
         public SmartButton()
         {
@@ -31,8 +31,8 @@ namespace SmartWPFElements
         {
             return new DelegateCommand((obj) =>
             {
-                if (SmartHelperApp != null || PageApp != null)
-                    FrameMainWindow.Navigate(PageApp);
+                if (SmartHelperApp != null)
+                    Presenter = UI;
             });
         }
     }

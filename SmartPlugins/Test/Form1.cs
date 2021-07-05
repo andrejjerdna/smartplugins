@@ -22,6 +22,9 @@ using Parallel = System.Threading.Tasks.Parallel;
 using SmartTeklaModel.Rebar;
 using View = Tekla.Structures.Drawing.View;
 using Tekla.Structures;
+using ModelObject = Tekla.Structures.Drawing.ModelObject;
+using Point = Tekla.Structures.Geometry3d.Point;
+using SmartGeometry;
 
 namespace Test
 {
@@ -37,54 +40,41 @@ namespace Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var views = new DrawingHandler().GetDrawings()
-                .ToIEnumerable<GADrawing>()
-                .Where(d => !d.Name.ToLower().Contains("титул"))
-                .SelectMany(d => d.GetSheet().GetViews().ToIEnumerable<View>()
-                .Where(v => v.ViewType != View.ViewTypes.SectionView || v.ViewType != View.ViewTypes.DetailView));
+            var model = new Model();
+            var dh = new DrawingHandler();
+            var d = dh.GetActiveDrawing();
 
-            var TypeFilter = new Type[] { typeof(Tekla.Structures.Drawing.Part) };
+            var views = d.GetSheet().GetObjects().ToIEnumerable<View>().ToList();
 
             foreach (var view in views)
             {
-                var parts = view.GetAllObjects(TypeFilter).ToIEnumerable<Tekla.Structures.Drawing.Part>();
+                var currentTP = model.GetWorkPlaneHandler().GetCurrentTransformationPlane();
 
-                foreach (var part in parts)
+                model.GetWorkPlaneHandler().SetCurrentTransformationPlane(new TransformationPlane(view.DisplayCoordinateSystem));
+
+
+                var parts = d.GetSheet().GetObjects()
+                    .ToIEnumerable<View>()
+                    .SelectMany(v => v.GetModelObjects().ToIEnumerable<ModelObject>())
+                    .Select(mo => model.SelectModelObject(new Identifier(mo.ModelIdentifier.ID)) as Part)
+                    .Where(p => p != null)
+                    .ToList();
+
+                foreach(var part in parts)
                 {
-                    if (!part.Hideable.IsHidden)
-                    {
-                        AssignValues(part, 1, view.Name);
-                    }
+                    var mg = new ModelObjectGeometry(model, part);
+
+                    var p1 = new Point(0, 0, mg.MidZ);
+                    var p2 = new Point(1000, 0, mg.MidZ);
+                    var p3 = new Point(0, 1000, mg.MidZ);
+
+                    var intersect = part.GetSolid().IntersectAllFaces(p1, p2, p3);
                 }
+
+                model.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
             }
         }
 
-        private void AssignValues(Tekla.Structures.Drawing.Part ass, double nmbr, string viewName)
-        {
-            //Получил ID и привел к балке по ID
-            System.Int32 atrs = ass.ModelIdentifier.ID;
-            Beam part = new Beam();
-            part.Identifier.ID = atrs;
-            string assPos = string.Empty;
-            //Таким обр после приведения я могу запросить GUID 
-            part.GetReportProperty("ASSEMBLY.GUID", ref assPos);
-
-            string value = $"л./s. {nmbr}: {viewName}";
-            if (!objctsInDrws.ContainsKey(assPos))
-            {
-                objctsInDrws.Add(assPos, new List<string> { value });
-            }
-            else
-            {
-                //Конкретная сборка может 
-                //располоагаться и на другом виде и на другом чертеже, поэтому 
-                //добавляем для конкретной сборки список имен видов исключая повтор
-                if (!objctsInDrws[assPos].Contains(value))
-                {
-                    objctsInDrws[assPos].Add(value);
-                }
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,9 @@ namespace SmartTeklaModel
 
             if (ConnectionStatus)
             {
-                AttributesPath = TeklaModel.GetInfo().ModelPath + "\\attributes\\";
-                FilterPath = AttributesPath;
-                SmartPluginsPath = AttributesPath + "SmartPlugins\\";
+                AttributesPath = Path.Combine(TeklaModel.GetInfo().ModelPath, "attributes");
+                FilterPath = Path.Combine(AttributesPath);
+                SmartPluginsPath = Path.Combine(AttributesPath,"SmartPlugins");
             }
         }
     }

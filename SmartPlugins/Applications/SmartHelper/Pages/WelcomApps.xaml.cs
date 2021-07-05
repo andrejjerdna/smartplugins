@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartHelper.Pages.TestApp
+namespace SmartHelper.Pages
 {
     /// <summary>
-    /// Interaction logic for TestPage.xaml
+    /// Interaction logic for WelcomApps.xaml
     /// </summary>
-    public partial class TestPage : Page
+    public partial class WelcomApps : UserControl
     {
-        private TestAppViewModel _testApp;
-
-        public TestPage()
+        public WelcomApps()
         {
             InitializeComponent();
-            _testApp = new TestAppViewModel();
-
-            DataContext = _testApp;
         }
     }
 }

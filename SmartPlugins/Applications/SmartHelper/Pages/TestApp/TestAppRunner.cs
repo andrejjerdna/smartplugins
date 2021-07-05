@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace SmartHelper.Pages.TestApp
 {
-    public class TestApp : ISmartHelperApp
+    public class TestAppRunner : ISmartHelperApp
     {
 
         public async Task<bool> Run()

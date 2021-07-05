@@ -1,4 +1,5 @@
-﻿using SmartWPFElements;
+﻿using SmartTeklaModel;
+using SmartWPFElements;
 using SmartWPFElements.SmartHelper;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace SmartHelper.Pages.TestApp
             {
                 return new DelegateCommand((obj) =>
                 {
-                    var app = new TestApp();
+                    var app = new TestAppRunner();
                     app.Run();
                 });
             }

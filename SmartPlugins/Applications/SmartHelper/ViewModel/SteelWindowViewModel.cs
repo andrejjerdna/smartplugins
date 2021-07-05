@@ -14,18 +14,14 @@ namespace SmartHelper.ViewModel
 {
     public class SteelWindowViewModel : BaseViewModel
     {
-        private Frame _frameMainWindow;
-
         public ObservableCollection<SmartButton> SmartButtons
         {
             get => GetColl<SmartButton>();
             set => SetColl(value);
         }
 
-        public SteelWindowViewModel(Frame frameMainWindow)
+        public SteelWindowViewModel()
         {
-            _frameMainWindow = frameMainWindow;
-
             var steelApps = GetSteelApps();
             SmartButtons = new ObservableCollection<SmartButton>(steelApps);
         }
@@ -38,18 +34,14 @@ namespace SmartHelper.ViewModel
                 {
                     TextButton = "Test",
                     Icon = "EmoticonCool",
-                    FrameMainWindow = _frameMainWindow,
-                    SmartHelperApp = new TestApp(),
-                    PageApp = new TestPage()
+                    SmartHelperApp = new TestAppRunner(),
                 },
 
                 new SmartButton()
                 {
                     TextButton = "Test2",
                     Icon = "EmoticonCool",
-                    FrameMainWindow = _frameMainWindow,
-                    SmartHelperApp = new TestApp(),
-                    PageApp = new TestPage()
+                    SmartHelperApp = new TestAppRunner(),
                 }
             };
 

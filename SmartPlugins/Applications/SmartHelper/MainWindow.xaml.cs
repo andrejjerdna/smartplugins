@@ -29,26 +29,13 @@ namespace SmartHelper
         {
             InitializeComponent();
             _mainWindowViewModel = new MainWindowViewModel();
+
+            //MainContentControl.Content = _mainWindowViewModel.InnerContent;
         }
 
         private async void OnButtonClick(object sender, RoutedEventArgs e)
         {
             await this.ShowMessageAsync("This is the title", "Some message");
-        }
-
-        private void OnSteelClick(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pages.SteelPage1(MainFrame));
-        }
-
-        private void OnConcreteClick(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new Pages.ConcretePage1());
-        }
-
-        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }
