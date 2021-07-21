@@ -1,6 +1,7 @@
 ﻿using SmartTeklaModel;
 using SmartTeklaModel.Drawings;
 using SmartTeklaModel.Files;
+using SmartWPFElements.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace sp_DimensionsForReinforcement
     public class DimensionsForReinforcementViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public DimensionsForReinforcementControl DimensionsForReinforcementControl;
 
         [StructuresDialog(nameof(L1), typeof(Distance))]
         public Distance L1 { get; set; }
@@ -75,6 +78,11 @@ namespace sp_DimensionsForReinforcement
         public IEnumerable<string> LineTypes { get => Lines.GetListLineTypes().Select(c => c.ToString()); }
         public IEnumerable<string> DimensionsTypes { get => GetAttributesFiles.GetDimensionsTypes(); }
         public IEnumerable<string> MarksTypes { get => GetAttributesFiles.GetMarksTypes(); }
+
+        public DimensionsForReinforcementViewModel()
+        {
+            DimensionsForReinforcementControl = new DimensionsForReinforcementControl();
+        }
 
         public IEnumerable<string> HatchNames => new List<string>()
         {

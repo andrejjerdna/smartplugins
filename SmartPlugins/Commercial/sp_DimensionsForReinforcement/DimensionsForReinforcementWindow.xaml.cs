@@ -24,12 +24,12 @@ namespace sp_DimensionsForReinforcement
 
         public DimensionsForReinforcementWindow(DimensionsForReinforcementViewModel DataModel)
         {
-            _dataModel = DataModel;
             InitializeComponent();
+            _dataModel = DataModel;
 
-            LineColor.Text = _dataModel.LineColor.Value;
-            LineType.Text = _dataModel.LineType.Value;
-            DimensionType.Text = _dataModel.DimensionType.Value;
+            //LineColor.Text = _dataModel.LineColor.Value;
+            //LineType.Text = _dataModel.LineType.Value;
+            //DimensionType.Text = _dataModel.DimensionType.Value;
         }
 
         private void WPFOkApplyModifyGetOnOffCancel_OkClicked(object sender, EventArgs e)

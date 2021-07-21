@@ -8,6 +8,7 @@ namespace SmartWPFElements.SmartHelper
 {
     public interface ISmartHelperApp
     {
+        string Name { get; }
         Task<bool> Run();
     }
 }

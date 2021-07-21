@@ -59,12 +59,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Apps\Drawings\IDimensionsForRebarGroup.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Pages\ConcreteApps.xaml.cs">
       <DependentUpon>ConcreteApps.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SteelApps.xaml.cs">
       <DependentUpon>SteelApps.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TestApp\ITestAppRunner.cs" />
     <Compile Include="Pages\TestApp\TestAppRunner.cs" />
     <Compile Include="Pages\TestApp\TestApp.xaml.cs">
       <DependentUpon>TestApp.xaml</DependentUpon>
@@ -75,6 +78,7 @@
     </Compile>
     <Compile Include="ViewModel\ConcreteWindowViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\SmartHelperViewModel.cs" />
     <Compile Include="ViewModel\SteelWindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +145,9 @@
     <PackageReference Include="MahApps.Metro.Resources">
       <Version>0.6.1</Version>
     </PackageReference>
+    <PackageReference Include="Ninject">
+      <Version>3.3.4</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.png" />
@@ -157,6 +164,12 @@
       <Project>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</Project>
       <Name>SmartWPFElements</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Apps\Concrete\" />
+    <Folder Include="Apps\Geometry\" />
+    <Folder Include="Apps\Other\" />
+    <Folder Include="Apps\Steel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

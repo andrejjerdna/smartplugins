@@ -8,8 +8,14 @@ using System.Windows;
 
 namespace SmartHelper.Pages.TestApp
 {
-    public class TestAppRunner : ISmartHelperApp
+    public class TestAppRunner : ITestAppRunner
     {
+      public string Name { get; }
+
+        public TestAppRunner()
+        {
+            Name = "Test apps";
+        }
 
         public async Task<bool> Run()
         {

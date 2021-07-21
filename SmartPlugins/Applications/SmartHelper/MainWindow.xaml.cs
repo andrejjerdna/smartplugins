@@ -30,7 +30,7 @@ namespace SmartHelper
             InitializeComponent();
             _mainWindowViewModel = new MainWindowViewModel();
 
-            //MainContentControl.Content = _mainWindowViewModel.InnerContent;
+            DataContext = _mainWindowViewModel;
         }
 
         private async void OnButtonClick(object sender, RoutedEventArgs e)

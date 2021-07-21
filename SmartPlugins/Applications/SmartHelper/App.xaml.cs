@@ -14,4 +14,9 @@ namespace SmartHelper
     public partial class App : Application
     {
     }
+
+    //private static void ComposeObjects()
+    //{
+    //    Current.MainWindow = SmartHelper.Container.Get<MainWindow>();
+    //}
 }

@@ -12,37 +12,23 @@ using System.Windows.Controls;
 
 namespace SmartHelper.ViewModel
 {
-    public class SteelWindowViewModel : BaseViewModel
+    public class SteelWindowViewModel : SmartHelperViewModel
     {
-        public ObservableCollection<SmartButton> SmartButtons
-        {
-            get => GetColl<SmartButton>();
-            set => SetColl(value);
-        }
+        ITestAppRunner _testAppRunner;
 
-        public SteelWindowViewModel()
+        public SteelWindowViewModel(ITestAppRunner testAppRunner)
         {
             var steelApps = GetSteelApps();
             SmartButtons = new ObservableCollection<SmartButton>(steelApps);
+
+            _testAppRunner = testAppRunner;
         }
 
         private IEnumerable<SmartButton> GetSteelApps()
         {
             var steelApps = new List<SmartButton>
             {
-                new SmartButton()
-                {
-                    TextButton = "Test",
-                    Icon = "EmoticonCool",
-                    SmartHelperApp = new TestAppRunner(),
-                },
-
-                new SmartButton()
-                {
-                    TextButton = "Test2",
-                    Icon = "EmoticonCool",
-                    SmartHelperApp = new TestAppRunner(),
-                }
+                new SmartButton(_testAppRunner)
             };
 
             return steelApps;

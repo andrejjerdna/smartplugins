@@ -11,20 +11,10 @@ using System.Windows.Controls;
 
 namespace SmartHelper.ViewModel
 {
-    public class ConcreteWindowViewModel : BaseViewModel
+    public class ConcreteWindowViewModel : SmartHelperViewModel
     {
-        private MainWindowViewModel _mainWindowViewModel { get; }
-
-        public ObservableCollection<SmartButton> SmartButtons
+        public ConcreteWindowViewModel()
         {
-            get => GetColl<SmartButton>();
-            set => SetColl(value);
-        }
-
-        public ConcreteWindowViewModel(MainWindowViewModel mainWindowViewModel)
-        {
-            _mainWindowViewModel = mainWindowViewModel;
-
             var steelApps = GetSteelApps();
             SmartButtons = new ObservableCollection<SmartButton>(steelApps);
         }
@@ -33,23 +23,21 @@ namespace SmartHelper.ViewModel
         {
             var steelApps = new List<SmartButton>
             {
-                new SmartButton()
-                {
-                    TextButton = "Test",
-                    Icon = "EmoticonCool",
-                    SmartHelperApp = new TestAppRunner(),
-                    UI = new TestApp(),
-                    Presenter = _mainWindowViewModel.InnerContent
-                },
+                //new SmartButton()
+                //{
+                //    TextButton = "Test",
+                //    Icon = "EmoticonCool",
+                //    SmartHelperApp = new TestAppRunner(),
+                //    UI = new TestApp(),
+                //},
 
-                new SmartButton()
-                {
-                    TextButton = "Test2",
-                    Icon = "EmoticonCool",
-                    SmartHelperApp = new TestAppRunner(),
-                    UI = new TestApp(),
-                    Presenter = _mainWindowViewModel.InnerContent
-                }
+                //new SmartButton()
+                //{
+                //    TextButton = "Test2",
+                //    Icon = "EmoticonCool",
+                //    SmartHelperApp = new TestAppRunner(),
+                //    UI = new TestApp(),
+                //}
             };
 
             return steelApps;

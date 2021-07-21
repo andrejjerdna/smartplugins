@@ -1,5 +1,4 @@
-﻿using SmartHelper.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartHelper.Pages
+namespace SmartWPFElements.Controls
 {
     /// <summary>
-    /// Interaction logic for ConcreteApps.xaml
+    /// Interaction logic for DimensionsForReinforcementControl.xaml
     /// </summary>
-    public partial class ConcreteApps : UserControl
+    public partial class DimensionsForReinforcementControl : UserControl
     {
-        private ConcreteWindowViewModel _concreteWindowViewModel;
-
-        public ConcreteApps(MainWindowViewModel mainWindowViewModel)
+        public DimensionsForReinforcementControl()
         {
             InitializeComponent();
-
-            _concreteWindowViewModel = new ConcreteWindowViewModel();
-            DataContext = _concreteWindowViewModel;
         }
     }
 }

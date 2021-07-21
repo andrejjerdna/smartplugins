@@ -12,28 +12,20 @@ namespace SmartWPFElements
 {
     public class SmartButton
     {
-        public ISmartHelperApp SmartHelperApp { get; set; }
-        public string TextButton { get; set; }
+        public ISmartHelperApp _smartHelperApp { get; set; }
+        public string TextButton { get; }
         public string Icon { get; set; }
         public ICommand Command { get; }
         public UserControl UI { get; set; }
         public object Presenter { get; set; }
 
-        public SmartButton()
+        public SmartButton(ISmartHelperApp smartHelperApp)
         {
-            SmartHelperApp = null;
-            TextButton = "Empty button";
-            Icon = "WifiSettings";
-            Command = GetCommand();
-        }
+            _smartHelperApp = smartHelperApp;
+            TextButton = _smartHelperApp.Name;
 
-        private ICommand GetCommand()
-        {
-            return new DelegateCommand((obj) =>
-            {
-                if (SmartHelperApp != null)
-                    Presenter = UI;
-            });
+            Icon = "WifiSettings";
+/*            Command = _smartHelperApp.Run()*/;
         }
     }
 }

@@ -27,8 +27,8 @@ namespace SmartHelper.Pages
         {
             InitializeComponent();
 
-            _steelWindowViewModel = new SteelWindowViewModel();
-            DataContext = _steelWindowViewModel;
+            //_steelWindowViewModel = new SteelWindowViewModel();
+            //DataContext = _steelWindowViewModel;
         }
     }
 }

@@ -25,6 +25,7 @@ using Tekla.Structures;
 using ModelObject = Tekla.Structures.Drawing.ModelObject;
 using Point = Tekla.Structures.Geometry3d.Point;
 using SmartGeometry;
+using System.IO;
 
 namespace Test
 {
@@ -78,42 +79,46 @@ namespace Test
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var list = new List<int> { 1, 2, 3, 4, 5, 6, 9, 10, 14, 15, 16, 17, 21, 22, 23, 30, 31 };
+            //var list = new List<int> { 1, 2, 3, 4, 5, 6, 9, 10, 14, 15, 16, 17, 21, 22, 23, 30, 31 };
 
-            list.Add(list.Last());
+            //list.Add(list.Last());
 
-            var result = new List<string>();
+            //var result = new List<string>();
 
-            var tempValue = new List<int>();
+            //var tempValue = new List<int>();
 
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                var current = list[i];
-                var next = list[i + 1];
+            //for (int i = 0; i < list.Count - 1; i++)
+            //{
+            //    var current = list[i];
+            //    var next = list[i + 1];
 
-                tempValue.Add(current);
+            //    tempValue.Add(current);
 
-                var differend = next - current;
+            //    var differend = next - current;
 
-                if (differend > 1)
-                {
-                    result.Add(tempValue.First() + "-" + tempValue.Last());
-                    tempValue = new List<int>();
-                }
+            //    if (differend > 1)
+            //    {
+            //        result.Add(tempValue.First() + "-" + tempValue.Last());
+            //        tempValue = new List<int>();
+            //    }
 
-                if (i == list.Count - 2)
-                {
-                    if (tempValue.Count > 1)
-                    {
-                        result.Add(tempValue.First() + "-" + tempValue.Last());
-                    }
-                    else
-                    {
-                        result.Add(tempValue.First().ToString());
-                    }
-                }
+            //    if (i == list.Count - 2)
+            //    {
+            //        if (tempValue.Count > 1)
+            //        {
+            //            result.Add(tempValue.First() + "-" + tempValue.Last());
+            //        }
+            //        else
+            //        {
+            //            result.Add(tempValue.First().ToString());
+            //        }
+            //    }
 
-            }
+            //}
+
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+
+            File.WriteAllText(path, Properties.Resources.test);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -138,14 +143,20 @@ namespace Test
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var drawingHandler = new DrawingHandler();
+            //var drawingHandler = new DrawingHandler();
 
-            var currentDrawing = drawingHandler.GetActiveDrawing();
+            //var currentDrawing = drawingHandler.GetActiveDrawing();
 
-            if (currentDrawing != null)
-            {
-                var drawingObjectEnumerator = currentDrawing.GetSheet().GetAllObjects(typeof(StraightDimension)).ToIEnumerable<StraightDimension>().ToList();
-            }
+            //if (currentDrawing != null)
+            //{
+            //    var drawingObjectEnumerator = currentDrawing.GetSheet().GetAllObjects(typeof(Tekla.Structures.Drawing.Part)).ToIEnumerable<Tekla.Structures.Drawing.Part>().ToList();
+
+            //    var d = drawingObjectEnumerator[0].Hideable.IsHidden;
+            //}
+
+            var pick = new Picker();
+            var mo = pick.PickObject(Picker.PickObjectEnum.PICK_ONE_OBJECT);
+
             }
     }
 }
