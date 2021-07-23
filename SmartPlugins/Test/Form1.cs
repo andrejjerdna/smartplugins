@@ -26,6 +26,7 @@ using ModelObject = Tekla.Structures.Drawing.ModelObject;
 using Point = Tekla.Structures.Geometry3d.Point;
 using SmartGeometry;
 using System.IO;
+using Size = Tekla.Structures.Drawing.Size;
 
 namespace Test
 {
@@ -42,38 +43,65 @@ namespace Test
         private void button1_Click(object sender, EventArgs e)
         {
             var model = new Model();
-            var dh = new DrawingHandler();
-            var d = dh.GetActiveDrawing();
+                    var DrawingHandler = new DrawingHandler();
 
-            var views = d.GetSheet().GetObjects().ToIEnumerable<View>().ToList();
+        Size A3 = new Size(410.0, 287.0);
+            Drawing newDrawing = new GADrawing("standard", A3);
+            newDrawing.Insert();
 
-            foreach (var view in views)
+            var arry = new ArrayList();
+            var all = model.GetModelObjectSelector().GetAllObjects();
+
+            while (all.MoveNext())
             {
-                var currentTP = model.GetWorkPlaneHandler().GetCurrentTransformationPlane();
-
-                model.GetWorkPlaneHandler().SetCurrentTransformationPlane(new TransformationPlane(view.DisplayCoordinateSystem));
-
-
-                var parts = d.GetSheet().GetObjects()
-                    .ToIEnumerable<View>()
-                    .SelectMany(v => v.GetModelObjects().ToIEnumerable<ModelObject>())
-                    .Select(mo => model.SelectModelObject(new Identifier(mo.ModelIdentifier.ID)) as Part)
-                    .Where(p => p != null)
-                    .ToList();
-
-                foreach(var part in parts)
-                {
-                    var mg = new ModelObjectGeometry(model, part);
-
-                    var p1 = new Point(0, 0, mg.MidZ);
-                    var p2 = new Point(1000, 0, mg.MidZ);
-                    var p3 = new Point(0, 1000, mg.MidZ);
-
-                    var intersect = part.GetSolid().IntersectAllFaces(p1, p2, p3);
-                }
-
-                model.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
+                if(all.Current is Assembly part)
+                arry.Add(part.Identifier);
             }
+
+            Tekla.Structures.Drawing.View MyView = new Tekla.Structures.Drawing.View(newDrawing.GetSheet(),
+                                                                         new CoordinateSystem(),
+                                                                         new CoordinateSystem(),
+                                                                         arry);
+
+            MyView.Name = Name;
+            MyView.Insert();
+
+            newDrawing.PlaceViews();
+
+            DrawingHandler.SetActiveDrawing(newDrawing);
+            //var model = new Model();
+            //var dh = new DrawingHandler();
+            //var d = dh.GetActiveDrawing();
+
+            //var views = d.GetSheet().GetObjects().ToIEnumerable<View>().ToList();
+
+            //foreach (var view in views)
+            //{
+            //    var currentTP = model.GetWorkPlaneHandler().GetCurrentTransformationPlane();
+
+            //    model.GetWorkPlaneHandler().SetCurrentTransformationPlane(new TransformationPlane(view.DisplayCoordinateSystem));
+
+
+            //    var parts = d.GetSheet().GetObjects()
+            //        .ToIEnumerable<View>()
+            //        .SelectMany(v => v.GetModelObjects().ToIEnumerable<ModelObject>())
+            //        .Select(mo => model.SelectModelObject(new Identifier(mo.ModelIdentifier.ID)) as Part)
+            //        .Where(p => p != null)
+            //        .ToList();
+
+            //    foreach(var part in parts)
+            //    {
+            //        var mg = new ModelObjectGeometry(model, part);
+
+            //        var p1 = new Point(0, 0, mg.MidZ);
+            //        var p2 = new Point(1000, 0, mg.MidZ);
+            //        var p3 = new Point(0, 1000, mg.MidZ);
+
+            //        var intersect = part.GetSolid().IntersectAllFaces(p1, p2, p3);
+            //    }
+
+            //    model.GetWorkPlaneHandler().SetCurrentTransformationPlane(currentTP);
+            //}
         }
 
 
