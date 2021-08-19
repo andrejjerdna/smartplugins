@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Geometry3d;
 
-namespace SmartGeometry
+namespace SmartPlugins.Common.SmartGeometry
 {
     public static class PointsGeometry
     {

@@ -97,29 +97,29 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\CSLib\CSLib.csproj">
+    <ProjectReference Include="..\..\Common\CSLib\SmartPlugins.Common.CSLib.csproj">
       <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
-      <Name>CSLib</Name>
+      <Name>SmartPlugins.Common.CSLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartExtensions\SmartExtensions.csproj">
+    <ProjectReference Include="..\..\Common\SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
       <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
-      <Name>SmartExtensions</Name>
+      <Name>SmartPlugins.Common.SmartExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartGeometry\SmartGeometry.csproj">
+    <ProjectReference Include="..\..\Common\SmartGeometry\SmartPlugins.Common.SmartGeometry.csproj">
       <Project>{7f08e701-0d4f-4a7d-835c-7adb9b7a4b09}</Project>
-      <Name>SmartGeometry</Name>
+      <Name>SmartPlugins.Common.SmartGeometry</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartObjects\SmartObjects.csproj">
+    <ProjectReference Include="..\..\Common\SmartObjects\SmartPlugins.Common.SmartObjects.csproj">
       <Project>{443b0ad0-2ad8-4e1c-8d1e-b11b6613e498}</Project>
-      <Name>SmartObjects</Name>
+      <Name>SmartPlugins.Common.SmartObjects</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartTeklaModel.csproj">
+    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj">
       <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
-      <Name>SmartTeklaModel</Name>
+      <Name>SmartPlugins.Common.SmartTeklaModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartWPFElements.csproj">
+    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj">
       <Project>{9d12b1dd-4a5e-4eac-bc1d-543f339b6971}</Project>
-      <Name>SmartWPFElements</Name>
+      <Name>SmartPlugins.Common.SmartWPFElements</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

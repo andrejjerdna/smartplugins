@@ -1,4 +1,4 @@
-﻿using CSLib;
+﻿using SmartPlugins.Common.CSLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using tsm = Tekla.Structures.Model;
 
-namespace SmartObjects.SteelParts
+namespace SmartPlugins.Common.SmartObjects.SteelParts
 {
     public class Frame_type1
     {

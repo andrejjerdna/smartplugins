@@ -1,4 +1,4 @@
-﻿using SmartWPFElements.SmartHelper;
+﻿using SmartPlugins.Common.SmartWPFElements.SmartHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace SmartWPFElements
+namespace SmartPlugins.Common.SmartWPFElements
 {
     public class SmartButton
     {

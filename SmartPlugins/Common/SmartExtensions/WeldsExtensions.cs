@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Model;
 
-namespace SmartExtensions
+namespace SmartPlugins.Common.SmartExtensions
 {
     public static class WeldsExtensions
     {

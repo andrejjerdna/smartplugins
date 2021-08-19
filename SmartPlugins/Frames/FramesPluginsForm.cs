@@ -1,4 +1,4 @@
-﻿using SmartTeklaModel;
+﻿using SmartPlugins.Common.SmartTeklaModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tekla.Structures.Dialog;
 
-namespace Frames
+namespace SmartPlugins.Plugins.Frames
 {
     public partial class FramesPluginsForm : PluginFormBase
     {

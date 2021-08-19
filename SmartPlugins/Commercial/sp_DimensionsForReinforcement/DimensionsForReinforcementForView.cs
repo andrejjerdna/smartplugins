@@ -11,13 +11,13 @@ using Tekla.Structures.Model;
 using Tekla.Structures.Plugins;
 using tsm = Tekla.Structures.Model;
 using t3d = Tekla.Structures.Geometry3d;
-using SmartExtensions;
+using SmartPlugins.Common.SmartExtensions;
 using static Tekla.Structures.Drawing.Line;
 using Tekla.Structures.Geometry3d;
 using Line = Tekla.Structures.Drawing.Line;
-using SmartGeometry;
-using SmartTeklaModel.Drawings;
-using SmartObjects.Drawings;
+using SmartPlugins.Common.SmartGeometry;
+using SmartPlugins.Common.SmartTeklaModel.Drawings;
+using SmartPlugins.Common.SmartObjects.Drawings;
 
 namespace sp_DimensionsForReinforcement
 {

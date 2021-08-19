@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Model;
 
-namespace SmartObjects
+namespace SmartPlugins.Common.SmartObjects
 {
     interface IConcreteBase
     {

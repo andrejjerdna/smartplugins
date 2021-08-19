@@ -14,9 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
-using SmartHelper.ViewModel;
+using SmartPlugins.Applications.SmartHelper.ViewModel;
 
-namespace SmartHelper
+namespace SmartPlugins.Applications.SmartHelper
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

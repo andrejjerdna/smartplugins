@@ -16,15 +16,15 @@ using TSD = Tekla.Structures.Drawing;
 using t3d = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model.Operations;
-using SmartExtensions;
+using SmartPlugins.Common.SmartExtensions;
 using Part = Tekla.Structures.Model.Part;
 using Parallel = System.Threading.Tasks.Parallel;
-using SmartTeklaModel.Rebar;
+using SmartPlugins.Common.SmartTeklaModel.Rebar;
 using View = Tekla.Structures.Drawing.View;
 using Tekla.Structures;
 using ModelObject = Tekla.Structures.Drawing.ModelObject;
 using Point = Tekla.Structures.Geometry3d.Point;
-using SmartGeometry;
+using SmartPlugins.Common.SmartGeometry;
 using System.IO;
 using Size = Tekla.Structures.Drawing.Size;
 

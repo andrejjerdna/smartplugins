@@ -1,8 +1,8 @@
-﻿using SmartHelper.Pages;
-using SmartHelper.Pages.TestApp;
-using SmartTeklaModel;
-using SmartWPFElements;
-using SmartWPFElements.SmartHelper;
+﻿using SmartPlugins.Applications.SmartHelper.Pages;
+using SmartPlugins.Applications.SmartHelper.Pages.TestApp;
+using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.SmartWPFElements;
+using SmartPlugins.Common.SmartWPFElements.SmartHelper;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace SmartHelper.ViewModel
+namespace SmartPlugins.Applications.SmartHelper.ViewModel
 {
     public class MainWindowViewModel : BaseViewModel
     {

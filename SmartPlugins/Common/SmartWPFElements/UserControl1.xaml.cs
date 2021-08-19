@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartWPFElements
+namespace SmartPlugins.Common.SmartWPFElements
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml

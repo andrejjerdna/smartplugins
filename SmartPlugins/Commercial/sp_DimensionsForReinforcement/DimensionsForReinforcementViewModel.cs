@@ -1,7 +1,7 @@
-﻿using SmartTeklaModel;
-using SmartTeklaModel.Drawings;
-using SmartTeklaModel.Files;
-using SmartWPFElements.Controls;
+﻿using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.SmartTeklaModel.Drawings;
+using SmartPlugins.Common.SmartTeklaModel.Files;
+using SmartPlugins.Common.SmartWPFElements.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

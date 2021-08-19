@@ -110,9 +110,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\SmartExtensions\SmartExtensions.csproj">
+    <ProjectReference Include="..\..\Common\SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
       <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
-      <Name>SmartExtensions</Name>
+      <Name>SmartPlugins.Common.SmartExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

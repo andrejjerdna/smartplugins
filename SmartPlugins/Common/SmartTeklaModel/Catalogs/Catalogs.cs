@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Tekla.Structures.Catalogs;
-using SmartExtensions;
+using SmartPlugins.Common.SmartExtensions;
 
-namespace SmartTeklaModel
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     public static class Catalogs
     {

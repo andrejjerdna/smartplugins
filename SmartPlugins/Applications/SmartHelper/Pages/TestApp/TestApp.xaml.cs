@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartHelper.Pages.TestApp
+namespace SmartPlugins.Applications.SmartHelper.Pages.TestApp
 {
     /// <summary>
     /// Interaction logic for TestApp.xaml

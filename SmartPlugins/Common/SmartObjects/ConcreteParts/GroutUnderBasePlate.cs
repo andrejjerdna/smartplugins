@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
-using SmartGeometry;
-using SmartTeklaModel;
+using SmartPlugins.Common.SmartGeometry;
+using SmartPlugins.Common.SmartTeklaModel;
 
-namespace SmartObjects
+namespace SmartPlugins.Common.SmartObjects
 {
     /// <summary>
     /// Подливка под опорную плиту металлической колонны.

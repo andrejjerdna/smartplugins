@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Datatype;
 
-namespace SmartTeklaModel
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     public class BoltsMethods
     {

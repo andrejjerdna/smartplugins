@@ -1,12 +1,12 @@
 ﻿using Ninject;
-using SmartHelper.Pages.TestApp;
+using SmartPlugins.Applications.SmartHelper.Pages.TestApp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHelper
+namespace SmartPlugins.Applications.SmartHelper
 {
     public static class Container
     {

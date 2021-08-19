@@ -7,7 +7,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using tsm = Tekla.Structures.Model;
 
-namespace SmartGeometry
+namespace SmartPlugins.Common.SmartGeometry
 {
     public class ModelObjectGeometry
     {

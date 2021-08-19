@@ -1,4 +1,4 @@
-﻿using SmartWPFElements;
+﻿using SmartPlugins.Common.SmartWPFElements;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

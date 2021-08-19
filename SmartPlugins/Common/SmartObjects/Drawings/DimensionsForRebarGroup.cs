@@ -11,18 +11,18 @@ using Tekla.Structures.Model;
 using Tekla.Structures.Plugins;
 using tsm = Tekla.Structures.Model;
 using t3d = Tekla.Structures.Geometry3d;
-using SmartExtensions;
+using SmartPlugins.Common.SmartExtensions;
 using static Tekla.Structures.Drawing.Line;
 using Tekla.Structures.Geometry3d;
 using Line = Tekla.Structures.Drawing.Line;
-using SmartGeometry;
-using SmartTeklaModel.Drawings;
+using SmartPlugins.Common.SmartGeometry;
+using SmartPlugins.Common.SmartTeklaModel.Drawings;
 using Point = Tekla.Structures.Geometry3d.Point;
 using Tekla.Structures;
 using ModelObjectSelector = Tekla.Structures.Model.UI.ModelObjectSelector;
 using System.Collections;
 
-namespace SmartObjects.Drawings
+namespace SmartPlugins.Common.SmartObjects.Drawings
 {
     public class DimensionsForRebarGroup
     {

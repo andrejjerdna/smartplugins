@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Model;
 
-namespace SmartTeklaModel
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     class AssemblyMethods
     {

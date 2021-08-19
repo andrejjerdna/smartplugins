@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartTeklaModel.Files
+namespace SmartPlugins.Common.SmartTeklaModel.Files
 {
     public static class GetAttributesFiles
     {

@@ -8,12 +8,12 @@ using tsm = Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 using Tekla.Structures.Plugins;
 using tdt = Tekla.Structures.Datatype;
-using SmartTeklaModel;
-using CSLib;
+using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.CSLib;
 using System.Linq;
-using SmartObjects.SteelParts;
+using SmartPlugins.Common.SmartObjects.SteelParts;
 
-namespace Frames
+namespace SmartPlugins.Plugins.Frames
 {
     public class FramesPluginsData
     {

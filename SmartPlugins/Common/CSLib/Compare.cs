@@ -1,4 +1,4 @@
-﻿namespace CSLib
+﻿namespace SmartPlugins.Common.CSLib
 {
     public class Compare
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSLib
+namespace SmartPlugins.Common.CSLib
 {
     public static class Constants
     {

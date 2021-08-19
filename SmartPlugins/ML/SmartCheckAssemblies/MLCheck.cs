@@ -1,7 +1,7 @@
 ﻿using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
-using SmartTeklaModel;
+using SmartPlugins.Common.SmartTeklaModel;
 using System;
 using System.Collections.Generic;
 using System.IO;

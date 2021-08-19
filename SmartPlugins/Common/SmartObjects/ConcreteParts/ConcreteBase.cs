@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
 
-namespace SmartObjects
+namespace SmartPlugins.Common.SmartObjects
 {
     public abstract class ConcretePartBase : IConcreteAssembly
     {

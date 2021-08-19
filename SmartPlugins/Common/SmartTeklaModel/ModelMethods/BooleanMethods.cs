@@ -1,5 +1,5 @@
-﻿using CSLib;
-using SmartExtensions;
+﻿using SmartPlugins.Common.CSLib;
+using SmartPlugins.Common.SmartExtensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 
-namespace SmartTeklaModel
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     class BooleanMethods
     {

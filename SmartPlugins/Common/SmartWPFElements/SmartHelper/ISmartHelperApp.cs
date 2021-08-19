@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartWPFElements.SmartHelper
+namespace SmartPlugins.Common.SmartWPFElements.SmartHelper
 {
     public interface ISmartHelperApp
     {

@@ -1,11 +1,11 @@
-﻿using SmartWPFElements.SmartHelper;
+﻿using SmartPlugins.Common.SmartWPFElements.SmartHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHelper.Apps.Drawings
+namespace SmartPlugins.Applications.SmartHelper.Apps.Drawings
 {
     public interface IDimensionsForRebarGroup : ISmartHelperApp
     {

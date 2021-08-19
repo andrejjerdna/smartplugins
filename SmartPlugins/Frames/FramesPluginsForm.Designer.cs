@@ -1,5 +1,5 @@
 ﻿
-namespace Frames
+namespace SmartPlugins.Plugins.Frames
 {
     partial class FramesPluginsForm
     {

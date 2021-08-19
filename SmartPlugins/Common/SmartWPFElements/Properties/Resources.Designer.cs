@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartWPFElements.Properties {
+namespace SmartPlugins.Common.SmartWPFElements.Properties {
     using System;
     
     

@@ -1,5 +1,5 @@
-﻿using SmartExtensions;
-using SmartTeklaModel;
+﻿using SmartPlugins.Common.SmartExtensions;
+using SmartPlugins.Common.SmartTeklaModel;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;

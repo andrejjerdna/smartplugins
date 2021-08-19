@@ -7,7 +7,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
 
-namespace SmartObjects
+namespace SmartPlugins.Common.SmartObjects
 {
     public class ConcreteColumn : ConcretePartBase, IConcreteBase
     {

@@ -1,5 +1,5 @@
-﻿using CSLib;
-using SmartGeometry;
+﻿using SmartPlugins.Common.CSLib;
+using SmartPlugins.Common.SmartGeometry;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using tsm = Tekla.Structures.Model;
 
-namespace SmartObjects
+namespace SmartPlugins.Common.SmartObjects
 {
     public class ContinuousBeam : ConcretePartBase, IConcreteBase
     {

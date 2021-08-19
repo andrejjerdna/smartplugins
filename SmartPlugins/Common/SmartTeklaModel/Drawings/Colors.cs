@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Drawing;
 
-namespace SmartTeklaModel.Drawings
+namespace SmartPlugins.Common.SmartTeklaModel.Drawings
 {
     public static class Colors
     {

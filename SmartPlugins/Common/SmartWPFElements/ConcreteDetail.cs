@@ -7,7 +7,7 @@ using System.Windows.Input;
 using Tekla.Structures.Dialog;
 using tsd = Tekla.Structures.Datatype;
 
-namespace SmartWPFElements
+namespace SmartPlugins.Common.SmartWPFElements
 {
     public class ConcreteDetail
     {

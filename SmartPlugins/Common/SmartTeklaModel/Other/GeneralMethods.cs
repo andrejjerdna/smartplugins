@@ -8,7 +8,7 @@ using Tekla.Structures;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 
-namespace SmartTeklaModel
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     public class GeneralMethods
     {

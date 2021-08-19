@@ -156,13 +156,13 @@
     <Resource Include="favicon_v2.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartTeklaModel.csproj">
+    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj">
       <Project>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</Project>
-      <Name>SmartTeklaModel</Name>
+      <Name>SmartPlugins.Common.SmartTeklaModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartWPFElements.csproj">
+    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj">
       <Project>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</Project>
-      <Name>SmartWPFElements</Name>
+      <Name>SmartPlugins.Common.SmartWPFElements</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using SmartExtensions;
+﻿using SmartPlugins.Common.SmartExtensions;
 using SmartMacroses.Commecial;
 using System;
 using System.Collections.Generic;

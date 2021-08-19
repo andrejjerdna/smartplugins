@@ -1,4 +1,4 @@
-﻿using SmartTeklaModel.Plugins;
+﻿using SmartPlugins.Common.SmartTeklaModel.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;

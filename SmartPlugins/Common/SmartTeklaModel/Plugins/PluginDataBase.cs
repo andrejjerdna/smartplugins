@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Plugins;
 
-namespace SmartTeklaModel.Plugins
+namespace SmartPlugins.Common.SmartTeklaModel.Plugins
 {
     public class PluginDataBase
     {

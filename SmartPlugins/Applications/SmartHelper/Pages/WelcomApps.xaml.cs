@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartHelper.Pages
+namespace SmartPlugins.Applications.SmartHelper.Pages
 {
     /// <summary>
     /// Interaction logic for WelcomApps.xaml

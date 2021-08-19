@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 
-namespace CSLib
+namespace SmartPlugins.Common.CSLib
 {
     public class SetPlane
     {

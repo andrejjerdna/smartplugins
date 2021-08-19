@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using System.Windows.Threading;
 
-namespace SmartWPFElements.SmartHelper
+namespace SmartPlugins.Common.SmartWPFElements.SmartHelper
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

@@ -1,6 +1,6 @@
-﻿using SmartHelper.Pages.TestApp;
-using SmartWPFElements;
-using SmartWPFElements.SmartHelper;
+﻿using SmartPlugins.Applications.SmartHelper.Pages.TestApp;
+using SmartPlugins.Common.SmartWPFElements;
+using SmartPlugins.Common.SmartWPFElements.SmartHelper;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace SmartHelper.ViewModel
+namespace SmartPlugins.Applications.SmartHelper.ViewModel
 {
     public class ConcreteWindowViewModel : SmartHelperViewModel
     {

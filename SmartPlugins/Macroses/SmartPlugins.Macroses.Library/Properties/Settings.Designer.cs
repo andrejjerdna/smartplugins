@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartPlugins.Common.SmartWPFElements.Properties
+namespace SmartPlugins.Macroses.Library.Properties
 {
     
     

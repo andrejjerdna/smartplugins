@@ -77,12 +77,12 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\CSLib\CSLib.csproj" />
-    <ProjectReference Include="..\..\Common\SmartExtensions\SmartExtensions.csproj" />
-    <ProjectReference Include="..\..\Common\SmartGeometry\SmartGeometry.csproj" />
-    <ProjectReference Include="..\..\Common\SmartObjects\SmartObjects.csproj" />
-    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartTeklaModel.csproj" />
-    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartWPFElements.csproj" />
+    <ProjectReference Include="..\..\Common\CSLib\SmartPlugins.Common.CSLib.csproj" />
+    <ProjectReference Include="..\..\Common\SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj" />
+    <ProjectReference Include="..\..\Common\SmartGeometry\SmartPlugins.Common.SmartGeometry.csproj" />
+    <ProjectReference Include="..\..\Common\SmartObjects\SmartPlugins.Common.SmartObjects.csproj" />
+    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj" />
+    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\sp_DimensionsForReinforcement.png" />

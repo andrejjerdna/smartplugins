@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SmartWPFElements
+namespace SmartPlugins.Common.SmartWPFElements
 {
     public class DelegateCommand : ICommand
     {

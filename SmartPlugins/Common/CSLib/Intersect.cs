@@ -6,7 +6,7 @@ using Tekla.Structures.Model;
 using Tekla.Structures.Model.Operations;
 using Tekla.Structures.Solid;
 
-namespace CSLib
+namespace SmartPlugins.Common.CSLib
 {
     public class Intersect
     {

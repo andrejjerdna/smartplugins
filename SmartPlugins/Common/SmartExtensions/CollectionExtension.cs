@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Tekla.Structures.Model;
 using tsm = Tekla.Structures.Model;
 
-namespace SmartExtensions
+namespace SmartPlugins.Common.SmartExtensions
 {
     public static class CollectionExtension
     {

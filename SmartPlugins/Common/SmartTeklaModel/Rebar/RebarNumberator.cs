@@ -1,4 +1,4 @@
-﻿using SmartExtensions;
+﻿using SmartPlugins.Common.SmartExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Model;
 
-namespace SmartTeklaModel.Rebar
+namespace SmartPlugins.Common.SmartTeklaModel.Rebar
 {
     public class RebarNumberator
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartTeklaModel.Abstrations
+namespace SmartPlugins.Common.SmartTeklaModel.Abstrations
 {
     interface IRunTeklaMacros
     {

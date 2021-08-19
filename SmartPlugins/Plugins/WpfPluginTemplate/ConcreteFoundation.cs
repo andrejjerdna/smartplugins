@@ -1,5 +1,5 @@
-﻿using SmartObjects;
-using SmartTeklaModel.Plugins;
+﻿using SmartPlugins.Common.SmartObjects;
+using SmartPlugins.Common.SmartTeklaModel.Plugins;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +17,7 @@ using Tekla.Structures.Plugins;
 using Point = Tekla.Structures.Geometry3d.Point;
 using Vector = Tekla.Structures.Geometry3d.Vector;
 using tdt = Tekla.Structures.Datatype;
-using SmartTeklaModel;
+using SmartPlugins.Common.SmartTeklaModel;
 
 namespace ConcreteFoundationPlugin
 {
@@ -77,7 +77,7 @@ namespace ConcreteFoundationPlugin
 
                 #endregion
 
-                var concreteFoundation = new SmartObjects.ConcreteFoundation(_model)
+                var concreteFoundation = new SmartPlugins.Common.SmartObjects.ConcreteFoundation(_model)
                 {
                     Class = Class,
                     Material = Material,

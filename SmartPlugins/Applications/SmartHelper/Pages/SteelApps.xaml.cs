@@ -1,4 +1,4 @@
-﻿using SmartHelper.ViewModel;
+﻿using SmartPlugins.Applications.SmartHelper.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SmartHelper.Pages
+namespace SmartPlugins.Applications.SmartHelper.Pages
 {
     /// <summary>
     /// Interaction logic for SteelApps.xaml

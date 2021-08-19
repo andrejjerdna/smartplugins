@@ -1,4 +1,4 @@
-﻿using SmartTeklaModel;
+﻿using SmartPlugins.Common.SmartTeklaModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +9,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
 
-namespace SmartObjects
+namespace SmartPlugins.Common.SmartObjects
 {
     public class GroupPiles : ConcretePartBase
     {

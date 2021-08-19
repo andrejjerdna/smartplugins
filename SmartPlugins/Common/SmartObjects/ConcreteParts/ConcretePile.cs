@@ -1,5 +1,5 @@
-﻿using SmartGeometry;
-using SmartTeklaModel;
+﻿using SmartPlugins.Common.SmartGeometry;
+using SmartPlugins.Common.SmartTeklaModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
 
-namespace SmartObjects
+namespace SmartPlugins.Common.SmartObjects
 {
     public class ConcretePile : ConcretePartBase, IConcreteBase
     {
