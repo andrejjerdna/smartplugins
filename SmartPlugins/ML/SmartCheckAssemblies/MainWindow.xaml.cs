@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Tekla.Structures.Model;
 
-namespace SmartCheckAssemblies
+namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -11,7 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using static Microsoft.ML.DataOperationsCatalog;
 
-namespace SmartCheckAssemblies
+namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     public class MLCheck
     {

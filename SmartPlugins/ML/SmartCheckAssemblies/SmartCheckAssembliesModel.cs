@@ -9,7 +9,7 @@ using Tekla.Structures.Model;
 using System.Linq;
 using System.Diagnostics;
 
-namespace SmartCheckAssemblies
+namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     class SmartCheckAssembliesModel
     {

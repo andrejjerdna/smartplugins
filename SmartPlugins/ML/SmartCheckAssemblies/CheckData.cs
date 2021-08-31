@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartCheckAssemblies
+namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     public class CheckData
     {

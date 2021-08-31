@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace SmartCheckAssemblies.Properties
+namespace SmartPlugins.Applications.SmartCheckAssembliesML.Properties
 {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.

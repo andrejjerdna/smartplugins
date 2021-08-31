@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace SmartCheckAssemblies
+namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     public class SmartCheckAssembliesViewModel : INotifyPropertyChanged
     {

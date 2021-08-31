@@ -10,7 +10,7 @@ using Tekla.Structures.Model.Operations;
 using Tekla.Structures.Model.UI;
 using Parallel = System.Threading.Tasks.Parallel;
 
-namespace SmartCheckAssemblies
+namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     public class BugGenerator
     {

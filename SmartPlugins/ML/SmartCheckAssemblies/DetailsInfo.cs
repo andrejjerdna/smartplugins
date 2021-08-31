@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 
-namespace SmartCheckAssemblies
+namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     public class DetailsInfo
     {
