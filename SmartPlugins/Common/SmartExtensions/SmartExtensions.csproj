@@ -57,7 +57,9 @@
     <Compile Include="Drawing\DrawingBoltExtensions.cs" />
     <Compile Include="Geometry\OBBExtensions.cs" />
     <Compile Include="Geometry\PointExtensions.cs" />
+    <Compile Include="GridPlaneExtensions.cs" />
     <Compile Include="ModelObjectExtension.cs" />
+    <Compile Include="ModelPlaneExtension.cs" />
     <Compile Include="RebarExtension.cs" />
     <Compile Include="WeldsExtensions.cs" />
     <Compile Include="AssemblyExtension.cs" />
