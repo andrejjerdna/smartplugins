@@ -75,6 +75,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForDrawingMacrose
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacroses", "StartFilesForModelMacroses", "{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{09A6402E-CA98-4808-AC06-683913085C0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{05011DA0-EE87-4455-A9A3-83F2BA472395}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +141,14 @@ Global
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09A6402E-CA98-4808-AC06-683913085C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09A6402E-CA98-4808-AC06-683913085C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09A6402E-CA98-4808-AC06-683913085C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09A6402E-CA98-4808-AC06-683913085C0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

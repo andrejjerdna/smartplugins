@@ -116,6 +116,10 @@
       <Project>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</Project>
       <Name>SmartPlugins.Common.SmartTeklaModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Macroses\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj">
+      <Project>{5ce47eb0-8e97-4f82-b3f8-02e0fe30b3c0}</Project>
+      <Name>SmartPlugins.Macroses.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\test.svg" />
