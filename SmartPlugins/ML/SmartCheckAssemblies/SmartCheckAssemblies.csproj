@@ -111,7 +111,7 @@
       <Version>5.0.2</Version>
     </PackageReference>
     <PackageReference Include="TeklaOpenAPI">
-      <Version>2020.0.3</Version>
+      <Version>2017.0.6809</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

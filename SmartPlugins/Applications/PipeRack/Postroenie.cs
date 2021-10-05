@@ -145,7 +145,7 @@ namespace PipeRack
                 IsMagnetic = false,
             };
             Grid.Insert();
-            Grid.Origin.Z = CS_point.Z;
+            //Grid.Origin.Z = CS_point.Z;
             Grid.Modify();
             //-------------------построение сетки
 

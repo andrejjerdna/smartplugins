@@ -90,24 +90,24 @@ namespace SmartObjects.Drawings
         /// <param name="rebarGroup"></param>
         private void GetGetRebarGeometries(RebarGroup rebarGroup)
         {
-            var geom = rebarGroup.GetRebarGeometries(Reinforcement.RebarGeometryOptionEnum.NONE)
-                .OfType<RebarGeometry>()
-                .SelectMany(geomr => geomr.Shape.Points.OfType<t3d.Point>());
+            //var geom = rebarGroup.GetRebarGeometries(Reinforcement.RebarGeometryOptionEnum.NONE)
+            //    .OfType<RebarGeometry>()
+            //    .SelectMany(geomr => geomr.Shape.Points.OfType<t3d.Point>());
 
-            var listPoints = new List<t3d.Point>
-            {
-            geom.ElementAt(0),
-            geom.ElementAt(1),
-            geom.ElementAt(geom.Count() - 2),
-            geom.ElementAt(geom.Count() - 1),
-            };
+            //var listPoints = new List<t3d.Point>
+            //{
+            //geom.ElementAt(0),
+            //geom.ElementAt(1),
+            //geom.ElementAt(geom.Count() - 2),
+            //geom.ElementAt(geom.Count() - 1),
+            //};
 
-            listPoints = listPoints.OrderBy(p => p.X).ToList();
+            //listPoints = listPoints.OrderBy(p => p.X).ToList();
 
-            _p1 = listPoints[0];
-            _p2 = listPoints[1];
-            _p3 = listPoints[2];
-            _p4 = listPoints[3];
+            //_p1 = listPoints[0];
+            //_p2 = listPoints[1];
+            //_p3 = listPoints[2];
+            //_p4 = listPoints[3];
         }
 
         /// <summary>
@@ -300,20 +300,20 @@ namespace SmartObjects.Drawings
         /// </summary>
         private void InsertMark()
         {
-            var dh = new DrawingHandler();
+            //var dh = new DrawingHandler();
 
-            var doo = _viewBase.GetModelObjects(_rebarGroup.Identifier).ToIEnumerable<Tekla.Structures.Drawing.ModelObject>().ToList();
+            //var doo = _viewBase.GetModelObjects(_rebarGroup.Identifier).ToIEnumerable<Tekla.Structures.Drawing.ModelObject>().ToList();
 
-            dh.GetDrawingObjectSelector().SelectObject(doo.First());
+            //dh.GetDrawingObjectSelector().SelectObject(doo.First());
 
-            TeklaStructures.Connect();
+            //TeklaStructures.Connect();
 
-            new MacroBuilder()
-                .Callback("acmd_create_marks_selected", "", "View_10 window_1")
-                .ValueChange("rebar_mark_dial", "gr_rebar_mark_get_menu", MarkType)
-                .PushButton("gr_rebar_get", "rebar_mark_dial")
-                .PushButton("rebar_mark_modify", "rebar_mark_dial")
-                .Run();
+            //new MacroBuilder()
+            //    .Callback("acmd_create_marks_selected", "", "View_10 window_1")
+            //    .ValueChange("rebar_mark_dial", "gr_rebar_mark_get_menu", MarkType)
+            //    .PushButton("gr_rebar_get", "rebar_mark_dial")
+            //    .PushButton("rebar_mark_modify", "rebar_mark_dial")
+            //    .Run();
         }
 
         /*
