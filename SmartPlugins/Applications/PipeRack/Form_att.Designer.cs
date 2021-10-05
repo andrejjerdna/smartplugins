@@ -258,7 +258,7 @@
             this.structuresExtender.SetAttributeTypeName(this.profileCatalog1, null);
             this.profileCatalog1.BackColor = System.Drawing.Color.Transparent;
             this.structuresExtender.SetBindPropertyName(this.profileCatalog1, null);
-            this.profileCatalog1.ButtonText = "Select...";
+            //this.profileCatalog1.ButtonText = "Select...";
             this.profileCatalog1.Location = new System.Drawing.Point(353, 31);
             this.profileCatalog1.Margin = new System.Windows.Forms.Padding(5);
             this.profileCatalog1.Name = "profileCatalog1";
@@ -274,7 +274,7 @@
             this.structuresExtender.SetAttributeTypeName(this.materialCatalog1, null);
             this.materialCatalog1.BackColor = System.Drawing.Color.Transparent;
             this.structuresExtender.SetBindPropertyName(this.materialCatalog1, null);
-            this.materialCatalog1.ButtonText = "Выбрать...";
+           // this.materialCatalog1.ButtonText = "Выбрать...";
             this.materialCatalog1.Location = new System.Drawing.Point(355, 75);
             this.materialCatalog1.Margin = new System.Windows.Forms.Padding(5);
             this.materialCatalog1.Name = "materialCatalog1";

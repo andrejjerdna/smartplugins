@@ -162,7 +162,7 @@
             // materialCatalog1
             // 
             this.materialCatalog1.BackColor = System.Drawing.Color.Transparent;
-            this.materialCatalog1.ButtonText = "Выбрать...";
+          //  this.materialCatalog1.ButtonText = "Выбрать...";
             this.materialCatalog1.Location = new System.Drawing.Point(353, 74);
             this.materialCatalog1.Margin = new System.Windows.Forms.Padding(5);
             this.materialCatalog1.Name = "materialCatalog1";
@@ -173,7 +173,7 @@
             // profileCatalog1
             // 
             this.profileCatalog1.BackColor = System.Drawing.Color.Transparent;
-            this.profileCatalog1.ButtonText = "Select...";
+           // this.profileCatalog1.ButtonText = "Select...";
             this.profileCatalog1.Location = new System.Drawing.Point(351, 30);
             this.profileCatalog1.Margin = new System.Windows.Forms.Padding(5);
             this.profileCatalog1.Name = "profileCatalog1";
