@@ -1,8 +1,0 @@
-C:\Work\SmartPlugins\SmartPlugins\Macroses\SmartPlugins.Macroses.Library\bin\Debug\SmartPlugins.Macroses.Library.dll
-C:\Work\SmartPlugins\SmartPlugins\Macroses\SmartPlugins.Macroses.Library\bin\Debug\SmartPlugins.Macroses.Library.pdb
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj.AssemblyReference.cache
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.Properties.Resources.resources
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj.GenerateResource.cache
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj.CoreCompileInputs.cache
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.dll
-C:\Work\SmartPlugins\SmartPlugins\ObjDir\2019\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.pdb

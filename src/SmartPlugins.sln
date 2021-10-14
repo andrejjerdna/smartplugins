@@ -75,7 +75,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForDrawingMacrose
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacroses", "StartFilesForModelMacroses", "{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}"
 	ProjectSection(SolutionItems) = preProject
-		Macroses\StartFilesForModelMacroses\DrawObjectCoordinateSystem.cs = Macroses\StartFilesForModelMacroses\DrawObjectCoordinateSystem.cs
+		Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs = Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{09A6402E-CA98-4808-AC06-683913085C0F}"
