@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Application = Autodesk.Navisworks.Api.Application;
 
 namespace SmartPlugins.Common.Navisworks
 {
@@ -31,6 +32,35 @@ namespace SmartPlugins.Common.Navisworks
                 _activeDocument.Models.OverrideTemporaryTransparency(_selectedItems, 0.0);
 
                 return 0;
+            }
+        }
+
+        [Plugin("SmartSelectedWatcher", "SMARTPLUGINS")]
+        public class SelectedWatcherPlugin : EventWatcherPlugin
+        {
+            private Document _activeDocument;
+
+            public override void OnLoaded()
+            {
+                Application.ActiveDocumentChanged += ActiveDocumentChanged;
+            }
+
+            public override void OnUnloading()
+            {
+                Application.ActiveDocumentChanged -= ActiveDocumentChanged;
+            }
+
+            private void ActiveDocumentChanged(object sender, EventArgs e)
+            {
+                _activeDocument = Application.ActiveDocument;
+
+                if (_activeDocument != null)
+                    _activeDocument.CurrentSelection.Changed += Mes;
+            }
+
+            private void Mes(object sender, EventArgs e)
+            {
+                MessageBox.Show("Selected item!");
             }
         }
     }
