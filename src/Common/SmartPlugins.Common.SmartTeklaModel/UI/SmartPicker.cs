@@ -1,4 +1,5 @@
-﻿using Tekla.Structures.Model;
+﻿using System;
+using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 
 namespace SmartTeklaModel.UI
@@ -23,9 +24,10 @@ namespace SmartTeklaModel.UI
         /// </summary>
         /// <param name="pickObjectEnum"></param>
         /// <returns></returns>
-        public ModelObject PickObject(Picker.PickObjectEnum pickObjectEnum)
+        public ModelObject PickObject<T>(Picker.PickObjectEnum pickObjectEnum)
+            where T : ModelObject
         {
-            return _picker.PickObject(pickObjectEnum);
+            return _picker.PickObject(pickObjectEnum) as T;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.SmartTeklaModel;
 using SmartTeklaModel.UI;
+using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 
 namespace SmartPlugins.Macroses.Library
@@ -20,7 +21,7 @@ namespace SmartPlugins.Macroses.Library
 
             var picker = new SmartPicker();
 
-            var modelObject = picker.PickObject(Picker.PickObjectEnum.PICK_ONE_OBJECT);
+            var modelObject = picker.PickObject<ModelObject>(Picker.PickObjectEnum.PICK_ONE_OBJECT);
 
             if (modelObject == null) 
                 return;
