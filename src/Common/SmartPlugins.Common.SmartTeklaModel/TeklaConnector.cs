@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using Tekla.Structures.Model;
 
-namespace SmartTeklaModel
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     public class TeklaConnector
     {
