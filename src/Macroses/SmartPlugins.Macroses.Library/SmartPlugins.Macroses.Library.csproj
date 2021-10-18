@@ -64,6 +64,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RebarSequenceNumberingMacro.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,6 +86,10 @@
     <ProjectReference Include="..\..\Common\SmartPlugins.Common.Abstractions\SmartPlugins.Common.Abstractions.csproj">
       <Project>{F02F7D09-E3F9-48ED-B39C-4B55B5D00E6B}</Project>
       <Name>SmartPlugins.Common.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
+      <Project>{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}</Project>
+      <Name>SmartPlugins.Common.SmartExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj">
       <Project>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</Project>

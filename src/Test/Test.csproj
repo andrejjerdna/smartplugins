@@ -104,10 +104,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
-      <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
-      <Name>SmartPlugins.Common.SmartExtensions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Common\SmartPlugins.Common.SmartGeometry\SmartPlugins.Common.SmartGeometry.csproj">
       <Project>{7F08E701-0D4F-4A7D-835C-7ADB9B7A4B09}</Project>
       <Name>SmartPlugins.Common.SmartGeometry</Name>

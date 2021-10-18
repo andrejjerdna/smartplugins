@@ -1,9 +1,12 @@
-﻿using System;
+﻿using SmartPlugins.Common.SmartExtensions;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Tekla.Structures;
-using Tekla.Structures.Drawing;
+using Tekla.Structures.Model;
 using Tekla.Structures.Model.Operations;
+using Tekla.Structures.Model.UI;
 
 namespace Test
 {
@@ -19,15 +22,10 @@ namespace Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var maсroBuilder = new MacroBuilder();
-            maсroBuilder.Callback("acmd_display_rotate_view_dialog", "", "View_10 window_1");
-            maсroBuilder.ValueChange("gr_rotate_view", "gr_rotate_view_angle", "90.000000000000");
-            maсroBuilder.PushButton("gr_rotate_view_rotate", "gr_rotate_view");
-            maсroBuilder.PushButton("gr_rotate_view_cancel", "gr_rotate_view");
+            var p = new Picker();
+            var obj = p.PickObject(Picker.PickObjectEnum.PICK_ONE_PART) as Part;
 
-            TeklaStructures.Connect();
-
-            maсroBuilder.Run();
+            var rein = obj.GetReinforcements().ToIEnumerable<ModelObject>().ToList();
         }
     }
 }

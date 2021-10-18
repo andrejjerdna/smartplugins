@@ -75,6 +75,10 @@
     <Folder Include="WpfPlugins\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SmartPlugins.Common.Core\SmartPlugins.Common.Core.csproj">
+      <Project>{36479969-F7B4-4A22-93C5-7A41C62B5784}</Project>
+      <Name>SmartPlugins.Common.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SmartPlugins.Common.CSLib\SmartPlugins.Common.CSLib.csproj">
       <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
       <Name>SmartPlugins.Common.CSLib</Name>
