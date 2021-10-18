@@ -2,7 +2,7 @@
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 
-namespace SmartTeklaModel.UI
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     /// <summary>
     /// Picker for tekla model objects
