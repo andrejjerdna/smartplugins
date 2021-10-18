@@ -72,6 +72,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Macroses.Library", "Macroses\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj", "{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForDrawingMacroses", "StartFilesForDrawingMacroses", "{ECF7FDB2-B0E4-4689-9816-ABC55F54FAF4}"
+	ProjectSection(SolutionItems) = preProject
+		sm_EmbededMark.cs = sm_EmbededMark.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacroses", "StartFilesForModelMacroses", "{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}"
 	ProjectSection(SolutionItems) = preProject
