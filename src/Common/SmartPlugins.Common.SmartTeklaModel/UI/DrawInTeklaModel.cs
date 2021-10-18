@@ -1,7 +1,7 @@
 ﻿using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model.UI;
 
-namespace SmartTeklaModel.UI
+namespace SmartPlugins.Common.SmartTeklaModel
 {
     /// <summary>
     /// Draw objects in tekla model
