@@ -1,10 +1,11 @@
 ﻿using SmartPlugins.Common.SmartExtensions;
-using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Tekla.Structures.Model;
+
 
 namespace SmartPlugins.Common.SmartTeklaModel.Rebar
 {
@@ -17,27 +18,52 @@ namespace SmartPlugins.Common.SmartTeklaModel.Rebar
             _attributeForNumber = attributeForNumber;
         }
 
-        public void RefreshNumbers(Assembly assembly)
+        private IEnumerable<ReinforcementNumberingItem> GetReinforcementNumberingItems(IEnumerable<Reinforcement> reinforcements)
         {
-            var allRebars = assembly.GetAllReinforcements()
-                .GroupBy(r => r.SmartGetPropertyString("REBAR_POS"))
-                .ToConcurrentBag();
-
-            var count = 0;
-
-            Parallel.ForEach(allRebars, rebarGroup =>
+            foreach (var rebar in reinforcements)
             {
-                foreach (var rebar in rebarGroup)
+                var item  = new ReinforcementNumberingItem()
                 {
-                    WriteUDA(rebar, count);
-                }
-            });
+                    OriginObject = rebar,
+                    CastUnitPos = rebar.SmartGetPropertyString("CAST_UNIT_POS"),
+                    RebarPos = rebar.SmartGetPropertyString("REBAR_POS"),
+                };
+
+                yield return item;
+            }
         }
 
-        private void WriteUDA(ModelObject rebar, int count)
+        public void RefreshNumbers(IEnumerable<Reinforcement> reinforcements)
         {
-            rebar.SetUserProperty(_attributeForNumber, count);
-            rebar.Modify();
+            var sort = GetReinforcementNumberingItems(reinforcements.ToList()).ToList();
+
+            var rebarsGroups = sort.GroupBy(r => r.CastUnitPos)
+                                                .Select(group => group)
+                                                .Select(group=>group.GroupBy(r => r.RebarPos).OrderBy(g => g.Key).Select(g => g.ToList()));
+
+            foreach(var rebarGoup in rebarsGroups)
+            {
+                var count = 1;
+                foreach(var gr in rebarGoup)
+                {
+                    foreach (var rebar in gr)
+                        rebar.Number = count;
+
+                    count++;
+                }
+            }
+
+            var allRebar = new ConcurrentBag<ReinforcementNumberingItem>(rebarsGroups.SelectMany(gr => gr).SelectMany(gr => gr).Select(r => r));
+
+            WriteUDA(allRebar);
+        }
+
+        public void WriteUDA(ConcurrentBag<ReinforcementNumberingItem> reinforcements)
+        {
+            Parallel.ForEach(reinforcements, (rebar) =>
+            {
+                rebar.OriginObject.SetUserProperty(_attributeForNumber, rebar.Number);
+            });
         }
     }
 }

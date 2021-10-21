@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Macroses.Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,10 +23,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var m = new Model();
-            var p = new Picker();
-
-            var obj = p.PickObject(Picker.PickObjectEnum.PICK_ONE_OBJECT);
+            new RebarSequenceNumberingMacro().Run();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace SmartExtensions
         /// <param name="model"></param>
         /// <param name="autoFetch"></param>
         /// <returns></returns>
-        public static IEnumerable<T> GetAllParts<T>(this Model model, bool autoFetch)
+        public static IEnumerable<T> GetAllObjectsWithType<T>(this Model model, bool autoFetch)
         {
             ModelObjectEnumerator.AutoFetch = autoFetch;
 

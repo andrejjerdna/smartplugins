@@ -1,12 +1,10 @@
-﻿using SmartPlugins.Common.SmartExtensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using Tekla.Structures;
 using Tekla.Structures.Model;
-using Tekla.Structures.Model.Operations;
 using Tekla.Structures.Model.UI;
+using Autodesk.Navisworks.Api;
+using Application = Autodesk.Navisworks.Api.Application;
 
 namespace Test
 {
@@ -25,7 +23,12 @@ namespace Test
             var p = new Picker();
             var obj = p.PickObject(Picker.PickObjectEnum.PICK_ONE_PART) as Part;
 
-            var rein = obj.GetReinforcements().ToIEnumerable<ModelObject>().ToList();
+          //  var rein = obj.GetReinforcements().ToIEnumerable<ModelObject>().ToList();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var www = Application.ActiveDocument.Models;
         }
     }
 }

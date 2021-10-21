@@ -1,21 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props" Condition="Exists('..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props')" />
+  <Import Project="..\..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props" Condition="Exists('..\..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{05011DA0-EE87-4455-A9A3-83F2BA472395}</ProjectGuid>
+    <ProjectGuid>{EC576EA0-A20C-4E96-9CA7-3AD8BCC47331}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WindowsFormsApp1</RootNamespace>
-    <AssemblyName>WindowsFormsApp1</AssemblyName>
+    <RootNamespace>TestForm</RootNamespace>
+    <AssemblyName>TestForm</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,39 +48,39 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Tekla.Application.Library, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Application.Library.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Application.Library.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures.Analysis, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Analysis.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Analysis.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures.Catalogs, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Catalogs.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Catalogs.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures.Datatype, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Datatype.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Datatype.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures.Dialog, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Dialog.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Dialog.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures.Drawing, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Drawing.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Drawing.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures.Model, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Model.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Model.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Tekla.Structures.Plugins, Version=2020.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Plugins.dll</HintPath>
+      <HintPath>..\..\packages\TeklaOpenAPI.2020.0.3\lib\Tekla.Structures.Plugins.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -105,7 +104,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -122,12 +120,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\SmartPlugins.Common.SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj">
-      <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
-      <Name>SmartPlugins.Common.SmartTeklaModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Macroses\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj">
-      <Project>{5ce47eb0-8e97-4f82-b3f8-02e0fe30b3c0}</Project>
+    <ProjectReference Include="..\..\Macroses\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj">
+      <Project>{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}</Project>
       <Name>SmartPlugins.Macroses.Library</Name>
     </ProjectReference>
   </ItemGroup>
@@ -136,6 +130,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props'))" />
+    <Error Condition="!Exists('..\..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\TeklaOpenAPI.2020.0.3\build\TeklaOpenAPI.props'))" />
   </Target>
 </Project>

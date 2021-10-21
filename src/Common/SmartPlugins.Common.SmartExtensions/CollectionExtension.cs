@@ -13,6 +13,23 @@ namespace SmartPlugins.Common.SmartExtensions
     public static class CollectionExtension
     {
         /// <summary>
+        /// Получаем перечислитель элементов модели по указанному типу.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="model"></param>
+        /// <param name="autoFetch"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> GetAllObjects<T>(this tsm.Model model, bool autoFetch)
+        {
+            ModelObjectEnumerator.AutoFetch = autoFetch;
+
+            var types = new[] { typeof(T) };
+
+            return model.GetModelObjectSelector()
+                .GetAllObjectsWithType(types)
+                .ToIEnumerable<T>();
+        }
+        /// <summary>
         /// IEnumerator to IEnumerable.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -36,17 +53,6 @@ namespace SmartPlugins.Common.SmartExtensions
         public static ConcurrentBag<T> ToConcurrentBag<T>(this IEnumerator enumerator)
         {
             return new ConcurrentBag<T>(enumerator.ToIEnumerable<T>());
-        }
-
-        /// <summary>
-        /// IEnumerable to ConcurrentBag.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="enumerator"></param>
-        /// <returns></returns>
-        public static ConcurrentBag<T> ToConcurrentBag<T>(this IEnumerable<T> enumerable)
-        {
-            return new ConcurrentBag<T>(enumerable);
         }
     }
 }

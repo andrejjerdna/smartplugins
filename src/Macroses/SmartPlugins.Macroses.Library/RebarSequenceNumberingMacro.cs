@@ -1,13 +1,15 @@
-﻿using SmartExtensions;
-using SmartPlugins.Common.Abstractions;
+﻿using SmartPlugins.Common.Abstractions;
+using SmartPlugins.Common.SmartExtensions;
 using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.SmartTeklaModel.Rebar;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using Tekla.Structures.Model;
+using Reinforcement = Tekla.Structures.Model.Reinforcement;
 
 namespace SmartPlugins.Macroses.Library
 {
@@ -17,9 +19,10 @@ namespace SmartPlugins.Macroses.Library
         public void Run()
         {
             var model = new SmartModel();
+            var allReinforcements = model.GetAllObjects<Reinforcement>(true);
 
-            var selectedAssemblies = model.TeklaModel.GetSelectedObjects<Assembly>();
-
+            var reberNum = new RebarNumberator("REBAR_SEQ_NO");
+            reberNum.RefreshNumbers(allReinforcements);
         }
     }
 }

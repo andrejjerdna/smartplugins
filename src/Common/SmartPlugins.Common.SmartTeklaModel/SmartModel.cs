@@ -1,5 +1,5 @@
 ﻿using SmartPlugins.Common.SmartExtensions;
-using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using Tekla.Structures.Model;
@@ -8,53 +8,36 @@ namespace SmartPlugins.Common.SmartTeklaModel
 {
     public class SmartModel
     {
-        private Model _teklaModel;
+        public Model _teklaModel;
 
         public SmartModel()
         {
             _teklaModel = new Model();
+            ConnectionStatus = TeklaModel.GetConnectionStatus();
 
             if (ConnectionStatus)
             {
-                AttributesPath = Path.Combine(_teklaModel.GetInfo().ModelPath, "attributes");
-                FiltersPath = Path.Combine(AttributesPath);
-                SmartPluginsPath = Path.Combine(AttributesPath,"SmartPlugins");
+                AttributesPath = Path.Combine(TeklaModel.GetInfo().ModelPath, "attributes");
+                FilterPath = Path.Combine(AttributesPath);
+                SmartPluginsPath = Path.Combine(AttributesPath, "SmartPlugins");
             }
         }
 
-        /// <summary>
-        /// Connection status changed event
-        /// </summary>
-        public event EventHandler ConnectionStatusChanged;
-
-        /// <summary>
-        /// Current tekla model
-        /// </summary>
         public Model TeklaModel { get => _teklaModel; }
-
-        /// <summary>
-        /// Connection status for current tekla model
-        /// </summary>
-        public bool ConnectionStatus { get => _teklaModel.GetConnectionStatus(); }
-
-        /// <summary>
-        /// Filters path
-        /// </summary>
-        public string FiltersPath { get; }
-
-        /// <summary>
-        /// Attributes path
-        /// </summary>
+        public bool ConnectionStatus { get; }
+        public string FilterPath { get; }
         public string AttributesPath { get; }
-
-        /// <summary>
-        /// TODO: rename
-        /// </summary>
         public string SmartPluginsPath { get; }
 
-        public IEnumerable<T> GetAllObjects<T>()
+        public IEnumerable<T> GetAllObjects<T>(bool autoFetch)
         {
-            return _teklaModel.GetModelObjectSelector().GetAllObjects().ToIEnumerable<T>();
+            return _teklaModel.GetAllObjects<T>(autoFetch);
+        }
+
+        public ConcurrentBag<T> GetAllObjectsConcurrent<T>(bool autoFetch)
+        {
+            return new ConcurrentBag<T>(_teklaModel.GetAllObjects<T>(autoFetch));
         }
     }
+
 }

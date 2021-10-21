@@ -48,7 +48,7 @@ namespace SmartPlugins.Common.SmartTeklaModel
                         Message = "fff"
                     };
 
-                    OnConnectChanged();
+                    //OnConnectChanged();
                 }
             }
         }

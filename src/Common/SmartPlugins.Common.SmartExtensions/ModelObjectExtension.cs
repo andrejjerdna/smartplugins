@@ -16,7 +16,7 @@ namespace SmartPlugins.Common.SmartExtensions
             return result;
         }
 
-        public static double SmartGetPropertyInt(this ModelObject mo, string attributeName)
+        public static int SmartGetPropertyInt(this ModelObject mo, string attributeName)
         {
             var result = 0;
             mo.GetReportProperty(attributeName, ref result);

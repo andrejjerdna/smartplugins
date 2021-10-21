@@ -8,11 +8,11 @@ namespace SmartPlugins.Common.SmartTeklaModel
 {
     public static class GlobalParameters
     {
-        public readonly static string FilterName = "bimWizard_tempFilter.SObjGrp";
-        public readonly static string WizardSoftSmetaData = "WizardSoftSmetaData";
-        public readonly static string WizardData = "WizardSoftData.json";
-        public readonly static string WizardIFC = "exprortWizardSoft.ifc";
-        public readonly static string WizardAddInName = "SmetaWIZARDTeklaExtension";
+        public const string FilterName = "bimWizard_tempFilter.SObjGrp";
+        public const string WizardSoftSmetaData = "WizardSoftSmetaData";
+        public const string WizardData = "WizardSoftData.json";
+        public const string WizardIFC = "exprortWizardSoft.ifc";
+        public const string WizardAddInName = "SmetaWIZARDTeklaExtension";
 
 
         public static string BaseProfilePlate = "PL";
