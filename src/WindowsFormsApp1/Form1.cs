@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartTeklaModel.ReportProperties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,14 @@ namespace WindowsFormsApp1
             var m = new Model();
             var p = new Picker();
 
-            var obj = p.PickObject(Picker.PickObjectEnum.PICK_ONE_OBJECT);
+            var obj = p.PickObject(Picker.PickObjectEnum.PICK_ONE_OBJECT) as ModelObject;
+
+            var reportProperties = new ReportProperties(obj);
+            reportProperties.AddStringAttribut("CAST_UNIT_POS");
+
+            reportProperties.RefreshReportProperties();
+
+            var pos = reportProperties.GetAttribute<string>("CAST_UNIT_POS");
         }
     }
 }

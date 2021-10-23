@@ -49,8 +49,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CloneGrids", "CloneGrids", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.SmartWPFElements", "Common\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj", "{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{65196867-84F8-4B2D-9D00-7FB2669D9789}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commercial", "Commercial", "{DC00DACB-3D96-4521-9A3B-404B07FC86E3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sp_DimensionsForReinforcement", "Commercial\sp_DimensionsForReinforcement\sp_DimensionsForReinforcement.csproj", "{64872190-4CB9-4FF3-A898-019D463EB986}"
@@ -80,10 +78,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacroses"
 	ProjectSection(SolutionItems) = preProject
 		Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs = Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{09A6402E-CA98-4808-AC06-683913085C0F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{05011DA0-EE87-4455-A9A3-83F2BA472395}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Applications.SmartObserver", "Applications\SmartPlugins.Applications.SmartObserver\SmartPlugins.Applications.SmartObserver.csproj", "{49341198-45CC-4F4A-87F2-5D493CE17D94}"
 EndProject
@@ -141,10 +135,6 @@ Global
 		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}.Release|Any CPU.Build.0 = Release|Any CPU
-		{65196867-84F8-4B2D-9D00-7FB2669D9789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{65196867-84F8-4B2D-9D00-7FB2669D9789}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{65196867-84F8-4B2D-9D00-7FB2669D9789}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{65196867-84F8-4B2D-9D00-7FB2669D9789}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64872190-4CB9-4FF3-A898-019D463EB986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64872190-4CB9-4FF3-A898-019D463EB986}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64872190-4CB9-4FF3-A898-019D463EB986}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -165,14 +155,6 @@ Global
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09A6402E-CA98-4808-AC06-683913085C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09A6402E-CA98-4808-AC06-683913085C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09A6402E-CA98-4808-AC06-683913085C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09A6402E-CA98-4808-AC06-683913085C0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05011DA0-EE87-4455-A9A3-83F2BA472395}.Release|Any CPU.Build.0 = Release|Any CPU
 		{49341198-45CC-4F4A-87F2-5D493CE17D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49341198-45CC-4F4A-87F2-5D493CE17D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49341198-45CC-4F4A-87F2-5D493CE17D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
