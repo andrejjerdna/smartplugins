@@ -18,6 +18,7 @@ namespace TestForm
         public Form1()
         {
             InitializeComponent();
+            TopMost = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,10 +26,10 @@ namespace TestForm
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-           // Operation.RunMacro("RebarSeqNumbering.cs");
+            Operation.RunMacro("RebarSeqNumbering.cs");
             stopwatch.Stop();
 
-            label2.Text = label2.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
+            label1.Text = label1.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
 
             stopwatch.Reset();
             stopwatch.Start();
@@ -37,10 +38,35 @@ namespace TestForm
 
             stopwatch.Stop();
 
-            label1.Text = label1.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
+            label2.Text = label2.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
+
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
+
+            //var userClass = new UserClass();
+            //userClass.Run();
+
+            //stopwatch.Stop();
+
+            //label1.Text = label1.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
+
+            // stopwatch.Reset();
+            // stopwatch.Start();
+
+            //var checkMarks = new CheckMarks();
+            //checkMarks.Run();
+
+            //stopwatch.Stop();
+
+            //label2.Text = label2.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
