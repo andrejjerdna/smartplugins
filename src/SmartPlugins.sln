@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.SmartGe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.SmartExtensions", "Common\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj", "{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.SmartTeklaModel", "Common\SmartPlugins.Common.SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj", "{0EA5B9C3-468C-4F3C-BBA1-88864234058A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.TeklaLibrary", "Common\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj", "{0EA5B9C3-468C-4F3C-BBA1-88864234058A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.CSLib", "Common\SmartPlugins.Common.CSLib\SmartPlugins.Common.CSLib.csproj", "{20763809-3274-445D-A847-73B3D84576AD}"
 EndProject

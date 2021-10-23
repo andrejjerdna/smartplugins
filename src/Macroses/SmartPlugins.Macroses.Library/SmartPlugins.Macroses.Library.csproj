@@ -92,9 +92,9 @@
       <Project>{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}</Project>
       <Name>SmartPlugins.Common.SmartExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj">
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj">
       <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
-      <Name>SmartPlugins.Common.SmartTeklaModel</Name>
+      <Name>SmartPlugins.Common.TeklaLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

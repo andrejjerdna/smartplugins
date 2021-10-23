@@ -7,8 +7,8 @@
     <ProjectGuid>{20763809-3274-445D-A847-73B3D84576AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CSLib</RootNamespace>
-    <AssemblyName>CSLib</AssemblyName>
+    <RootNamespace>SmartPlugins.Common.CSLib</RootNamespace>
+    <AssemblyName>SmartPlugins.Common.CSLib</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

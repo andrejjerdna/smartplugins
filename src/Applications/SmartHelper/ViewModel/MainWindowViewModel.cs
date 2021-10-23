@@ -1,6 +1,6 @@
 ﻿using SmartPlugins.Applications.SmartHelper.Pages;
 using SmartPlugins.Applications.SmartHelper.Pages.TestApp;
-using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.TeklaStructures;
 using SmartPlugins.Common.SmartWPFElements;
 using SmartPlugins.Common.SmartWPFElements.SmartHelper;
 using System;
@@ -22,9 +22,9 @@ namespace SmartPlugins.Applications.SmartHelper.ViewModel
         /// В данный момент это в основном пути к папкам модели. 
         /// Постепенно этот класс будет расширяться.
         /// </summary>
-        public Common.SmartTeklaModel.SmartModel SmartModel
+        public Common.TeklaStructures.SmartModel SmartModel
         {
-            get => Get(new Common.SmartTeklaModel.SmartModel());
+            get => Get(new Common.TeklaStructures.SmartModel());
             set => Set(value);
         }
 

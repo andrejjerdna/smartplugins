@@ -119,9 +119,9 @@
       <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
       <Name>SmartPlugins.Common.SmartExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj">
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj">
       <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
-      <Name>SmartPlugins.Common.SmartTeklaModel</Name>
+      <Name>SmartPlugins.Common.TeklaLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

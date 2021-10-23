@@ -1,5 +1,5 @@
 ﻿using SmartPlugins.Common.Abstractions;
-using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.TeklaLibrary;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 

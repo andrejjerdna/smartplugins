@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{443B0AD0-2AD8-4E1C-8D1E-B11B6613E498}</ProjectGuid>
+    <ProjectGuid>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartPlugins.Common.SmartObjects</RootNamespace>
-    <AssemblyName>SmartPlugins.Common.SmartObjects</AssemblyName>
+    <RootNamespace>SmartPlugins.Common.TeklaLibrary</RootNamespace>
+    <AssemblyName>SmartPlugins.Common.TeklaLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -39,7 +39,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,21 +49,37 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcreteParts\ConcreteBase.cs" />
-    <Compile Include="ConcreteParts\ConcreteBlinding.cs" />
-    <Compile Include="ConcreteParts\ConcreteColumn.cs" />
-    <Compile Include="ConcreteParts\ConcreteFoundation.cs" />
-    <Compile Include="ConcreteParts\ConcretePile.cs" />
-    <Compile Include="ConcreteParts\ContinuousBeam.cs" />
-    <Compile Include="ConcreteParts\GroupPiles.cs" />
-    <Compile Include="ConcreteParts\GroutUnderBasePlate.cs" />
-    <Compile Include="ConcreteParts\IConcrete.cs" />
-    <Compile Include="Drawings\DimensionsForRebarGroup.cs" />
+    <Compile Include="Catalogs\Catalogs.cs" />
+    <Compile Include="CommonParameters\CommonConcreteParts.cs" />
+    <Compile Include="Drawings\Colors.cs" />
+    <Compile Include="Drawings\Lines.cs" />
+    <Compile Include="Files\GetAttributesFiles.cs" />
+    <Compile Include="GlobalParameters.cs" />
+    <Compile Include="ModelMethods\AssemblyMethods.cs" />
+    <Compile Include="ModelMethods\BoltsMethods.cs" />
+    <Compile Include="ModelMethods\BooleanMethods.cs" />
+    <Compile Include="ModelMethods\ContourPlateEdge.cs" />
+    <Compile Include="Models\ReinforcementNumberingItem.cs" />
+    <Compile Include="Other\GeneralMethods.cs" />
+    <Compile Include="Plugins\ConcretePluginBase.cs" />
+    <Compile Include="Plugins\PluginDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmartRebar.cs" />
-    <Compile Include="SteelParts\Frame_type1.cs" />
+    <Compile Include="Rebar\RebarNumberator.cs" />
+    <Compile Include="ReportProperties\ReportProperties.cs" />
+    <Compile Include="SmartModel.cs" />
+    <Compile Include="TeklaConnector.cs" />
+    <Compile Include="UI\DrawInTeklaModel.cs" />
+    <Compile Include="UI\SmartPicker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Welds\" />
+    <Folder Include="WpfPlugins\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartPlugins.Common.Core\SmartPlugins.Common.Core.csproj">
+      <Project>{36479969-F7B4-4A22-93C5-7A41C62B5784}</Project>
+      <Name>SmartPlugins.Common.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SmartPlugins.Common.CSLib\SmartPlugins.Common.CSLib.csproj">
       <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
       <Name>SmartPlugins.Common.CSLib</Name>
@@ -73,17 +88,9 @@
       <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
       <Name>SmartPlugins.Common.SmartExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartPlugins.Common.SmartGeometry\SmartPlugins.Common.SmartGeometry.csproj">
-      <Project>{7f08e701-0d4f-4a7d-835c-7adb9b7a4b09}</Project>
-      <Name>SmartPlugins.Common.SmartGeometry</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj">
-      <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
-      <Name>SmartPlugins.Common.TeklaLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj">
-      <Project>{9d12b1dd-4a5e-4eac-bc1d-543f339b6971}</Project>
-      <Name>SmartPlugins.Common.SmartWPFElements</Name>
+    <ProjectReference Include="..\SmartPlugins.Common.Abstractions\SmartPlugins.Common.Abstractions.csproj">
+      <Project>{F02F7D09-E3F9-48ED-B39C-4B55B5D00E6B}</Project>
+      <Name>SmartPlugins.Common.Abstractions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

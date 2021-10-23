@@ -1,15 +1,5 @@
 ﻿using SmartPlugins.Common.Abstractions;
-using SmartPlugins.Common.SmartExtensions;
-using SmartPlugins.Common.SmartTeklaModel;
-using SmartPlugins.Common.SmartTeklaModel.Rebar;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
-using Tekla.Structures.Model;
+using SmartPlugins.Common.TeklaLibrary;
 using Reinforcement = Tekla.Structures.Model.Reinforcement;
 
 namespace SmartPlugins.Macroses.Library

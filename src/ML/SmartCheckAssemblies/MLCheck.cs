@@ -1,7 +1,7 @@
 ﻿using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Trainers;
-using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.TeklaStructures;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,13 +15,13 @@ namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     public class MLCheck
     {
-        private Common.SmartTeklaModel.SmartModel _smartModel;
+        private Common.TeklaStructures.SmartModel _smartModel;
         private string _pathData;
         private IEnumerable<CheckData> _data;
 
         public MLCheck()
         {
-            _smartModel = new Common.SmartTeklaModel.SmartModel();
+            _smartModel = new Common.TeklaStructures.SmartModel();
             _pathData = _smartModel.SmartPluginsPath + "check.json";
             _data = GetData();
         }
