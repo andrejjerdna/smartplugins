@@ -64,6 +64,7 @@
     <Compile Include="Plugins\PluginDataBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rebar\RebarNumberator.cs" />
+    <Compile Include="ReportProperties\ReportProperties.cs" />
     <Compile Include="SmartModel.cs" />
     <Compile Include="TeklaConnector.cs" />
     <Compile Include="UI\DrawInTeklaModel.cs" />
