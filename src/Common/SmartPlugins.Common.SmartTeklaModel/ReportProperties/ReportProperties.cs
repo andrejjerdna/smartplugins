@@ -1,15 +1,11 @@
-﻿using Fusion;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using Tekla.Structures.Model;
 
 namespace SmartTeklaModel.ReportProperties
 {
+    /// <summary>
+    /// Report properties
+    /// </summary>
     public class ReportProperties
     {
         private ModelObject _modelObject;
@@ -18,6 +14,11 @@ namespace SmartTeklaModel.ReportProperties
         private ArrayList _stringAttributes;
         private ArrayList _doubleAttributes;
         private ArrayList _integerAttributes;
+
+        /// <summary>
+        /// .ctor
+        /// </summary>
+        /// <param name="modelObject"></param>
         public ReportProperties(ModelObject modelObject)
         {
             _modelObject = modelObject;
@@ -26,12 +27,27 @@ namespace SmartTeklaModel.ReportProperties
             _integerAttributes = new ArrayList();
         }
 
-        public void AddStringAttribut(string attribute) => _stringAttributes.Add(attribute);
+        /// <summary>
+        /// Add string attribute
+        /// </summary>
+        /// <param name="attribute"></param>
+        public void AddStringAttribute(string attribute) => _stringAttributes.Add(attribute);
 
-        public void AddDoubleAttribut(string attribute) => _doubleAttributes.Add(attribute);
+        /// <summary>
+        ///  Add double attribute
+        /// </summary>
+        /// <param name="attribute"></param>
+        public void AddDoubleAttribute(string attribute) => _doubleAttributes.Add(attribute);
 
-        public void AddIntegerAttribut(string attribute) => _integerAttributes.Add(attribute);
+        /// <summary>
+        /// Add integer attribute
+        /// </summary>
+        /// <param name="attribute"></param>
+        public void AddIntegerAttribute(string attribute) => _integerAttributes.Add(attribute);
 
+        /// <summary>
+        /// Refresh report properties
+        /// </summary>
         public void RefreshReportProperties()
         {
             if (_modelObject == null)
@@ -47,6 +63,12 @@ namespace SmartTeklaModel.ReportProperties
             _modelObject.GetAllReportProperties(_stringAttributes, _doubleAttributes, _integerAttributes, ref _values);
         }
 
+        /// <summary>
+        /// Get attribute
+        /// </summary>
+        /// <typeparam name="T">Attribute type</typeparam>
+        /// <param name="attribute">Attribute of name</param>
+        /// <returns></returns>
         public T GetAttribute<T>(string attribute)
         {
             if (_values.Contains(attribute))
