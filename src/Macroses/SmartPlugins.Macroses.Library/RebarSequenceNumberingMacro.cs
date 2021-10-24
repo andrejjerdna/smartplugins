@@ -10,10 +10,8 @@ namespace SmartPlugins.Macroses.Library
         public void Run()
         {
             var model = new SmartModel();
-
             var allReinforcements = model.GetAllObjects<Reinforcement>(true);
-
-            var reberNum = new RebarNumberator("REBAR_SEQ_NO");
+            var reberNum = new RebarNumerator("REBAR_SEQ_NO");
             reberNum.RefreshNumbers(allReinforcements);
         }
     }

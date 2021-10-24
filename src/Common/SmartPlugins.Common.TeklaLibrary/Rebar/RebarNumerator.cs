@@ -1,4 +1,5 @@
-﻿using SmartPlugins.Common.TeklaLibrary.CommonParameters;
+﻿using SmartPlugins.Common.Abstractions.TeklaStructures;
+using SmartPlugins.Common.TeklaLibrary.CommonParameters;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,25 +8,40 @@ using Tekla.Structures.Model;
 
 namespace SmartPlugins.Common.TeklaLibrary
 {
-    public class RebarNumberator
+    /// <summary>
+    /// Rebar numerator
+    /// </summary>
+    public class RebarNumerator : IRebarNumerator
     {
         private string _attributeForNumber;
 
-        public RebarNumberator(string attributeForNumber)
+        /// <summary>
+        /// .ctor
+        /// </summary>
+        /// <param name="attributeForNumber"></param>
+        public RebarNumerator(string attributeForNumber)
         {
             _attributeForNumber = attributeForNumber;
         }
 
+        /// <summary>
+        /// Refresh numbers for list of reinforcements
+        /// </summary>
+        /// <param name="reinforcements"></param>
         public void RefreshNumbers(IEnumerable<Reinforcement> reinforcements)
         {
             var sort = GetReinforcementNumberingItems(reinforcements).ToList();
 
-            var rebarsGroups = GetNumbersReinforcementItems(sort);
+            var rebarsGroups = GetNumbers(sort);
 
             WriteUDA(rebarsGroups);
         }
 
-        public void WriteUDA(IEnumerable<ReinforcementNumberingItem> reinforcements)
+        /// <summary>
+        /// Write UDA for reinforcements
+        /// </summary>
+        /// <param name="reinforcements"></param>
+        private void WriteUDA(IEnumerable<ReinforcementNumberingItem> reinforcements)
         {
             var rebars = new ConcurrentBag<ReinforcementNumberingItem>(reinforcements);
 
@@ -35,6 +51,11 @@ namespace SmartPlugins.Common.TeklaLibrary
             });
         }
 
+        /// <summary>
+        /// Get list of reinforcement numbering items
+        /// </summary>
+        /// <param name="reinforcements"></param>
+        /// <returns></returns>
         private IEnumerable<ReinforcementNumberingItem> GetReinforcementNumberingItems(IEnumerable<Reinforcement> reinforcements)
         {
             var result = new ConcurrentBag<ReinforcementNumberingItem>();
@@ -61,7 +82,12 @@ namespace SmartPlugins.Common.TeklaLibrary
             return result;
         }
 
-        private IEnumerable<ReinforcementNumberingItem> GetNumbersReinforcementItems(IEnumerable<ReinforcementNumberingItem> sort)
+        /// <summary>
+        /// Get numbers for list of reinforcement numbering items
+        /// </summary>
+        /// <param name="sort"></param>
+        /// <returns></returns>
+        private IEnumerable<ReinforcementNumberingItem> GetNumbers(IEnumerable<ReinforcementNumberingItem> sort)
         {
             
             var rebarsGroups = sort.GroupBy(r => r.CastUnitPos)
@@ -82,6 +108,5 @@ namespace SmartPlugins.Common.TeklaLibrary
 
             return rebarsGroups.SelectMany(gr => gr).SelectMany(gr => gr).Select(r => r);
         }
-
     }
 }
