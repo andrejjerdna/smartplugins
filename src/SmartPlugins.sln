@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.SmartGe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.SmartExtensions", "Common\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj", "{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.SmartTeklaModel", "Common\SmartPlugins.Common.SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj", "{0EA5B9C3-468C-4F3C-BBA1-88864234058A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.TeklaLibrary", "Common\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj", "{0EA5B9C3-468C-4F3C-BBA1-88864234058A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.CSLib", "Common\SmartPlugins.Common.CSLib\SmartPlugins.Common.CSLib.csproj", "{20763809-3274-445D-A847-73B3D84576AD}"
 EndProject
@@ -77,6 +77,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacroses", "StartFilesForModelMacroses", "{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}"
 	ProjectSection(SolutionItems) = preProject
 		Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs = Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs
+		Macroses\StartFilesForModelMacroses\sm_RebarSequenceNumbering.cs = Macroses\StartFilesForModelMacroses\sm_RebarSequenceNumbering.cs
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Applications.SmartObserver", "Applications\SmartPlugins.Applications.SmartObserver\SmartPlugins.Applications.SmartObserver.csproj", "{49341198-45CC-4F4A-87F2-5D493CE17D94}"
@@ -96,6 +97,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TepInstaller", "TepInstalle
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.Navisworks", "Common\SmartPlugins.Common.Navisworks\SmartPlugins.Common.Navisworks.csproj", "{D676CCAF-4BB2-444D-9221-D657F79B5EAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Common.Core", "Common\SmartPlugins.Common.Core\SmartPlugins.Common.Core.csproj", "{36479969-F7B4-4A22-93C5-7A41C62B5784}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7AACD3EB-001B-414F-816A-7E910B274F37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "Tests\TestForm\TestForm.csproj", "{EC576EA0-A20C-4E96-9CA7-3AD8BCC47331}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +174,14 @@ Global
 		{D676CCAF-4BB2-444D-9221-D657F79B5EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D676CCAF-4BB2-444D-9221-D657F79B5EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D676CCAF-4BB2-444D-9221-D657F79B5EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36479969-F7B4-4A22-93C5-7A41C62B5784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36479969-F7B4-4A22-93C5-7A41C62B5784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36479969-F7B4-4A22-93C5-7A41C62B5784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36479969-F7B4-4A22-93C5-7A41C62B5784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC576EA0-A20C-4E96-9CA7-3AD8BCC47331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC576EA0-A20C-4E96-9CA7-3AD8BCC47331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC576EA0-A20C-4E96-9CA7-3AD8BCC47331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC576EA0-A20C-4E96-9CA7-3AD8BCC47331}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -199,6 +214,8 @@ Global
 		{2E1873C1-B9E3-49E1-A89F-B91D82266A9F} = {CF05F85B-DE57-4C56-8A4C-C0EC3277187B}
 		{188A240A-90C2-4ED8-B537-114F8DBA270A} = {CF05F85B-DE57-4C56-8A4C-C0EC3277187B}
 		{D676CCAF-4BB2-444D-9221-D657F79B5EAD} = {9CF14D09-6F9C-4DAC-A3CA-186A86AD2920}
+		{36479969-F7B4-4A22-93C5-7A41C62B5784} = {9CF14D09-6F9C-4DAC-A3CA-186A86AD2920}
+		{EC576EA0-A20C-4E96-9CA7-3AD8BCC47331} = {7AACD3EB-001B-414F-816A-7E910B274F37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {222F9562-8D52-49E0-B40F-C0AFE623D6C2}

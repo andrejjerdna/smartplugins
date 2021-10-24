@@ -7,8 +7,8 @@
     <ProjectGuid>{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartExtensions</RootNamespace>
-    <AssemblyName>SmartExtensions</AssemblyName>
+    <RootNamespace>SmartPlugins.Common.SmartExtensions</RootNamespace>
+    <AssemblyName>SmartPlugins.Common.SmartExtensions</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoltsExtensions.cs" />
+    <Compile Include="ModelExtension.cs" />
     <Compile Include="ModelObjectExtension.cs" />
     <Compile Include="RebarExtension.cs" />
     <Compile Include="WeldsExtensions.cs" />

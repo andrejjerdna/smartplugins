@@ -7,8 +7,8 @@
     <ProjectGuid>{443B0AD0-2AD8-4E1C-8D1E-B11B6613E498}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartObjects</RootNamespace>
-    <AssemblyName>SmartObjects</AssemblyName>
+    <RootNamespace>SmartPlugins.Common.SmartObjects</RootNamespace>
+    <AssemblyName>SmartPlugins.Common.SmartObjects</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -77,9 +77,9 @@
       <Project>{7f08e701-0d4f-4a7d-835c-7adb9b7a4b09}</Project>
       <Name>SmartPlugins.Common.SmartGeometry</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SmartPlugins.Common.SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj">
+    <ProjectReference Include="..\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj">
       <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
-      <Name>SmartPlugins.Common.SmartTeklaModel</Name>
+      <Name>SmartPlugins.Common.TeklaLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj">
       <Project>{9d12b1dd-4a5e-4eac-bc1d-543f339b6971}</Project>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartPlugins.Common.TeklaLibrary</RootNamespace>
+    <AssemblyName>SmartPlugins.Common.TeklaLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Catalogs\Catalogs.cs" />
+    <Compile Include="CommonParameters\CommonConcreteParts.cs" />
+    <Compile Include="Drawings\Colors.cs" />
+    <Compile Include="Drawings\Lines.cs" />
+    <Compile Include="Files\GetAttributesFiles.cs" />
+    <Compile Include="GlobalParameters.cs" />
+    <Compile Include="ModelMethods\AssemblyMethods.cs" />
+    <Compile Include="ModelMethods\BoltsMethods.cs" />
+    <Compile Include="ModelMethods\BooleanMethods.cs" />
+    <Compile Include="ModelMethods\ContourPlateEdge.cs" />
+    <Compile Include="Models\ReinforcementNumberingItem.cs" />
+    <Compile Include="Other\GeneralMethods.cs" />
+    <Compile Include="Plugins\ConcretePluginBase.cs" />
+    <Compile Include="Plugins\PluginDataBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rebar\RebarNumerator.cs" />
+    <Compile Include="ReportProperties\ReportProperties.cs" />
+    <Compile Include="SmartModel.cs" />
+    <Compile Include="TeklaConnector.cs" />
+    <Compile Include="UI\DrawInTeklaModel.cs" />
+    <Compile Include="UI\SmartPicker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Welds\" />
+    <Folder Include="WpfPlugins\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartPlugins.Common.Core\SmartPlugins.Common.Core.csproj">
+      <Project>{36479969-F7B4-4A22-93C5-7A41C62B5784}</Project>
+      <Name>SmartPlugins.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartPlugins.Common.CSLib\SmartPlugins.Common.CSLib.csproj">
+      <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
+      <Name>SmartPlugins.Common.CSLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
+      <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
+      <Name>SmartPlugins.Common.SmartExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartPlugins.Common.Abstractions\SmartPlugins.Common.Abstractions.csproj">
+      <Project>{F02F7D09-E3F9-48ED-B39C-4B55B5D00E6B}</Project>
+      <Name>SmartPlugins.Common.Abstractions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
+      <Version>1.1.19</Version>
+    </PackageReference>
+    <PackageReference Include="TeklaFusion">
+      <Version>3.5.250</Version>
+    </PackageReference>
+    <PackageReference Include="TeklaOpenAPI">
+      <Version>2020.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

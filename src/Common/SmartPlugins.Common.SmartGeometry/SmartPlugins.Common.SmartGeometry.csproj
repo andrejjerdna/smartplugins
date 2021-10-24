@@ -7,8 +7,8 @@
     <ProjectGuid>{7F08E701-0D4F-4A7D-835C-7ADB9B7A4B09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartGeometry</RootNamespace>
-    <AssemblyName>SmartGeometry</AssemblyName>
+    <RootNamespace>SmartPlugins.Common.SmartGeometry</RootNamespace>
+    <AssemblyName>SmartPlugins.Common.SmartGeometry</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

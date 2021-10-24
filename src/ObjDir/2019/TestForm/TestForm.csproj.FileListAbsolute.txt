@@ -1,0 +1,13 @@
+C:\Work\SmartPlugins\src\Tests\TestForm\bin\Debug\TestForm.exe.config
+C:\Work\SmartPlugins\src\Tests\TestForm\bin\Debug\TestForm.exe
+C:\Work\SmartPlugins\src\Tests\TestForm\bin\Debug\TestForm.pdb
+C:\Work\SmartPlugins\src\Tests\TestForm\bin\Debug\SmartPlugins.Macroses.Library.dll
+C:\Work\SmartPlugins\src\Tests\TestForm\bin\Debug\SmartPlugins.Macroses.Library.pdb
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.AssemblyReference.cache
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.Form1.resources
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.Properties.Resources.resources
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.GenerateResource.cache
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.CoreCompileInputs.cache
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.CopyComplete
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.exe
+C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.pdb

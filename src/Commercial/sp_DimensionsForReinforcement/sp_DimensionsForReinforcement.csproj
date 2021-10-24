@@ -77,12 +77,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\CSLib\SmartPlugins.Common.CSLib.csproj" />
-    <ProjectReference Include="..\..\Common\SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj" />
-    <ProjectReference Include="..\..\Common\SmartGeometry\SmartPlugins.Common.SmartGeometry.csproj" />
-    <ProjectReference Include="..\..\Common\SmartObjects\SmartPlugins.Common.SmartObjects.csproj" />
-    <ProjectReference Include="..\..\Common\SmartTeklaModel\SmartPlugins.Common.SmartTeklaModel.csproj" />
-    <ProjectReference Include="..\..\Common\SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj" />
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartObjects\SmartPlugins.Common.SmartObjects.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\sp_DimensionsForReinforcement.png" />
@@ -92,13 +87,7 @@
       <WorkingDirectory>$(MSBuildThisFileDirectory)bin\$(Configuration)\$(TargetFramework)</WorkingDirectory>
     </PropertyGroup>
     <ItemGroup>
-      <InputAssemblies Include="SmartWPFElements.dll" />
-      <InputAssemblies Include="SmartExtensions.dll" />
-      <InputAssemblies Include="SmartGeometry.dll" />
-      <InputAssemblies Include="SmartObjects.dll" />
-      <InputAssemblies Include="SmartTeklaModel.dll" />
-      <InputAssemblies Include="CSLib.dll" />
-      <InputAssemblies Include="Fusion.dll" />
+
     </ItemGroup>
     
     <ILRepack OutputType="$(OutputType)" MainAssembly="$(AssemblyName).dll" OutputAssembly="$(AssemblyName).dll" InputAssemblies="@(InputAssemblies)" InternalizeExcludeAssemblies="@(InternalizeExcludeAssemblies)" WorkingDirectory="$(WorkingDirectory)" />

@@ -1,4 +1,4 @@
-﻿using SmartPlugins.Common.SmartTeklaModel;
+﻿using SmartPlugins.Common.TeklaStructures;
 using SmartPlugins.Common.SmartWPFElements;
 using SmartPlugins.Common.SmartWPFElements.SmartHelper;
 using System;

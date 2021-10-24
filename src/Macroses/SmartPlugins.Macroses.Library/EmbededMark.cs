@@ -1,5 +1,5 @@
 ﻿using SmartPlugins.Common.Abstractions;
-using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.TeklaLibrary;
 using tsd = Tekla.Structures.Drawing;
 using tsg = Tekla.Structures.Geometry3d;
 

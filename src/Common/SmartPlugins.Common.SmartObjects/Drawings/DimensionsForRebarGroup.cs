@@ -16,7 +16,7 @@ using static Tekla.Structures.Drawing.Line;
 using Tekla.Structures.Geometry3d;
 using Line = Tekla.Structures.Drawing.Line;
 using SmartPlugins.Common.SmartGeometry;
-using SmartPlugins.Common.SmartTeklaModel.Drawings;
+using SmartPlugins.Common.TeklaStructures.Drawings;
 using Point = Tekla.Structures.Geometry3d.Point;
 using Tekla.Structures;
 using ModelObjectSelector = Tekla.Structures.Model.UI.ModelObjectSelector;
@@ -306,7 +306,7 @@ namespace SmartPlugins.Common.SmartObjects.Drawings
 
             dh.GetDrawingObjectSelector().SelectObject(doo.First());
 
-            TeklaStructures.Connect();
+            Tekla.Structures.TeklaStructures.Connect();
 
             new MacroBuilder()
                 .Callback("acmd_create_marks_selected", "", "View_10 window_1")

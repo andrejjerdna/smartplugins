@@ -1,5 +1,5 @@
 ﻿using SmartPlugins.Common.SmartExtensions;
-using SmartPlugins.Common.SmartTeklaModel;
+using SmartPlugins.Common.TeklaStructures;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
@@ -13,13 +13,13 @@ namespace SmartPlugins.Applications.SmartCheckAssembliesML
 {
     class SmartCheckAssembliesModel
     {
-        private Common.SmartTeklaModel.SmartModel _smartModel;
+        private Common.TeklaStructures.SmartModel _smartModel;
 
         private List<CheckData> _result;
 
         public SmartCheckAssembliesModel()
         {
-            _smartModel = new Common.SmartTeklaModel.SmartModel();
+            _smartModel = new Common.TeklaStructures.SmartModel();
             _result = new List<CheckData>();
         }
 
