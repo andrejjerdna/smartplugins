@@ -16,22 +16,25 @@ namespace TestForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+            var r = new MacroLogger();
+            r.Write("");
 
-            Operation.RunMacro("RebarSeqNumbering.cs");
-            stopwatch.Stop();
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
 
-            label1.Text = label1.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
+            //Operation.RunMacro("RebarSeqNumbering.cs");
+            //stopwatch.Stop();
 
-            stopwatch.Reset();
-            stopwatch.Start();
+            //label1.Text = label1.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
 
-            new RebarSequenceNumberingMacro().Run();
+            //stopwatch.Reset();
+            //stopwatch.Start();
 
-            stopwatch.Stop();
+            //new RebarSequenceNumberingMacro().Run();
 
-            label2.Text = label2.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
+            //stopwatch.Stop();
+
+            //label2.Text = label2.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
         }
 
         private void label1_Click(object sender, EventArgs e)

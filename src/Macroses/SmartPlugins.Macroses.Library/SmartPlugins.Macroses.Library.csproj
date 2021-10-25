@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="DrawObjectCoordinateSystemMacro.cs" />
     <Compile Include="EmbededMark.cs" />
+    <Compile Include="MacroLogger.cs" />
+    <Compile Include="MacrosesContainerConfigure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -76,6 +78,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>6.3.0</Version>
+    </PackageReference>
     <PackageReference Include="ILMerge">
       <Version>3.0.41</Version>
     </PackageReference>
@@ -87,6 +92,10 @@
     <ProjectReference Include="..\..\Common\SmartPlugins.Common.Abstractions\SmartPlugins.Common.Abstractions.csproj">
       <Project>{F02F7D09-E3F9-48ED-B39C-4B55B5D00E6B}</Project>
       <Name>SmartPlugins.Common.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.Core\SmartPlugins.Common.Core.csproj">
+      <Project>{36479969-F7B4-4A22-93C5-7A41C62B5784}</Project>
+      <Name>SmartPlugins.Common.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
       <Project>{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}</Project>

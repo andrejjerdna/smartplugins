@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,7 +43,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectArgs.cs" />
+    <Compile Include="ContainerConfigure.cs" />
+    <Compile Include="ProgressState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartPlugins.Common.Abstractions\SmartPlugins.Common.Abstractions.csproj">
+      <Project>{F02F7D09-E3F9-48ED-B39C-4B55B5D00E6B}</Project>
+      <Name>SmartPlugins.Common.Abstractions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>6.3.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
