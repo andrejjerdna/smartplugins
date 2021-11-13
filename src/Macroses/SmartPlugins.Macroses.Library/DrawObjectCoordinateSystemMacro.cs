@@ -1,4 +1,6 @@
-﻿using SmartPlugins.Common.Abstractions;
+﻿using Autofac;
+using SmartPlugins.Common.Abstractions;
+using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.TeklaLibrary;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
@@ -13,7 +15,8 @@ namespace SmartPlugins.Macroses.Library
         /// <inheritdoc/>
         public void Run()
         {
-            var model = new SmartModel();
+            var container = MacrosesContainerConfigure.GetContainer().Build();
+            var model = container.Resolve<ISmartModel>();
 
             if (!model.ConnectionStatus) 
                 return;

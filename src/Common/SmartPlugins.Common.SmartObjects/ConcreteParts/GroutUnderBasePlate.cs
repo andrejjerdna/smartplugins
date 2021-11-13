@@ -8,7 +8,7 @@ using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
 using SmartPlugins.Common.SmartGeometry;
-using SmartPlugins.Common.TeklaStructures;
+using SmartPlugins.Common.TeklaLibrary;
 
 namespace SmartPlugins.Common.SmartObjects
 {

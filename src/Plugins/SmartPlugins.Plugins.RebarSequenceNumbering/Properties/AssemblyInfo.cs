@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TestForm")]
+[assembly: AssemblyTitle("SmartPlugins.Plugins.RebarSequenceNumbering")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TestForm")]
+[assembly: AssemblyProduct("SmartPlugins.Plugins.RebarSequenceNumbering")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6fe53043-86a3-40f9-8fa3-c6785dc1ba2b")]
+[assembly: Guid("bc78cb7f-0c17-48dc-8ccf-5c165ce7fd2b")]
 
 // Version information for an assembly consists of the following four values:
 //

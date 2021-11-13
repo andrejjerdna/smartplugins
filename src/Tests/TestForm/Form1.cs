@@ -1,8 +1,17 @@
-﻿using SmartPlugins.Macroses.Library;
-using System;
-using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tekla.Structures.Model.Operations;
+using Tekla.Structures.Drawing;
+using Tekla.Structures.Model;
+using tsm =Tekla.Structures.Model;
+using t3d = Tekla.Structures.Geometry3d;
+using Tekla.Structures.Model.UI;
 
 namespace TestForm
 {
@@ -11,40 +20,38 @@ namespace TestForm
         public Form1()
         {
             InitializeComponent();
-            TopMost = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var r = new MacroLogger();
-            r.Write("");
+            var model = new Model();
+            var dh = new DrawingHandler();
+            var drawings = dh.GetDrawings();
 
-            //var stopwatch = new Stopwatch();
-            //stopwatch.Start();
+            foreach(var drawing in drawings)
+            {
+                var asd = drawing as AssemblyDrawing;
 
-            //Operation.RunMacro("RebarSeqNumbering.cs");
-            //stopwatch.Stop();
+                if (asd == null)
+                    continue;
 
-            //label1.Text = label1.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
+                var assemblyModel = model.SelectModelObject(asd.AssemblyIdentifier) as tsm.Assembly;
 
-            //stopwatch.Reset();
-            //stopwatch.Start();
+                if (assemblyModel == null)
+                    continue;
 
-            //new RebarSequenceNumberingMacro().Run();
+                var mainPart = assemblyModel.GetMainPart() as tsm.Part;
 
-            //stopwatch.Stop();
+                if (mainPart == null)
+                    continue;
 
-            //label2.Text = label2.Text + " " + stopwatch.Elapsed.TotalSeconds + " sec.";
-        }
+                var mainPartName = mainPart.Name;
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+                asd.Name = mainPartName;
+                asd.Modify();
+            }
 
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            model.CommitChanges();
         }
     }
 }

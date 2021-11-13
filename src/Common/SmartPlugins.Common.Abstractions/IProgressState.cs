@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartPlugins.Common.Abstractions
+﻿namespace SmartPlugins.Common.Abstractions
 {
     public interface IProgressState
     {
@@ -22,5 +16,10 @@ namespace SmartPlugins.Common.Abstractions
         /// Message
         /// </summary>
         string Message { get; }
+
+        /// <summary>
+        /// Is indeterminate
+        /// </summary>
+        bool IsIndeterminate { get; }
     }
 }

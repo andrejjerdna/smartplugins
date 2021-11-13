@@ -5,7 +5,7 @@ namespace SmartPlugins.Common.Core
     /// <summary>
     /// Container configure
     /// </summary>
-    public class ContainerConfigure
+    public abstract class ContainerConfigure
     {
         private readonly ContainerBuilder _builder;
 

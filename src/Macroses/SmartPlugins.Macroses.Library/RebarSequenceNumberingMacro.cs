@@ -1,6 +1,9 @@
-﻿using SmartPlugins.Common.Abstractions;
-using SmartPlugins.Common.TeklaLibrary;
-using Reinforcement = Tekla.Structures.Model.Reinforcement;
+﻿using Autofac;
+using SmartPlugins.Common.Abstractions;
+using SmartPlugins.Common.Abstractions.TeklaStructures;
+using System;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace SmartPlugins.Macroses.Library
 {
@@ -9,10 +12,16 @@ namespace SmartPlugins.Macroses.Library
         /// <inheritdoc/>
         public void Run()
         {
-            var model = new SmartModel();
-            var allReinforcements = model.GetAllObjects<Reinforcement>(true);
-            var reberNum = new RebarNumerator("REBAR_SEQ_NO");
-            reberNum.RefreshNumbers(allReinforcements);
+            try
+            {
+                var container = MacrosesContainerConfigure.GetContainer().Build();
+                var rebarNumerator = container.Resolve<IRebarNumerator>();
+                rebarNumerator.RefreshAllNumbers("REBAR_SEQ_NO");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
     }
 }

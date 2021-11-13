@@ -5,32 +5,33 @@ namespace SmartPlugins.Common.Core
     /// <summary>
     /// Progress state
     /// </summary>
-    public struct ProgressState : IProgressState
+    public class ProgressState : IProgressState
     {
-        public readonly int _currentValue;
-        public readonly int _totalCount;
-        public readonly string _message;
-
         /// <summary>
         /// .ctor
         /// </summary>
         /// <param name="currentValue"></param>
         /// <param name="totalCount"></param>
         /// <param name="message"></param>
-        public ProgressState(int currentValue, int totalCount, string message)
+        /// <param name="isIndeterminate"></param>
+        public ProgressState(int currentValue, int totalCount, string message, bool isIndeterminate)
         {
-            _currentValue = currentValue;
-            _totalCount = totalCount;
-            _message = message;
+            CurrentValue = currentValue;
+            TotalCount = totalCount;
+            Message = message;
+            IsIndeterminate = isIndeterminate;
         }
 
         /// <inheritdoc/>
-        public int CurrentValue { get => _currentValue; }
+        public int CurrentValue { get; }
 
         /// <inheritdoc/>
-        public int TotalCount { get => _totalCount; }
+        public int TotalCount { get; }
 
         /// <inheritdoc/>
-        public string Message { get => _message; }
+        public string Message { get; }
+
+        /// <inheritdoc/>
+        public bool IsIndeterminate { get; }
     }
 }

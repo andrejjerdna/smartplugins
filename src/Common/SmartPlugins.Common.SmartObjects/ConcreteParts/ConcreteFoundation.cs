@@ -1,5 +1,5 @@
 ﻿using SmartPlugins.Common.SmartGeometry;
-using SmartPlugins.Common.TeklaStructures;
+using SmartPlugins.Common.TeklaLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;

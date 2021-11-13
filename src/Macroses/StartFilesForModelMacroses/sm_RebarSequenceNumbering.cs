@@ -1,6 +1,6 @@
 ﻿using SmartPlugins.Common.Abstractions;
 
-[assembly: Tekla.Technology.Scripting.Compiler.Reference(@"%XSDATADIR%\Environments\common\macros\SmartPlugins.Macroses.Library.dll")]
+[assembly: Tekla.Technology.Scripting.Compiler.Reference(@"%XSDATADIR%\Environments\common\macros\SmartPlugins\SmartPlugins.Macroses.Library.dll")]
 
 namespace Tekla.Technology.Akit.UserScript
 {

@@ -16,7 +16,7 @@ using static Tekla.Structures.Drawing.Line;
 using Tekla.Structures.Geometry3d;
 using Line = Tekla.Structures.Drawing.Line;
 using SmartPlugins.Common.SmartGeometry;
-using SmartPlugins.Common.TeklaStructures.Drawings;
+using SmartPlugins.Common.TeklaLibrary.Drawings;
 using Point = Tekla.Structures.Geometry3d.Point;
 using Tekla.Structures;
 using ModelObjectSelector = Tekla.Structures.Model.UI.ModelObjectSelector;
