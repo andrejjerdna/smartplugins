@@ -45,6 +45,7 @@
     <Compile Include="ITeklaMacro.cs" />
     <Compile Include="ML\IClusterClassification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\ITaskFactory.cs" />
     <Compile Include="TeklaStructures\IRebarNumerator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
