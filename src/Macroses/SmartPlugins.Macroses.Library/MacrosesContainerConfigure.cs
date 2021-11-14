@@ -6,7 +6,7 @@ using SmartPlugins.Macroses.Library.Views;
 
 namespace SmartPlugins.Macroses.Library
 {
-    public class MacrosesContainerConfigure : ContainerConfigure
+    public class MacrosesContainerConfigure : ContainerConfigureBase
     {
         private static MacrosesContainerConfigure _container;
         

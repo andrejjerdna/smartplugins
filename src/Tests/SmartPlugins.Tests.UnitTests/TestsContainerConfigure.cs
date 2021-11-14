@@ -1,4 +1,6 @@
-﻿namespace SmartPlugins.Tests.UnitTests
+﻿using SmartPlugins.Common.Core;
+
+namespace SmartPlugins.Tests.UnitTests
 {
     /// <summary>
     /// IoC container for tests

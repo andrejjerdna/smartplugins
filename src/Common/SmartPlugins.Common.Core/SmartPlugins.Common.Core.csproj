@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectArgs.cs" />
-    <Compile Include="ContainerConfigure.cs" />
+    <Compile Include="ContainerConfigureBase.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="ProgressBarViewModelBase.cs" />
     <Compile Include="ProgressState.cs" />
