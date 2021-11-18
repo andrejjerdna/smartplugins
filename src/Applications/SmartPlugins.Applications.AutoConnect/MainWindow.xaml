@@ -1,0 +1,175 @@
+﻿<tsd:ApplicationWindowBase  xmlns:tsd="clr-namespace:Tekla.Structures.Dialog;assembly=Tekla.Structures.Dialog"
+                               x:Class="AxCoDesign.Applications.AutoConnect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AxCoDesign.Applications.AutoConnect"
+        xmlns:UIControls="clr-namespace:Tekla.Structures.Dialog.UIControls;assembly=Tekla.Structures.Dialog" 
+        xmlns:vm="clr-namespace:AxCoDesign.Applications.AutoConnect.ViewModel" 
+        xmlns:mi="clr-namespace:MaterialIcons;assembly=MaterialIcons" 
+        mc:Ignorable="d"
+        Title="Вставка плагинов" Height="660" Width="600" ResizeMode="CanMinimize" Topmost="True">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <local:StatusConverter x:Key="StatusConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Fusion;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <TabControl HorizontalAlignment="Stretch">
+            <TabItem Header="Вставка плагинов">
+                <Grid>
+                    <StackPanel Margin="5">
+                        <DockPanel>
+                            <ComboBox x:Name="SaveNames" Width="450" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{Binding ListSaveFiles, Mode=OneWay}" IsEditable="True" MouseEnter="SaveNames_MouseEnter"/>
+                            <Button x:Name="Save" Click="Save_Click">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="СОХРАНИТЬ" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </DockPanel>
+                        <GroupBox Header="Получение данных и обучение модели">
+                            <StackPanel>
+                                <TextBlock>Фильтр для выбора балок для которых создается соединение:</TextBlock>
+                                <DockPanel>
+                                    <ComboBox x:Name="Filters" ItemsSource="{Binding Filters, Mode=OneWay}" Text="{Binding FilterName, Mode=TwoWay}" MouseEnter="Filters_MouseEnter" IsEditable="True" IsReadOnly="True">
+                                        <ComboBox.ToolTip>
+                                            <ToolTip Width="500" MaxWidth="500">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock TextWrapping="WrapWithOverflow">Пользовательский фильтр для поиска деталей ОБЯЗАТЕЛЬНО должен содержать тип элемента для поиска.
+                                                    </TextBlock>
+                                                    <Image Source="/AutoConnectML2.png" Width="500" Height="186"/>
+                                                </StackPanel>
+                                            </ToolTip>
+                                        </ComboBox.ToolTip>
+                                    </ComboBox>
+                                </DockPanel>
+                                <TextBlock>Фильтр для выбора элементов модели, с которыми планируется соединение:</TextBlock>
+                                <DockPanel>
+                                    <ComboBox x:Name="FiltersConnect" ItemsSource="{Binding Filters, Mode=OneWay}" Text="{Binding FilterConnectName, Mode=TwoWay}" MouseEnter="Filters_MouseEnter" IsEditable="True">
+                                        <ComboBox.ToolTip>
+                                            <ToolTip Width="500" MaxWidth="500">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock TextWrapping="WrapWithOverflow">Пользовательский фильтр для поиска деталей ОБЯЗАТЕЛЬНО должен содержать тип элемента для поиска.
+                                                    </TextBlock>
+                                                    <Image Source="/AutoConnectML2.png" Width="500" Height="186"/>
+                                                </StackPanel>
+                                            </ToolTip>
+                                        </ComboBox.ToolTip>
+                                    </ComboBox>
+                                </DockPanel>
+                                <TextBlock>Ожидаемое количество типов соединений:</TextBlock>
+                                <DockPanel>
+                                    <TextBox Text="{Binding NumberOfClusters, Mode=TwoWay}">
+                                        <TextBox.ToolTip>
+                                            <ToolTip Width="500" MaxWidth="500">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock TextWrapping="WrapWithOverflow">Определение необходимого количества типов соединений при поиске определяется пользователем. 
+                                                         N - количество типов соединений, указанное пользователем. 
+                                                При необходимости может быть изменено, но после изменения необходимо повторное обучение.</TextBlock>
+                                                    <Image Source="/AutoConnectML3.png" Width="490"/>
+                                                </StackPanel>
+                                            </ToolTip>
+                                        </TextBox.ToolTip>
+                                    </TextBox>
+                                </DockPanel>
+                                <TextBlock>Сторона куба для поиска деталей узлов:</TextBlock>
+                                <DockPanel>
+                                    <TextBox Text="{Binding Delta, Mode=TwoWay}">
+                                        <TextBox.ToolTip>
+                                            <ToolTip Width="500" MaxWidth="500">
+                                            <StackPanel Orientation="Vertical">
+                                                <TextBlock TextWrapping="WrapWithOverflow">Сторона куба, для поиска деталей в конце или начале балки. В зависимости от набора деталей
+                                                полученных в данной области определяется тип соединения.</TextBlock>
+                                                <Image Source="/AutoConnectML1.png" Width="240" Height="278"/>
+                                            </StackPanel>
+                                            </ToolTip>
+                                        </TextBox.ToolTip>
+                                    </TextBox>
+                                </DockPanel>
+                                <DockPanel>
+                                    <CheckBox IsChecked="{Binding GetObjectsWithCurrentView, Mode=TwoWay}"/>
+                                    <TextBlock TextWrapping="WrapWithOverflow" Text="Учитывать только объекта с выбранного вида" VerticalAlignment="Center"/>
+                                </DockPanel>
+                                <StackPanel>
+                                    <DockPanel>
+                                        <StackPanel>
+                                            <Button Command="{Binding RunAppDataFromTeklaModel}" HorizontalAlignment="Center" Width="460">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <mi:MaterialIcon Icon="ic_sync" Grid.Row="1" Height="30" Width="30"/>
+                                                    <TextBlock Text=" ОБУЧЕНИЕ С ПОЛУЧЕНИЕМ ДАННЫХ" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Button>
+                                            <Button Command="{Binding RunAppDataFromFile}" IsEnabled="{Binding DataStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="460">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <mi:MaterialIcon Icon="ic_folder" Grid.Row="1" Height="30" Width="30"/>
+                                                    <TextBlock Text=" ОБУЧЕНИЕ НА ПОЛУЧЕННЫХ ДАННЫХ" VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                        <Button Command="{Binding RunAppDrawConnectTypesInTeklaModel}" Width="100" HorizontalAlignment="Right" IsEnabled="{Binding TrainStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF005F9E">
+                                            <StackPanel Orientation="Vertical">
+                                                <mi:MaterialIcon Icon="ic_visibility" Grid.Row="1" Height="30" Width="30" IsEnabled="{Binding TrainStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                                <TextBlock Text="ОБОЗНАЧИТЬ" VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </DockPanel>
+
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Обучение расстановке узлов в модели">
+                            <StackPanel>
+                                <DataGrid x:Name="PluginRules" ItemsSource="{Binding DataRules, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="150" AutoGenerateColumns="False" SelectedIndex="{Binding SelectDataIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Binding="{Binding Prediction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Тип" Width="35"/>
+                                        <DataGridTextColumn Binding="{Binding NameComponent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Имя компонента" Width="285"/>
+                                        <!--<DataGridTextColumn Binding="{Binding NumberComponent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Номер"  Width="80"/>-->
+                                        <DataGridTextColumn Binding="{Binding UserSetting, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Header="Настройки компонента"  Width="145"/>
+                                        <DataGridTextColumn Binding="{Binding DublicatePlugin, Converter={StaticResource StatusConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Header="Дублирование"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <DockPanel HorizontalAlignment="Center">
+                                    <Button Command="{Binding RunAppTeklaModelTraining}" IsEnabled="{Binding DataStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="150">
+                                        <StackPanel Orientation="Horizontal">
+                                            <mi:MaterialIcon Icon="ic_settings" Grid.Row="1" Height="30" Width="30"/>
+                                            <TextBlock Text=" ОБУЧЕНИЕ" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button x:Name="EditDatas" IsEnabled="{Binding TrainingStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="150" Click="EditDatas_Click">
+                                        <StackPanel Orientation="Horizontal">
+                                            <mi:MaterialIcon Icon="ic_edit" Grid.Row="1" Height="30" Width="30"/>
+                                            <TextBlock Text=" РЕДАКТИРОВАТЬ" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Command="{Binding RunAppLearningComponentsInsert}" IsEnabled="{Binding TrainingStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Background="#FF005F9E">
+                                          <StackPanel Orientation="Horizontal">
+                                            <mi:MaterialIcon Icon="ic_build" Grid.Row="1" Height="30" Width="30" />
+                                            <TextBlock Text=" ВСТАВКА УЗЛОВ" VerticalAlignment="Center" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Command="{Binding RunAppLearningComponentsDelete}" IsEnabled="{Binding TrainingStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="55" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <mi:MaterialIcon Icon="ic_delete" Grid.Row="1" Height="30" Width="30" />
+                                        </StackPanel>
+                                    </Button>
+                                </DockPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <Grid>
+                            <ProgressBar x:Name="ProgressBar1" Height="30" Maximum="{Binding ProgressBarMaxValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Value="{Binding ProgressBarValue, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Text="{Binding ProgressBarStatus, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Gray"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</tsd:ApplicationWindowBase>

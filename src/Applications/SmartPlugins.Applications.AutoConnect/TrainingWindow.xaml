@@ -1,0 +1,38 @@
+﻿<tsd:ApplicationWindowBase  xmlns:tsd="clr-namespace:Tekla.Structures.Dialog;assembly=Tekla.Structures.Dialog"
+                            x:Class="AxCoDesign.Applications.AutoConnect.TrainingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AxCoDesign.Applications.AutoConnect" xmlns:mi="clr-namespace:MaterialIcons;assembly=MaterialIcons"
+        mc:Ignorable="d" Topmost="True"
+        Title="TrainingWindow" Height="265" Width="350" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Fusion;component/Themes/Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="3">
+            <TextBlock Text="Имя компонента:" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding NameComponent, Mode=TwoWay}"/>
+            <TextBlock Text="Номер компонента:" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding NumberComponent, Mode=TwoWay}"/>
+            <TextBlock Text="Настройки компонента:" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding UserSettings, Mode=TwoWay}"/>
+            <TextBlock Text="Дублировать компонент при вставке?" VerticalAlignment="Center"/>
+            <ComboBox x:Name="DublicatePlugin" SelectedValue="{Binding DublicatePluginString, Mode=TwoWay}">
+                <ComboBoxItem>Нет</ComboBoxItem>
+                <ComboBoxItem>Да</ComboBoxItem>
+            </ComboBox>
+            <Button Click="Button_Click">
+                <StackPanel Orientation="Horizontal">
+                    <mi:MaterialIcon Icon="ic_save" Grid.Row="1" Height="30" Width="30"/>
+                    <TextBlock Text=" ПРИНЯТЬ НАСТРОЙКИ" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</tsd:ApplicationWindowBase>

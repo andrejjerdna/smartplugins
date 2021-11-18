@@ -71,8 +71,10 @@
     <Compile Include="IProgressWindow.cs" />
     <Compile Include="ITeklaConnector.cs" />
     <Compile Include="ITeklaMacro.cs" />
+    <Compile Include="ML\IClusterClassification.cs" />
     <Compile Include="Messages\MessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\ITaskFactory.cs" />
     <Compile Include="TeklaStructures\IRebarNumerator.cs" />
     <Compile Include="TeklaStructures\ISmartModel.cs" />
     <Compile Include="TeklaStructures\ISmartPicker.cs" />
