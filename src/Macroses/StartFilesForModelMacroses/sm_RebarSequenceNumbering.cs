@@ -1,6 +1,5 @@
-﻿using SmartPlugins.Common.Abstractions;
-
-[assembly: Tekla.Technology.Scripting.Compiler.Reference(@"%XSDATADIR%\Environments\common\macros\SmartPlugins.Macroses.Library.dll")]
+﻿[assembly: Tekla.Technology.Scripting.Compiler.Reference(@"%XSDATADIR%\Environments\common\macros\SmartPlugins\SmartPlugins.Macroses.Library.dll")]
+[assembly: Tekla.Technology.Scripting.Compiler.Reference(@"%XSDATADIR%\Environments\common\macros\SmartPlugins\SmartPlugins.Common.Abstractions.dll")]
 
 namespace Tekla.Technology.Akit.UserScript
 {
@@ -8,14 +7,7 @@ namespace Tekla.Technology.Akit.UserScript
     {
         public static void Run(Tekla.Technology.Akit.IScript akit)
         {
-            try
-            {
-                new SmartPlugins.Macroses.Library.RebarSequenceNumberingMacro().Run();
-            }
-            catch
-            {
-
-            }
+            new SmartPlugins.Macroses.Library.RebarSequenceNumberingMacro().Run();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using SmartPlugins.Common.TeklaStructures;
+﻿using SmartPlugins.Common.TeklaLibrary;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -1,4 +1,5 @@
-﻿using SmartPlugins.Common.SmartExtensions;
+﻿using SmartPlugins.Common.Abstractions.TeklaStructures;
+using SmartPlugins.Common.SmartExtensions;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,7 @@ using Tekla.Structures.Model;
 
 namespace SmartPlugins.Common.TeklaLibrary
 {
-    public class SmartModel
+    public class SmartModel : ISmartModel
     {
         public Model _teklaModel;
 
@@ -37,6 +38,11 @@ namespace SmartPlugins.Common.TeklaLibrary
         public ConcurrentBag<T> GetAllObjectsConcurrent<T>(bool autoFetch)
         {
             return new ConcurrentBag<T>(_teklaModel.GetAllObjects<T>(autoFetch));
+        }
+
+        public void ReConnect()
+        {
+            _teklaModel = new Model();
         }
     }
 

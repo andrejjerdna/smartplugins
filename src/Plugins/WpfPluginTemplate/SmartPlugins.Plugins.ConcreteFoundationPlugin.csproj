@@ -115,7 +115,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj">
       <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
-      <Name>SmartPlugins.Common.SmartTeklaModel</Name>
+      <Name>SmartPlugins.Common.TeklaLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj">
       <Project>{9d12b1dd-4a5e-4eac-bc1d-543f339b6971}</Project>

@@ -19,7 +19,7 @@ namespace SmartPlugins.Common.SmartExtensions
         /// <param name="model"></param>
         /// <param name="autoFetch"></param>
         /// <returns></returns>
-        public static IEnumerable<T> GetAllObjects<T>(this tsm.Model model, bool autoFetch)
+        public static IEnumerable<T> GetAllObjects<T>(this Model model, bool autoFetch)
         {
             ModelObjectEnumerator.AutoFetch = autoFetch;
 
