@@ -53,9 +53,27 @@
     <Compile Include="Assemblies\MainPartByWeight.cs" />
     <Compile Include="Catalogs\Catalogs.cs" />
     <Compile Include="CommonParameters\CommonConcreteParts.cs" />
+    <Compile Include="CSLib\Compare.cs" />
+    <Compile Include="CSLib\Constants.cs" />
+    <Compile Include="CSLib\DrawUI.cs" />
+    <Compile Include="CSLib\Geo.cs" />
+    <Compile Include="CSLib\Intersect.cs" />
+    <Compile Include="CSLib\PolygonOperation.cs" />
+    <Compile Include="CSLib\SetPlane.cs" />
     <Compile Include="Drawings\Colors.cs" />
     <Compile Include="Drawings\Lines.cs" />
+    <Compile Include="Extensions\AssemblyExtension.cs" />
+    <Compile Include="Extensions\BoltsExtensions.cs" />
+    <Compile Include="Extensions\CollectionExtension.cs" />
+    <Compile Include="Extensions\ModelExtension.cs" />
+    <Compile Include="Extensions\ModelObjectExtension.cs" />
+    <Compile Include="Extensions\PartExtension.cs" />
+    <Compile Include="Extensions\RebarExtension.cs" />
+    <Compile Include="Extensions\WeldsExtensions.cs" />
     <Compile Include="Files\GetAttributesFiles.cs" />
+    <Compile Include="Geometry\IntersectWithSolid.cs" />
+    <Compile Include="Geometry\ModelObjectGeometry.cs" />
+    <Compile Include="Geometry\PointsGeometry.cs" />
     <Compile Include="GlobalParameters.cs" />
     <Compile Include="ModelMethods\AssemblyMethods.cs" />
     <Compile Include="ModelMethods\BoltsMethods.cs" />
@@ -69,6 +87,18 @@
     <Compile Include="Rebar\RebarNumerator.cs" />
     <Compile Include="ReportProperties\ReportProperties.cs" />
     <Compile Include="SmartModel.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\ConcreteBase.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\ConcreteBlinding.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\ConcreteColumn.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\ConcreteFoundation.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\ConcretePile.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\ContinuousBeam.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\GroupPiles.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\GroutUnderBasePlate.cs" />
+    <Compile Include="SmartObjects\ConcreteParts\IConcrete.cs" />
+    <Compile Include="SmartObjects\Drawings\DimensionsForRebarGroup.cs" />
+    <Compile Include="SmartObjects\SmartRebar.cs" />
+    <Compile Include="SmartObjects\SteelParts\Frame_type1.cs" />
     <Compile Include="TeklaConnector.cs" />
     <Compile Include="UI\DrawInTeklaModel.cs" />
     <Compile Include="UI\SmartPicker.cs" />
@@ -81,14 +111,6 @@
     <ProjectReference Include="..\SmartPlugins.Common.Core\SmartPlugins.Common.Core.csproj">
       <Project>{36479969-F7B4-4A22-93C5-7A41C62B5784}</Project>
       <Name>SmartPlugins.Common.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartPlugins.Common.CSLib\SmartPlugins.Common.CSLib.csproj">
-      <Project>{20763809-3274-445d-a847-73b3d84576ad}</Project>
-      <Name>SmartPlugins.Common.CSLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
-      <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
-      <Name>SmartPlugins.Common.SmartExtensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\SmartPlugins.Common.Abstractions\SmartPlugins.Common.Abstractions.csproj">
       <Project>{F02F7D09-E3F9-48ED-B39C-4B55B5D00E6B}</Project>

@@ -110,12 +110,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
-      <Project>{04b7acb0-b336-4dc0-90a4-b3be217adb31}</Project>
-      <Name>SmartPlugins.Common.SmartExtensions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="ILMergeOrder.txt" />
     <None Include="img\add_black_24dp.png" />
   </ItemGroup>

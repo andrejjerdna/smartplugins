@@ -89,13 +89,9 @@
       <Project>{36479969-F7B4-4A22-93C5-7A41C62B5784}</Project>
       <Name>SmartPlugins.Common.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartExtensions\SmartPlugins.Common.SmartExtensions.csproj">
-      <Project>{04B7ACB0-B336-4DC0-90A4-B3BE217ADB31}</Project>
-      <Name>SmartPlugins.Common.SmartExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj">
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.Controls.csproj">
       <Project>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</Project>
-      <Name>SmartPlugins.Common.SmartWPFElements</Name>
+      <Name>SmartPlugins.Common.Controls</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj">
       <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>

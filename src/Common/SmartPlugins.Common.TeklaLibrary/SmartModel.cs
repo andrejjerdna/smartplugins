@@ -1,5 +1,5 @@
 ﻿using SmartPlugins.Common.Abstractions.TeklaStructures;
-using SmartPlugins.Common.SmartExtensions;
+using SmartPlugins.Common.TeklaLibrary.Extensions;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;

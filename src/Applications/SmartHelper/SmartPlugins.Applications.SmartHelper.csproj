@@ -160,9 +160,9 @@
       <Project>{0EA5B9C3-468C-4F3C-BBA1-88864234058A}</Project>
       <Name>SmartPlugins.Common.TeklaLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.SmartWPFElements.csproj">
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.Controls.csproj">
       <Project>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</Project>
-      <Name>SmartPlugins.Common.SmartWPFElements</Name>
+      <Name>SmartPlugins.Common.Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
