@@ -1,20 +1,31 @@
 ﻿using SmartPlugins.Common.Abstractions;
+using SmartPlugins.Common.Abstractions.Exceptions;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
+using SmartPlugins.Common.Core.Exceptions;
 using SmartPlugins.Common.TeklaLibrary;
-using SmartPlugins.Macroses.Library.Views;
 
 namespace SmartPlugins.Macroses.Library
 {
+    /// <summary>
+    /// Container configure for macros
+    /// </summary>
     public class MacrosesContainerConfigure : ContainerConfigureBase
     {
         private static MacrosesContainerConfigure _container;
-        
+
+        /// <summary>
+        /// .ctor
+        /// </summary>
         private MacrosesContainerConfigure()
         {
             RegisterTypes();
         }
 
+        /// <summary>
+        /// Get container configure
+        /// </summary>
+        /// <returns></returns>
         public static MacrosesContainerConfigure GetContainer()
         {
             if (_container == null)
@@ -30,10 +41,10 @@ namespace SmartPlugins.Macroses.Library
         {
             RegisterType<ProgressState, IProgressState>();
             RegisterType<RebarNumerator, IRebarNumerator>();
+            RegisterType<SmartPicker, ISmartPicker>();
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
-            RegisterSingleInstanceType<ProgressBarViewModel, IProgressBarViewModel>();
-            RegisterSingleInstanceType<ProgressBar, IProgressWindow>();
+            RegisterSingleInstanceType<ExceptionsLogger, IExceptionsLogger>();
         }
     }
 }

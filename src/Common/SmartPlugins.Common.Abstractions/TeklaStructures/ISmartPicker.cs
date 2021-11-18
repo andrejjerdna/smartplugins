@@ -1,8 +1,9 @@
-﻿namespace SmartPlugins.Common.Abstractions.TeklaStructures
+﻿using System;
+
+namespace SmartPlugins.Common.Abstractions.TeklaStructures
 {
     public interface ISmartPicker
     {
-        //public ModelObject PickObject<T>(Picker.PickObjectEnum pickObjectEnum)
-        //    where T : ModelObject
+        T1 PickObject<T1, T2>(string parameter) where T1 : class where T2 : Enum;
     }
 }

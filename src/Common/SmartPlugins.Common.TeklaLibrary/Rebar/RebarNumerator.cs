@@ -1,11 +1,12 @@
 ﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
+using SmartPlugins.Common.Core.Exceptions;
 using SmartPlugins.Common.TeklaLibrary.CommonParameters;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Tekla.Structures.Model;
 using Task = System.Threading.Tasks.Task;
@@ -19,17 +20,19 @@ namespace SmartPlugins.Common.TeklaLibrary
     {
         private readonly IProgressLogger _progressLogger;
         private readonly ISmartModel _smartModel;
-        private readonly IProgressBarViewModel _progressBarViewModel;
+        private readonly ParallelOptions _parallelOptions;
 
         /// <summary>
         /// .ctor
         /// </summary>
         /// <param name="attributeForNumber"></param>
-        public RebarNumerator(ISmartModel smartModel, IProgressLogger progressLogger, IProgressBarViewModel progressBarViewModel)
+        public RebarNumerator(ISmartModel smartModel, IProgressLogger progressLogger)
         {
             _smartModel = smartModel;
             _progressLogger = progressLogger;
-            _progressBarViewModel = progressBarViewModel;
+            _parallelOptions = new ParallelOptions();
+            _parallelOptions.CancellationToken = _progressLogger.CancellationToken;
+            _parallelOptions.MaxDegreeOfParallelism = Environment.ProcessorCount;
         }
 
         /// <inheritdoc/>
@@ -39,9 +42,7 @@ namespace SmartPlugins.Common.TeklaLibrary
 
             var task = Task.Run(() =>
             {
-                _progressLogger.UpdateState(new ProgressState(0, 1, "Get reinforcement...", true));
-
-                _smartModel.ReConnect();
+                _progressLogger.UpdateState(new ProgressState(0, 0, "Get reinforcement...", true));
 
                 var reinforcements = _smartModel.GetAllObjects<Reinforcement>(true);
 
@@ -50,10 +51,11 @@ namespace SmartPlugins.Common.TeklaLibrary
                 var rebarsGroups = GetNumbers(sort);
 
                 WriteUDA(rebarsGroups, attributeForNumber);
-            }, _progressBarViewModel.CancellationToken);
+
+            }, _progressLogger.CancellationToken);
 
             task.Wait();
-
+ 
             _progressLogger.Close();
         }
 
@@ -68,11 +70,14 @@ namespace SmartPlugins.Common.TeklaLibrary
             var count = 0;
             var totalCount = rebars.Count;
 
-            Parallel.ForEach(rebars, (rebar) =>
+            Parallel.ForEach(rebars, _parallelOptions, (rebar) =>
             {
                 rebar.OriginObject.SetUserProperty(attributeForNumber, rebar.Number);
                 count++;
                 _progressLogger.UpdateState(new ProgressState(count, totalCount, "WriteUDAs...", false));
+
+                if (_parallelOptions.CancellationToken.IsCancellationRequested)
+                    throw new RunMacroException(MessagesEN.MacroRunCanceled);
             });
         }
 
@@ -90,7 +95,7 @@ namespace SmartPlugins.Common.TeklaLibrary
             var count = 0;
             var totalCount = rebars.Count;
 
-            Parallel.ForEach(rebars, (rebar) =>
+            Parallel.ForEach(rebars, _parallelOptions, (rebar) =>
             {
                 var reportProperties = new ReportProperties(rebar);
 
@@ -108,6 +113,9 @@ namespace SmartPlugins.Common.TeklaLibrary
 
                 count++;
                 _progressLogger.UpdateState(new ProgressState(count, totalCount, "Get reinforcement numbering items...", false));
+
+                if (_parallelOptions.CancellationToken.IsCancellationRequested)
+                    throw new RunMacroException(MessagesEN.MacroRunCanceled);
             });
 
             return result;
@@ -136,6 +144,9 @@ namespace SmartPlugins.Common.TeklaLibrary
 
                     count++;
                 }
+
+                if (_parallelOptions.CancellationToken.IsCancellationRequested)
+                    throw new RunMacroException(MessagesEN.MacroRunCanceled);
             }
 
             return rebarsGroups.SelectMany(gr => gr).SelectMany(gr => gr).Select(r => r);

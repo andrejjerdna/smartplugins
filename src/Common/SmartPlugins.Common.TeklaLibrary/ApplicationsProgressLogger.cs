@@ -1,15 +1,17 @@
 ﻿using SmartPlugins.Common.Abstractions;
-using SmartPlugins.Macroses.Library.Views;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Common.TeklaLibrary
 {
     /// <summary>
-    /// Macroses progress logger
+    /// TODO: refactoring
     /// </summary>
-    public class MacrosesProgressLogger : IProgressLogger
+    public class ApplicationsProgressLogger : IProgressLogger
     {
         private readonly IProgressBarViewModel _progressBarViewModel;
         private readonly IProgressWindow _progressWindow;
@@ -19,7 +21,7 @@ namespace SmartPlugins.Macroses.Library
         /// <summary>
         /// .ctor
         /// </summary>
-        public MacrosesProgressLogger(IProgressBarViewModel progressBarViewModel, IProgressWindow progressWindow)
+        public ApplicationsProgressLogger(IProgressBarViewModel progressBarViewModel, IProgressWindow progressWindow)
         {
             _progressBarViewModel = progressBarViewModel;
             _progressWindow = progressWindow;
@@ -64,4 +66,5 @@ namespace SmartPlugins.Macroses.Library
             }), System.Windows.Threading.DispatcherPriority.Send);
         }
     }
+
 }

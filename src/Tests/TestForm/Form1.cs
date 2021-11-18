@@ -12,6 +12,7 @@ using Tekla.Structures.Model;
 using tsm =Tekla.Structures.Model;
 using t3d = Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model.UI;
+using Tekla.Structures.Model.Operations;
 
 namespace TestForm
 {
@@ -24,34 +25,11 @@ namespace TestForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var model = new Model();
-            var dh = new DrawingHandler();
-            var drawings = dh.GetDrawings();
+            
+            Operation.RunMacro("RebarSeqNumbering.cs");
+            MessageBox.Show("!");
 
-            foreach(var drawing in drawings)
-            {
-                var asd = drawing as AssemblyDrawing;
 
-                if (asd == null)
-                    continue;
-
-                var assemblyModel = model.SelectModelObject(asd.AssemblyIdentifier) as tsm.Assembly;
-
-                if (assemblyModel == null)
-                    continue;
-
-                var mainPart = assemblyModel.GetMainPart() as tsm.Part;
-
-                if (mainPart == null)
-                    continue;
-
-                var mainPartName = mainPart.Name;
-
-                asd.Name = mainPartName;
-                asd.Modify();
-            }
-
-            model.CommitChanges();
         }
     }
 }
