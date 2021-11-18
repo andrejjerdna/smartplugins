@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using SmartPlugins.Common.TeklaLibrary.Extensions;
+using System.Collections.Generic;
 using System.Linq;
 using Tekla.Structures.Catalogs;
-using SmartPlugins.Common.SmartExtensions;
 
 namespace SmartPlugins.Common.TeklaLibrary
 {

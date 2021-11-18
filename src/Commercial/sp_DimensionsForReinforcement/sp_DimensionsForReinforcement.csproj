@@ -77,9 +77,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartObjects\SmartPlugins.Common.SmartObjects.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\sp_DimensionsForReinforcement.png" />
   </ItemGroup>
   <Target Name="ILRepack" AfterTargets="Build">

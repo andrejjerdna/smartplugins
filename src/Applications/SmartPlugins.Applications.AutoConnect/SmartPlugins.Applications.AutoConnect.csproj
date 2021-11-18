@@ -66,6 +66,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MaterialIcons" Version="1.0.3" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="TeklaFusion" Version="3.5.250" />
   </ItemGroup>

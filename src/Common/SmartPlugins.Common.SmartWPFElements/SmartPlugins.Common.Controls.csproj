@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</ProjectGuid>
     <OutputType>library</OutputType>
-    <RootNamespace>SmartPlugins.Common.SmartWPFElements</RootNamespace>
-    <AssemblyName>SmartPlugins.Common.SmartWPFElements</AssemblyName>
+    <RootNamespace>SmartPlugins.Common.Controls</RootNamespace>
+    <AssemblyName>SmartPlugins.Common.Controls</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
