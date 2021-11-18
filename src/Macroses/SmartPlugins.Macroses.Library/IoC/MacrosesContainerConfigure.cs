@@ -4,6 +4,7 @@ using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
 using SmartPlugins.Common.Core.Exceptions;
 using SmartPlugins.Common.TeklaLibrary;
+using SmartPlugins.Common.TeklaLibrary.Assemblies;
 
 namespace SmartPlugins.Macroses.Library
 {
@@ -42,6 +43,7 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<ProgressState, IProgressState>();
             RegisterType<RebarNumerator, IRebarNumerator>();
             RegisterType<SmartPicker, ISmartPicker>();
+            RegisterType<MainPartByWeight, IMainPartByWeight>();
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
             RegisterSingleInstanceType<ExceptionsLogger, IExceptionsLogger>();

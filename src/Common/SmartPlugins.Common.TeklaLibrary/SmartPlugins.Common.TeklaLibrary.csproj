@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationsProgressLogger.cs" />
+    <Compile Include="Assemblies\MainPartByWeight.cs" />
     <Compile Include="Catalogs\Catalogs.cs" />
     <Compile Include="CommonParameters\CommonConcreteParts.cs" />
     <Compile Include="Drawings\Colors.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="UI\SmartPicker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assemblies\" />
     <Folder Include="Welds\" />
     <Folder Include="WpfPlugins\" />
   </ItemGroup>
