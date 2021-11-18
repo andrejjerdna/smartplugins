@@ -44,6 +44,8 @@ namespace SmartPlugins.Common.TeklaLibrary
         {
             _teklaModel = new Model();
         }
+
+        public bool? CommitChanges() => _teklaModel?.CommitChanges();
     }
 
 }

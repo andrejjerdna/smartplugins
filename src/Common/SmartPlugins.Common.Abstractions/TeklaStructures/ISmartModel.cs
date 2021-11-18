@@ -19,5 +19,7 @@ namespace SmartPlugins.Common.Abstractions.TeklaStructures
         ConcurrentBag<T> GetAllObjectsConcurrent<T>(bool autoFetch);
 
         void ReConnect();
+
+        bool? CommitChanges();
     }
 }
