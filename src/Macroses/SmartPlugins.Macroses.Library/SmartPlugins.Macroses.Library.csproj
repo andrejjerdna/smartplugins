@@ -112,6 +112,6 @@
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Debug (
       if not exist  "$(CopyDllDir)" mkdir  "$(CopyDllDir)"
-      copy /Y "$(TargetDir)*.dll" "$(CopyDllDir)")</PostBuildEvent>
+      copy /Y "$(TargetDir)*.*" "$(CopyDllDir)")</PostBuildEvent>
   </PropertyGroup>
 </Project>

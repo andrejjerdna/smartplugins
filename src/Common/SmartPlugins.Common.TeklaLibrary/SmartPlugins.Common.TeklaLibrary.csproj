@@ -75,6 +75,7 @@
     <Compile Include="Geometry\ModelObjectGeometry.cs" />
     <Compile Include="Geometry\PointsGeometry.cs" />
     <Compile Include="GlobalParameters.cs" />
+    <Compile Include="Messages\StatusBarMessage.cs" />
     <Compile Include="ModelMethods\AssemblyMethods.cs" />
     <Compile Include="ModelMethods\BoltsMethods.cs" />
     <Compile Include="ModelMethods\BooleanMethods.cs" />

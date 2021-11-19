@@ -1,7 +1,6 @@
-﻿using SmartPlugins.Common.Abstractions.Messages;
-using SmartPlugins.Common.Core;
+﻿using SmartPlugins.Common.Core;
 using SmartPlugins.Common.Core.Exceptions;
-using SmartPlugins.Common.Core.Messages;
+using SmartPlugins.Common.TeklaLibrary.Messages;
 using System;
 using System.Threading;
 
@@ -32,15 +31,19 @@ namespace SmartPlugins.Macroses.Library
             }
             catch (RunMacroException e)
             {
-                MessagesViewer.Show(e.Message, MessageType.Error);
+                StatusBarMessage.Show(e.Message);
             }
             catch (AggregateException e)
             {
-                MessagesViewer.Show(e.InnerException.InnerException.Message, MessageType.Error);
+                StatusBarMessage.Show(e.InnerException.InnerException.Message);
+            }
+            catch (ApplicationException e)
+            {
+                StatusBarMessage.Show(e.Message);
             }
             catch (Exception e)
             {
-                MessagesViewer.Show(e.Message, MessageType.Error);
+                StatusBarMessage.Show(e.Message);
             }
             finally
             {
