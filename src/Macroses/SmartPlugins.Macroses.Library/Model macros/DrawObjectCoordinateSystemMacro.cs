@@ -13,24 +13,29 @@ namespace SmartPlugins.Macroses.Library
     public class DrawObjectCoordinateSystemMacro : ITeklaMacro
     {
         /// <inheritdoc/>
-        public void Run()
+        public void RunLoop() => ErrorCatcher.Try(() => { throw new System.NotImplementedException(); });
+
+        /// <inheritdoc/>
+        public void RunOnce() => ErrorCatcher.Try(() => { Macro(); });
+
+        /// <summary>
+        /// Logic of a macro
+        /// </summary>
+        private void Macro()
         {
-            ErrorCatcher.Try(() =>
-            {
-                var container = MacrosesContainerConfigure.GetContainer().Build();
-                var model = container.Resolve<ISmartModel>();
+            var container = MacrosesContainerConfigure.GetContainer().Build();
+            var model = container.Resolve<ISmartModel>();
 
-                if (!model.ConnectionStatus)
-                    return;
+            if (!model.ConnectionStatus)
+                return;
 
-                var picker = container.Resolve<ISmartPicker>();
-                var modelObject = picker.PickObject<ModelObject, Picker.PickObjectEnum>(Picker.PickObjectEnum.PICK_ONE_OBJECT.ToString());
+            var picker = container.Resolve<ISmartPicker>();
+            var modelObject = picker.PickObject<ModelObject, Picker.PickObjectEnum>(Picker.PickObjectEnum.PICK_ONE_OBJECT.ToString());
 
-                if (modelObject == null)
-                    return;
+            if (modelObject == null)
+                return;
 
-                DrawInTeklaModel.DrawTeklaObjectCoordinateSystem(modelObject.GetCoordinateSystem());
-            });
+            DrawInTeklaModel.DrawTeklaObjectCoordinateSystem(modelObject.GetCoordinateSystem());
         }
     }
 }

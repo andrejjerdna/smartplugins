@@ -7,7 +7,7 @@ namespace Tekla.Technology.Akit.UserScript
     {
         public static void Run(Tekla.Technology.Akit.IScript akit)
         {
-            new SmartPlugins.Macroses.Library.RebarSequenceNumberingMacro().Run();
+            new SmartPlugins.Macroses.Library.RebarSequenceNumberingMacro().RunOnce();
         }
     }
 }

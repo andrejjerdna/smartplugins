@@ -13,17 +13,22 @@ namespace SmartPlugins.Macroses.Library
     public class RebarSequenceNumberingMacro : ITeklaMacro
     {
         /// <inheritdoc/>
-        public void Run()
+        public void RunLoop() => ErrorCatcher.Try(() => { throw new System.NotImplementedException(); });
+
+        /// <inheritdoc/>
+        public void RunOnce() => ErrorCatcher.Try(() => { Macro(); });
+
+        /// <summary>
+        /// Logic of a macro
+        /// </summary>
+        private void Macro()
         {
-            ErrorCatcher.Try(() =>
-            {
-                var container = MacrosesContainerConfigure.GetContainer().Build();
+            var container = MacrosesContainerConfigure.GetContainer().Build();
 
-                var rebarNumerator = container.Resolve<IRebarNumerator>();
-                rebarNumerator.RefreshAllNumbers("REBAR_SEQ_NO");
+            var rebarNumerator = container.Resolve<IRebarNumerator>();
+            rebarNumerator.RefreshAllNumbers("REBAR_SEQ_NO");
 
-                MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);
-            });
+            MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);
         }
     }
 }

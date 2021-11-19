@@ -7,7 +7,12 @@ namespace SmartPlugins.Macroses.Library
 {
     public class EmbededMark : ITeklaMacro
     {
-        public void Run()
+        public void RunLoop()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RunOnce()
         {
             var smartModel = new SmartModel();
 			
