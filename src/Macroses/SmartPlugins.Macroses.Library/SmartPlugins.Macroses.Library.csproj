@@ -16,6 +16,11 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
+  <PropertyGroup>
+    <ProgramData>%SYSTEMDRIVE%\ProgramData\</ProgramData>
+    <CopyDllDir>$(ProgramData)Trimble\Tekla Structures\2020.0\Environments\common\macros\SmartPlugins\</CopyDllDir>
+    <CopyModelMacrosDir>$(ProgramData)Trimble\Tekla Structures\2020.0\Environments\common\macros\modeling</CopyModelMacrosDir>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -104,4 +109,9 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug (
+      if not exist  "$(CopyDllDir)" mkdir  "$(CopyDllDir)"
+      copy /Y "$(TargetDir)*.dll" "$(CopyDllDir)")</PostBuildEvent>
+  </PropertyGroup>
 </Project>
