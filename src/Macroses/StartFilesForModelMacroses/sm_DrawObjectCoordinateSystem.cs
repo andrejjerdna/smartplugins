@@ -7,7 +7,7 @@ namespace Tekla.Technology.Akit.UserScript
     {
         public static void Run(Tekla.Technology.Akit.IScript akit)
         {
-            new SmartPlugins.Macroses.Library.DrawObjectCoordinateSystemMacro().RunOnce();
+            new SmartPlugins.Macroses.Library.DrawObjectCoordinateSystemMacro().RunLoop();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace SmartPlugins.Macroses.Library
     public class DrawObjectCoordinateSystemMacro : ITeklaMacro
     {
         /// <inheritdoc/>
-        public void RunLoop() => ErrorCatcher.Try(() => { throw new System.NotImplementedException(); });
+        public void RunLoop() => ErrorCatcher.Try(() => { while (true) { Macro(); } });
 
         /// <inheritdoc/>
         public void RunOnce() => ErrorCatcher.Try(() => { Macro(); });
