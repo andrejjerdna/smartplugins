@@ -1,14 +1,14 @@
 ﻿using Microsoft.ML.Data;
+using SmartPlugins.Common.Abstractions.ML;
 
 namespace SmartPlugins.Common.ML.Classification
 {
-    public class ClusterClassificationPrediction
+    public class ClusterClassificationPrediction : IClusterClassificationPrediction
     {
         [ColumnName("PredictedLabel")]
-        public uint Category;
+        public uint Category { get; set; }
 
         [ColumnName("Score")]
-        public float[] Distances;
-    }    {
+        public float[] Distances { get; set; }
     }
 }

@@ -16,12 +16,12 @@ namespace SmartPlugins.Common.Abstractions
         void UpdateState(IProgressState progressState);
 
         /// <summary>
-        /// Open
+        /// Open logger
         /// </summary>
         void Open();
 
         /// <summary>
-        /// Close
+        /// Close logger
         /// </summary>
         void Close();
     }
