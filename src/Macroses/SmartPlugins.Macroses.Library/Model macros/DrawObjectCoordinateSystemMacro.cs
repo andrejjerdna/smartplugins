@@ -30,7 +30,7 @@ namespace SmartPlugins.Macroses.Library
                 return;
 
             var picker = container.Resolve<ISmartPicker>();
-            var modelObject = picker.PickObject<ModelObject, Picker.PickObjectEnum>(Picker.PickObjectEnum.PICK_ONE_OBJECT.ToString());
+            var modelObject = picker.PickObject<ModelObject>((int)Picker.PickObjectEnum.PICK_ONE_OBJECT);
 
             if (modelObject == null)
                 return;

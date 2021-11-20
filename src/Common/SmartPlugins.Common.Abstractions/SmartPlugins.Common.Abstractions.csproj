@@ -73,6 +73,7 @@
     <Compile Include="ITeklaMacro.cs" />
     <Compile Include="ML\IClusterClassification.cs" />
     <Compile Include="Messages\MessageType.cs" />
+    <Compile Include="ML\IClusterClassificationPrediction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ITaskFactory.cs" />
     <Compile Include="TeklaStructures\IMainPartByWeight.cs" />

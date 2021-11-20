@@ -1,5 +1,6 @@
 ﻿using SmartPlugins.Common.Abstractions.TeklaStructures;
-using System;
+using SmartPlugins.Common.TeklaLibrary.Extensions;
+using System.Collections.Generic;
 using Tekla.Structures.Model.UI;
 
 namespace SmartPlugins.Common.TeklaLibrary
@@ -19,21 +20,20 @@ namespace SmartPlugins.Common.TeklaLibrary
             _picker = new Picker();
         }
 
-        /// <summary>
-        /// Pick one object by user input type
-        /// </summary>
-        /// <param name="pickObjectEnum"></param>
-        /// <returns></returns>
-        public T1 PickObject<T1, T2>(string parameter) where T1 : class where T2 : Enum
+        /// <inheritdoc/>
+        public T PickObject<T>(int parameter) where T : class
         {
-            Picker.PickObjectEnum pickObjectEnum;
+            var pickObjectEnum = (Picker.PickObjectEnum)parameter;
 
-            var value = Enum.TryParse(parameter, out pickObjectEnum);
+            return _picker.PickObject(pickObjectEnum) as T;
+        }
 
-            if(value == false)
-                return null;
+        /// <inheritdoc/>
+        public IEnumerable<T> PickObjects<T>(int parameter, string message) where T : class
+        {
+            var pickObjectEnum = (Picker.PickObjectsEnum)parameter;
 
-            return _picker.PickObject(pickObjectEnum) as T1;
+            return _picker.PickObjects(pickObjectEnum, message).ToIEnumerable<T>();
         }
     }
 }
