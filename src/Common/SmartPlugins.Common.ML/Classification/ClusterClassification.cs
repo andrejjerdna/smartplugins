@@ -112,9 +112,9 @@ namespace SmartPlugins.Common.ML.Classification
             {
                 var attributes = property.GetCustomAttributes(false);
 
-                foreach (ClusterClassificationStatus attribute in attributes)
+                foreach (ClusterClassificationStatusAttribute attribute in attributes)
                 {
-                    if (!attribute.Status)
+                    if (!attribute.IsAdded)
                         continue;
 
                     if (property.PropertyType == typeof(string))

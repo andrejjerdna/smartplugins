@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\ClusterClassificationStatus.cs" />
+    <Compile Include="Attributes\ClusterClassificationStatusAttribute.cs" />
     <Compile Include="AutoConnect\IModelData.cs" />
     <Compile Include="AutoConnect\IPluginsRules.cs" />
     <Compile Include="AutoConnect\MLDataConnect.cs" />
@@ -52,6 +52,7 @@
     <Compile Include="AutoConnect\MLTrainer.cs" />
     <Compile Include="Classification\ClusterClassification.cs" />
     <Compile Include="Classification\ClusterClassificationPrediction.cs" />
+    <Compile Include="NormalizeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
