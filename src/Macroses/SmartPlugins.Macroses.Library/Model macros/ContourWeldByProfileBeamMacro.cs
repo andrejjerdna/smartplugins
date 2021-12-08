@@ -3,16 +3,13 @@ using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
 using SmartPlugins.Common.Core.Exceptions;
-using SmartPlugins.Common.TeklaLibrary;
+using SmartPlugins.Common.TeklaLibrary.Welds;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 
 namespace SmartPlugins.Macroses.Library
 {
-    /// <summary>
-    /// Draw object coordinate system macro
-    /// </summary>
-    public class DrawObjectCoordinateSystemMacro : ITeklaMacro
+    public class ContourWeldByProfileBeamMacro : ITeklaMacro
     {
         /// <inheritdoc/>
         public void RunLoop() => ErrorCatcher.Try(() => { while (true) { Macro(); } });
@@ -27,13 +24,16 @@ namespace SmartPlugins.Macroses.Library
         {
             var container = MacrosContainerConfigure.GetContainer().Build();
 
+            var smartModel = container.Resolve<ISmartModel>();
             var picker = container.Resolve<ISmartPicker>();
-            var modelObject = picker.PickObject<ModelObject>((int)Picker.PickObjectEnum.PICK_ONE_OBJECT);
+            var mainPart = picker.PickObject<Part>((int)Picker.PickObjectEnum.PICK_ONE_PART);
+            var secondaryPart = picker.PickObject<Beam>((int)Picker.PickObjectEnum.PICK_ONE_PART);
 
-            if (modelObject == null)
-                return;
+            if (mainPart == null || secondaryPart == null)
+                throw new UserInputException(MessagesEN.MacroUserInputExeption);
 
-            DrawInTeklaModel.DrawTeklaObjectCoordinateSystem(modelObject.GetCoordinateSystem());
+            new ContourWeldByProfileBeam(smartModel).Get(mainPart, secondaryPart);
+
         }
     }
 }

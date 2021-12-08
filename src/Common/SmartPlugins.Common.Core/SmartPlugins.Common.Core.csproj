@@ -50,6 +50,8 @@
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Exceptions\ExceptionsLogger.cs" />
     <Compile Include="Exceptions\RunMacroException.cs" />
+    <Compile Include="Exceptions\TeklaConnectException.cs" />
+    <Compile Include="Exceptions\UserInputException.cs" />
     <Compile Include="Messages\MessagesEN.cs" />
     <Compile Include="Messages\MessagesViewer.cs" />
     <Compile Include="ProgressBarViewModelBase.cs" />

@@ -63,11 +63,13 @@
     <Compile Include="Drawings\Colors.cs" />
     <Compile Include="Drawings\Lines.cs" />
     <Compile Include="Extensions\AssemblyExtension.cs" />
+    <Compile Include="Extensions\BeamExtencions.cs" />
     <Compile Include="Extensions\BoltsExtensions.cs" />
     <Compile Include="Extensions\CollectionExtension.cs" />
     <Compile Include="Extensions\ModelExtension.cs" />
     <Compile Include="Extensions\ModelObjectExtension.cs" />
     <Compile Include="Extensions\PartExtension.cs" />
+    <Compile Include="Extensions\PointExtensions.cs" />
     <Compile Include="Extensions\RebarExtension.cs" />
     <Compile Include="Extensions\WeldsExtensions.cs" />
     <Compile Include="Files\GetAttributesFiles.cs" />
@@ -103,9 +105,10 @@
     <Compile Include="TeklaConnector.cs" />
     <Compile Include="UI\DrawInTeklaModel.cs" />
     <Compile Include="UI\SmartPicker.cs" />
+    <Compile Include="Welds\ContourWeldByProfileBeam.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Welds\" />
+    <Folder Include="Abstrations\" />
     <Folder Include="WpfPlugins\" />
   </ItemGroup>
   <ItemGroup>

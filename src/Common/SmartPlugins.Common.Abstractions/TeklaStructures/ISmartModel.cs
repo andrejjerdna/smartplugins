@@ -14,6 +14,8 @@ namespace SmartPlugins.Common.Abstractions.TeklaStructures
         string AttributesPath { get; }
         string SmartPluginsPath { get; }
 
+        T GetParentObject<T>() where T : class;
+
         IEnumerable<T> GetAllObjects<T>(bool autoFetch);
 
         ConcurrentBag<T> GetAllObjectsConcurrent<T>(bool autoFetch);

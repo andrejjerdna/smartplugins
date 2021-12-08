@@ -65,6 +65,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForDrawingMacrose
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacroses", "StartFilesForModelMacroses", "{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}"
 	ProjectSection(SolutionItems) = preProject
+		Macroses\StartFilesForModelMacroses\sm_ContourWeldByProfileBeam.cs = Macroses\StartFilesForModelMacroses\sm_ContourWeldByProfileBeam.cs
 		Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs = Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs
 		Macroses\StartFilesForModelMacroses\sm_MainPartByWeight.cs = Macroses\StartFilesForModelMacroses\sm_MainPartByWeight.cs
 		Macroses\StartFilesForModelMacroses\sm_RebarSequenceNumbering.cs = Macroses\StartFilesForModelMacroses\sm_RebarSequenceNumbering.cs

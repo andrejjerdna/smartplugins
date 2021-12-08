@@ -1,5 +1,6 @@
 ﻿using SmartPlugins.Common.TeklaLibrary.CSLib;
 using SmartPlugins.Common.TeklaLibrary.Extensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,27 +18,32 @@ namespace SmartPlugins.Common.TeklaLibrary.Geometry
         /// <param name="part">Деталь, с которой ищется пересечение.</param>
         /// <param name="offset">Офсет.</param>
         /// <returns></returns>
-        public static Polygon PolygonEquidistant(Part part, double offset)
+        public static Polygon PolygonEquidistant(Part part, double offset = 0.0)
         {
-            var outmostPoints = OutmostPoints(part, Solid.SolidCreationTypeEnum.RAW);
+            var outmostPoints = OutmostPoints(part, new Point(0, 0, 0), new Point(1000, 0, 0), new Point(0, 1000, 0), Solid.SolidCreationTypeEnum.RAW);
             var result = new Polygon();
             result.Points.AddRange(outmostPoints.ToArray());
-            var offsetList = new List<double>() { -offset };
-            PolygonOperation.PolygonOffset(result, offsetList, true, false);
+
+            if (Math.Abs(offset) > 0.0001)
+            {
+                var offsetList = new List<double>() { -offset };
+                PolygonOperation.PolygonOffset(result, offsetList, true, false);
+            }
             return result;
         }
+
         /// <summary>
-        /// Получаем пересечение плоскости XY и Solid детали.
+        /// Получаем пересечение плоскости по трем точкам и Solid детали.
         /// </summary>
         /// <param name="part">Деталь, с которой ищется пересечение.</param>
         /// <param name="solidType">Тип Solid.</param>
         /// <returns></returns>
-        public static IEnumerable<Point> OutmostPoints(Part part, Solid.SolidCreationTypeEnum solidType)
+        public static IEnumerable<Point> OutmostPoints(Part part, Point p1, Point p2, Point p3, Solid.SolidCreationTypeEnum solidType)
         {
             return (part.GetSolid(solidType)
-                .IntersectAllFaces(new Point(0, 0, 0), new Point(1000, 0, 0), new Point(0, 1000, 0))
-                .ToIEnumerable<ArrayList>()
-                .First()[0] as ArrayList).OfType<Point>().ToList();
+                        .IntersectAllFaces(p1, p2, p3)
+                        .ToIEnumerable<ArrayList>()
+                        .First()[0] as ArrayList).OfType<Point>().ToList();
         }
     }
 }

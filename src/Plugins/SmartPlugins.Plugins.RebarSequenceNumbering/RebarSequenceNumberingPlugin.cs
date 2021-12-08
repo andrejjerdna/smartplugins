@@ -17,7 +17,7 @@ namespace SmartPlugins.Plugins.RebarSequenceNumbering
 
         public RebarSequenceNumberingPlugin()
         {
-            _container = MacrosesContainerConfigure.GetContainer().Build();
+            _container = MacrosContainerConfigure.GetContainer().Build();
         }
 
         public override List<InputDefinition> DefineInput()

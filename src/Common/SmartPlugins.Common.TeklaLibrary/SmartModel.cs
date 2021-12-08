@@ -30,6 +30,11 @@ namespace SmartPlugins.Common.TeklaLibrary
         public string AttributesPath { get; }
         public string SmartPluginsPath { get; }
 
+        public T GetParentObject<T>() where T : class
+        {
+            return _teklaModel as T;
+        }
+
         public IEnumerable<T> GetAllObjects<T>(bool autoFetch)
         {
             return _teklaModel.GetAllObjects<T>(autoFetch);

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
-using tsm = Tekla.Structures.Model;
 
 namespace SmartPlugins.Common.TeklaLibrary.Extensions
 {
@@ -53,6 +50,41 @@ namespace SmartPlugins.Common.TeklaLibrary.Extensions
         public static ConcurrentBag<T> ToConcurrentBag<T>(this IEnumerator enumerator)
         {
             return new ConcurrentBag<T>(enumerator.ToIEnumerable<T>());
+        }
+
+        /// <summary>
+        /// Polygon to IEnumerable
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static IEnumerable<Point> ToIEnumerable(this Polygon polygon) => polygon.Points.OfType<Point>();
+
+        /// <summary>
+        /// IEnumerable to Polygon
+        /// </summary>
+        /// <param name="enumerable"></param>
+        /// <returns></returns>
+        public static Polygon ToPolygon(this IEnumerable<Point> enumerable)
+        {
+            var polygon = new Polygon();
+            foreach (var item in enumerable)
+                polygon.Points.Add(item);
+            
+            return polygon;
+        }
+
+        /// <summary>
+        /// Close polygon
+        /// </summary>
+        /// <param name="polygon"></param>
+        /// <returns></returns>
+        public static Polygon ClosePolygon(this Polygon polygon)
+        {
+            if (polygon.Points.Count > 0)
+                polygon.Points.Add(polygon.Points[0]);
+
+            return polygon;
         }
     }
 }

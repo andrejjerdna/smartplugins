@@ -57,9 +57,10 @@
   <ItemGroup>
     <Compile Include="Error\ErrorCatcher.cs" />
     <Compile Include="Loggers\MacroProgressBar.cs" />
+    <Compile Include="Model macros\ContourWeldByProfileBeamMacro.cs" />
     <Compile Include="Model macros\DrawObjectCoordinateSystemMacro.cs" />
     <Compile Include="Model macros\EmbededMark.cs" />
-    <Compile Include="IoC\MacrosesContainerConfigure.cs" />
+    <Compile Include="IoC\MacrosContainerConfigure.cs" />
     <Compile Include="Loggers\MacrosesProgressLogger.cs" />
     <Compile Include="Model macros\MainPartByWeightMacro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

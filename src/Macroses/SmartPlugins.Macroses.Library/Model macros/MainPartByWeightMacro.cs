@@ -23,7 +23,7 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            var container = MacrosesContainerConfigure.GetContainer().Build();
+            var container = MacrosContainerConfigure.GetContainer().Build();
 
             var rebarNumerator = container.Resolve<IMainPartByWeight>();
             rebarNumerator.CheckAssemblies();

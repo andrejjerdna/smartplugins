@@ -11,14 +11,14 @@ namespace SmartPlugins.Macroses.Library
     /// <summary>
     /// Container configure for macros
     /// </summary>
-    public class MacrosesContainerConfigure : ContainerConfigureBase
+    public class MacrosContainerConfigure : ContainerConfigureBase
     {
-        private static MacrosesContainerConfigure _container;
+        private static MacrosContainerConfigure _container;
 
         /// <summary>
         /// .ctor
         /// </summary>
-        private MacrosesContainerConfigure()
+        private MacrosContainerConfigure()
         {
             RegisterTypes();
         }
@@ -27,10 +27,10 @@ namespace SmartPlugins.Macroses.Library
         /// Get container configure
         /// </summary>
         /// <returns></returns>
-        public static MacrosesContainerConfigure GetContainer()
+        public static MacrosContainerConfigure GetContainer()
         {
             if (_container == null)
-                _container = new MacrosesContainerConfigure();
+                _container = new MacrosContainerConfigure();
 
             return _container;
         }
