@@ -1,115 +1,113 @@
-﻿using SmartPlugins.Common.SmartExtensions;
-using SmartPlugins.Common.TeklaStructures;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Windows;
-using Tekla.Structures.Model;
-using System.Linq;
-using System.Diagnostics;
+﻿//using SmartPlugins.Common.TeklaLibrary;
+//using System.Collections.Generic;
+//using System.IO;
+//using System.Linq;
+//using System.Text.Json;
+//using System.Threading.Tasks;
+//using System.Windows;
+//using Tekla.Structures.Model;
 
-namespace SmartPlugins.Applications.SmartCheckAssembliesML
-{
-    class SmartCheckAssembliesModel
-    {
-        private Common.TeklaStructures.SmartModel _smartModel;
+//namespace SmartPlugins.Applications.SmartCheckAssembliesML
+//{
+//    class SmartCheckAssembliesModel
+//    {
+//        private SmartModel _smartModel;
 
-        private List<CheckData> _result;
+//        private List<CheckData> _result;
 
-        public SmartCheckAssembliesModel()
-        {
-            _smartModel = new Common.TeklaStructures.SmartModel();
-            _result = new List<CheckData>();
-        }
+//        public SmartCheckAssembliesModel()
+//        {
+//            _smartModel = new Common.TeklaStructures.SmartModel();
+//            _result = new List<CheckData>();
+//        }
 
-        public void Start()
-        {
-            if (!_smartModel.ConnectionStatus)
-                return;
+//        public void Start()
+//        {
+//            if (!_smartModel.ConnectionStatus)
+//                return;
 
-            var assemblies = _smartModel.TeklaModel.GetModelObjectSelector()
-                .GetAllObjectsWithType(ModelObject.ModelObjectEnum.ASSEMBLY)
-                .ToConcurrentBag<Assembly>();
+//            var assemblies = _smartModel.TeklaModel.GetModelObjectSelector()
+//                .GetAllObjectsWithType(ModelObject.ModelObjectEnum.ASSEMBLY)
+//                .ToConcurrentBag<Assembly>();
 
-            Parallel.ForEach(assemblies, (assembly) =>
-            {
-                var detailsInfo = new DetailsInfo(assembly);
+//            Parallel.ForEach(assemblies, (assembly) =>
+//            {
+//                var detailsInfo = new DetailsInfo(assembly);
 
-                var data = detailsInfo.GetChangeDatas();
+//                var data = detailsInfo.GetChangeDatas();
 
-                if (data != null)
-                    _result.AddRange(data);
-            });
+//                if (data != null)
+//                    _result.AddRange(data);
+//            });
 
-            //var w2 = new Stopwatch();
-            //w2.Start();
+//            //var w2 = new Stopwatch();
+//            //w2.Start();
 
-            //var assemblies2 = _smartModel.TeklaModel.GetModelObjectSelector()
-            //    .GetAllObjectsWithType(ModelObject.ModelObjectEnum.ASSEMBLY)
-            //    .ToIEnumerable<Assembly>();
+//            //var assemblies2 = _smartModel.TeklaModel.GetModelObjectSelector()
+//            //    .GetAllObjectsWithType(ModelObject.ModelObjectEnum.ASSEMBLY)
+//            //    .ToIEnumerable<Assembly>();
 
-            //foreach(var assembly in assemblies2)
-            //{
-            //    var detailsInfo = new DetailsInfo(assembly);
+//            //foreach(var assembly in assemblies2)
+//            //{
+//            //    var detailsInfo = new DetailsInfo(assembly);
 
-            //    var data = detailsInfo.GetChangeDatas();
+//            //    var data = detailsInfo.GetChangeDatas();
 
-            //    if (data != null)
-            //        _result.AddRange(data);
-            //}
+//            //    if (data != null)
+//            //        _result.AddRange(data);
+//            //}
 
-            //w2.Stop();
+//            //w2.Stop();
 
-            //MessageBox.Show(string.Format("Всего получено сборок: {2}. \nМного потоков: {0} сек. \nОдин поток: {1} сек.", w1.Elapsed, w2.Elapsed, assemblies.Count));
+//            //MessageBox.Show(string.Format("Всего получено сборок: {2}. \nМного потоков: {0} сек. \nОдин поток: {1} сек.", w1.Elapsed, w2.Elapsed, assemblies.Count));
 
-            WriteDataFile();
+//            WriteDataFile();
 
-            MessageBox.Show("OK!");
-        }
+//            MessageBox.Show("OK!");
+//        }
 
-        public List<CheckData> GetCheckDataSelectAssembly()
-        {
-            if (!_smartModel.ConnectionStatus)
-                return null;
+//        public List<CheckData> GetCheckDataSelectAssembly()
+//        {
+//            if (!_smartModel.ConnectionStatus)
+//                return null;
 
-            var assemblies = new Tekla.Structures.Model.UI.ModelObjectSelector().GetSelectedObjects()
-                .ToIEnumerable<Assembly>()
-                .ToList();
+//            var assemblies = new Tekla.Structures.Model.UI.ModelObjectSelector().GetSelectedObjects()
+//                .ToIEnumerable<Assembly>()
+//                .ToList();
 
-            if (assemblies.Count > 0)
-            {
-                var detailsInfo = new DetailsInfo(assemblies.First());
-                return detailsInfo.GetChangeDatas();
-            }
-            else
-                return null;
-        }
+//            if (assemblies.Count > 0)
+//            {
+//                var detailsInfo = new DetailsInfo(assemblies.First());
+//                return detailsInfo.GetChangeDatas();
+//            }
+//            else
+//                return null;
+//        }
 
-        /// <summary>
-        /// Запись базы данных в файл.
-        /// </summary>
-        public void WriteDataFile()
-        {
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true
-            };
+//        /// <summary>
+//        /// Запись базы данных в файл.
+//        /// </summary>
+//        public void WriteDataFile()
+//        {
+//            var options = new JsonSerializerOptions
+//            {
+//                WriteIndented = true
+//            };
 
-            var json = JsonSerializer.Serialize(_result, options);
+//            var json = JsonSerializer.Serialize(_result, options);
 
-            var path = _smartModel.SmartPluginsPath + "check.json";
+//            var path = _smartModel.SmartPluginsPath + "check.json";
 
-            var dirInfo = new DirectoryInfo(_smartModel.SmartPluginsPath);
-            if (!dirInfo.Exists)
-            {
-                dirInfo.Create();
-            }
+//            var dirInfo = new DirectoryInfo(_smartModel.SmartPluginsPath);
+//            if (!dirInfo.Exists)
+//            {
+//                dirInfo.Create();
+//            }
 
-            using (var file = new StreamWriter(path, false))
-            {
-                file.WriteLine(json);
-            }
-        }
-    }
-}
+//            using (var file = new StreamWriter(path, false))
+//            {
+//                file.WriteLine(json);
+//            }
+//        }
+//    }
+//}

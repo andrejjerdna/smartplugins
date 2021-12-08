@@ -14,3 +14,11 @@ C:\Work\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.Generate
 C:\Work\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.CoreCompileInputs.cache
 C:\Work\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.dll
 C:\Work\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.pdb
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.AssemblyReference.cache
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.CopyParametersLegFacesWindow.resources
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.Commecial.CopyParametersRebarSetsWindow.resources
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.Properties.Resources.resources
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.GenerateResource.cache
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.csproj.CoreCompileInputs.cache
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.dll
+D:\repos\SmartPlugins\src\ObjDir\2019\SmartMacroses\SmartMacroses.pdb

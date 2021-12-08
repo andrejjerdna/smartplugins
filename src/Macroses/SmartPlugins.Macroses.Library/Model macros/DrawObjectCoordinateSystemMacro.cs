@@ -23,13 +23,13 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            var container = MacrosesContainerConfigure.GetContainer().Build();
-            var model = container.Resolve<ISmartModel>();
+            var container = MacrosesContainerConfigure.GetContainer();
+            var model = container.GetRequiredService<ISmartModel>();
 
             if (!model.ConnectionStatus)
                 return;
 
-            var picker = container.Resolve<ISmartPicker>();
+            var picker = container.GetRequiredService<ISmartPicker>();
             var modelObject = picker.PickObject<ModelObject>((int)Picker.PickObjectEnum.PICK_ONE_OBJECT);
 
             if (modelObject == null)

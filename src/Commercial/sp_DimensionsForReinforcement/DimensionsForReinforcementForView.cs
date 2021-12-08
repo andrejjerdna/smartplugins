@@ -1,23 +1,9 @@
-﻿using System;
+﻿using SmartPlugins.Common.TeklaLibrary.SmartObjects.Drawings;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using Tekla.Structures.Drawing;
 using Tekla.Structures.Drawing.Tools;
-using Tekla.Structures.Drawing.UI;
 using Tekla.Structures.Model;
 using Tekla.Structures.Plugins;
-using tsm = Tekla.Structures.Model;
-using t3d = Tekla.Structures.Geometry3d;
-using SmartPlugins.Common.SmartExtensions;
-using static Tekla.Structures.Drawing.Line;
-using Tekla.Structures.Geometry3d;
-using Line = Tekla.Structures.Drawing.Line;
-using SmartPlugins.Common.SmartGeometry;
-using SmartPlugins.Common.SmartTeklaModel.Drawings;
-using SmartPlugins.Common.SmartObjects.Drawings;
 
 namespace sp_DimensionsForReinforcement
 {

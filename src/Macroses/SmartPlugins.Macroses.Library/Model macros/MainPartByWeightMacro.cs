@@ -23,9 +23,9 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            var container = MacrosesContainerConfigure.GetContainer().Build();
+            var container = MacrosesContainerConfigure.GetContainer();
 
-            var rebarNumerator = container.Resolve<IMainPartByWeight>();
+            var rebarNumerator = container.GetRequiredService<IMainPartByWeight>();
             rebarNumerator.CheckAssemblies();
 
             MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);

@@ -1,13 +1,10 @@
-﻿using SmartPlugins.Common.SmartExtensions;
+﻿using SmartPlugins.Common.TeklaLibrary.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tekla.Structures.Geometry3d;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.Operations;
-using Tekla.Structures.Model.UI;
 using Parallel = System.Threading.Tasks.Parallel;
 
 namespace SmartPlugins.Applications.SmartCheckAssembliesML

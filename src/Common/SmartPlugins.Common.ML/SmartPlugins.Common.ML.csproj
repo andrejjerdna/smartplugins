@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,8 +51,10 @@
     <Compile Include="AutoConnect\MLDataConnect.cs" />
     <Compile Include="AutoConnect\MLResultsViewer.cs" />
     <Compile Include="AutoConnect\MLTrainer.cs" />
-    <Compile Include="Classification\ClusterClassification.cs" />
+    <None Include="Classification\ClusterClassification.cs" />
     <Compile Include="Classification\ClusterClassificationPrediction.cs" />
+    <Compile Include="Classification\ClusteringKMeans.cs" />
+    <Compile Include="Classification\EstimatorBuilder.cs" />
     <Compile Include="NormalizeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

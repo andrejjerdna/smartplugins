@@ -1,16 +1,11 @@
-﻿using SmartPlugins.Common.SmartTeklaModel;
-using SmartPlugins.Common.SmartTeklaModel.Drawings;
-using SmartPlugins.Common.SmartTeklaModel.Files;
-using SmartPlugins.Common.SmartWPFElements.Controls;
-using System;
+﻿using SmartPlugins.Common.SmartWPFElements.Controls;
+using SmartPlugins.Common.TeklaLibrary.Drawings;
+using SmartPlugins.Common.TeklaLibrary.Files;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tekla.Structures.Datatype;
 using Tekla.Structures.Dialog;
-using Tekla.Structures.Drawing;
 using String = Tekla.Structures.Datatype.String;
 
 namespace sp_DimensionsForReinforcement

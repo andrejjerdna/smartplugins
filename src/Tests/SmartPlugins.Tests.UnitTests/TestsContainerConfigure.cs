@@ -1,4 +1,6 @@
-﻿using SmartPlugins.Common.Core;
+﻿using SmartPlugins.Common.Abstractions.ML;
+using SmartPlugins.Common.Core;
+using SmartPlugins.Common.ML.Classification;
 
 namespace SmartPlugins.Tests.UnitTests
 {
@@ -18,10 +20,17 @@ namespace SmartPlugins.Tests.UnitTests
             RegisterTypes();
         }
 
+        /// <summary>
+        /// Get new instance the container and build of the container
+        /// </summary>
+        /// <returns></returns>
         public static TestsContainerConfigure GetContainer()
         {
             if (_containerConfigure == null)
+            {
                 _containerConfigure = new TestsContainerConfigure();
+                _containerConfigure.Build();
+            }
 
             return _containerConfigure;
         }
@@ -32,7 +41,7 @@ namespace SmartPlugins.Tests.UnitTests
         private void RegisterTypes()
         {
             //TODO: The types will be specified here
-            //RegisterType<ProgressState, IProgressState>();
+            RegisterGenericType(typeof(ClusteringKMeans<>), typeof(IClusteringKMeans<>));
             //RegisterType<RebarNumerator, IRebarNumerator>();
             //RegisterSingleInstanceType<SmartModel, ISmartModel>();
             //RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();

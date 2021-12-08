@@ -1,2 +1,8 @@
 SmartMacroses.dll
-SmartPlugins.Common.SmartExtensions.dll
+SmartPlugins.Common.TeklaLibrary.dll
+SmartPlugins.Common.Abstractions.dll
+SmartPlugins.Common.Core.dll
+Microsoft.Extensions.DependencyInjection.Abstractions.dll
+Microsoft.Extensions.DependencyInjection.dll
+Microsoft.Bcl.AsyncInterfaces.dll
+System.Threading.Tasks.Extensions.dll

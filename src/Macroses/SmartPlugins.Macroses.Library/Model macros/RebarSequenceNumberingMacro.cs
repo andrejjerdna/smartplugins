@@ -23,9 +23,9 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            var container = MacrosesContainerConfigure.GetContainer().Build();
+            var container = MacrosesContainerConfigure.GetContainer();
 
-            var rebarNumerator = container.Resolve<IRebarNumerator>();
+            var rebarNumerator = container.GetRequiredService<IRebarNumerator>();
             rebarNumerator.RefreshAllNumbers("REBAR_SEQ_NO");
 
             MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);

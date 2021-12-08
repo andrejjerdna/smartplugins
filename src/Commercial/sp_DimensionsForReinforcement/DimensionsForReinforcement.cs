@@ -17,7 +17,7 @@ using Line = Tekla.Structures.Drawing.Line;
 using Tekla.Structures;
 using System.Collections;
 using ModelObjectSelector = Tekla.Structures.Model.UI.ModelObjectSelector;
-using SmartPlugins.Common.SmartObjects.Drawings;
+using SmartPlugins.Common.TeklaLibrary.SmartObjects.Drawings;
 
 namespace sp_DimensionsForReinforcement
 {
