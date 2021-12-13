@@ -6,13 +6,19 @@ using Tekla.Structures.Model.Operations;
 
 namespace SmartPlugins.Macroses.Library.Loggers
 {
-    public class MacroProgressLogger : IProgressLogger
+    public class DisplayPromptProgressLogger : IProgressLogger
     {
         private readonly char _blockDone = '■';
         private readonly char _blockEmpty = '☐';
         private readonly int _lenghtProgressBar = 10;
+        private CancellationTokenSource _cancellationTokenSource;
 
-        public CancellationToken CancellationToken => throw new NotImplementedException();
+        public DisplayPromptProgressLogger()
+        {
+            _cancellationTokenSource = new CancellationTokenSource();
+        }
+
+        public CancellationToken CancellationToken { get => _cancellationTokenSource.Token; }
 
         public void UpdateState(IProgressState progressState)
         {
@@ -39,6 +45,12 @@ namespace SmartPlugins.Macroses.Library.Loggers
         private string GeneratProgressBar(string message, int currentCount, int maxNumber)
         {
             var percent = ((double)currentCount / maxNumber);
+
+            if (double.IsNaN(percent))
+                return message;
+
+            if (double.IsInfinity(percent))
+                return message;
 
             var doneBlocks = (int)Math.Ceiling(_lenghtProgressBar * percent);
             var emptyBlocks = _lenghtProgressBar - doneBlocks;
