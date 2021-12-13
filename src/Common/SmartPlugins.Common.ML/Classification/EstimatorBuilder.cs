@@ -31,7 +31,8 @@ namespace SmartPlugins.Common.ML.Classification
         {
             var properties = type.GetProperties();
 
-            IEstimator<ITransformer> mainEstimator = null;
+            var estimators = new List<IEstimator<ITransformer>>();
+
             var columnNames = new List<string>();
 
             foreach (var property in properties)
@@ -48,18 +49,20 @@ namespace SmartPlugins.Common.ML.Classification
                     if (attribute.Type == typeof(string))
                         estimator = GetTextEstimator(ref columnNames, property.Name, "Featurized");
 
-                    if (property.PropertyType == typeof(float))
+                    if (attribute.Type == typeof(float))
                         estimator = GetDigitEstimator(ref columnNames, attribute.NormalizeType, property.Name, "Normalize");
 
                     if (estimator == null)
                         continue;
 
-                    if (mainEstimator == null)
-                        mainEstimator = estimator;
-                    else
-                        mainEstimator.Append(estimator, Microsoft.ML.Data.TransformerScope.Training);
+                    estimators.Add(estimator);
                 }
             }
+
+            var mainEstimator = GetEstimator(estimators);
+
+            if (mainEstimator == null)
+                return null;
 
             return mainEstimator.Append(_mlContext.Transforms.Concatenate("Features", columnNames.ToArray()));
         }
@@ -89,6 +92,19 @@ namespace SmartPlugins.Common.ML.Classification
                 default:
                     return _mlContext.Transforms.NormalizeLogMeanVariance(inputColumnName: name, outputColumnName: name + postfix);
             }
+        }
+
+        private IEstimator<ITransformer> GetEstimator(IEnumerable<IEstimator<ITransformer>> estimators)
+        {
+            if (estimators.Any() == false)
+                return null;
+
+            var currentEstimator = estimators.First();
+
+            foreach(var estimator in estimators.Skip(1))
+                currentEstimator = currentEstimator.Append(estimator);
+
+            return currentEstimator;
         }
     }
 }
