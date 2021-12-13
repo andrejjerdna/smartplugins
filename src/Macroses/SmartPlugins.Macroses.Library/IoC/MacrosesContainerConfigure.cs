@@ -1,8 +1,6 @@
 ﻿using SmartPlugins.Common.Abstractions;
-using SmartPlugins.Common.Abstractions.Exceptions;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
-using SmartPlugins.Common.Core.Exceptions;
 using SmartPlugins.Common.TeklaLibrary;
 using SmartPlugins.Common.TeklaLibrary.Assemblies;
 
@@ -11,7 +9,7 @@ namespace SmartPlugins.Macroses.Library
     /// <summary>
     /// Container configure for macros
     /// </summary>
-    public class MacrosesContainerConfigure : ContainerConfigureBase
+    public sealed class MacrosesContainerConfigure : ContainerConfigureBase
     {
         private static MacrosesContainerConfigure _container;
 
@@ -24,13 +22,16 @@ namespace SmartPlugins.Macroses.Library
         }
 
         /// <summary>
-        /// Get container configure
+        /// Get new instance the container and build of the container
         /// </summary>
         /// <returns></returns>
         public static MacrosesContainerConfigure GetContainer()
         {
             if (_container == null)
+            {
                 _container = new MacrosesContainerConfigure();
+                _container.Build();
+            }
 
             return _container;
         }
@@ -46,7 +47,6 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<MainPartByWeight, IMainPartByWeight>();
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
-            RegisterSingleInstanceType<ExceptionsLogger, IExceptionsLogger>();
         }
     }
 }

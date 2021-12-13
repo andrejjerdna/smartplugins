@@ -9,3 +9,13 @@ C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.CoreCompileInputs.
 C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.exe
 C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.pdb
 C:\Work\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.SuggestedBindingRedirects.cache
+D:\repos\SmartPlugins\src\Tests\TestForm\bin\Debug\TestForm.exe.config
+D:\repos\SmartPlugins\src\Tests\TestForm\bin\Debug\TestForm.exe
+D:\repos\SmartPlugins\src\Tests\TestForm\bin\Debug\TestForm.pdb
+D:\repos\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.Form1.resources
+D:\repos\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.Properties.Resources.resources
+D:\repos\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.GenerateResource.cache
+D:\repos\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.CoreCompileInputs.cache
+D:\repos\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.exe
+D:\repos\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.pdb
+D:\repos\SmartPlugins\src\ObjDir\2019\TestForm\TestForm.csproj.AssemblyReference.cache

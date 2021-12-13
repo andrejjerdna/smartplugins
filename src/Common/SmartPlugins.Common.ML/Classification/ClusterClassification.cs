@@ -12,6 +12,7 @@ namespace SmartPlugins.Common.ML.Classification
         where T : class
     {
         private readonly MLContext _mlContext;
+        private readonly EstimatorBuilder _estimatorBuilder;
         private double _stopFactor;
         private double _skipPercent;
         private ITransformer _trainedModel;
@@ -22,6 +23,7 @@ namespace SmartPlugins.Common.ML.Classification
         public ClusterClassification()
         {
             _mlContext = new MLContext(seed: 0);
+            _estimatorBuilder = new EstimatorBuilder(_mlContext);
         }
 
         public bool MLTraining(IEnumerable<T> datas, double stopFactor = 0.985, double skipPercent = 0.8)
@@ -64,7 +66,7 @@ namespace SmartPlugins.Common.ML.Classification
 
         private bool TrainStep(int count, IEnumerable<T> datas)
         {
-            _inputColumNames = new List<Tuple<string, IEstimator<ITransformer>>>();
+            //_inputColumNaёmes = new List<Tuple<string, IEstimator<ITransformer>>>();
 
             var options = new KMeansTrainer.Options
             {
@@ -75,7 +77,7 @@ namespace SmartPlugins.Common.ML.Classification
 
             var trainingData = _mlContext.Data.LoadFromEnumerable(datas);
             var data = _mlContext.Data.TrainTestSplit(trainingData, testFraction: 0.3);
-            var pipeline = ProcessData();
+            var pipeline = _estimatorBuilder.GetEstimator(typeof(T));
             var trainingPipeline = pipeline.Append(_mlContext.Clustering.Trainers.KMeans(options));
             _trainedModel = trainingPipeline.Fit(data.TrainSet);
             Evaluate(datas);
@@ -83,49 +85,11 @@ namespace SmartPlugins.Common.ML.Classification
             return GetEndStatus();
         }
 
-        private IEstimator<ITransformer> ProcessData()
-        {
-            GetInputColumNames();
-
-            var estimator = _inputColumNames.First().Item2;
-
-            foreach (var gfdb in _inputColumNames.Skip(1))
-                estimator = estimator.Append(gfdb.Item2);
-
-            var columnNames = _inputColumNames.Select(a => a.Item1).ToArray();
-
-            return estimator.Append(_mlContext.Transforms.Concatenate("Features", columnNames));
-        }
-
         private void Evaluate(IEnumerable<T> datas)
         {
             var testDataView = _mlContext.Data.LoadFromEnumerable(datas);
             var testMetrics = _mlContext.Clustering.Evaluate(_trainedModel.Transform(testDataView));
             _averageDistances.Add(testMetrics.AverageDistance);
-        }
-
-        private void GetInputColumNames()
-        {
-            var properties = typeof(T).GetProperties();
-
-            foreach (var property in properties)
-            {
-                var attributes = property.GetCustomAttributes(false);
-
-                foreach (ClusterClassificationStatus attribute in attributes)
-                {
-                    if (!attribute.Status)
-                        continue;
-
-                    if (property.PropertyType == typeof(string))
-                        _inputColumNames.Add(Tuple.Create(property.Name + "Featurized",
-                            (IEstimator<ITransformer>)_mlContext.Transforms.Text.FeaturizeText(inputColumnName: property.Name, outputColumnName: property.Name + "Featurized")));
-
-                    if (property.PropertyType == typeof(float))
-                        _inputColumNames.Add(Tuple.Create(property.Name + "Normalize",
-                            (IEstimator<ITransformer>)_mlContext.Transforms.NormalizeMeanVariance(inputColumnName: property.Name, outputColumnName: property.Name + "Normalize")));
-                }
-            }
         }
 
         private bool GetEndStatus()
