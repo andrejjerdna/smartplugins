@@ -7,7 +7,8 @@ namespace Tekla.Technology.Akit.UserScript
     {
         public static void Run(Tekla.Technology.Akit.IScript akit)
         {
-            new SmartPlugins.Macroses.Library.MainPartByWeightMacro().RunOnce();
+            new SmartPlugins.Macroses.Library.MacroLauncher()
+                .MacroRunOnce<SmartPlugins.Macroses.Library.MainPartByWeightMacro>();
         }
     }
 }

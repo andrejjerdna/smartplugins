@@ -45,8 +45,14 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<RebarNumerator, IRebarNumerator>();
             RegisterType<SmartPicker, ISmartPicker>();
             RegisterType<MainPartByWeight, IMainPartByWeight>();
+            RegisterType<DrawInTeklaModel, IDrawInTeklaModel>();
+
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
+
+            RegisterType<RebarSequenceNumberingMacro>();
+            RegisterType<MainPartByWeightMacro>();
+            RegisterType<DrawObjectCoordinateSystemMacro>();
         }
     }
 }
