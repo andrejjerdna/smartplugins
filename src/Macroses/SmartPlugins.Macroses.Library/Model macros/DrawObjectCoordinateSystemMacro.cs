@@ -1,5 +1,4 @@
-﻿using Autofac;
-using SmartPlugins.Common.Abstractions;
+﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.TeklaLibrary;
 using Tekla.Structures.Model;
@@ -12,6 +11,19 @@ namespace SmartPlugins.Macroses.Library
     /// </summary>
     public class DrawObjectCoordinateSystemMacro : ITeklaMacro
     {
+        private readonly ISmartModel _smartModel;
+        private readonly ISmartPicker _smartPicker;
+        private readonly IDrawInTeklaModel _drawInTeklaModel;
+
+        public DrawObjectCoordinateSystemMacro(ISmartModel smartModel, 
+                                               ISmartPicker smartPicker, 
+                                               IDrawInTeklaModel drawInTeklaModel)
+        {
+            _smartModel = smartModel;
+            _smartPicker = smartPicker;
+            _drawInTeklaModel = drawInTeklaModel;
+        }
+
         /// <inheritdoc/>
         public void RunLoop() => ErrorCatcher.Try(() => { while (true) { Macro(); } });
 
@@ -23,19 +35,15 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            var container = MacrosesContainerConfigure.GetContainer();
-            var model = container.GetRequiredService<ISmartModel>();
-
-            if (!model.ConnectionStatus)
+            if (!_smartModel.ConnectionStatus)
                 return;
 
-            var picker = container.GetRequiredService<ISmartPicker>();
-            var modelObject = picker.PickObject<ModelObject>((int)Picker.PickObjectEnum.PICK_ONE_OBJECT);
+            var modelObject = _smartPicker.PickObject<ModelObject>((int)Picker.PickObjectEnum.PICK_ONE_OBJECT);
 
             if (modelObject == null)
                 return;
 
-            DrawInTeklaModel.DrawTeklaObjectCoordinateSystem(modelObject.GetCoordinateSystem());
+            _drawInTeklaModel.DrawTeklaObjectCoordinateSystem(modelObject.GetCoordinateSystem());
         }
     }
 }

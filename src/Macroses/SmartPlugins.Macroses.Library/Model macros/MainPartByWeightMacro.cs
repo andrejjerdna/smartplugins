@@ -1,5 +1,4 @@
-﻿using Autofac;
-using SmartPlugins.Common.Abstractions;
+﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.Messages;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
@@ -12,6 +11,17 @@ namespace SmartPlugins.Macroses.Library
     /// </summary>
     public class MainPartByWeightMacro : ITeklaMacro
     {
+        private readonly IMainPartByWeight _mainPartByWeight;
+
+        /// <summary>
+        /// .ctor
+        /// </summary>
+        /// <param name="mainPartByWeight"></param>
+        public MainPartByWeightMacro(IMainPartByWeight mainPartByWeight)
+        {
+            _mainPartByWeight = mainPartByWeight;
+        }
+
         /// <inheritdoc/>
         public void RunLoop() => ErrorCatcher.Try(() => { throw new System.NotImplementedException(); });
 
@@ -23,11 +33,7 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            var container = MacrosesContainerConfigure.GetContainer();
-
-            var rebarNumerator = container.GetRequiredService<IMainPartByWeight>();
-            rebarNumerator.CheckAssemblies();
-
+            _mainPartByWeight.CheckAssemblies();
             MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);
         }
     }

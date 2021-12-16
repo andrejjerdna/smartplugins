@@ -1,5 +1,4 @@
-﻿using Autofac;
-using SmartPlugins.Common.Abstractions;
+﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.Messages;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
@@ -12,6 +11,12 @@ namespace SmartPlugins.Macroses.Library
     /// </summary>
     public class RebarSequenceNumberingMacro : ITeklaMacro
     {
+        private readonly IRebarNumerator _rebarNumerator;
+        public RebarSequenceNumberingMacro(IRebarNumerator rebarNumerator)
+        {
+            _rebarNumerator = rebarNumerator;
+        }
+
         /// <inheritdoc/>
         public void RunLoop() => ErrorCatcher.Try(() => { throw new System.NotImplementedException(); });
 
@@ -23,11 +28,7 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            var container = MacrosesContainerConfigure.GetContainer();
-
-            var rebarNumerator = container.GetRequiredService<IRebarNumerator>();
-            rebarNumerator.RefreshAllNumbers("REBAR_SEQ_NO");
-
+            _rebarNumerator.RefreshAllNumbers("REBAR_SEQ_NO");
             MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);
         }
     }

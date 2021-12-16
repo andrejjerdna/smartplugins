@@ -32,6 +32,12 @@ namespace SmartPlugins.Common.Core
         /// Register type
         /// </summary>
         /// <typeparam name="Class"></typeparam>
+        public void RegisterType<Class>() where Class : class => Builder.AddScoped<Class>();
+
+        /// <summary>
+        /// Register type
+        /// </summary>
+        /// <typeparam name="Class"></typeparam>
         /// <typeparam name="Interface"></typeparam>
         public void RegisterGenericType(Type classType, Type interfaceType) => Builder.AddScoped(interfaceType, classType);
 
