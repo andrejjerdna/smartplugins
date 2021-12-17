@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ApplicationsProgressLogger.cs" />
     <Compile Include="Assemblies\MainPartByWeight.cs" />
+    <Compile Include="Assemblies\Operations\AssemblyOperations.cs" />
     <Compile Include="Catalogs\Catalogs.cs" />
     <Compile Include="CommonParameters\CommonConcreteParts.cs" />
     <Compile Include="CSLib\Compare.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="SmartObjects\SmartRebar.cs" />
     <Compile Include="SmartObjects\SteelParts\Frame_type1.cs" />
     <Compile Include="TeklaConnector.cs" />
+    <Compile Include="TeklaProperties.cs" />
     <Compile Include="UI\DrawInTeklaModel.cs" />
     <Compile Include="UI\SmartPicker.cs" />
   </ItemGroup>
