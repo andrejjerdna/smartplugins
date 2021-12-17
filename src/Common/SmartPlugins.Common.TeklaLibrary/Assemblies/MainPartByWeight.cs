@@ -13,7 +13,7 @@ namespace SmartPlugins.Common.TeklaLibrary.Assemblies
     /// <summary>
     /// Main part by weight
     /// </summary>
-    public class MainPartByWeight : IMainPartByWeight
+    public sealed class MainPartByWeight : IMainPartByWeight
     {
         private readonly IProgressLogger _progressLogger;
         private readonly ISmartModel _smartModel;
@@ -49,7 +49,7 @@ namespace SmartPlugins.Common.TeklaLibrary.Assemblies
 
                 Parallel.ForEach(assemblies, _parallelOptions, (assembly) =>
                 {
-                    var check = CheckAssembly(assembly);
+                    var check = AssemblyOperations.SetMainPartByMaxWeight(assembly);
 
                     if (!check)
                         assembly.Modify();
@@ -67,49 +67,6 @@ namespace SmartPlugins.Common.TeklaLibrary.Assemblies
             task.Wait();
 
             _progressLogger.Close();
-        }
-
-        /// <summary>
-        /// Check assembly.
-        /// If the main part does not have the maximum weight, then return false 
-        /// </summary>
-        /// <param name="assembly"></param>
-        /// <returns></returns>
-        private bool CheckAssembly(Assembly assembly)
-        {
-            Part candidatePart = null;
-
-            var mainPart = assembly.GetMainPart();
-
-            var weightMainPart = 0.0;
-            mainPart.GetReportProperty("WEIGHT", ref weightMainPart);
-
-            var assemblyDetails = assembly.GetSecondaries();
-
-            foreach (var modelObject in assemblyDetails)
-            {
-                if (modelObject is Part part)
-                {
-                    var weightCurrentDetail = 0.0;
-                    part.GetReportProperty("WEIGHT", ref weightCurrentDetail);
-
-                    if (weightCurrentDetail > weightMainPart)
-                    {
-                        weightMainPart = weightCurrentDetail;
-                        candidatePart = part;
-                    }
-                }
-            }
-
-            if (candidatePart != null)
-            {
-                assembly.SetMainPart(candidatePart);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
         }
     }
 }
