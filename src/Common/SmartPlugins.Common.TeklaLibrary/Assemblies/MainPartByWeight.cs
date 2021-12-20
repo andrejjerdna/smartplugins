@@ -34,7 +34,7 @@ namespace SmartPlugins.Common.TeklaLibrary.Assemblies
         }
 
         /// <inheritdoc/>
-        public void CheckAssemblies()
+        public void CheckAllAssemblies()
         {
             _progressLogger.Open();
 
@@ -67,6 +67,23 @@ namespace SmartPlugins.Common.TeklaLibrary.Assemblies
             task.Wait();
 
             _progressLogger.Close();
+        }
+
+        /// <inheritdoc/>
+        public void CheckAssembly<T>(T assembly) where T : class
+        {
+            if (assembly == null)
+                return;
+
+            var teklaAssembly = assembly as Assembly;
+
+            if (teklaAssembly == null)
+                return;
+
+            var check = AssemblyOperations.SetMainPartByMaxWeight(teklaAssembly);
+
+            if (check)
+                teklaAssembly.Modify();
         }
     }
 }

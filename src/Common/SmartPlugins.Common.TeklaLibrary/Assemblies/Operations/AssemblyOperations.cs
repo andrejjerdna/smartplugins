@@ -49,6 +49,5 @@ namespace SmartPlugins.Common.TeklaLibrary.Assemblies
                 return true;
             }
         }
-
     }
 }

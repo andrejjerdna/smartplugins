@@ -33,7 +33,7 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            _mainPartByWeight.CheckAssemblies();
+            _mainPartByWeight.CheckAllAssemblies();
             MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);
         }
     }
