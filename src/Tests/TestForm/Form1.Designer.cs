@@ -30,6 +30,7 @@ namespace TestForm
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -42,11 +43,35 @@ namespace TestForm
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Plugin type 1",
+            "Plugin type 2",
+            "Plugin type 3",
+            "Plugin type 4",
+            "Plugin type 5",
+            "Plugin type 6",
+            "Plugin type 7",
+            "Plugin type 8",
+            "Plugin type 9",
+            "Plugin type 10",
+            "Plugin type 11",
+            "Plugin type 12",
+            "Plugin type 13",
+            "Plugin type 14"});
+            this.comboBox1.Location = new System.Drawing.Point(169, 73);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(171, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 166);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -57,6 +82,7 @@ namespace TestForm
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
