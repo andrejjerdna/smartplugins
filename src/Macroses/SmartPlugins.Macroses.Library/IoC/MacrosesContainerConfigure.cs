@@ -1,8 +1,10 @@
 ﻿using SmartPlugins.Common.Abstractions;
+using SmartPlugins.Common.Abstractions.Geometry;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
 using SmartPlugins.Common.TeklaLibrary;
 using SmartPlugins.Common.TeklaLibrary.Assemblies;
+using SmartPlugins.Common.TeklaLibrary.Parts;
 
 namespace SmartPlugins.Macroses.Library
 {
@@ -46,6 +48,7 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<SmartPicker, ISmartPicker>();
             RegisterType<MainPartByWeight, IMainPartByWeight>();
             RegisterType<DrawInTeklaModel, IDrawInTeklaModel>();
+            RegisterType<PartOperations, IPartOperations>();
 
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
@@ -53,6 +56,7 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<RebarSequenceNumberingMacro>();
             RegisterType<MainPartByWeightMacro>();
             RegisterType<DrawObjectCoordinateSystemMacro>();
+            RegisterType<PointsReverseMacro>();
         }
     }
 }

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\IExceptionsLogger.cs" />
+    <Compile Include="Geometry\IPartOperations.cs" />
     <Compile Include="IProgressBarViewModel.cs" />
     <Compile Include="IProgressLogger.cs" />
     <Compile Include="IProgressState.cs" />

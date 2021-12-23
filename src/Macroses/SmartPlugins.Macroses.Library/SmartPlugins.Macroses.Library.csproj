@@ -64,6 +64,7 @@
     <Compile Include="IoC\MacrosesContainerConfigure.cs" />
     <Compile Include="Loggers\MacrosesProgressLogger.cs" />
     <Compile Include="Model macros\MainPartByWeightMacro.cs" />
+    <Compile Include="Model macros\PointsReverseMacro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

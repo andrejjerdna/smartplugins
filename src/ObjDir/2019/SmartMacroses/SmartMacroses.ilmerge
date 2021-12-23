@@ -2,7 +2,11 @@ SmartMacroses.dll
 SmartPlugins.Common.TeklaLibrary.dll
 SmartPlugins.Common.Abstractions.dll
 SmartPlugins.Common.Core.dll
+Microsoft.Extensions.Logging.Abstractions.dll
 Microsoft.Extensions.DependencyInjection.Abstractions.dll
 Microsoft.Extensions.DependencyInjection.dll
+System.Memory.dll
+System.Buffers.dll
 Microsoft.Bcl.AsyncInterfaces.dll
 System.Threading.Tasks.Extensions.dll
+System.Numerics.Vectors.dll
