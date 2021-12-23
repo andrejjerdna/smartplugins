@@ -86,8 +86,10 @@
     <Compile Include="Models\ReinforcementNumberingItem.cs" />
     <Compile Include="Other\GeneralMethods.cs" />
     <Compile Include="Parts\PartOperations.cs" />
+    <Compile Include="Parts\RoundingCoordinatesPointsModelObject.cs" />
     <Compile Include="Plugins\ConcretePluginBase.cs" />
     <Compile Include="Plugins\PluginDataBase.cs" />
+    <Compile Include="Points\PointOperations.cs" />
     <Compile Include="Points\ReversModelObjectPoints.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rebar\RebarNumerator.cs" />
