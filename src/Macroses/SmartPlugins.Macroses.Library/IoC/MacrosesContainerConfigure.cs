@@ -5,6 +5,7 @@ using SmartPlugins.Common.Core;
 using SmartPlugins.Common.TeklaLibrary;
 using SmartPlugins.Common.TeklaLibrary.Assemblies;
 using SmartPlugins.Common.TeklaLibrary.Parts;
+using SmartPlugins.Common.TeklaLibrary.Points;
 
 namespace SmartPlugins.Macroses.Library
 {
@@ -49,6 +50,7 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<MainPartByWeight, IMainPartByWeight>();
             RegisterType<DrawInTeklaModel, IDrawInTeklaModel>();
             RegisterType<PartOperations, IPartOperations>();
+            RegisterType<PointOperations, IPointOperations>();
 
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
@@ -57,6 +59,8 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<MainPartByWeightMacro>();
             RegisterType<DrawObjectCoordinateSystemMacro>();
             RegisterType<PointsReverseMacro>();
+            RegisterType<RoundingCoordinatesPointsMacro>();
+
         }
     }
 }
