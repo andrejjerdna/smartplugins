@@ -8,5 +8,12 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="point"></param>
         void RoundingCoordinates<T>(T point);
+
+        /// <summary>
+        /// Draw coordinates of point
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="point"></param>
+        void DrawCoordinatesPoint<T>(T point);
     }
 }

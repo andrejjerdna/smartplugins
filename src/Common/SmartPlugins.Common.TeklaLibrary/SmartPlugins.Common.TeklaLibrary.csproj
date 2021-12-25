@@ -85,6 +85,7 @@
     <Compile Include="ModelMethods\ContourPlateEdge.cs" />
     <Compile Include="Models\ReinforcementNumberingItem.cs" />
     <Compile Include="Other\GeneralMethods.cs" />
+    <Compile Include="Parts\DrawInModelCoordinatesPointsModelObject.cs" />
     <Compile Include="Parts\PartOperations.cs" />
     <Compile Include="Parts\RoundingCoordinatesPointsModelObject.cs" />
     <Compile Include="Plugins\ConcretePluginBase.cs" />

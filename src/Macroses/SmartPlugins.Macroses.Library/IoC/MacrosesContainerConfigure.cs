@@ -55,12 +55,16 @@ namespace SmartPlugins.Macroses.Library
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
 
+            #region Macros
+
             RegisterType<RebarSequenceNumberingMacro>();
             RegisterType<MainPartByWeightMacro>();
             RegisterType<DrawObjectCoordinateSystemMacro>();
             RegisterType<PointsReverseMacro>();
             RegisterType<RoundingCoordinatesPointsMacro>();
+            RegisterType<DrawInModelCoordinatesPointsMacro>(); 
 
+            #endregion
         }
     }
 }

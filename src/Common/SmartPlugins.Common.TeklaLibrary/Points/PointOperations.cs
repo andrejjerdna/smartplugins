@@ -1,4 +1,5 @@
 ﻿using SmartPlugins.Common.Abstractions.Geometry;
+using SmartPlugins.Common.TeklaLibrary.CSLib;
 using System;
 using Tekla.Structures.Geometry3d;
 
@@ -6,12 +7,14 @@ namespace SmartPlugins.Common.TeklaLibrary.Points
 {
     public class PointOperations : IPointOperations
     {
-        /// <summary>
-        /// Rounding сoordinates
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="point"></param>
-        /// <exception cref="Exception"></exception>
+        /// <inheritdoc/>
+        public void DrawCoordinatesPoint<T>(T point)
+        {
+            if (point is Point modelPoint)
+                DrawUI.DrawPoint(modelPoint, modelPoint.ToString());
+        }
+
+        /// <inheritdoc/>
         public void RoundingCoordinates<T>(T point)
         {
             if (point is Point modelPoint)
