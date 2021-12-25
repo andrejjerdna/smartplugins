@@ -23,5 +23,11 @@ namespace SmartPlugins.Common.TeklaLibrary.Parts
         {
             new RoundingCoordinatesPointsModelObject(_pointOperations).RoundingPoints(modelObject);
         }
+
+        /// <inheritdoc/>
+        public void DrawInModelCoordinatesPointsModelObject<T>(T modelObject) where T : class
+        {
+            new DrawInModelCoordinatesPointsModelObject(_pointOperations).DrawAllPoints(modelObject);
+        }
     }
 }
