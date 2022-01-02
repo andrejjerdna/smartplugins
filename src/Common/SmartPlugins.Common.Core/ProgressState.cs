@@ -5,7 +5,7 @@ namespace SmartPlugins.Common.Core
     /// <summary>
     /// Progress state
     /// </summary>
-    public class ProgressState : IProgressState
+    public struct ProgressState : IProgressState
     {
         /// <summary>
         /// .ctor

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TEP Version="1.0">
+	
+	<Product Id="SmartMacroses" UpgradeCode="R860CDFW-7704-4132-A451-35AD7BB7BB21" Version="0.01" Language="1033"
+		Name="MainPartByWeightMacroAndNumberingSecondaries" Manufacturer="Smartplugins.pro"  Description= "Collection macros from smartplugins.pro"
+		IconPath="%TEPDEFINITIONFILEFOLDER%\Icon.png">
+		<TeklaVersions>
+			<MinTeklaVersion Name="2018.0"/>
+			<MaxTeklaVersion Name="2099.1"/>
+		</TeklaVersions>
+	</Product>
+	 
+	<SourcePathVariables>
+		<SourcePathVariable Id="TepOutputFolder" Value="%TEPDEFINITIONFILEFOLDER%\output"/>
+		<SourcePathVariable Id="BinariesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\binaries"/>
+		<SourcePathVariable Id="StandardFileFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\standard file"/>
+		<SourcePathVariable Id="MessagesFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\messages"/>
+		<SourcePathVariable Id="BitmapsFolder" Value="%TEPDEFINITIONFILEFOLDER%\..\bitmaps"/>
+    </SourcePathVariables>
+
+	<TargetPathVariables>
+		<PathVariable Id="ModelPluginsDirectory" Value="%ENVDIR%\extensions\plugins\tekla\model\"/>
+		<PathVariable Id="ModelApplicationsDirectory" Value="%ENVDIR%\extensions\applications\tekla\model\"/>
+		<PathVariable Id="ExtensionsDir" Value="%commonEnvFolder%\extensions\"/>
+		<PathVariable Id="BinariesTargetDirectory" Value="%ExtensionsDir%\MainpartGLPlugins\"/>
+		<PathVariable Id="BitmapsDirectory" Value="%ENVDIR%\..\bitmaps\"/>
+		<PathVariable Id="AttributeFileDirectory" Value="%commonEnvFolder%\system\"/>
+		<PathVariable Id="TabFileDirectory" Value="%commonEnvFolder%\system\Ribbons\CustomTabs\Modeling\"/>
+		<PathVariable Id="InpFileDirectory" Value="%commonEnvFolder%\inp\"/>
+		<PathVariable Id="CommonMacroDirectoryModel" Value="%commonEnvFolder%\macros\modeling\"/>
+		<PathVariable Id="CommonMacroDirectoryDrawings" Value="%commonEnvFolder%\macros\drawings\"/>
+		<PathVariable Id="CommonMacroDirectoryCommon" Value="%commonEnvFolder%\macros\"/>
+		<PathVariable Id="BitmapsDirectoryTabs" Value="C:\ProgramData\SmartMacroses\Bitmaps\"/>
+	</TargetPathVariables>
+
+	<Component Id="TheExtensionComponent" Guid="3BDE8A2F-0349-4AB1-959F-BEF020181243">
+		
+		<!--Library files and other-->
+		<!--<File Id="objects_wizardsoft" Source="%BinariesFolder%\objects_wizardsoft.inp" Target="%InpFileDirectory%"/>
+		<File Id="WizardSoft.SmetaAddIn.TeklaExtension" Source="%BinariesFolder%\WizardSoft.SmetaAddIn.TeklaExtension.dll" Target="%CommonMacroDirectoryModel%"/>
+		<File Id="SmetaWIZARD" Source="%BinariesFolder%\SmetaWIZARD.xml" Target="%TabFileDirectory%"/> -->
+		
+		<!--Start files from macroses-->
+		<File Id="sm_MainPartByWeightMacroAndNumberingSecondaries" Source="%BinariesFolder%\sm_MainPartByWeightMacroAndNumberingSecondaries.cs" Target="%CommonMacroDirectoryModel%"/>
+
+	</Component>
+
+	<Feature Id="TheExtensionFeature" Title="ExtensionFeature">
+		<ComponentRef ReferenceId="TheExtensionComponent" />
+	</Feature>
+
+ </TEP>

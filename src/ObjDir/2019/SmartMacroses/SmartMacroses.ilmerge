@@ -4,6 +4,7 @@ SmartPlugins.Common.Abstractions.dll
 SmartPlugins.Common.Core.dll
 Microsoft.Extensions.Logging.Abstractions.dll
 Microsoft.Extensions.DependencyInjection.Abstractions.dll
+System.Reactive.dll
 Microsoft.Extensions.DependencyInjection.dll
 System.Memory.dll
 System.Buffers.dll

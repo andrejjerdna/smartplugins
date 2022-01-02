@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
+    <Compile Include="Core\ProgressRunnerTests.cs" />
     <Compile Include="MLTests\ClusteringTests\ClusteringKMeansTest.cs" />
     <Compile Include="TestsContainerConfigure.cs" />
     <Compile Include="UnitTest1.cs" />

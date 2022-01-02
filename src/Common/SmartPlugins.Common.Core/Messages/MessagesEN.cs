@@ -8,5 +8,8 @@
         public const string MacroRunExeption = "Another macro is already running!";
         public const string MacroRunCanceled = "The user stopped the macro!";
         public const string MacroComplete = "Macro Complete!";
+
+        public const string GetAssemblies = "Get assemblies...";
+        public const string WriteUDAs = "WriteUDAs...";
     }
 }

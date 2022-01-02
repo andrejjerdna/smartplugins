@@ -47,13 +47,14 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<ProgressState, IProgressState>();
             RegisterType<RebarNumerator, IRebarNumerator>();
             RegisterType<SmartPicker, ISmartPicker>();
-            RegisterType<MainPartByWeight, IMainPartByWeight>();
             RegisterType<DrawInTeklaModel, IDrawInTeklaModel>();
             RegisterType<PartOperations, IPartOperations>();
             RegisterType<PointOperations, IPointOperations>();
+            RegisterType<AssemblyOperations, IAssemblyOperations>();
 
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
+            RegisterSingleInstanceType<OperationsRunner, IOperationsRunner>();
 
             #region Macros
 
@@ -62,7 +63,8 @@ namespace SmartPlugins.Macroses.Library
             RegisterType<DrawObjectCoordinateSystemMacro>();
             RegisterType<PointsReverseMacro>();
             RegisterType<RoundingCoordinatesPointsMacro>();
-            RegisterType<DrawInModelCoordinatesPointsMacro>(); 
+            RegisterType<DrawInModelCoordinatesPointsMacro>();
+            RegisterType<MainPartByWeightMacroAndNumberingSecondariesMacro>();
 
             #endregion
         }

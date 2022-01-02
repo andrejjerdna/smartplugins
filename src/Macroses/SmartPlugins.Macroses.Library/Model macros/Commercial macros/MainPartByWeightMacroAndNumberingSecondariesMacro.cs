@@ -9,10 +9,7 @@ using Tekla.Structures.Model;
 
 namespace SmartPlugins.Macroses.Library
 {
-    /// <summary>
-    /// Main part by max weight in assembly
-    /// </summary>
-    public class MainPartByWeightMacro : ITeklaMacro
+    public class MainPartByWeightMacroAndNumberingSecondariesMacro : ITeklaMacro
     {
         private readonly ISmartModel _smartModel;
         private readonly IOperationsRunner _operationsRunner;
@@ -21,7 +18,7 @@ namespace SmartPlugins.Macroses.Library
         /// .ctor
         /// </summary>
         /// <param name="mainPartByWeight"></param>
-        public MainPartByWeightMacro(ISmartModel smartModel, IOperationsRunner operationsRunner)
+        public MainPartByWeightMacroAndNumberingSecondariesMacro(ISmartModel smartModel, IOperationsRunner operationsRunner)
         {
             _smartModel = smartModel;
             _operationsRunner = operationsRunner;
@@ -45,17 +42,19 @@ namespace SmartPlugins.Macroses.Library
                                         .ToList();
 
             var totalCount = assemblies.Count;
-            var count = 1;
+            var count = 0;
 
-            foreach(var assembly in assemblies)
+            foreach (var assembly in assemblies)
             {
                 if (assembly == null)
                     continue;
 
-                var operation = new MainPartByMaxWeightOperation(assembly, TeklaProperties.Weight);
+                var operation1 = new MainPartByMaxWeightOperation(assembly, TeklaProperties.Weight);
+                var operation2 = new NumberingSecondariesElementsOperation(assembly, TeklaProperties.Weight);
                 _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
 
-                _operationsRunner.AddOperation(operation);
+                _operationsRunner.AddOperation(operation1);
+                _operationsRunner.AddOperation(operation2);
 
                 count++;
             }

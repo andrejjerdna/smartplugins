@@ -44,8 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\IExceptionsLogger.cs" />
+    <Compile Include="Geometry\IAssemblyOperations.cs" />
     <Compile Include="Geometry\IPartOperations.cs" />
     <Compile Include="Geometry\IPointOperations.cs" />
+    <Compile Include="IOperation.cs" />
+    <Compile Include="IOperationBuilder.cs" />
+    <Compile Include="IOperationsRunner.cs" />
     <Compile Include="IProgressBarViewModel.cs" />
     <Compile Include="IProgressLogger.cs" />
     <Compile Include="IProgressState.cs" />
@@ -56,10 +60,12 @@
     <Compile Include="Messages\MessageType.cs" />
     <Compile Include="ML\IClusterClassificationPrediction.cs" />
     <Compile Include="ML\IClusteringKMeans.cs" />
+    <Compile Include="ModelObjects\IAssembly.cs" />
+    <Compile Include="ModelObjects\IModelObject.cs" />
+    <Compile Include="ModelObjects\IPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ITaskFactory.cs" />
     <Compile Include="TeklaStructures\IDrawInTeklaModel.cs" />
-    <Compile Include="TeklaStructures\IMainPartByWeight.cs" />
     <Compile Include="TeklaStructures\IRebarNumerator.cs" />
     <Compile Include="TeklaStructures\ISmartModel.cs" />
     <Compile Include="TeklaStructures\ISmartPicker.cs" />
