@@ -1,10 +1,12 @@
 ﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.Geometry;
+using SmartPlugins.Common.Abstractions.Picker;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
 using SmartPlugins.Common.TeklaLibrary;
 using SmartPlugins.Common.TeklaLibrary.Assemblies;
 using SmartPlugins.Common.TeklaLibrary.Parts;
+using SmartPlugins.Common.TeklaLibrary.Picker;
 using SmartPlugins.Common.TeklaLibrary.Points;
 
 namespace SmartPlugins.Macroses.Library
@@ -44,14 +46,14 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void RegisterTypes()
         {
-            RegisterType<ProgressState, IProgressState>();
             RegisterType<RebarNumerator, IRebarNumerator>();
             RegisterType<SmartPicker, ISmartPicker>();
             RegisterType<DrawInTeklaModel, IDrawInTeklaModel>();
             RegisterType<PartOperations, IPartOperations>();
             RegisterType<PointOperations, IPointOperations>();
             RegisterType<AssemblyOperations, IAssemblyOperations>();
-
+            RegisterType<PickerObjects, IPickerObjects>();
+            
             RegisterSingleInstanceType<SmartModel, ISmartModel>();
             RegisterSingleInstanceType<MacrosesProgressLogger, IProgressLogger>();
             RegisterSingleInstanceType<OperationsRunner, IOperationsRunner>();

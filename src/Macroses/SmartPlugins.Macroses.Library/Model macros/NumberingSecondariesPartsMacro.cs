@@ -13,7 +13,7 @@ namespace SmartPlugins.Macroses.Library
     /// <summary>
     /// Main part by max weight in assembly
     /// </summary>
-    public class MainPartByWeightMacro : ITeklaMacro
+    public class NumberingSecondariesPartsMacro : ITeklaMacro
     {
         private readonly ISmartModel _smartModel;
         private readonly IPickerObjects _pickerObjects;
@@ -23,7 +23,7 @@ namespace SmartPlugins.Macroses.Library
         /// .ctor
         /// </summary>
         /// <param name="mainPartByWeight"></param>
-        public MainPartByWeightMacro(ISmartModel smartModel, 
+        public NumberingSecondariesPartsMacro(ISmartModel smartModel, 
                                      IPickerObjects pickerObjects, 
                                      IOperationsRunner operationsRunner)
         {
@@ -57,7 +57,7 @@ namespace SmartPlugins.Macroses.Library
                 if (assembly == null)
                     continue;
 
-                var operation = new MainPartByMaxWeightOperation(assembly, TeklaProperties.Weight);
+                var operation = new NumberingSecondariesElementsOperation(assembly, TeklaProperties.Weight);
                 _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
 
                 _operationsRunner.AddOperation(operation);

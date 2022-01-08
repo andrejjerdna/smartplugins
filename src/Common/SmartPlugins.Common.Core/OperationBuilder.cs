@@ -9,6 +9,14 @@ namespace SmartPlugins.Common.Core
 {
     public class OperationBuilder : IOperationBuilder
     {
+        public void AddObjects<T>(IEnumerable<T> objects)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void AddOperation(IOperation operation)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

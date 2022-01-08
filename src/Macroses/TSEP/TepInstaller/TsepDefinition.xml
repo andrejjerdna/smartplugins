@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TEP Version="1.0">
 	
-	<Product Id="SmartMacroses" UpgradeCode="R860CDF-7704-4132-A451-35AD7BB7BB04" Version="0.01" Language="1033"
-		Name="Smart Macroses" Manufacturer="Smartplugins.pro"  Description= "Collection macroses from smartplugins.pro"
+	<Product Id="SmartMacros" UpgradeCode="R860CDF-8804-4132-A451-35AD7BB7BB04" Version="0.01" Language="1033"
+		Name="Smart Macros" Manufacturer="Smartplugins.pro"  Description= "Collection macroses from smartplugins.pro"
 		IconPath="%TEPDEFINITIONFILEFOLDER%\Icon.png">
 		<TeklaVersions>
-			<MinTeklaVersion Name="2018.0"/>
+			<MinTeklaVersion Name="2016.0"/>
 			<MaxTeklaVersion Name="2099.1"/>
 		</TeklaVersions>
 	</Product>
@@ -33,7 +33,7 @@
 		<PathVariable Id="BitmapsDirectoryTabs" Value="C:\ProgramData\SmartMacroses\Bitmaps\"/>
 	</TargetPathVariables>
 
-	<Component Id="TheExtensionComponent" Guid="2BDE8A2F-0A99-4AB1-959F-BEF020184243">
+	<Component Id="TheExtensionComponent" Guid="2BDE8A2F-0A67-4AB1-959F-BEF020184243">
 		
 		<!--Library files and other-->
 		<File Id="objects_wizardsoft" Source="%BinariesFolder%\objects_wizardsoft.inp" Target="%InpFileDirectory%"/>

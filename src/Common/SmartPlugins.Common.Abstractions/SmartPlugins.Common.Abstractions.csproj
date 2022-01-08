@@ -63,6 +63,7 @@
     <Compile Include="ModelObjects\IAssembly.cs" />
     <Compile Include="ModelObjects\IModelObject.cs" />
     <Compile Include="ModelObjects\IPart.cs" />
+    <Compile Include="Picker\IPickerObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ITaskFactory.cs" />
     <Compile Include="TeklaStructures\IDrawInTeklaModel.cs" />

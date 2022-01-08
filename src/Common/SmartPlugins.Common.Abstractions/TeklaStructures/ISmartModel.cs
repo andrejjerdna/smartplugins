@@ -16,6 +16,8 @@ namespace SmartPlugins.Common.Abstractions.TeklaStructures
 
         IEnumerable<T> GetAllObjects<T>(bool autoFetch);
 
+        IEnumerable<T> GetSelectedObjects<T>();
+
         ConcurrentBag<T> GetAllObjectsConcurrent<T>(bool autoFetch);
 
         void ReConnect();

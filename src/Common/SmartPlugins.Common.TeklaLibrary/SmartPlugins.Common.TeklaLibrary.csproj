@@ -90,6 +90,7 @@
     <Compile Include="Parts\DrawInModelCoordinatesPointsModelObject.cs" />
     <Compile Include="Parts\PartOperations.cs" />
     <Compile Include="Parts\RoundingCoordinatesPointsModelObject.cs" />
+    <Compile Include="Picker\PickerObjects.cs" />
     <Compile Include="Plugins\ConcretePluginBase.cs" />
     <Compile Include="Plugins\PluginDataBase.cs" />
     <Compile Include="Points\PointOperations.cs" />
