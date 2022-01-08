@@ -36,12 +36,11 @@
 	<Component Id="TheExtensionComponent" Guid="2BDE8A2F-0A67-4AB1-959F-BEF020184243">
 		
 		<!--Library files and other-->
-		<File Id="objects_wizardsoft" Source="%BinariesFolder%\objects_wizardsoft.inp" Target="%InpFileDirectory%"/>
 		<File Id="WizardSoft.SmetaAddIn.TeklaExtension" Source="%BinariesFolder%\WizardSoft.SmetaAddIn.TeklaExtension.dll" Target="%CommonMacroDirectoryModel%"/>
-		<File Id="SmetaWIZARD" Source="%BinariesFolder%\SmetaWIZARD.xml" Target="%TabFileDirectory%"/>
+		<File Id="SmartMacrosRibbon" Source="%BinariesFolder%\SmartMacrosRibbon.xml" Target="%TabFileDirectory%"/>
 		
 		<!--Images for tekla interface-->
-		<File Id="et_element_Add-Propertis" Source="%BitmapsFolder%\et_element_Add-Propertis.bmp" Target="%BitmapsDirectory%"/>
+		<!--<File Id="et_element_Add-Propertis" Source="%BitmapsFolder%\et_element_Add-Propertis.bmp" Target="%BitmapsDirectory%"/>-->
 		
 		<!--Start files from macroses-->
 		<File Id="SmetaWIZARD_AddPropertis" Source="%BinariesFolder%\SmetaWIZARD_AddPropertis.cs" Target="%CommonMacroDirectoryModel%"/>

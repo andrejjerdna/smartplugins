@@ -114,11 +114,16 @@
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
       <Version>6.0.0</Version>
     </PackageReference>
+    <PackageReference Include="TeklaOpenAPI">
+      <Version>2020.0.3</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Debug (
       if not exist  "$(CopyDllDir)" mkdir  "$(CopyDllDir)"
+      copy /Y "$(TargetDir)*.*" "$(CopyDllDir)"
+if not exist  "$(CopyDllDir)" mkdir  "$(CopyDllDir)"
       copy /Y "$(TargetDir)*.*" "$(CopyDllDir)")</PostBuildEvent>
   </PropertyGroup>
 </Project>

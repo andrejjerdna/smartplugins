@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
 {
-    public class RebarSequenceNumberingOperation : IOperation
-    {
-        /// <inheritdoc/>
-        public void Run() => _assembly.NumberingSecondariesParts(_propertyName);
-    }
+    //public class RebarSequenceNumberingOperation : IOperation
+    //{
+    //    /// <inheritdoc/>
+    //    //public void Run() => _assembly.NumberingSecondariesParts(_propertyName);
+    //}
 }

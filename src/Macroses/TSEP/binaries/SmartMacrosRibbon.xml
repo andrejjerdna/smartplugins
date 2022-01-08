@@ -1,0 +1,21 @@
+  <Tab Header="Smart macros" IsCollapsed="false" IsUserDefined="false">
+    <DropdownButton X="0" Y="0" Width="3" Height="4" Text="Develop" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\DevelopMacrosesIcon.png" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_Reloadplugins?LOCAL" Text="ReloadPlugins" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\ReloadPluginsIcon.png" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_DrawObjectCoordinateSystem?LOCAL" Text="Draw object coordinate system" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\DevelopXYZIcon.png" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="4" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_DrawInModelCoordinatesPoints?LOCAL" Text="Coordinates points" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\DrawInModelCoordinatesPoints.png" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="3" Y="0" Width="3" Height="4" Text="Concrete" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\ConcreteMacrosesIcon.png" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_RebarSequenceNumbering?LOCAL" Text="Rebar sequence numbering" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\RebarSequenceNumberingIcons.png" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="6" Y="0" Width="3" Height="4" Text="Steel" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\SteelMacrosesIcon.png" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_MainPartByWeight?LOCAL" Text="Main part by weight" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\MainPartByWeightIcons.png" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_ContourWeldByProfileBeam?LOCAL" Text="Contour Weld" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\ContourWeld.png" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="9" Y="0" Width="3" Height="4" Text="Edit" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\EditMacrosesIcon.png" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_PointsReverse?LOCAL" Text="Points reverse" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\PointsReverseMacro.png" ShowText="true" ShowIcon="true" />
+      <SimpleButton X="0" Y="2" Width="8" Height="2" Command="Macro.CatalogMacroModelingItem?sm_RoundingCoordinates?LOCAL" Text="Rouding points" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\RoudingPoints.png" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+    <DropdownButton X="12" Y="0" Width="3" Height="4" Text="ML" Icon="C:\ProgramData\SmartPlugins\MacrosesIcons\MLMacrosIcon.png" ShowText="true" ShowIcon="true">
+      <SimpleButton X="0" Y="0" Width="8" Height="2" Text="command:ShortText" Icon="command:BigIcon" ShowText="true" ShowIcon="true" />
+    </DropdownButton>
+  </Tab>
