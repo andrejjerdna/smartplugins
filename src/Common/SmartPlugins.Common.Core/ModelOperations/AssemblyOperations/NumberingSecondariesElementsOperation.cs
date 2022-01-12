@@ -21,6 +21,10 @@ namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
         }
 
         /// <inheritdoc/>
-        public void Run() => _assembly.NumberingSecondariesParts(_propertyName);
+        public void Run()
+        {
+            _assembly.SetMainPartByMaxWeight(_propertyName);
+            _assembly.NumberingSecondariesParts(_propertyName, "USER_FIELD_1");
+        }
     }
 }

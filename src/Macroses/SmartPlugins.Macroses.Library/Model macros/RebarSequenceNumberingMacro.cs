@@ -1,11 +1,12 @@
 ﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
+using SmartPlugins.Common.Core.ModelOperations.AssemblyOperations;
 using SmartPlugins.Common.TeklaLibrary.Entities;
 using System.Linq;
 using Tekla.Structures.Model;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     /// <summary>
     /// Rebar sequence numbering macro
@@ -36,21 +37,21 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesEN.GetAssemblies, false));
+            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesLibrary.GetAssemblies, false));
 
-            var reinforcements = _smartModel.GetAllObjects<Reinforcement>(true)
-                                        .Select(assembly => new SmartAssembly(assembly))
-                                        .ToList();
+            var castUnits = _smartModel.GetAllObjects<Assembly>(true)
+                                       .Select(assembly => new SmartCastUnit(assembly))
+                                       .ToList();
 
-            var totalCount = reinforcements.Count;
+            var totalCount = castUnits.Count;
             var count = 1;
 
-            foreach (var assembly in reinforcements)
+            foreach (var castUnit in castUnits)
             {
-                if (assembly == null)
+                if (castUnit == null)
                     continue;
 
-                var operation = new MainPartByMaxWeightOperation(assembly, TeklaProperties.Weight);
+                var operation = new RebarSequenceNumberingOperation(castUnit);
                 _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
 
                 _operationsRunner.AddOperation(operation);
@@ -61,10 +62,6 @@ namespace SmartPlugins.Macroses.Library
             _smartModel.CommitChanges();
 
             _operationsRunner.OperationsRunnerStop();
-
-
-            //_rebarNumerator.RefreshAllNumbers("REBAR_SEQ_NO");
-            //MessagesViewer.Show(MessagesEN.MacroComplete, MessageType.Info);
         }
     }
 }

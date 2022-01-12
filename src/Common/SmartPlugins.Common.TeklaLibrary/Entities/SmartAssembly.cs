@@ -7,7 +7,7 @@ using Tekla.Structures.Model;
 
 namespace SmartPlugins.Common.TeklaLibrary.Entities
 {
-    public sealed class SmartAssembly : SmartBaseObject, IAssembly
+    public class SmartAssembly : SmartBaseObject, IAssembly
     {
         private readonly Assembly _assembly;
 

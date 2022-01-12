@@ -25,11 +25,7 @@ namespace TestForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            Operation.RunMacro("RebarSeqNumbering.cs");
-            MessageBox.Show("!");
-
-
+            //Picker
         }
     }
 }

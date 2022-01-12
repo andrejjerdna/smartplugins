@@ -1,5 +1,5 @@
 ﻿using SmartPlugins.Common.Abstractions;
-using SmartPlugins.Common.Abstractions.Picker;
+using SmartPlugins.Common.Abstractions.Pickers;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
 using SmartPlugins.Common.Core.ModelOperations.AssemblyOperations;
@@ -8,7 +8,7 @@ using SmartPlugins.Common.TeklaLibrary.Entities;
 using System.Linq;
 using Tekla.Structures.Model;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     /// <summary>
     /// Main part by max weight in assembly
@@ -43,7 +43,7 @@ namespace SmartPlugins.Macroses.Library
         /// </summary>
         private void Macro()
         {
-            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesEN.GetAssemblies, false));
+            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesLibrary.GetAssemblies, false));
 
             var assemblies = _pickerObjects.GetSelectedObjects<Assembly>(true)
                                            .Select(assembly => new SmartAssembly(assembly))

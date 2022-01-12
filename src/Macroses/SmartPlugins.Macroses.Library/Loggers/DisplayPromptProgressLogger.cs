@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading;
 using Tekla.Structures.Model.Operations;
 
-namespace SmartPlugins.Macroses.Library.Loggers
+namespace SmartPlugins.Macros.Library.Loggers
 {
     public class DisplayPromptProgressLogger : IProgressLogger
     {

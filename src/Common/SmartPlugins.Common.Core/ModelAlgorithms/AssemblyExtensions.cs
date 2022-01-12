@@ -53,20 +53,29 @@ namespace SmartPlugins.Common.Core.ModelAlgorithms
             }
         }
 
-        public static void NumberingSecondariesParts(this IAssembly assembly, string propertyName)
+        /// <summary>
+        /// Numbering secondaries parts
+        /// </summary>
+        /// <param name="assembly"></param>
+        /// <param name="propertyName"></param>
+        /// <param name="userAttr"></param>
+        public static void NumberingSecondariesParts(this IAssembly assembly, string propertyName, string userAttr)
         {
-            var eer = assembly.GetSecondaries().Select(part => new { ppp = part.GetProperty<double>(propertyName), we = part })
-                .OrderByDescending(obj => obj.ppp).Select(obj => obj.we).ToList();
+            var secondariesPart = assembly.GetSecondaries()
+                                          .OrderByDescending(part => part.GetProperty<double>(propertyName))
+                                          .ToList();
 
-            assembly.GetMainPart().SetProperty("USER_FIELD_1", 1);
+            assembly.GetMainPart().SetProperty(userAttr, 1);
 
             var count = 2;
 
-            foreach (var ee in eer)
+            foreach (var ee in secondariesPart)
             {
-                ee.SetProperty("USER_FIELD_1", count);
+                ee.SetProperty(userAttr, count);
                 count++;
             }
+
+            assembly.Modify();
         }
     }
 }

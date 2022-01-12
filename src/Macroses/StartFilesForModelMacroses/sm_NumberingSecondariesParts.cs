@@ -8,7 +8,7 @@ namespace Tekla.Technology.Akit.UserScript
         public static void Run(Tekla.Technology.Akit.IScript akit)
         {
             new SmartPlugins.Macros.Library.MacroLauncher()
-                .MacroRunOnce<SmartPlugins.Macros.Library.PointsReverseMacro>();
+                .MacroRunOnce<SmartPlugins.Macros.Library.NumberingSecondariesPartsMacro>();
         }
     }
 }

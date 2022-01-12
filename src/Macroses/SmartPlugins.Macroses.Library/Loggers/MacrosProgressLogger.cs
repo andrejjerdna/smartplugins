@@ -1,13 +1,14 @@
 ﻿using SmartPlugins.Common.Abstractions;
+using SmartPlugins.Common.Core;
 using System;
 using System.Threading;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     /// <summary>
-    /// Macroses progress logger
+    /// Macros progress logger
     /// </summary>
-    public class MacrosesProgressLogger : IProgressLogger, IDisposable
+    public class MacrosProgressLogger : IProgressLogger, IDisposable
     {
         private readonly MacroProgressBar _progressBar;
         private CancellationTokenSource _cancellationTokenSource;
@@ -15,7 +16,7 @@ namespace SmartPlugins.Macroses.Library
         /// <summary>
         /// .ctor
         /// </summary>
-        public MacrosesProgressLogger()
+        public MacrosProgressLogger()
         {
             _progressBar = MacroProgressBar.GetMacroProgressBar();
             _cancellationTokenSource = new CancellationTokenSource();
@@ -34,6 +35,9 @@ namespace SmartPlugins.Macroses.Library
                 status = progressState.Message;
             else
                 progress = 100 * progressState.CurrentValue / progressState.TotalCount;
+
+            if (progressState.TotalCount == progressState.CurrentValue && string.IsNullOrWhiteSpace(progressState.Message))
+                status = MessagesLibrary.JustMoment;
 
             _progressBar.SetProgress(status, progress);
 

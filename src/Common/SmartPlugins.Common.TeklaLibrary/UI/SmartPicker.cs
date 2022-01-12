@@ -2,7 +2,6 @@
 using SmartPlugins.Common.TeklaLibrary.Extensions;
 using System.Collections.Generic;
 using Tekla.Structures.Model.UI;
-using Tekla.Structures.Model;
 
 namespace SmartPlugins.Common.TeklaLibrary
 {

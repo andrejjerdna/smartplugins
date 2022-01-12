@@ -11,14 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{E112
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Plugins.ConcreteFoundationPlugin", "Plugins\WpfPluginTemplate\SmartPlugins.Plugins.ConcreteFoundationPlugin.csproj", "{6E80E672-D9A9-4EFF-9B1C-3B87BB6636DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Macroses", "Macroses", "{37634717-BDEB-440F-8B56-8D7AD9E5BA19}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Macros", "Macros", "{37634717-BDEB-440F-8B56-8D7AD9E5BA19}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModelMacroses", "ModelMacroses", "{A26429A5-5833-427B-B76B-F078DBA2F7E5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModelMacros", "ModelMacros", "{A26429A5-5833-427B-B76B-F078DBA2F7E5}"
 	ProjectSection(SolutionItems) = preProject
 		Macroses\ModelMacroses\FitByFace.cs = Macroses\ModelMacroses\FitByFace.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DrawingMacroses", "DrawingMacroses", "{5B0EBBD6-CB52-4B99-9878-A7870CDC94CB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DrawingMacros", "DrawingMacros", "{5B0EBBD6-CB52-4B99-9878-A7870CDC94CB}"
 	ProjectSection(SolutionItems) = preProject
 		Macroses\DrawingMacroses\DeleteUserDimensions.cs = Macroses\DrawingMacroses\DeleteUserDimensions.cs
 		Macroses\DrawingMacroses\DimensionsAdditionalRebarGroup.cs = Macroses\DrawingMacroses\DimensionsAdditionalRebarGroup.cs
@@ -52,19 +52,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commercial", "Commercial", 
 		Macroses\ModelMacroses\Commercial\sp_CopyParametersRebarSets.cs = Macroses\ModelMacroses\Commercial\sp_CopyParametersRebarSets.cs
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMacroses", "Macroses\SmartMacroses\SmartMacroses.csproj", "{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Macros.Library", "Macroses\SmartPlugins.Macroses.Library\SmartPlugins.Macros.Library.csproj", "{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartPlugins.Macroses.Library", "Macroses\SmartPlugins.Macroses.Library\SmartPlugins.Macroses.Library.csproj", "{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForDrawingMacroses", "StartFilesForDrawingMacroses", "{ECF7FDB2-B0E4-4689-9816-ABC55F54FAF4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForDrawingMacros", "StartFilesForDrawingMacros", "{ECF7FDB2-B0E4-4689-9816-ABC55F54FAF4}"
 	ProjectSection(SolutionItems) = preProject
 		sm_EmbededMark.cs = sm_EmbededMark.cs
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacroses", "StartFilesForModelMacroses", "{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartFilesForModelMacros", "StartFilesForModelMacros", "{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}"
 	ProjectSection(SolutionItems) = preProject
 		Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs = Macroses\StartFilesForModelMacroses\sm_DrawObjectCoordinateSystem.cs
 		Macroses\StartFilesForModelMacroses\sm_MainPartByWeight.cs = Macroses\StartFilesForModelMacroses\sm_MainPartByWeight.cs
+		Macroses\StartFilesForModelMacroses\sm_NumberingSecondariesParts.cs = Macroses\StartFilesForModelMacroses\sm_NumberingSecondariesParts.cs
 		Macroses\StartFilesForModelMacroses\sm_PointsReverse.cs = Macroses\StartFilesForModelMacroses\sm_PointsReverse.cs
 		Macroses\StartFilesForModelMacroses\sm_RebarSequenceNumbering.cs = Macroses\StartFilesForModelMacroses\sm_RebarSequenceNumbering.cs
 	EndProjectSection
@@ -100,6 +99,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "Tests\TestForm\TestForm.csproj", "{6FE53043-86A3-40F9-8FA3-C6785DC1BA2B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commercial macros", "Commercial macros", "{54D17764-6E36-4D51-851D-BF3AC1EF675F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TsepBuilder", "Macroses\TsepBuilder\TsepBuilder.csproj", "{48888D36-A475-4FBA-876D-7AB398216CE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,18 +184,6 @@ Global
 		{6FDA3F9D-96D4-4A65-B303-79B6C2313778}.Release|x64.Build.0 = Release|Any CPU
 		{6FDA3F9D-96D4-4A65-B303-79B6C2313778}.Release|x86.ActiveCfg = Release|Any CPU
 		{6FDA3F9D-96D4-4A65-B303-79B6C2313778}.Release|x86.Build.0 = Release|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Debug|x64.Build.0 = Debug|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Debug|x86.Build.0 = Debug|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Release|x64.ActiveCfg = Release|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Release|x64.Build.0 = Release|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Release|x86.ActiveCfg = Release|Any CPU
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C}.Release|x86.Build.0 = Release|Any CPU
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -303,6 +292,18 @@ Global
 		{6FE53043-86A3-40F9-8FA3-C6785DC1BA2B}.Release|x64.Build.0 = Release|Any CPU
 		{6FE53043-86A3-40F9-8FA3-C6785DC1BA2B}.Release|x86.ActiveCfg = Release|Any CPU
 		{6FE53043-86A3-40F9-8FA3-C6785DC1BA2B}.Release|x86.Build.0 = Release|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Debug|x64.Build.0 = Debug|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Debug|x86.Build.0 = Debug|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Release|x64.ActiveCfg = Release|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Release|x64.Build.0 = Release|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Release|x86.ActiveCfg = Release|Any CPU
+		{48888D36-A475-4FBA-876D-7AB398216CE0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -319,7 +320,6 @@ Global
 		{BFDBE2AA-3699-4F35-854D-D717BCF34D44} = {AAFBDA78-1CB3-4911-B1F6-E9D95C6BFC95}
 		{6FDA3F9D-96D4-4A65-B303-79B6C2313778} = {AAFBDA78-1CB3-4911-B1F6-E9D95C6BFC95}
 		{D5B01E5F-E92F-4E85-8D39-25A4250D25CE} = {A26429A5-5833-427B-B76B-F078DBA2F7E5}
-		{B28DF8F7-0F7E-4BD1-8E33-FF4C51E4341C} = {A26429A5-5833-427B-B76B-F078DBA2F7E5}
 		{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0} = {37634717-BDEB-440F-8B56-8D7AD9E5BA19}
 		{ECF7FDB2-B0E4-4689-9816-ABC55F54FAF4} = {37634717-BDEB-440F-8B56-8D7AD9E5BA19}
 		{AD8E4897-E76E-4501-ADCB-18B12A0CE6B6} = {37634717-BDEB-440F-8B56-8D7AD9E5BA19}
@@ -336,6 +336,7 @@ Global
 		{61CBE563-B85F-4243-9134-B8ECBBD0D04E} = {AAFBDA78-1CB3-4911-B1F6-E9D95C6BFC95}
 		{6FE53043-86A3-40F9-8FA3-C6785DC1BA2B} = {7AACD3EB-001B-414F-816A-7E910B274F37}
 		{54D17764-6E36-4D51-851D-BF3AC1EF675F} = {AD8E4897-E76E-4501-ADCB-18B12A0CE6B6}
+		{48888D36-A475-4FBA-876D-7AB398216CE0} = {37634717-BDEB-440F-8B56-8D7AD9E5BA19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {222F9562-8D52-49E0-B40F-C0AFE623D6C2}

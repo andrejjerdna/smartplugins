@@ -4,7 +4,7 @@ using SmartPlugins.Common.TeklaLibrary;
 using Tekla.Structures.Model;
 using Tekla.Structures.Model.UI;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     /// <summary>
     /// Draw object coordinate system macro

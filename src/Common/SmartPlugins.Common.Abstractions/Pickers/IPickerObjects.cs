@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SmartPlugins.Common.Abstractions.Picker
+namespace SmartPlugins.Common.Abstractions.Pickers
 {
     public interface IPickerObjects
     {

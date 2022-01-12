@@ -3,7 +3,7 @@ using SmartPlugins.Common.TeklaLibrary;
 using tsd = Tekla.Structures.Drawing;
 using tsg = Tekla.Structures.Geometry3d;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     public class EmbededMark : ITeklaMacro
     {

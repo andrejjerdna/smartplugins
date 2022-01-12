@@ -64,6 +64,7 @@
     <Compile Include="Drawings\Lines.cs" />
     <Compile Include="Entities\SmartAssembly.cs" />
     <Compile Include="Entities\SmartBaseObject.cs" />
+    <Compile Include="Entities\SmartCastUnit.cs" />
     <Compile Include="Entities\SmartPart.cs" />
     <Compile Include="Extensions\AssemblyExtension.cs" />
     <Compile Include="Extensions\BoltsExtensions.cs" />
@@ -90,7 +91,7 @@
     <Compile Include="Parts\DrawInModelCoordinatesPointsModelObject.cs" />
     <Compile Include="Parts\PartOperations.cs" />
     <Compile Include="Parts\RoundingCoordinatesPointsModelObject.cs" />
-    <Compile Include="Picker\PickerObjects.cs" />
+    <Compile Include="Pickers\PickerObjects.cs" />
     <Compile Include="Plugins\ConcretePluginBase.cs" />
     <Compile Include="Plugins\PluginDataBase.cs" />
     <Compile Include="Points\PointOperations.cs" />
@@ -109,7 +110,6 @@
     <Compile Include="SmartObjects\ConcreteParts\GroutUnderBasePlate.cs" />
     <Compile Include="SmartObjects\ConcreteParts\IConcrete.cs" />
     <Compile Include="SmartObjects\Drawings\DimensionsForRebarGroup.cs" />
-    <Compile Include="SmartObjects\SmartRebar.cs" />
     <Compile Include="SmartObjects\SteelParts\Frame_type1.cs" />
     <Compile Include="TeklaConnector.cs" />
     <Compile Include="TeklaProperties.cs" />

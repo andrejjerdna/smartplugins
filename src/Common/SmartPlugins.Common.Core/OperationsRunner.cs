@@ -1,6 +1,7 @@
 ﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Core.Exceptions;
 using System;
+using System.Collections.Concurrent;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
 
@@ -11,10 +12,14 @@ namespace SmartPlugins.Common.Core
         private readonly ISubject<IOperation> _statChange;
         private readonly IProgressLogger _progressLogger;
 
+        private ConcurrentBag<Task> _tasks;
+
         public OperationsRunner(IProgressLogger progressLogger)
         {
             _progressLogger = progressLogger;
             _statChange = new Subject<IOperation>();
+            _tasks = new ConcurrentBag<Task>();
+            
             _progressLogger.Open();
 
             _statChange.Subscribe(operation => RunOperationAsync(operation));
@@ -32,28 +37,32 @@ namespace SmartPlugins.Common.Core
 
         public void OperationsRunnerStop()
         {
+            Task.WhenAll(_tasks.ToArray());
+            
             _statChange.OnCompleted();
             _progressLogger.Close();
         }
 
-        private async void RunOperationAsync(IOperation operation)
+        private void RunOperationAsync(IOperation operation)
         {
-            await Task.Run(() =>
+            var task = Task.Run(() =>
             {
                 operation.Run();
 
                 if (_progressLogger.CancellationToken.IsCancellationRequested)
                     _statChange.OnCompleted();
             });
+
+            _tasks.Add(task);
         }
 
-        //TODO: Добавить возможность переключения на синхронный режим выполнения операций.
+        ///TODO: Add sync operations
         private void RunOperationSync(IOperation operation)
         {
             operation.Run();
 
             if (_progressLogger.CancellationToken.IsCancellationRequested)
-                _statChange.OnError(new RunMacroException(MessagesEN.MacroRunCanceled));
+                _statChange.OnError(new RunMacroException(MessagesLibrary.MacroRunCanceled));
         }
     }
 }

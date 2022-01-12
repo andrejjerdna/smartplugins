@@ -1,6 +1,6 @@
 ﻿using static Tekla.Structures.Model.Operations.Operation;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     /// <summary>
     /// Progress bar for macros.

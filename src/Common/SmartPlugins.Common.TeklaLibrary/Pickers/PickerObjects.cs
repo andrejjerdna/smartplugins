@@ -1,4 +1,4 @@
-﻿using SmartPlugins.Common.Abstractions.Picker;
+﻿using SmartPlugins.Common.Abstractions.Pickers;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartPlugins.Common.TeklaLibrary.Picker
+namespace SmartPlugins.Common.TeklaLibrary.Pickers
 {
     public class PickerObjects : IPickerObjects
     {
