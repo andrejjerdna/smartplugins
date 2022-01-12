@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using Tekla.Structures.Model;
+using tui = Tekla.Structures.Model.UI;
 
 namespace SmartPlugins.Common.TeklaLibrary
 {
@@ -33,6 +34,12 @@ namespace SmartPlugins.Common.TeklaLibrary
         public IEnumerable<T> GetAllObjects<T>(bool autoFetch)
         {
             return _teklaModel.GetAllObjects<T>(autoFetch);
+        }
+
+        public IEnumerable<T> GetSelectedObjects<T>()
+        {
+            return new tui.ModelObjectSelector().GetSelectedObjects()
+                                                .ToIEnumerable<T>();
         }
 
         public ConcurrentBag<T> GetAllObjectsConcurrent<T>(bool autoFetch)

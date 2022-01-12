@@ -4,7 +4,7 @@ using SmartPlugins.Common.TeklaLibrary.Messages;
 using System;
 using System.Threading;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     /// <summary>
     /// Error catcher
@@ -22,8 +22,8 @@ namespace SmartPlugins.Macroses.Library
         {
             try
             {
-                if (Mutex.TryOpenExisting(MessagesEN.MacroMutex, out _mutex))
-                    throw new RunMacroException(MessagesEN.MacroRunExeption);
+                if (Mutex.TryOpenExisting(MessagesLibrary.MacroMutex, out _mutex))
+                    throw new RunMacroException(MessagesLibrary.MacroRunExeption);
 
                 _progressBar = MacroProgressBar.GetMacroProgressBar();
 

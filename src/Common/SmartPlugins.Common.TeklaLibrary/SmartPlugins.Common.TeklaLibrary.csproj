@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationsProgressLogger.cs" />
-    <Compile Include="Assemblies\MainPartByWeight.cs" />
     <Compile Include="Assemblies\Operations\AssemblyOperations.cs" />
     <Compile Include="Catalogs\Catalogs.cs" />
     <Compile Include="CommonParameters\CommonConcreteParts.cs" />
@@ -63,6 +62,10 @@
     <Compile Include="CSLib\SetPlane.cs" />
     <Compile Include="Drawings\Colors.cs" />
     <Compile Include="Drawings\Lines.cs" />
+    <Compile Include="Entities\SmartAssembly.cs" />
+    <Compile Include="Entities\SmartBaseObject.cs" />
+    <Compile Include="Entities\SmartCastUnit.cs" />
+    <Compile Include="Entities\SmartPart.cs" />
     <Compile Include="Extensions\AssemblyExtension.cs" />
     <Compile Include="Extensions\BoltsExtensions.cs" />
     <Compile Include="Extensions\CollectionExtension.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="Parts\DrawInModelCoordinatesPointsModelObject.cs" />
     <Compile Include="Parts\PartOperations.cs" />
     <Compile Include="Parts\RoundingCoordinatesPointsModelObject.cs" />
+    <Compile Include="Pickers\PickerObjects.cs" />
     <Compile Include="Plugins\ConcretePluginBase.cs" />
     <Compile Include="Plugins\PluginDataBase.cs" />
     <Compile Include="Points\PointOperations.cs" />
@@ -106,7 +110,6 @@
     <Compile Include="SmartObjects\ConcreteParts\GroutUnderBasePlate.cs" />
     <Compile Include="SmartObjects\ConcreteParts\IConcrete.cs" />
     <Compile Include="SmartObjects\Drawings\DimensionsForRebarGroup.cs" />
-    <Compile Include="SmartObjects\SmartRebar.cs" />
     <Compile Include="SmartObjects\SteelParts\Frame_type1.cs" />
     <Compile Include="TeklaConnector.cs" />
     <Compile Include="TeklaProperties.cs" />
@@ -114,6 +117,7 @@
     <Compile Include="UI\SmartPicker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="NewFolder1\" />
     <Folder Include="Welds\" />
     <Folder Include="WpfPlugins\" />
   </ItemGroup>

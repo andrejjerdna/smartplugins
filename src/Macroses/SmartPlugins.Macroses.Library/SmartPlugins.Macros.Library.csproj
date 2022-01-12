@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5CE47EB0-8E97-4F82-B3F8-02E0FE30B3C0}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>SmartPlugins.Macros.Library</RootNamespace>
+    <AssemblyName>SmartPlugins.Macros.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProgramData>%SYSTEMDRIVE%\ProgramData\</ProgramData>
+    <CopyDllDir>$(ProgramData)Trimble\Tekla Structures\2020.0\Environments\common\macros\SmartPlugins\</CopyDllDir>
+    <CopyModelMacrosDir>$(ProgramData)Trimble\Tekla Structures\2020.0\Environments\common\macros\modeling</CopyModelMacrosDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Error\ErrorCatcher.cs" />
+    <Compile Include="Loggers\MacroProgressBar.cs" />
+    <Compile Include="Loggers\DisplayPromptProgressLogger.cs" />
+    <Compile Include="MacroLauncher.cs" />
+    <Compile Include="Model macros\DrawObjectCoordinateSystemMacro.cs" />
+    <Compile Include="Model macros\EmbededMark.cs" />
+    <Compile Include="IoC\MacrosContainerConfigure.cs" />
+    <Compile Include="Loggers\MacrosProgressLogger.cs" />
+    <Compile Include="Model macros\NumberingSecondariesPartsMacro.cs" />
+    <Compile Include="Model macros\MainPartByWeightMacro.cs" />
+    <Compile Include="Model macros\DrawInModelCoordinatesPointsMacro.cs" />
+    <Compile Include="Model macros\RoundingCoordinatesPointsMacro.cs" />
+    <Compile Include="Model macros\PointsReverseMacro.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Model macros\RebarSequenceNumberingMacro.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.Abstractions\SmartPlugins.Common.Abstractions.csproj">
+      <Project>{F02F7D09-E3F9-48ED-B39C-4B55B5D00E6B}</Project>
+      <Name>SmartPlugins.Common.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.Core\SmartPlugins.Common.Core.csproj">
+      <Project>{36479969-F7B4-4A22-93C5-7A41C62B5784}</Project>
+      <Name>SmartPlugins.Common.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.SmartWPFElements\SmartPlugins.Common.Controls.csproj">
+      <Project>{9D12B1DD-4A5E-4EAC-BC1D-543F339B6971}</Project>
+      <Name>SmartPlugins.Common.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SmartPlugins.Common.TeklaLibrary\SmartPlugins.Common.TeklaLibrary.csproj">
+      <Project>{0ea5b9c3-468c-4f3c-bba1-88864234058a}</Project>
+      <Name>SmartPlugins.Common.TeklaLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="TeklaOpenAPI">
+      <Version>2020.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Debug (
+      if not exist  "$(CopyDllDir)" mkdir  "$(CopyDllDir)"
+      copy /Y "$(TargetDir)*.*" "$(CopyDllDir)"
+if not exist  "$(CopyDllDir)" mkdir  "$(CopyDllDir)"
+      copy /Y "$(TargetDir)*.*" "$(CopyDllDir)")</PostBuildEvent>
+  </PropertyGroup>
+</Project>

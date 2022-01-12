@@ -77,7 +77,7 @@ namespace SmartPlugins.Common.TeklaLibrary
                 _progressLogger.UpdateState(new ProgressState(count, totalCount, "WriteUDAs...", false));
 
                 if (_parallelOptions.CancellationToken.IsCancellationRequested)
-                    throw new RunMacroException(MessagesEN.MacroRunCanceled);
+                    throw new RunMacroException(MessagesLibrary.MacroRunCanceled);
             });
         }
 
@@ -115,7 +115,7 @@ namespace SmartPlugins.Common.TeklaLibrary
                 _progressLogger.UpdateState(new ProgressState(count, totalCount, "Get reinforcement numbering items...", false));
 
                 if (_parallelOptions.CancellationToken.IsCancellationRequested)
-                    throw new RunMacroException(MessagesEN.MacroRunCanceled);
+                    throw new RunMacroException(MessagesLibrary.MacroRunCanceled);
             });
 
             return result;
@@ -146,7 +146,7 @@ namespace SmartPlugins.Common.TeklaLibrary
                 }
 
                 if (_parallelOptions.CancellationToken.IsCancellationRequested)
-                    throw new RunMacroException(MessagesEN.MacroRunCanceled);
+                    throw new RunMacroException(MessagesLibrary.MacroRunCanceled);
             }
 
             return rebarsGroups.SelectMany(gr => gr).SelectMany(gr => gr).Select(r => r);

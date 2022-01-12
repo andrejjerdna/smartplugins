@@ -1,13 +1,13 @@
 ﻿using SmartPlugins.Common.Abstractions;
 
-namespace SmartPlugins.Macroses.Library
+namespace SmartPlugins.Macros.Library
 {
     /// <summary>
     /// Macro launcher
     /// </summary>
     public class MacroLauncher
     {
-        private MacrosesContainerConfigure _container = MacrosesContainerConfigure.GetContainer();
+        private MacrosContainerConfigure _container = MacrosContainerConfigure.GetContainer();
 
         /// <summary>
         /// Macro in once run mode
