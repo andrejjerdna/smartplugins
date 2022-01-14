@@ -1,10 +1,9 @@
 ﻿using SmartPlugins.Common.Abstractions.ModelObjects;
-using System;
 using Tekla.Structures.Model;
 
 namespace SmartPlugins.Common.TeklaLibrary.Entities
 {
-    public sealed class SmartPart : SmartBaseObject, IPart
+    public class SmartPart : SmartBaseObject, IPart
     {
         private readonly Part _part;
 

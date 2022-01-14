@@ -64,8 +64,11 @@
     <Compile Include="Drawings\Lines.cs" />
     <Compile Include="Entities\SmartAssembly.cs" />
     <Compile Include="Entities\SmartBaseObject.cs" />
+    <Compile Include="Entities\SmartBeam.cs" />
     <Compile Include="Entities\SmartCastUnit.cs" />
     <Compile Include="Entities\SmartPart.cs" />
+    <Compile Include="Entities\SmartPoint.cs" />
+    <Compile Include="Entities\SmartPolyBeam.cs" />
     <Compile Include="Extensions\AssemblyExtension.cs" />
     <Compile Include="Extensions\BoltsExtensions.cs" />
     <Compile Include="Extensions\CollectionExtension.cs" />

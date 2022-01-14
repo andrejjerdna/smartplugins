@@ -1,6 +1,6 @@
 ﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.ModelObjects;
-using SmartPlugins.Common.Core.ModelAlgorithms;
+using SmartPlugins.Common.Core.Model;
 
 namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
 {

@@ -1,7 +1,7 @@
 ﻿using SmartPlugins.Common.Abstractions.ModelObjects;
 using System.Linq;
 
-namespace SmartPlugins.Common.Core.ModelAlgorithms
+namespace SmartPlugins.Common.Core.Model
 {
     internal class CastUnitReinforcementNumbering
     {

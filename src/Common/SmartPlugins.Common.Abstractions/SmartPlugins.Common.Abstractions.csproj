@@ -47,6 +47,7 @@
     <Compile Include="Geometry\IAssemblyOperations.cs" />
     <Compile Include="Geometry\IPartOperations.cs" />
     <Compile Include="Geometry\IPointOperations.cs" />
+    <Compile Include="IModelObjectCreator.cs" />
     <Compile Include="IOperation.cs" />
     <Compile Include="IOperationBuilder.cs" />
     <Compile Include="IOperationsRunner.cs" />
@@ -67,7 +68,10 @@
     <Compile Include="Pickers\IPickerObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\ITaskFactory.cs" />
+    <Compile Include="ModelObjects\IBeam.cs" />
     <Compile Include="TeklaStructures\IDrawInTeklaModel.cs" />
+    <Compile Include="ModelObjects\IPoint.cs" />
+    <Compile Include="ModelObjects\IPolyBeam.cs" />
     <Compile Include="TeklaStructures\IRebarNumerator.cs" />
     <Compile Include="ModelObjects\IReinforcement.cs" />
     <Compile Include="TeklaStructures\ISmartModel.cs" />
