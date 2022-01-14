@@ -61,17 +61,21 @@ namespace SmartPlugins.Common.Core.ModelAlgorithms
         /// <param name="userAttr"></param>
         public static void NumberingSecondariesParts(this IAssembly assembly, string propertyName, string userAttr)
         {
-            var secondariesPart = assembly.GetSecondaries()
-                                          .OrderByDescending(part => part.GetProperty<double>(propertyName))
+            //TODO: Убрать жесткую привязку к PART_POS
+            var secondariesPartGroups = assembly.GetSecondaries()
+                                          .GroupBy(part => part.GetProperty<string>("PART_POS"))
+                                          .OrderByDescending(part => part.First().GetProperty<double>(propertyName))
                                           .ToList();
 
             assembly.GetMainPart().SetProperty(userAttr, 1);
 
             var count = 2;
 
-            foreach (var ee in secondariesPart)
+            foreach (var secondariesPartGroup in secondariesPartGroups)
             {
-                ee.SetProperty(userAttr, count);
+                foreach(var part in secondariesPartGroup)
+                    part.SetProperty(userAttr, count);
+
                 count++;
             }
 
