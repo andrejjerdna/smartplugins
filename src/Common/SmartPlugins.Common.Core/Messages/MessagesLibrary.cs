@@ -10,6 +10,8 @@
         public const string MacroComplete = "Macro Complete!";
 
         public const string GetAssemblies = "Get assemblies...";
+        public const string GetModelObjects = "Get model objects...";
+        public const string GetParts = "Get parts...";
         public const string WriteUDAs = "WriteUDAs...";
 
 
