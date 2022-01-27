@@ -54,9 +54,11 @@
     <Compile Include="Messages\MessagesViewer.cs" />
     <Compile Include="ModelAlgorithms\AssemblyExtensions.cs" />
     <Compile Include="ModelAlgorithms\CastUnitReinforcementNumbering.cs" />
+    <Compile Include="ModelAlgorithms\PartExtensions.cs" />
     <Compile Include="ModelOperations\AssemblyOperations\MainPartByMaxWeightOperation.cs" />
     <Compile Include="ModelOperations\AssemblyOperations\NumberingSecondariesElementsOperation.cs" />
     <Compile Include="ModelOperations\AssemblyOperations\RebarSequenceNumberingOperation.cs" />
+    <Compile Include="ModelOperations\PartOperations\PartChangeClassOperation.cs" />
     <Compile Include="ModelOperations\RebarOperations\RebarNumbering.cs" />
     <Compile Include="OperationBuilder.cs" />
     <Compile Include="ProgressBarViewModelBase.cs" />

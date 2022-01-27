@@ -5,6 +5,7 @@ using SmartPlugins.Common.Core;
 using SmartPlugins.Common.Core.ModelOperations.AssemblyOperations;
 using SmartPlugins.Common.TeklaLibrary;
 using SmartPlugins.Common.TeklaLibrary.Entities;
+using SmartPlugins.Common.Core.ModelOperations.PartOperations;
 
 using System.Linq;
 
@@ -50,16 +51,14 @@ namespace SmartPlugins.Macros.Library.Model_macros
             var totalCount = parts.Count;
             var count = 1;
 
-            foreach (var assembly in parts)
+            foreach (var part in parts)
             {
-                if (assembly == null)
+                if (part == null) 
                     continue;
-
-                var operation = new MainPartByMaxWeightOperation(parts, TeklaProperties.Weight);
+                //to do this
+                var operation = new PartChangeClassOperation(part, "");
                 _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
-
                 _operationsRunner.AddOperation(operation);
-
                 count++;
             }
 
