@@ -59,7 +59,7 @@
     <Compile Include="Loggers\MacroProgressBar.cs" />
     <Compile Include="Loggers\DisplayPromptProgressLogger.cs" />
     <Compile Include="MacroLauncher.cs" />
-    <Compile Include="Model macros\Class1.cs" />
+    <Compile Include="Model macros\PartChangeClassMacro.cs" />
     <Compile Include="Model macros\DrawObjectCoordinateSystemMacro.cs" />
     <Compile Include="Model macros\EmbededMark.cs" />
     <Compile Include="IoC\MacrosContainerConfigure.cs" />
