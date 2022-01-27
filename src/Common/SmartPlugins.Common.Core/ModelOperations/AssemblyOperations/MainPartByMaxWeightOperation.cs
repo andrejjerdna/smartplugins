@@ -1,6 +1,9 @@
 ﻿using SmartPlugins.Common.Abstractions;
 using SmartPlugins.Common.Abstractions.ModelObjects;
+using SmartPlugins.Common.Abstractions.Pickers;
+using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core.ModelAlgorithms;
+using System.Linq;
 
 namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
 {
@@ -9,7 +12,9 @@ namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
     /// </summary>
     public class MainPartByMaxWeightOperation : IOperation
     {
-        private readonly IAssembly _assembly;
+        private readonly ISmartModel _smartModel;
+        private readonly IPickerObjects _pickerObjects;
+        private readonly IOperationsRunner _operationsRunner;
         private readonly string _propertyName;
 
         /// <summary>
@@ -17,13 +22,45 @@ namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
         /// </summary>
         /// <param name="assembly"></param>
         /// <param name="propertyName"></param>
-        public MainPartByMaxWeightOperation(IAssembly assembly, string propertyName)
+        public MainPartByMaxWeightOperation(ISmartModel smartModel,
+                                     IPickerObjects pickerObjects,
+                                     IOperationsRunner operationsRunner,
+                                     string propertyName)
         {
-            _assembly = assembly;
+            _smartModel = smartModel;
+            _pickerObjects = pickerObjects;
+            _operationsRunner = operationsRunner;
             _propertyName = propertyName;
         }
 
         /// <inheritdoc/>
-        public void Run() => _assembly.SetMainPartByMaxWeight(_propertyName);
+        public void Run()
+        {
+            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesLibrary.GetAssemblies, false));
+
+            var assemblies = _pickerObjects.GetSelectedObjectsAssembly(true).ToList();
+
+            var totalCount = assemblies.Count;
+            var count = 1;
+
+            foreach (var assembly in assemblies)
+            {
+                if (assembly == null)
+                    continue;
+
+                assembly.SetMainPartByMaxWeight(_propertyName);
+
+                _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
+
+                _operationsRunner.AddOperation(() => assembly.SetMainPartByMaxWeight(_propertyName));
+
+                count++;
+            }
+
+            _smartModel.CommitChanges();
+
+            _operationsRunner.OperationsRunnerStop();
+
+        }
     }
 }

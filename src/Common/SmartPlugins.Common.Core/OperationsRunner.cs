@@ -9,7 +9,7 @@ namespace SmartPlugins.Common.Core
 {
     public class OperationsRunner : IOperationsRunner
     {
-        private readonly ISubject<IOperation> _statChange;
+        private readonly ISubject<Action> _statChange;
         private readonly IProgressLogger _progressLogger;
 
         private ConcurrentBag<Task> _tasks;
@@ -17,7 +17,7 @@ namespace SmartPlugins.Common.Core
         public OperationsRunner(IProgressLogger progressLogger)
         {
             _progressLogger = progressLogger;
-            _statChange = new Subject<IOperation>();
+            _statChange = new Subject<Action>();
             _tasks = new ConcurrentBag<Task>();
             
             _progressLogger.Open();
@@ -25,7 +25,7 @@ namespace SmartPlugins.Common.Core
             _statChange.Subscribe(operation => RunOperationAsync(operation));
         }
 
-        public void AddOperation(IOperation operation)
+        public void AddOperation(Action operation)
         {
             _statChange.OnNext(operation);
         }
@@ -43,11 +43,11 @@ namespace SmartPlugins.Common.Core
             _progressLogger.Close();
         }
 
-        private void RunOperationAsync(IOperation operation)
+        private void RunOperationAsync(Action operation)
         {
             var task = Task.Run(() =>
             {
-                operation.Run();
+                operation.Invoke();
 
                 if (_progressLogger.CancellationToken.IsCancellationRequested)
                     _statChange.OnCompleted();

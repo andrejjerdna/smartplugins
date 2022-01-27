@@ -22,8 +22,8 @@ namespace SmartPlugins.Macros.Library
         /// <summary>
         /// .ctor
         /// </summary>
-        public MainPartByWeightMacro(ISmartModel smartModel, 
-                                     IPickerObjects pickerObjects, 
+        public MainPartByWeightMacro(ISmartModel smartModel,
+                                     IPickerObjects pickerObjects,
                                      IOperationsRunner operationsRunner)
         {
             _smartModel = smartModel;
@@ -42,31 +42,8 @@ namespace SmartPlugins.Macros.Library
         /// </summary>
         private void Macro()
         {
-            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesLibrary.GetAssemblies, false));
-
-            var assemblies = _pickerObjects.GetSelectedObjects<Assembly>(true)
-                                           .Select(assembly => new SmartAssembly(assembly))
-                                           .ToList();
-
-            var totalCount = assemblies.Count;
-            var count = 1;
-
-            foreach(var assembly in assemblies)
-            {
-                if (assembly == null)
-                    continue;
-
-                var operation = new MainPartByMaxWeightOperation(assembly, TeklaProperties.Weight);
-                _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
-
-                _operationsRunner.AddOperation(operation);
-
-                count++;
-            }
-
-            _smartModel.CommitChanges();
-
-            _operationsRunner.OperationsRunnerStop();
+            var operation = new MainPartByMaxWeightOperation(_smartModel, _pickerObjects, _operationsRunner, TeklaProperties.Weight);
+            operation.Run();
         }
     }
 }
