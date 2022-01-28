@@ -1,6 +1,6 @@
 ﻿namespace SmartPlugins.Common.Core
 {
-    public static class MessagesLibrary
+    public struct MessagesLibrary
     {
         //Mutex names
         public const string MacroMutex = "SmartMacro";
@@ -13,7 +13,6 @@
         public const string GetModelObjects = "Get model objects...";
         public const string GetParts = "Get parts...";
         public const string WriteUDAs = "WriteUDAs...";
-
 
         public const string JustMoment = "Just a moment...";
     }

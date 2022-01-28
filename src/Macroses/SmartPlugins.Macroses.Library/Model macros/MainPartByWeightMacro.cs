@@ -15,22 +15,7 @@ namespace SmartPlugins.Macros.Library
     /// </summary>
     public class MainPartByWeightMacro : ITeklaMacro
     {
-        private readonly ISmartModel _smartModel;
-        private readonly IPickerObjects _pickerObjects;
-        private readonly IOperationsRunner _operationsRunner;
-
-        /// <summary>
-        /// .ctor
-        /// </summary>
-        public MainPartByWeightMacro(ISmartModel smartModel, 
-                                     IPickerObjects pickerObjects, 
-                                     IOperationsRunner operationsRunner)
-        {
-            _smartModel = smartModel;
-            _pickerObjects = pickerObjects;
-            _operationsRunner = operationsRunner;
-        }
-
+        private readonly ContainerConfigureBase _container = MacrosContainerConfigure.GetContainer();
         /// <inheritdoc/>
         public void RunLoop() => ErrorCatcher.Try(() => { throw new System.NotImplementedException(); });
 
@@ -42,31 +27,7 @@ namespace SmartPlugins.Macros.Library
         /// </summary>
         private void Macro()
         {
-            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesLibrary.GetAssemblies, false));
-
-            var assemblies = _pickerObjects.GetSelectedObjects<Assembly>(true)
-                                           .Select(assembly => new SmartAssembly(assembly))
-                                           .ToList();
-
-            var totalCount = assemblies.Count;
-            var count = 1;
-
-            foreach(var assembly in assemblies)
-            {
-                if (assembly == null)
-                    continue;
-
-                var operation = new MainPartByMaxWeightOperation(assembly, TeklaProperties.Weight);
-                _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
-
-                _operationsRunner.AddOperation(operation);
-
-                count++;
-            }
-
-            _smartModel.CommitChanges();
-
-            _operationsRunner.OperationsRunnerStop();
+            new OperationLauncher(_container).Run<MainPartByMaxWeightOperation>();
         }
     }
 }

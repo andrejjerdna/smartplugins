@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SmartPlugins.Common.Abstractions.ModelObjects;
+using System.Collections.Generic;
 
 namespace SmartPlugins.Common.Abstractions.Pickers
 {
@@ -11,5 +12,7 @@ namespace SmartPlugins.Common.Abstractions.Pickers
         /// <param name="getAllObjects">Get all objects if no objects are selected</param>
         /// <returns></returns>
         IEnumerable<T> GetSelectedObjects<T>(bool getAllObjects);
+
+        IEnumerable<IAssembly> GetSelectedObjectsAssembly(bool getAllObjects);
     }
 }

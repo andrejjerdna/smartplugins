@@ -43,31 +43,31 @@ namespace SmartPlugins.Macros.Library
         /// </summary>
         private void Macro()
         {
-            _operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesLibrary.GetAssemblies, false));
+            //_operationsRunner.SetProgressState(new ProgressState(0, 0, MessagesLibrary.GetAssemblies, false));
 
-            var assemblies = _pickerObjects.GetSelectedObjects<Assembly>(true)
-                                           .Select(assembly => new SmartAssembly(assembly))
-                                           .ToList();
+            //var assemblies = _pickerObjects.GetSelectedObjectsAssembly<Assembly>(true)
+            //                               .Select(assembly => new SmartAssembly(assembly))
+            //                               .ToList();
 
-            var totalCount = assemblies.Count;
-            var count = 1;
+            //var totalCount = assemblies.Count;
+            //var count = 1;
 
-            foreach(var assembly in assemblies)
-            {
-                if (assembly == null)
-                    continue;
+            //foreach(var assembly in assemblies)
+            //{
+            //    if (assembly == null)
+            //        continue;
 
-                var operation = new NumberingSecondariesElementsOperation(assembly, TeklaProperties.Weight);
-                _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
+            //    var operation = new NumberingSecondariesElementsOperation(assembly, TeklaProperties.Weight);
+            //    _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
 
-                _operationsRunner.AddOperation(operation);
+            //    //_operationsRunner.AddOperation(operation);
 
-                count++;
-            }
+            //    count++;
+            //}
 
-            _smartModel.CommitChanges();
+            //_smartModel.CommitChanges();
 
-            _operationsRunner.OperationsRunnerStop();
+            //_operationsRunner.OperationsRunnerStop();
         }
     }
 }

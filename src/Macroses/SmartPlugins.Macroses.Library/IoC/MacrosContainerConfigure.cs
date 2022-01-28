@@ -3,6 +3,7 @@ using SmartPlugins.Common.Abstractions.Geometry;
 using SmartPlugins.Common.Abstractions.Pickers;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
 using SmartPlugins.Common.Core;
+using SmartPlugins.Common.Core.ModelOperations.AssemblyOperations;
 using SmartPlugins.Common.TeklaLibrary;
 using SmartPlugins.Common.TeklaLibrary.Assemblies;
 using SmartPlugins.Common.TeklaLibrary.Parts;
@@ -67,6 +68,12 @@ namespace SmartPlugins.Macros.Library
             RegisterType<RoundingCoordinatesPointsMacro>();
             RegisterType<DrawInModelCoordinatesPointsMacro>();
             RegisterType<NumberingSecondariesPartsMacro>();
+
+            #endregion
+
+            #region Operations
+
+            RegisterType<MainPartByMaxWeightOperation>();
 
             #endregion
         }

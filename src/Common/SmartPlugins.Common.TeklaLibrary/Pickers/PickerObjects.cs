@@ -1,10 +1,13 @@
-﻿using SmartPlugins.Common.Abstractions.Pickers;
+﻿using SmartPlugins.Common.Abstractions.ModelObjects;
+using SmartPlugins.Common.Abstractions.Pickers;
 using SmartPlugins.Common.Abstractions.TeklaStructures;
+using SmartPlugins.Common.TeklaLibrary.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tekla.Structures.Model;
 
 namespace SmartPlugins.Common.TeklaLibrary.Pickers
 {
@@ -15,6 +18,11 @@ namespace SmartPlugins.Common.TeklaLibrary.Pickers
         public PickerObjects(ISmartModel smartModel)
         {
             _smartModel = smartModel;
+        }
+
+        public IEnumerable<IAssembly> GetSelectedObjectsAssembly(bool getAllObjects)
+        {
+            return GetSelectedObjects<Assembly>(getAllObjects).Select(a => new SmartAssembly(a));
         }
 
         public IEnumerable<T> GetSelectedObjects<T>(bool getAllObjects)

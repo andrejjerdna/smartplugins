@@ -54,7 +54,7 @@ namespace SmartPlugins.Macros.Library
                 var operation = new RebarSequenceNumberingOperation(castUnit);
                 _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
 
-                _operationsRunner.AddOperation(operation);
+               // _operationsRunner.AddOperation(operation);
 
                 count++;
             }
