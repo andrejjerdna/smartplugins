@@ -3,6 +3,7 @@ using SmartPlugins.Common.Core.Exceptions;
 using System;
 using System.Collections.Concurrent;
 using System.Reactive.Subjects;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SmartPlugins.Common.Core
@@ -11,6 +12,7 @@ namespace SmartPlugins.Common.Core
     {
         private readonly ISubject<Action> _statChange;
         private readonly IProgressLogger _progressLogger;
+        public CancellationToken CancellationToken { get; private set; }
 
         private ConcurrentBag<Task> _tasks;
 
@@ -19,7 +21,8 @@ namespace SmartPlugins.Common.Core
             _progressLogger = progressLogger;
             _statChange = new Subject<Action>();
             _tasks = new ConcurrentBag<Task>();
-            
+            CancellationToken = _progressLogger.CancellationToken;
+
             _progressLogger.Open();
 
             _statChange.Subscribe(operation => RunOperationAsync(operation));
@@ -45,13 +48,7 @@ namespace SmartPlugins.Common.Core
 
         private void RunOperationAsync(Action operation)
         {
-            var task = Task.Run(() =>
-            {
-                operation.Invoke();
-
-                if (_progressLogger.CancellationToken.IsCancellationRequested)
-                    _statChange.OnCompleted();
-            });
+            var task = Task.Run(() => operation, _progressLogger.CancellationToken);
 
             _tasks.Add(task);
         }

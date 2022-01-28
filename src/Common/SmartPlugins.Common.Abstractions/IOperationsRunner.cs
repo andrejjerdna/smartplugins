@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace SmartPlugins.Common.Abstractions
 {
@@ -9,5 +10,7 @@ namespace SmartPlugins.Common.Abstractions
         void SetProgressState(IProgressState progressState);
 
         void OperationsRunnerStop();
+
+        CancellationToken CancellationToken { get; }
     }
 }
