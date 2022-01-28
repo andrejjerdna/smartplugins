@@ -15,22 +15,7 @@ namespace SmartPlugins.Macros.Library
     /// </summary>
     public class MainPartByWeightMacro : ITeklaMacro
     {
-        private readonly ISmartModel _smartModel;
-        private readonly IPickerObjects _pickerObjects;
-        private readonly IOperationsRunner _operationsRunner;
-
-        /// <summary>
-        /// .ctor
-        /// </summary>
-        public MainPartByWeightMacro(ISmartModel smartModel,
-                                     IPickerObjects pickerObjects,
-                                     IOperationsRunner operationsRunner)
-        {
-            _smartModel = smartModel;
-            _pickerObjects = pickerObjects;
-            _operationsRunner = operationsRunner;
-        }
-
+        private readonly ContainerConfigureBase _container = MacrosContainerConfigure.GetContainer();
         /// <inheritdoc/>
         public void RunLoop() => ErrorCatcher.Try(() => { throw new System.NotImplementedException(); });
 
@@ -42,8 +27,7 @@ namespace SmartPlugins.Macros.Library
         /// </summary>
         private void Macro()
         {
-            var operation = new MainPartByMaxWeightOperation(_smartModel, _pickerObjects, _operationsRunner, TeklaProperties.Weight);
-            operation.Run();
+            new OperationLauncher(_container).Run<MainPartByMaxWeightOperation>();
         }
     }
 }

@@ -15,22 +15,19 @@ namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
         private readonly ISmartModel _smartModel;
         private readonly IPickerObjects _pickerObjects;
         private readonly IOperationsRunner _operationsRunner;
-        private readonly string _propertyName;
+        private readonly string _propertyName = "eee";
 
         /// <summary>
         /// .ctor
         /// </summary>
-        /// <param name="assembly"></param>
         /// <param name="propertyName"></param>
         public MainPartByMaxWeightOperation(ISmartModel smartModel,
-                                     IPickerObjects pickerObjects,
-                                     IOperationsRunner operationsRunner,
-                                     string propertyName)
+                                            IPickerObjects pickerObjects,
+                                            IOperationsRunner operationsRunner)
         {
             _smartModel = smartModel;
             _pickerObjects = pickerObjects;
             _operationsRunner = operationsRunner;
-            _propertyName = propertyName;
         }
 
         /// <inheritdoc/>
@@ -48,19 +45,23 @@ namespace SmartPlugins.Common.Core.ModelOperations.AssemblyOperations
                 if (assembly == null)
                     continue;
 
+                if (_operationsRunner.CancellationToken.IsCancellationRequested)
+                {
+                    _operationsRunner.OperationsRunnerStop();
+                    break;
+                }
+
                 assembly.SetMainPartByMaxWeight(_propertyName);
 
                 _operationsRunner.SetProgressState(new ProgressState(count, totalCount, string.Empty, false));
 
                 _operationsRunner.AddOperation(() => assembly.SetMainPartByMaxWeight(_propertyName));
 
-                count++;
+                 count++;
             }
 
-            _smartModel.CommitChanges();
-
             _operationsRunner.OperationsRunnerStop();
-
+            _smartModel.CommitChanges();
         }
     }
 }

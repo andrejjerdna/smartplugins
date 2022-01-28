@@ -59,6 +59,7 @@
     <Compile Include="ModelOperations\AssemblyOperations\RebarSequenceNumberingOperation.cs" />
     <Compile Include="ModelOperations\RebarOperations\RebarNumbering.cs" />
     <Compile Include="OperationBuilder.cs" />
+    <Compile Include="OperationLauncher.cs" />
     <Compile Include="ProgressBarViewModelBase.cs" />
     <Compile Include="OperationsRunner.cs" />
     <Compile Include="ProgressState.cs" />
