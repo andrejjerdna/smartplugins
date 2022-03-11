@@ -5,10 +5,21 @@ namespace SmartPlugins.Common.TeklaLibrary.Phases
     /// <summary>
     /// Phase manager class
     /// </summary>
-    public static class PhasesManager
+    public class PhasesManager
     {
         /// <summary>
-        /// Create phases with parametrs.
+        /// Create phases with parameters.
+        /// </summary>
+        /// <param name="phaseNumber">Phase number</param>
+        /// <param name="phaseName">Phase name</param>
+        public bool CreatePhases(int[] phaseNumber, string[] phaseName)
+        {
+            return CreatePhases(phaseNumber, phaseName, "", 0, "", "", "", "");
+        }
+
+
+        /// <summary>
+        /// Create phases with parameters.
         /// </summary>
         /// <param name="phaseNumber">Phase number</param>
         /// <param name="phaseName">Phase name</param>
@@ -18,7 +29,7 @@ namespace SmartPlugins.Common.TeklaLibrary.Phases
         /// <param name="author">Author</param>
         /// <param name="objectNameRus">Building name Rus</param>
         /// <param name="objectNameEng">Building name Eng</param>
-        public static bool CreatePhases(int[] phaseNumber, string[] phaseName, string phaseComment, int isCurrentPhase,
+        public bool CreatePhases(int[] phaseNumber, string[] phaseName, string phaseComment, int isCurrentPhase,
             string layoutNumber, string author, string objectNameRus, string objectNameEng)
         {
             for (int i = 0; i < phaseNumber.Length; i++)
@@ -39,7 +50,17 @@ namespace SmartPlugins.Common.TeklaLibrary.Phases
         }
 
         /// <summary>
-        /// Create phase with parametrs.
+        /// Create phase with parameters.
+        /// </summary>
+        /// <param name="phaseNumber">Phase number</param>
+        /// <param name="phaseName">Phase name</param>
+        public bool CreatePhase(int phaseNumber, string phaseName)
+        {
+            return CreatePhase(phaseNumber, phaseName, "", 0, "", "", "", "");
+        }
+
+        /// <summary>
+        /// Create phase with parameters.
         /// </summary>
         /// <param name="phaseNumber">Phase number</param>
         /// <param name="phaseName">Phase name</param>
@@ -50,14 +71,14 @@ namespace SmartPlugins.Common.TeklaLibrary.Phases
         /// <param name="objectNameRus">Building name Rus</param>
         /// <param name="objectNameEng">Building name Eng</param>
         /// <returns>Result of phase create.</returns>
-        public static bool CreatePhase(int phaseNumber, string phaseName, string phaseComment, int isCurrentPhase,
+        public bool CreatePhase(int phaseNumber, string phaseName, string phaseComment, int isCurrentPhase,
             string layoutNumber, string author, string objectNameRus, string objectNameEng)
         {
-            bool flag = false;
-            Model model = new Model();
+            var flag = false;
+            var model = new Model();
             if (model.GetConnectionStatus())
             {
-                Phase phase = new Phase(phaseNumber, phaseName, phaseComment, isCurrentPhase);
+                var phase = new Phase(phaseNumber, phaseName, phaseComment, isCurrentPhase);
                 if (phase.Insert())
                 {
                     phase.SetUserProperty("NLO_comment", layoutNumber);
@@ -81,11 +102,11 @@ namespace SmartPlugins.Common.TeklaLibrary.Phases
         /// </summary>
         /// <param name="phaseNumber">Phase number</param>
         /// <returns></returns>
-        public static bool DeletePhase(int phaseNumber)
+        public bool DeletePhase(int phaseNumber)
         {
-            bool flag = false;
-            Model model = new Model();
-            Phase ph = new Phase(phaseNumber);
+            var flag = false;
+            var model = new Model();
+            var ph = new Phase(phaseNumber);
 
             if (model.GetConnectionStatus())
             {
@@ -106,14 +127,14 @@ namespace SmartPlugins.Common.TeklaLibrary.Phases
         /// Check phase for exist.
         /// </summary>
         /// <param name="phaseNumber">Phase number</param>
-        public static bool PhaseIsExist(int phaseNumber)
+        public bool PhaseIsExist(int phaseNumber)
         {
-            Model model = new Model();
+            var model = new Model();
 
             if (model.GetConnectionStatus())
             {
 
-                PhaseCollection phaseCollection = model.GetPhases();
+                var phaseCollection = model.GetPhases();
 
                 foreach (Phase phase in phaseCollection)
                 {
